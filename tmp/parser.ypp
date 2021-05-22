@@ -1,0 +1,467 @@
+%{
+#include <iostream>
+#include <vector> 
+#include <cstdio> 
+#include <string>
+#include "ast.h"
+
+using namespace std; 
+
+extern int yylex();
+
+void yyerror(const char *str)
+{
+    cout << "error\n" << endl; 
+}
+
+%}
+
+%token tCONST tBREAK tCONTINUE tIF tELSE
+%token tINT tVOID tRETURN tWHILE
+%token tADD tSUB tMUL tQUO tREM
+%token tAND tOR tNOT tASSIGN
+%token tEQL tLESS tGREATER tNEQ tLEQ tGEQ 
+%token tLPAREN tLBRACK tLBRACE tCOMMA
+%token tRPAREN tRBRACK tRBRACE tSEMI
+%token tIDENT tNUMBER tSTR
+
+%left tOR
+%left tAND
+%nonassoc tLEQ tGEQ tEQL tNEQ tLESS tGREATER
+%left tADD tSUB
+%left tMUL tQUO tREM
+%nonassoc tNOT
+%nonassoc '['
+%nonassoc ')' 
+%nonassoc tELSE
+%nonassoc tVOID tINT
+
+%%
+
+/*
+1.
+起始部分
+*/
+// 编译单元 CompUnit -> [ CompUnit ] ( Decl | FuncDef )
+CompUnit: 
+         
+          CompUnit Decl
+            {
+                // 初始化CompUnit
+                // 指向 Decl
+                printf("CompUnit Decl\n");
+            }
+        | CompUnit FuncDef
+            {
+                // 初始化CompUnit
+                // 指向 FuncDef
+                printf("CompUnit FuncDef\n");
+            }
+	    |
+	        {
+                // 初始化空
+                printf("NULL CompUnit\n");
+            }
+        ;
+
+
+/*
+2.
+量的声明定义
+*/
+// 声明 Decl -> ConstDecl | VarDecl
+Decl:
+         ConstDecl
+            {
+                // 指向一个变量
+                printf("Decl:ConstDecl\n");
+            }
+        | VarDecl
+            {
+                // 指向一个变量
+                printf("Decl:VarDecl\n");
+            }
+        ;
+
+// 常量声明 ConstDecl -> 'const' BType ConstDef { ',' ConstDef } tSEMI
+ConstDecl: 
+          tCONST tINT VarDefList tSEMI
+            {
+                // 新建一个变量
+                // const需要做类型检查，设置常量
+                printf("ConstDecl\n");
+            }
+        ;
+
+// 变量声明 VarDecl -> BType VarDef { ',' VarDef } tSEMI
+VarDecl:
+         tINT VarDefList tSEMI
+            {
+                // 新建一个变量
+                // 设置变量
+                printf("VarDecl\n");
+            }
+       ;
+
+// VarDefList -> VarDef { ',' VarDef }
+VarDefList: 
+          VarDef
+            {
+                // 直接插入
+                printf("VarDefList:VarDef\n");
+            }
+        | VarDefList tCOMMA VarDef
+            {
+                // 依次插入
+                printf("VarDefList:VarDefList,VarDef\n");
+            }
+        ;
+
+// 变量定义 VarDef -> Ident { '[' ConstExp ']' }
+// | Ident { '[' ConstExp ']' } '=' InitVal
+VarDef:
+          tIDENT Array tASSIGN InitVal
+            {
+                // 变量定义赋值
+                printf("VarDef with Value\n");
+            }
+        | tIDENT Array
+            {
+                // 变量定义不赋值
+                printf("VarDef without Value\n");
+            }
+        ;
+
+// Array -> { '[' ConstExp ']' }
+Array: 
+         
+            {
+                // 非数组，空
+                ;
+            }
+        | Array tLBRACK Exp tRBRACK
+            {
+                // 数组
+                printf("Array\n");
+            }
+        ;
+
+// 变量初值 InitVal -> Exp 
+// | '{' [ InitVal { ',' InitVal } ] '}'
+InitVal: 
+          Exp
+            { 
+                // exp表达式值赋值
+                printf("Exp\n");
+            }
+        | tLBRACE tRBRACE
+            {
+                // 初始化{}
+                printf("{}\n");
+            }
+        | tLBRACE InitValList tRBRACE
+            {
+                // 初始化列表值
+                printf("{InitValList}\n");
+            }
+       ;
+
+// InitValList -> [ InitVal { ',' InitVal } ]
+InitValList: 
+          InitValList tCOMMA InitVal
+            {
+                // 初始化列表
+                printf("InitValList: InitValList, InitVal\n");
+            }
+        | InitVal
+            {
+                // 一个值
+                printf("InitValList: InitVal\n");
+            }
+        ;
+
+/*
+3.
+函数部分
+*/
+// 函数定义 FuncDef -> FuncType Ident '(' [FuncFParams] ')' Block
+// 函数类型 FuncType -> 'void' | 'int'
+FuncDef: 
+          tVOID tIDENT tLPAREN FuncFParamsList tRPAREN Block
+            {
+                // 没有返回值函数
+                printf("Void FuncDef\n");
+            }
+        | tINT tIDENT tLPAREN FuncFParamsList tRPAREN Block
+            {
+                // int返回值函数
+                printf("Int FuncDef\n");
+            }
+       ;
+
+// FuncFParamsList
+FuncFParamsList: 
+          FuncFParams
+            {
+                // 有参数，创建列表
+                printf("FuncFParamsList with Param\n");
+            }
+        | 
+            {
+                // 无参数
+                printf("FuncFParamsList without Param\n");
+            }
+        ;
+
+// 函数形参表 FuncFParams -> FuncFParam { ',' FuncFParam }
+FuncFParams: 
+          FuncFParams tCOMMA FuncFParam
+            {
+                // 添加一个参数列表
+                printf("FuncFParams, FuncFParam\n");
+            }
+        | FuncFParam
+            {
+                // 添加参数
+                printf("FuncFParam\n");
+            }
+        ;
+
+// 函数形参 FuncFParam -> BType Ident ['[' ']' { '[' Exp ']' }]
+FuncFParam: 
+          tINT tIDENT
+            {
+                // 整数
+                printf("FuncFParam without Value\n");
+            }
+        | tINT tIDENT tLBRACK tRBRACK Array
+            {
+                // 数组
+                printf("FuncFParam with Value\n");
+            }
+        ;
+
+
+/*
+4.
+语句相关
+*/
+// 语句块 Block -> '{' { BlockItem } '}'
+Block: 
+          tLBRACE BlockItemList tRBRACE
+            {
+                // 语句块
+                printf("Block\n");
+            }
+        ;
+
+// BlockItemList -> { BlockItem }
+// BlockItem -> Decl | Stmt
+BlockItemList: 
+          BlockItemList Stmt
+            {
+                // stmt列表
+                printf("Block Stmt\n");
+            }
+        | BlockItemList Decl
+            {
+                // decl列表
+                printf("Block Decl\n");
+            }
+        |   {
+                // NULL
+                printf("Block NULL\n");
+            }
+        ;
+
+// 语句 Stmt整合
+Stmt: 
+          LVal tASSIGN Exp tSEMI  
+            {
+                // 左值表达式
+                printf("Stmt: LVal\n");
+            }
+        | Block                
+            {
+                // 语句块
+                printf("Stmt: Block\n");
+            } 
+        | Exp  tSEMI           
+            {
+                //表达式
+                printf("Stmt: Exp;\n");
+            }
+        | tSEMI                 
+            {
+                printf("Stmt: ;\n");
+            }
+        | tIF tLPAREN Exp tRPAREN Stmt 
+            { 
+                // if 表达式
+                printf("Stmt: If\n");
+            }
+        | tIF tLPAREN Exp tRPAREN Stmt tELSE Stmt 
+            { 
+                // if - else 表达式
+                printf("Stmt: If - else\n");
+            }
+        | tWHILE tLPAREN Exp tRPAREN Stmt 
+            {
+                // while 表达式
+                printf("Stmt: While\n");
+            }
+        | tBREAK tSEMI               
+            { 
+                printf("Stmt: Break;\n");
+            }
+        | tCONTINUE tSEMI            
+            {
+                printf("Stmt: Continue;\n");
+            }
+        | tRETURN  tSEMI            
+            { 
+                // 无返回值的return
+                printf("Stmt: Return;\n");
+            }
+        | tRETURN Exp tSEMI         
+            {
+                // 有返回值的return
+                printf("Stmt: Return int;\n");
+            }
+        ; 
+
+/*
+5.
+表达式
+*/
+// 左值表达式 LVal -> Ident {'[' Exp ']'}
+LVal:
+          tIDENT Array
+            {
+                printf("LVal\n");
+            }
+        ;
+
+Exp:
+          tNUMBER
+            {
+                printf("Exp: Number\n");
+            }
+        | tSTR
+            {
+                printf("Exp: string\n");
+            }
+        | LVal
+            {
+                printf("Exp: LVal\n");
+            }
+        | FuncCall
+            {
+                // 创建函数调用
+                printf("Exp: FuncCall\n");
+            }
+        | tLPAREN Exp tRPAREN
+            {
+                printf("Exp: (Exp)\n");
+            }
+        | tNOT Exp
+            {
+                printf("Exp: !Exp\n");
+            }
+        | Exp tADD Exp
+            {
+                printf("Exp: Exp+Exp\n");
+            }
+        | Exp tSUB Exp
+            {
+                printf("Exp: Exp-Exp\n");
+            }
+        | Exp tMUL Exp
+            {
+                printf("Exp: Exp*Exp\n");
+            }
+        | Exp tQUO Exp
+            {
+                printf("Exp: Exp/Exp\n");
+            }
+        | Exp tREM Exp
+            {
+                printf("Exp: Exp%%Exp\n");
+            }
+        | Exp tLESS Exp
+            {
+                printf("Exp: Exp<Exp\n");
+            }
+        | Exp tGREATER Exp
+            {
+                printf("Exp: Exp>Exp\n");
+            }
+        | Exp tLEQ Exp
+            {
+                printf("Exp: Exp<=Exp\n");
+            }
+        | Exp tGEQ Exp
+            {
+                printf("Exp: Exp>=Exp\n");
+            }
+        | Exp tEQL Exp
+            {
+                printf("Exp: Exp==Exp\n");
+            }
+        | Exp tNEQ Exp
+            {
+                printf("Exp: Exp!=Exp\n");
+            }
+        | Exp tAND Exp
+            {
+                printf("Exp: Exp&&Exp\n");
+            }
+        | Exp tOR Exp
+            {
+                printf("Exp: Exp||Exp\n");
+            }
+        ;
+
+/*
+6.
+函数调用
+*/
+// 函数调用 FuncCall -> Ident([FuncCallFParams])
+FuncCall:
+          tIDENT tLPAREN FuncCallParamsList tRPAREN
+            {
+                printf("FuncCall\n");
+            }
+        ;
+
+// FuncCallFParams -> FuncCallFParam { ',' FuncCallFParam }
+FuncCallParamsList:
+          FuncCallParamList
+            {
+                ;
+            }
+        | 
+            {
+                // 空
+                ;
+            }
+        ;
+
+FuncCallParamList:
+          Exp
+            {
+                ;
+            }
+        | FuncCallParamList tCOMMA Exp
+            {
+                ;
+            }
+        ;
+%%
+
+int main(void)
+{
+    yyparse();
+    return 0;
+}
+
