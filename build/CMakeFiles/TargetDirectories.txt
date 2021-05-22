@@ -1,0 +1,11 @@
+/home/linux/Desktop/Sys2021/build/CMakeFiles/install/strip.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/install.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/list_install_components.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/parser.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/scanner.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/rebuild_cache.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/sysy_driver.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/main.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/edit_cache.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/install/local.dir
+/home/linux/Desktop/Sys2021/build/CMakeFiles/test.dir

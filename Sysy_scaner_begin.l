@@ -6,8 +6,6 @@ void init_scanner();
 void lex_error(char* msg, int line);
 %}
 
-%option c++
-
 /* Definitions, note: \042 is '"' */
 INTEGER             ([0-9]+)
 UNTERM_STRING       (\042[^\042\n]*)
@@ -23,7 +21,9 @@ whitespace          ([ \t\n\r\f\v]+)
 [ \t\r\a]+          { /* ignore all spaces */               }
  /*跳过空白和注释*/
 {whitespace}        {}
-{comment}           { printf("This is a commit.\n");        }
+"/*".*"*/"              { printf("This is a commit.\n");}//“/**/”注释的处理
+"//"[^\n]*              { printf("This is a commit.\n");}//“//”注释的处理
+"/*"([^\*]|(\*)*[^\*/])*(\*)*"*/"	{printf("This is a commit.\n");}
 
  /*关系运算符*/
 "<"				    { return LSS;               }

@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/linux/Desktop/Sys2021/sysyFlexLexer.hh
+FlexLexer.h
+-
+fstream
+-
+variant
+-
+memory
+-
+sysy_parser.hh
+-
+
+/home/linux/Desktop/Sys2021/sysy_driver.cc
+sstream
+-
+fstream
+-
+sysy_driver.hh
+/home/linux/Desktop/Sys2021/sysy_driver.hh
+
+/home/linux/Desktop/Sys2021/sysy_driver.hh
+fstream
+-
+iostream
+-
+string
+-
+sysy_parser.hh
+/home/linux/Desktop/Sys2021/sysy_parser.hh
+sysyFlexLexer.hh
+/home/linux/Desktop/Sys2021/sysyFlexLexer.hh
+

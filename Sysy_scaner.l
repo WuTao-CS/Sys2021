@@ -39,7 +39,7 @@ P           ([Pp][+-]?{D}+)
  /*跳过注释*/
 "/*".*"*/"              {  ;}//“/**/”注释的处理
 "//"[^\n]*              {  ;}//“//”注释的处理
-
+"/*"([^\*]|(\*)*[^\*/])*(\*)*"*/"	{ ;}
  /*对于数字和标识符*/
 {IDENT_ND}[0-9a-zA-Z_]* {  yylval->emplace<std::string>(yytext);                return sysy_parser::token::T_IDENTIFIER    ;}
 {DECI_DIGIT}            {  yylval->emplace<int>(atoi(yytext));                  return sysy_parser::token::T_NUMBER        ;}

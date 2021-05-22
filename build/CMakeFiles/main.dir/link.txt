@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/main.dir/main.cc.o CMakeFiles/main.dir/sysy_parser.cc.o CMakeFiles/main.dir/sysy_scanner.cc.o CMakeFiles/main.dir/syntax_tree.cc.o CMakeFiles/main.dir/sysy_driver.cc.o  -o main 
