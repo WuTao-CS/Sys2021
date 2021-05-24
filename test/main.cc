@@ -70,10 +70,15 @@ int main(int argc, char **argv)
             auto tree = syntax_tree(root);
             std::cout<<"Generate syntax tree success!\n";
 
-            // SYSYCBuilder builder;
-            // std::cout<<"Begin to build tree of sysy!"<<std::endl;
-            // tree.run_visitor(builder);
-            // std::cout<<"End building tree of sysy!"<<std::endl;
+            SYSYCBuilder builder;
+            std::cout<<"Begin to build tree of sysy!"<<std::endl;
+            tree.run_visitor(builder);
+            std::cout<<"End building tree of sysy!"<<std::endl;
+            std::cout<<"IRprint"<<std::endl;
+            builder.IRprint();
+            std::cout<<"################################"<<std::endl;
+            std::cout<<"HIRprint"<<std::endl;
+            builder.HighIRprint();
             // if (true) 
             // {
             //     std::cout<<"Begin to optimize!"<<std::endl;

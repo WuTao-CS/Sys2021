@@ -197,8 +197,8 @@ int main(int argc, char **argv) {
                 std::cerr << std::endl
                           << "### IR (with RegAlloc) ###" << std::endl
                           << std::endl;
-                code_generator.printIR();
-                code_generator.printStat();
+                // code_generator.printIR();
+                // code_generator.printStat();
                 std::ofstream out(target_path);
                 out << asm_code;
                 out.close();

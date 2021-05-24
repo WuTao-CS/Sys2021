@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-// #define DEBUG
 
 #define _SYNTAX_TREE_NODE_ERROR_                                               \
   std::cerr << "Abort due to node cast error." << std::endl;                   \
@@ -234,7 +233,9 @@ void SyntaxLOrExp::accept(syntax_tree_visitor &visitor) {
 
 // TODO(zyh) 删除printer
 
-syntax_tree_printer::syntax_tree_printer(){
+syntax_tree_printer::syntax_tree_printer()
+{
+  
 }
 
 void syntax_tree_printer::visit(SyntaxConstExp &node) {

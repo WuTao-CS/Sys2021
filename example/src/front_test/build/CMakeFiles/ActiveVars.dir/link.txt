@@ -1,0 +1,2 @@
+/usr/bin/ar qc libActiveVars.a  CMakeFiles/ActiveVars.dir/OptimizePass/ActiveVars.cc.o
+/usr/bin/ranlib libActiveVars.a
