@@ -1,0 +1,2 @@
+/usr/bin/ar qc libRegisterAllocation.a  CMakeFiles/RegisterAllocation.dir/RegisterAllocation.cc.o
+/usr/bin/ranlib libRegisterAllocation.a

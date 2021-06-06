@@ -34,6 +34,7 @@ int main(int argc, char **argv)
         {
             auto tree = syntax_tree(root);
             std::cout<<"Generate syntax tree success!\n";
+            printer.visit(*root);
             
         } 
         else

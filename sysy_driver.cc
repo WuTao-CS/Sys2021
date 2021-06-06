@@ -14,7 +14,6 @@ std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
 
     lexer.set_debug(trace_scanning);
     instream.open(file);
-//    std::cout<<instream.rdbuf()<<std::endl;
 
     std::cout<<"Generating scanner&parser!\n";
     yy::sysyFlexLexer scanner{instream, std::cout};
@@ -31,12 +30,17 @@ std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
     instream.close();
 
     this->root=rootFromParser;
-    std::cout<<"Current root of syntax tree is "<<this->root<<"\n";
+    std::cout<<"Current root of syntax tree is " << this->root <<"\n";
+    for(int i=0;i<this->root->DeclDefList.size();i++)
+    {
+        std::cout<<this->root->DeclDefList[i]<<std::endl;
+    }
 
     return (this->root);
 }
 
-void sysy_driver::error(const yy::location &l, const std::string &m) {
+void sysy_driver::error(const yy::location &l, const std::string &m) 
+{
     std::cerr << l << ": " << m << std::endl;
 }
 void sysy_driver::error(const std::string &m) {

@@ -35,11 +35,11 @@ cassert
 -
 
 .././syntax_tree.hh
-iostream
+vector
 -
 memory
 -
-vector
+iostream
 -
 
 .././sysyFlexLexer.hh
@@ -143,11 +143,11 @@ string
 -
 
 /home/linux/Desktop/Sys2021/syntax_tree.hh
-iostream
+vector
 -
 memory
 -
-vector
+iostream
 -
 
 /home/linux/Desktop/Sys2021/sysyFlexLexer.hh

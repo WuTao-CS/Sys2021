@@ -136,16 +136,17 @@ namespace yy
 // 编译单元 CompUnit -> [ CompUnit ] ( Decl | FuncDef )
 CompUnit : DeclDef {
 	$$=std::make_shared<SyntaxCompUnit>();
+	// emplace_back效果类似于push_back，会调用构造函数和转移构造函数,如果可以在插入的时候直接构造，就只需要构造一次即可。
 	$$->DeclDefList.emplace_back(std::move($1));
 	rootFromParser=$$;
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
     | CompUnit DeclDef {
 	$1->DeclDefList.emplace_back(std::move($2));
 	$$=std::move($1);
 	rootFromParser=$$;
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
     | CompUnit T_END {
@@ -158,17 +159,19 @@ CompUnit : DeclDef {
 DeclDef : ConstDecl{
 	$$=std::make_shared<SyntaxDeclDef>();
 	$$->ConstDecl=std::move($1);
-	std::cout<<"DeclDef : ConstDecl"<<std::endl;
+	$$->VarDecl=nullptr;
+	$$->FuncDef=nullptr;
+	//std::cout<<"DeclDef : ConstDecl"<<std::endl;
     }
     | VarDecl{
 	$$=std::make_shared<SyntaxDeclDef>();
     $$->VarDecl=std::move($1);
-	std::cout<<"DeclDef : VarDecl"<<std::endl;
+	//std::cout<<"DeclDef : VarDecl"<<std::endl;
     }
     | FuncDef{
     $$=std::make_shared<SyntaxDeclDef>();
 	$$->FuncDef=std::move($1);
-	std::cout<<"DeclDef : FuncDef"<<std::endl;
+	//std::cout<<"DeclDef : FuncDef"<<std::endl;
     }
     ;
 // 常量声明 ConstDecl -> 'const' BType ConstDef { ',' ConstDef } tSEMI
@@ -177,38 +180,38 @@ ConstDecl : T_CONST BType ConstDefList T_SEMICOLIN {
 	// Assume that the memory of 'ConstDefList' won't be released
 	// Here we copy pointers
 	$$->ConstDefList=$3->list;
-	std::cout<<"ConstDecl"<<std::endl;
+	//std::cout<<"ConstDecl"<<std::endl;
     }
     ;
 //常量连续定义（常数链表）
 ConstDefList : ConstDef  {
 	$$=std::make_shared<SyntaxConstDefList>();
 	$$->list.emplace_back(std::move($1));
-	std::cout<<"ConstDefList : ConstDef"<<std::endl;
+	//std::cout<<"ConstDefList : ConstDef"<<std::endl;
     }
     | ConstDefList T_COMMA ConstDef {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
+		//std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
     }
     ;
 // 常量数组定义
 ConstIndexList : T_LBRACKET ConstExp T_RBRACKET {
 	$$=std::make_shared<SyntaxArrayConstExpList>();
 	$$->list.emplace_back(std::move($2));
-	std::cout<<"ConstIndexList : T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
+	//std::cout<<"ConstIndexList : T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
     }
     | ConstIndexList T_LBRACKET ConstExp T_RBRACKET {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"ConstIndexList T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
+		//std::cout<<"ConstIndexList T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
 		
     }
     ;
 //BType →'int'
 BType : T_INT {
 	$$=TYPE_INT;
-	std::cout<<"INT"<<std::endl;
+	//std::cout<<"INT"<<std::endl;
     }
     ;
 // 常数定义 ConstDef→Ident { '[' ConstExp ']' } '=' ConstInitVal
@@ -216,14 +219,14 @@ ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal {
     	$$=std::make_shared<SyntaxConstDef>();
     	$$->ConstInitVal=std::move($3);
     	$$->id=$1;
-		std::cout<<"ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal"<<std::endl;
+		//std::cout<<"ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal"<<std::endl;
     }
     | T_IDENTIFIER ConstIndexList T_ASSIGN ConstInitVal {
     	$$=std::make_shared<SyntaxConstDef>();
 		$$->ConstInitVal=std::move($4);
 		$$->id=$1;
 		$$->ArrayConstExpList=$2->list;
-		std::cout<<"ConstDef : T_IDENTIFIER ConstIndexList T_ASSIGN ConstInitVal"<<std::endl;
+		//std::cout<<"ConstDef : T_IDENTIFIER ConstIndexList T_ASSIGN ConstInitVal"<<std::endl;
     }
     ;
 
@@ -231,12 +234,12 @@ ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal {
 ConstInitValList : ConstInitVal {
 		$$=std::make_shared<SyntaxConstInitValList>();
 		$$->list.emplace_back(std::move($1));
-		std::cout<<"ConstInitValList : ConstInitVal"<<std::endl;
+		//std::cout<<"ConstInitValList : ConstInitVal"<<std::endl;
     }
     | ConstInitValList T_COMMA ConstInitVal {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
+		//std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
     }
     ;
 
@@ -244,7 +247,7 @@ ConstInitValList : ConstInitVal {
 ConstInitVal : ConstExp {
 		$$=std::make_shared<SyntaxConstInitVal>();
 		$$->ConstExp=std::move($1);
-		std::cout<<"ConstInitVal : ConstExp"<<endl;
+		//std::cout<<"ConstInitVal : ConstExp"<<endl;
     }
     | T_LBRACE  T_RBRACE {
 
@@ -252,7 +255,7 @@ ConstInitVal : ConstExp {
     | T_LBRACE ConstInitValList T_RBRACE {
     	$$=std::make_shared<SyntaxConstInitVal>();
         $$->ConstInitValList=$2->list;
-		std::cout<<"ConstInitVal : T_LBRACE ConstInitValList T_RBRACE"<<endl;
+		//std::cout<<"ConstInitVal : T_LBRACE ConstInitValList T_RBRACE"<<endl;
     }
     ;
 
@@ -261,34 +264,34 @@ VarDecl : BType VarDefList T_SEMICOLIN {
 		$$=std::make_shared<SyntaxVarDecl>();
 		$$->type=$1;
 		$$->VarDefList=$2->list;
-		std::cout<<"VarDecl"<<std::endl;
+		//std::cout<<"VarDecl"<<std::endl;
     }
     ;
 //变量定义VarDef →Ident { '[' ConstExp ']' } | Ident { '[' ConstExp ']' } '=' InitVal
 VarDef : T_IDENTIFIER  {
 		$$=std::make_shared<SyntaxVarDef>();
 		$$->id=$1;
-		std::cout<<"VarDef : T_IDENTIFIE"<<std::endl;
+		//std::cout<<"VarDef : T_IDENTIFIE"<<std::endl;
     }
     | T_IDENTIFIER T_ASSIGN InitVal {
 		$$=std::make_shared<SyntaxVarDef>();
 		$$->id=$1;
 		$$->InitVal=std::move($3);
-		std::cout<<"VarDef :T_IDENTIFIER T_ASSIGN InitVal "<<std::endl;
+		//std::cout<<"VarDef :T_IDENTIFIER T_ASSIGN InitVal "<<std::endl;
     }
     | T_IDENTIFIER ConstIndexList  {
 
     	$$=std::make_shared<SyntaxVarDef>();
 		$$->id=$1;
 		$$->ArrayConstExpList=$2->list;
-		std::cout<<"VarDef: T_IDENTIFIER ConstIndexList"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ConstIndexList"<<std::endl;
     }
     | T_IDENTIFIER ConstIndexList T_ASSIGN InitVal {
     	$$=std::make_shared<SyntaxVarDef>();
 		$$->id=$1;
 		$$->ArrayConstExpList=$2->list;
 		$$->InitVal=std::move($4);
-		std::cout<<"VarDef: T_IDENTIFIER ConstIndexList T_ASSIGN InitVal"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ConstIndexList T_ASSIGN InitVal"<<std::endl;
     }
     ;
 
@@ -296,12 +299,12 @@ VarDef : T_IDENTIFIER  {
 VarDefList : VarDef {
 		$$=std::make_shared<SyntaxVarDefList>();
 		$$->list.emplace_back(std::move($1));
-		std::cout<<"VarDefList:VarDef"<<std::endl;
+		//std::cout<<"VarDefList:VarDef"<<std::endl;
     }
     | VarDefList T_COMMA VarDef {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
+		//std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
     }
     ;
 
@@ -309,15 +312,15 @@ VarDefList : VarDef {
 InitVal : Exp {
 	$$=std::make_shared<SyntaxInitVal>();
 	$$->Exp=std::move($1);
-	std::cout<<"InitVal:Exp"<<std::endl;
+	//std::cout<<"InitVal:Exp"<<std::endl;
     }
     | T_LBRACE  T_RBRACE {
-	std::cout<<"{}"<<std::endl;
+	//std::cout<<"{}"<<std::endl;
     }
     | T_LBRACE InitValList T_RBRACE {
     $$=std::make_shared<SyntaxInitVal>();
 	$$->InitValList=$2->list;
-	std::cout<<"InitVal: { InitValList }"<<std::endl;
+	//std::cout<<"InitVal: { InitValList }"<<std::endl;
     }
     ;
 
@@ -325,12 +328,12 @@ InitVal : Exp {
 InitValList : InitVal {
 	$$=std::make_shared<SyntaxInitValList>();
 	$$->list.emplace_back(std::move($1));
-	std::cout<<"InitValList : InitVal"<<std::endl;
+	//std::cout<<"InitValList : InitVal"<<std::endl;
     }
     | InitValList T_COMMA InitVal {
 	$1->list.emplace_back(std::move($3));
 	$$=std::move($1);
-	std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
+	//std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
     }
     ;
 
@@ -339,13 +342,13 @@ IndexList : T_LBRACKET Exp T_RBRACKET {
 	//一维数组
 	$$=std::make_shared<SyntaxParamArrayExpList>();
 	$$->list.emplace_back(std::move($2));
-	std::cout<<"One IndexList"<<std::endl;
+	//std::cout<<"One IndexList"<<std::endl;
     }
     | IndexList T_LBRACKET Exp T_RBRACKET {
     	//多维数组
 		$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"Muti IndexList"<<std::endl;
+		//std::cout<<"Muti IndexList"<<std::endl;
     }
     ;
 //函数定义 FuncDef →FuncType Ident '(' [FuncFParams] ')' Block
@@ -355,7 +358,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
 	$$->type=$1;
 	$$->id=$2;
 	$$->Block=std::move($5);
-	std::cout<<"Void FuncDef without Param"<<std::endl;
+	//std::cout<<"Void FuncDef without Param"<<std::endl;
     }
     | FuncType T_IDENTIFIER T_LPARENTHESE FuncFParams T_RPARENTHESE Block {
 	//带有参数的返回值为Void的函数
@@ -364,7 +367,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
 	$$->id=$2;
 	$$->Block=std::move($6);
 	$$->FuncFParamList=$4->list;
-	std::cout<<"Void FuncDef with Param"<<std::endl;
+	//std::cout<<"Void FuncDef with Param"<<std::endl;
     }
     | BType T_IDENTIFIER T_LPARENTHESE  T_RPARENTHESE Block {
     //无参数的返回值为int的函数
@@ -372,7 +375,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
 	$$->type=$1;
 	$$->id=$2;
 	$$->Block=std::move($5);
-	std::cout<<"Int FuncDef without Param"<<std::endl;
+	//std::cout<<"Int FuncDef without Param"<<std::endl;
     }
     | BType T_IDENTIFIER T_LPARENTHESE FuncFParams T_RPARENTHESE Block {
     $$=std::make_shared<SyntaxFuncDef>();
@@ -380,7 +383,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
     $$->id=$2;
     $$->Block=std::move($6);
     $$->FuncFParamList=$4->list;
-	std::cout<<"Int FuncDef with Param"<<std::endl;
+	//std::cout<<"Int FuncDef with Param"<<std::endl;
     }
     ;
 
@@ -404,14 +407,14 @@ FuncFParam : BType T_IDENTIFIER  {
 	$$=std::make_shared<SyntaxFuncFParam>();
 	$$->type=$1;
 	$$->id=$2;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER"<<std::endl;
     }
     | BType T_IDENTIFIER T_LBRACKET T_RBRACKET {
     $$=std::make_shared<SyntaxFuncFParam>();
 	$$->type=$1;
 	$$->id=$2;
 	$$->isarray=true;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET"<<std::endl;
     }
     | BType T_IDENTIFIER T_LBRACKET T_RBRACKET IndexList  {
     $$=std::make_shared<SyntaxFuncFParam>();
@@ -419,7 +422,7 @@ FuncFParam : BType T_IDENTIFIER  {
 	$$->id=$2;
 	$$->isarray=true;
 	$$->ParamArrayExpList=$5->list;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET IndexList"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET IndexList"<<std::endl;
     }
     | BType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET IndexList  {
 	$$=std::make_shared<SyntaxFuncFParam>();
@@ -427,7 +430,7 @@ FuncFParam : BType T_IDENTIFIER  {
 	$$->id=$2;
 	$$->isarray=true;
 	$$->ParamArrayExpList=$6->list;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET IndexList"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET IndexList"<<std::endl;
     }
     ;
 //语句块 Block -> '{' { BlockItem } '}'
@@ -437,37 +440,37 @@ Block : T_LBRACE T_RBRACE {
     | T_LBRACE BlockItemList T_RBRACE {
     	$$=std::make_shared<SyntaxBlock>();
     	$$->BlockItemList=$2->list;
-    	std::cout<<"Block"<<std::endl;
+    	//std::cout<<"Block"<<std::endl;
     }
     ;
 //BlockItemList -> { BlockItem }
 BlockItemList : BlockItem {
 	$$=std::make_shared<SyntaxBlockItemList>();
 	$$->list.emplace_back(std::move($1));
-	std::cout<<"BlockItemList : BlockItem "<<std::endl;
+	//std::cout<<"BlockItemList : BlockItem "<<std::endl;
     }
     | BlockItemList BlockItem{
     $1->list.emplace_back(std::move($2));
     $$=std::move($1);
-	std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
+	//std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
     }
     ;
 //BlockItem -> ConstDecl | VarDecl | Stmt
 BlockItem: ConstDecl {
 	$$=std::make_shared<SyntaxBlockItem>();
 	$$->ConstDecl=std::move($1);
-	std::cout<<"BlockItem: ConstDecl"<<std::endl;
+	//std::cout<<"BlockItem: ConstDecl"<<std::endl;
     }
     |
     VarDecl {
     $$=std::make_shared<SyntaxBlockItem>();
 	$$->VarDecl=std::move($1);
-	std::cout<<"BlockItem:VarDecl"<<std::endl;
+	//std::cout<<"BlockItem:VarDecl"<<std::endl;
     }
     | Stmt {
     $$=std::make_shared<SyntaxBlockItem>();
 	$$->Stmt=std::move($1);
-	std::cout<<"BlockItem:Stmt"<<std::endl;
+	//std::cout<<"BlockItem:Stmt"<<std::endl;
     }
     ;
 
@@ -475,44 +478,44 @@ BlockItem: ConstDecl {
 Stmt : BreakStmt T_SEMICOLIN  {
 	$$=std::make_shared<SyntaxStmt>();
 	$$->BreakStmt=std::move($1);
-	std::cout<<"Stmt:break"<<std::endl;
+	//std::cout<<"Stmt:break"<<std::endl;
     }
     | ContinueStmt T_SEMICOLIN {
     	$$=std::make_shared<SyntaxStmt>();
     	$$->ContinueStmt=std::move($1);
-		std::cout<<"Stmt:Continue"<<std::endl;
+		//std::cout<<"Stmt:Continue"<<std::endl;
     }
     | AssignStmt {
     	$$=std::make_shared<SyntaxStmt>();
     	$$->AssignStmt=std::move($1);
-		std::cout<<"Stmt:AssignStmt"<<std::endl;
+		//std::cout<<"Stmt:AssignStmt"<<std::endl;
     }
     | Exp T_SEMICOLIN {
     	$$=std::make_shared<SyntaxStmt>();
 		$$->Exp=std::move($1);
-		std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
+		//std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
     }
     | T_SEMICOLIN {
     }
     | Block {
     	$$=std::make_shared<SyntaxStmt>();
 		$$->Block=std::move($1);
-		std::cout<<"Stmt: Block"<<std::endl;
+		//std::cout<<"Stmt: Block"<<std::endl;
     }
     | SelectStmt {
     	$$=std::make_shared<SyntaxStmt>();
 		$$->SelectStmt=std::move($1);
-		std::cout<<"SelectStmt"<<std::endl;
+		//std::cout<<"SelectStmt"<<std::endl;
     }
     | IterationStmt {
     	$$=std::make_shared<SyntaxStmt>();
 		$$->IterationStmt=std::move($1);
-		std::cout<<"IterationStmt"<<std::endl;
+		//std::cout<<"IterationStmt"<<std::endl;
     }
     | ReturnStmt {
     	$$=std::make_shared<SyntaxStmt>();
 		$$->ReturnStmt=std::move($1);
-		std::cout<<"ReturnStmt"<<std::endl;
+		//std::cout<<"ReturnStmt"<<std::endl;
     }
     ;
 
@@ -561,51 +564,51 @@ ReturnStmt : T_RETURN T_SEMICOLIN {
 Exp : AddExp {
 	$$=std::make_shared<SyntaxExp>();
 	$$->AddExp=std::move($1);
-	std::cout<<"Exp : AddExp"<<std::endl;
+	//std::cout<<"Exp : AddExp"<<std::endl;
     }
     ;
 
 Cond : LOrExp {
 	$$=std::make_shared<SyntaxCond>();
 	$$->LOrExp=std::move($1);
-	std::cout<<"Cond : LOrExp"<<std::endl;
+	//std::cout<<"Cond : LOrExp"<<std::endl;
     }
     ;
 // 左值表达式 LVal -> Ident {'[' Exp ']'}
 LVal : T_IDENTIFIER {
 	$$=std::make_shared<SyntaxLVal>();
 	$$->id=$1;
-	std::cout<<"LVal:Ident"<<std::endl;
+	//std::cout<<"LVal:Ident"<<std::endl;
     }
     | T_IDENTIFIER IndexList {
 	$$=std::make_shared<SyntaxLVal>();
 	$$->id=$1;
 	$$->ArrayExpList=$2->list;
-	std::cout<<"LVal:T_IDENTIFIER IndexList"<<std::endl;
+	//std::cout<<"LVal:T_IDENTIFIER IndexList"<<std::endl;
     }
     ;
 //基本表达式
 PrimaryExp : T_LPARENTHESE Exp T_RPARENTHESE {
 	$$=std::make_shared<SyntaxPrimaryExp>();
 	$$->Exp=std::move($2);
-	std::cout<<"PrimaryExp:(Exp)"<<std::endl;
+	//std::cout<<"PrimaryExp:(Exp)"<<std::endl;
     }
     | LVal {
     $$=std::make_shared<SyntaxPrimaryExp>();
 	$$->LVal=std::move($1);
-    std::cout<<"PrimaryExp：LVal"<<std::endl;
+    //std::cout<<"PrimaryExp：LVal"<<std::endl;
 	}
     | Number {
     $$=std::make_shared<SyntaxPrimaryExp>();
 	$$->Number=std::move($1);
-    std::cout<<"PrimaryExp：Number"<<std::endl;
+    //std::cout<<"PrimaryExp：Number"<<std::endl;
 	}
     ;
 
 Number : T_NUMBER {
 	$$=std::make_shared<SyntaxNumber>();
 	$$->num=$1;
-    std::cout<<"Numbers"<<std::endl;
+    //std::cout<<"Numbers"<<std::endl;
 	}
     ;
 
@@ -613,18 +616,18 @@ Number : T_NUMBER {
 UnaryExp : PrimaryExp {
 	$$=std::make_shared<SyntaxUnaryExp>();
 	$$->PrimaryExp=std::move($1);
-	std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
+	//std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
     }
     | Callee {
     $$=std::make_shared<SyntaxUnaryExp>();
 	$$->Callee=std::move($1);
-	std::cout<<"UnaryExp:Callee"<<std::endl;
+	//std::cout<<"UnaryExp:Callee"<<std::endl;
     }
     | UnaryOp UnaryExp {
     $$=std::make_shared<SyntaxUnaryExp>();
 	$$->UnaryExp=std::move($2);
 	$$->op=$1;
-    std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
+    //std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
 	}
     ;
 
@@ -642,167 +645,167 @@ Callee : T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE {
 // operand passes to UnaryExp as a attribute
 UnaryOp : T_ADD {
 	$$=OP_POS;
-	std::cout<<"+"<<std::endl;
+	//std::cout<<"+"<<std::endl;
     }
     | T_SUB {
     $$=OP_NEG;
-    std::cout<<"-"<<std::endl;
+    //std::cout<<"-"<<std::endl;
 	}
     | T_NOT {
     $$=OP_NOT;
-    std::cout<<"！"<<std::endl;
+    //std::cout<<"！"<<std::endl;
 	}
     ;
 
 FuncRParams : Exp {
 	$$=std::make_shared<SyntaxExpList>();
 	$$->list.emplace_back(std::move($1));
-    std::cout<<"FuncRParams : Exp "<<std::endl;
+    //std::cout<<"FuncRParams : Exp "<<std::endl;
 	}
     | FuncRParams T_COMMA Exp {
     $1->list.emplace_back(std::move($3));
     $$=std::move($1);
-    std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
+    //std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
 	}
     ;
 //乘除模表达式MulExp→UnaryExp | MulExp ('*' | '/' | '%') UnaryExp
 MulExp : UnaryExp {
 	$$=std::make_shared<SyntaxMulExp>();
 	$$->UnaryExp=std::move($1);
-	std::cout<<"MulExp : UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : UnaryExp"<<std::endl;
     }
     | MulExp T_MUL UnaryExp {
 	$$=std::make_shared<SyntaxMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_MUL;
-	std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
     }
     | MulExp T_DIV UnaryExp {
 	$$=std::make_shared<SyntaxMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_DIV;
-	std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
     }
     | MulExp T_MOD UnaryExp {
 	$$=std::make_shared<SyntaxMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_MOD;
-	std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
+	//std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
     }
     ;
 //加减表达式AddExp→MulExp | AddExp ('+' | '−') MulExp 
 AddExp : MulExp {
 	$$=std::make_shared<SyntaxAddExp>();
 	$$->MulExp=std::move($1);
-    //std::cout<<""<<std::endl;
+    ////std::cout<<""<<std::endl;
 	}
     | AddExp T_ADD MulExp {
    	$$=std::make_shared<SyntaxAddExp>();
    	$$->AddExp=std::move($1);
    	$$->MulExp=std::move($3);
    	$$->op=OP_PLUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
     | AddExp T_SUB MulExp {
 	$$=std::make_shared<SyntaxAddExp>();
 	$$->AddExp=std::move($1);
 	$$->MulExp=std::move($3);
 	$$->op=OP_MINUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
     ;
 
 RelExp : AddExp	{
 	$$=std::make_shared<SyntaxRelExp>();
 	$$->AddExp=std::move($1);
-	std::cout<<"RelExp : AddExp	"<<std::endl;
+	//std::cout<<"RelExp : AddExp	"<<std::endl;
     }
     | RelExp T_LT AddExp {
 	$$=std::make_shared<SyntaxRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_LT;
-	std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
     }
     | RelExp T_GT AddExp {
   	$$=std::make_shared<SyntaxRelExp>();
   	$$->RelExp=std::move($1);
   	$$->AddExp=std::move($3);
   	$$->op=OP_GT;
-	std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
     }
     | RelExp T_LTE AddExp {
 	$$=std::make_shared<SyntaxRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_LTE;
-	std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
     }
     | RelExp T_GTE AddExp {
 	$$=std::make_shared<SyntaxRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_GTE;
-	std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
     }
     ;
 
 EqExp : RelExp {
 	$$=std::make_shared<SyntaxEqExp>();
 	$$->RelExp=std::move($1);
-	std::cout<<"EqExp : RelExp"<<std::endl;
+	//std::cout<<"EqExp : RelExp"<<std::endl;
     }
     | EqExp T_EQ RelExp {
 	$$=std::make_shared<SyntaxEqExp>();
 	$$->EqExp=std::move($1);
 	$$->RelExp=std::move($3);
 	$$->op=OP_EQ;
-	std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
     }
     | EqExp T_NEQ RelExp {
 	$$=std::make_shared<SyntaxEqExp>();
 	$$->EqExp=std::move($1);
 	$$->RelExp=std::move($3);
 	$$->op=OP_NEQ;
-	std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
     }
     ;
 
 LAndExp : EqExp {
 	$$=std::make_shared<SyntaxLAndExp>();
 	$$->EqExp=std::move($1);
-	std::cout<<"LAndExp : EqExp"<<std::endl;
+	//std::cout<<"LAndExp : EqExp"<<std::endl;
     }
     | LAndExp T_AND EqExp {
 	$$=std::make_shared<SyntaxLAndExp>();
 	$$->LAndExp=std::move($1);
 	$$->EqExp=std::move($3);
 	$$->op=OP_AND;
-	std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
+	//std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
     }
     ;
 
 LOrExp : LAndExp {
 	$$=std::make_shared<SyntaxLOrExp>();
 	$$->LAndExp=std::move($1);
-	std::cout<<"LOrExp : LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LAndExp"<<std::endl;
     }
     | LOrExp T_OR LAndExp {
 	$$=std::make_shared<SyntaxLOrExp>();
 	$$->LOrExp=std::move($1);
 	$$->LAndExp=std::move($3);
 	$$->op=OP_OR;
-	std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
     }
     ;
 
 ConstExp : AddExp {
 	$$=std::make_shared<SyntaxConstExp>();
 	$$->AddExp=std::move($1);
-	std::cout<<"ConstExp : AddExp"<<std::endl;
+	//std::cout<<"ConstExp : AddExp"<<std::endl;
     }
     ;
 

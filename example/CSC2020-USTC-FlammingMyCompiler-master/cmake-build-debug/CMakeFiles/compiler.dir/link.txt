@@ -1,0 +1,1 @@
+/usr/bin/clang++   -O0 -Wall -g2 -ggdb -g   CMakeFiles/compiler.dir/src/main.cc.o  -o compiler  src/IRBuilder/libIRBuilder.a src/front/libdriver.a src/IR/libIR_lib.a src/OptimizePass/libPass.a src/CodeGen/libCodeGen.a src/OptimizePass/libActiveVars.a src/OptimizePass/libRegisterAllocation.a src/front/libparser.a src/front/libscanner.a src/syntax_tree/libsyntax_tree.a 

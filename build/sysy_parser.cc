@@ -2528,360 +2528,363 @@ namespace yy {
 #line 137 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::make_shared<SyntaxCompUnit>();
+	// emplace_back效果类似于push_back，会调用构造函数和转移构造函数,如果可以在插入的时候直接构造，就只需要构造一次即可。
 	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxDeclDef> > ()));
 	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
-#line 2537 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2538 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 3:
-#line 144 "Sysy_parser.y" // lalr1.cc:906
+#line 145 "Sysy_parser.y" // lalr1.cc:906
     {
 	yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxDeclDef> > ()));
 	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ());
 	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
-#line 2549 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2550 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 4:
-#line 151 "Sysy_parser.y" // lalr1.cc:906
+#line 152 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ());
     	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
     	return 0;
     }
-#line 2559 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2560 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 5:
-#line 158 "Sysy_parser.y" // lalr1.cc:906
+#line 159 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
 	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDecl> > ());
-	std::cout<<"DeclDef : ConstDecl"<<std::endl;
+	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->VarDecl=nullptr;
+	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->FuncDef=nullptr;
+	//std::cout<<"DeclDef : ConstDecl"<<std::endl;
     }
-#line 2569 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2572 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 6:
-#line 163 "Sysy_parser.y" // lalr1.cc:906
+#line 166 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
     yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDecl> > ());
-	std::cout<<"DeclDef : VarDecl"<<std::endl;
+	//std::cout<<"DeclDef : VarDecl"<<std::endl;
     }
-#line 2579 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2582 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 7:
-#line 168 "Sysy_parser.y" // lalr1.cc:906
+#line 171 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
 	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->FuncDef=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxFuncDef> > ());
-	std::cout<<"DeclDef : FuncDef"<<std::endl;
+	//std::cout<<"DeclDef : FuncDef"<<std::endl;
     }
-#line 2589 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2592 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 8:
-#line 175 "Sysy_parser.y" // lalr1.cc:906
+#line 178 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxConstDecl> > ()=std::make_shared<SyntaxConstDecl>();
 	// Assume that the memory of 'ConstDefList' won't be released
 	// Here we copy pointers
 	yylhs.value.as< std::shared_ptr<SyntaxConstDecl> > ()->ConstDefList=yystack_[1].value.as< std::shared_ptr<SyntaxConstDefList> > ()->list;
-	std::cout<<"ConstDecl"<<std::endl;
+	//std::cout<<"ConstDecl"<<std::endl;
     }
-#line 2601 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2604 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 9:
-#line 184 "Sysy_parser.y" // lalr1.cc:906
+#line 187 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()=std::make_shared<SyntaxConstDefList>();
 	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDef> > ()));
-	std::cout<<"ConstDefList : ConstDef"<<std::endl;
+	//std::cout<<"ConstDefList : ConstDef"<<std::endl;
     }
-#line 2611 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2614 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 10:
-#line 189 "Sysy_parser.y" // lalr1.cc:906
+#line 192 "Sysy_parser.y" // lalr1.cc:906
     {
     	yystack_[2].value.as< std::shared_ptr<SyntaxConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDef> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxConstDefList> > ());
-		std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
+		//std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
     }
-#line 2621 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2624 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 11:
-#line 196 "Sysy_parser.y" // lalr1.cc:906
+#line 199 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()=std::make_shared<SyntaxArrayConstExpList>();
 	yylhs.value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxConstExp> > ()));
-	std::cout<<"ConstIndexList : T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
+	//std::cout<<"ConstIndexList : T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
     }
-#line 2631 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2634 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 12:
-#line 201 "Sysy_parser.y" // lalr1.cc:906
+#line 204 "Sysy_parser.y" // lalr1.cc:906
     {
     	yystack_[3].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxConstExp> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ());
-		std::cout<<"ConstIndexList T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
+		//std::cout<<"ConstIndexList T_LBRACKET ConstExp T_RBRACKET"<<std::endl;
 		
     }
-#line 2642 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2645 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 13:
-#line 209 "Sysy_parser.y" // lalr1.cc:906
+#line 212 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< type_specifier > ()=TYPE_INT;
-	std::cout<<"INT"<<std::endl;
+	//std::cout<<"INT"<<std::endl;
     }
-#line 2651 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2654 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 14:
-#line 215 "Sysy_parser.y" // lalr1.cc:906
+#line 218 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()=std::make_shared<SyntaxConstDef>();
     	yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->ConstInitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ());
     	yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->id=yystack_[2].value.as< std::string > ();
-		std::cout<<"ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal"<<std::endl;
+		//std::cout<<"ConstDef : T_IDENTIFIER T_ASSIGN ConstInitVal"<<std::endl;
     }
-#line 2662 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2665 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 15:
-#line 221 "Sysy_parser.y" // lalr1.cc:906
+#line 224 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()=std::make_shared<SyntaxConstDef>();
 		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->ConstInitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ());
 		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->id=yystack_[3].value.as< std::string > ();
 		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
-		std::cout<<"ConstDef : T_IDENTIFIER ConstIndexList T_ASSIGN ConstInitVal"<<std::endl;
+		//std::cout<<"ConstDef : T_IDENTIFIER ConstIndexList T_ASSIGN ConstInitVal"<<std::endl;
     }
-#line 2674 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2677 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 16:
-#line 231 "Sysy_parser.y" // lalr1.cc:906
+#line 234 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()=std::make_shared<SyntaxConstInitValList>();
 		yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ()));
-		std::cout<<"ConstInitValList : ConstInitVal"<<std::endl;
+		//std::cout<<"ConstInitValList : ConstInitVal"<<std::endl;
     }
-#line 2684 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2687 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 17:
-#line 236 "Sysy_parser.y" // lalr1.cc:906
+#line 239 "Sysy_parser.y" // lalr1.cc:906
     {
     	yystack_[2].value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxConstInitValList> > ());
-		std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
+		//std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
     }
-#line 2694 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2697 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 18:
-#line 244 "Sysy_parser.y" // lalr1.cc:906
+#line 247 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()=std::make_shared<SyntaxConstInitVal>();
 		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstExp> > ());
-		std::cout<<"ConstInitVal : ConstExp"<<endl;
+		//std::cout<<"ConstInitVal : ConstExp"<<endl;
     }
-#line 2704 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2707 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 19:
-#line 249 "Sysy_parser.y" // lalr1.cc:906
+#line 252 "Sysy_parser.y" // lalr1.cc:906
     {
 
     }
-#line 2712 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2715 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 20:
-#line 252 "Sysy_parser.y" // lalr1.cc:906
+#line 255 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()=std::make_shared<SyntaxConstInitVal>();
         yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstInitValList=yystack_[1].value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list;
-		std::cout<<"ConstInitVal : T_LBRACE ConstInitValList T_RBRACE"<<endl;
+		//std::cout<<"ConstInitVal : T_LBRACE ConstInitValList T_RBRACE"<<endl;
     }
-#line 2722 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2725 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 21:
-#line 260 "Sysy_parser.y" // lalr1.cc:906
+#line 263 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()=std::make_shared<SyntaxVarDecl>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()->type=yystack_[2].value.as< type_specifier > ();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()->VarDefList=yystack_[1].value.as< std::shared_ptr<SyntaxVarDefList> > ()->list;
-		std::cout<<"VarDecl"<<std::endl;
+		//std::cout<<"VarDecl"<<std::endl;
     }
-#line 2733 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2736 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 22:
-#line 268 "Sysy_parser.y" // lalr1.cc:906
+#line 271 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[0].value.as< std::string > ();
-		std::cout<<"VarDef : T_IDENTIFIE"<<std::endl;
+		//std::cout<<"VarDef : T_IDENTIFIE"<<std::endl;
     }
-#line 2743 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2746 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 23:
-#line 273 "Sysy_parser.y" // lalr1.cc:906
+#line 276 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[2].value.as< std::string > ();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->InitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ());
-		std::cout<<"VarDef :T_IDENTIFIER T_ASSIGN InitVal "<<std::endl;
+		//std::cout<<"VarDef :T_IDENTIFIER T_ASSIGN InitVal "<<std::endl;
     }
-#line 2754 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2757 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 24:
-#line 279 "Sysy_parser.y" // lalr1.cc:906
+#line 282 "Sysy_parser.y" // lalr1.cc:906
     {
 
     	yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[1].value.as< std::string > ();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->ArrayConstExpList=yystack_[0].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
-		std::cout<<"VarDef: T_IDENTIFIER ConstIndexList"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ConstIndexList"<<std::endl;
     }
-#line 2766 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2769 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 25:
-#line 286 "Sysy_parser.y" // lalr1.cc:906
+#line 289 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[3].value.as< std::string > ();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
 		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->InitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ());
-		std::cout<<"VarDef: T_IDENTIFIER ConstIndexList T_ASSIGN InitVal"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ConstIndexList T_ASSIGN InitVal"<<std::endl;
     }
-#line 2778 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2781 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 26:
-#line 296 "Sysy_parser.y" // lalr1.cc:906
+#line 299 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()=std::make_shared<SyntaxVarDefList>();
 		yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDef> > ()));
-		std::cout<<"VarDefList:VarDef"<<std::endl;
+		//std::cout<<"VarDefList:VarDef"<<std::endl;
     }
-#line 2788 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2791 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 27:
-#line 301 "Sysy_parser.y" // lalr1.cc:906
+#line 304 "Sysy_parser.y" // lalr1.cc:906
     {
     	yystack_[2].value.as< std::shared_ptr<SyntaxVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDef> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxVarDefList> > ());
-		std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
+		//std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
     }
-#line 2798 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2801 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 28:
-#line 309 "Sysy_parser.y" // lalr1.cc:906
+#line 312 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()=std::make_shared<SyntaxInitVal>();
 	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->Exp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ());
-	std::cout<<"InitVal:Exp"<<std::endl;
+	//std::cout<<"InitVal:Exp"<<std::endl;
     }
-#line 2808 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2811 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 29:
-#line 314 "Sysy_parser.y" // lalr1.cc:906
+#line 317 "Sysy_parser.y" // lalr1.cc:906
     {
-	std::cout<<"{}"<<std::endl;
+	//std::cout<<"{}"<<std::endl;
     }
-#line 2816 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2819 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 30:
-#line 317 "Sysy_parser.y" // lalr1.cc:906
+#line 320 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()=std::make_shared<SyntaxInitVal>();
 	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->InitValList=yystack_[1].value.as< std::shared_ptr<SyntaxInitValList> > ()->list;
-	std::cout<<"InitVal: { InitValList }"<<std::endl;
+	//std::cout<<"InitVal: { InitValList }"<<std::endl;
     }
-#line 2826 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2829 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 31:
-#line 325 "Sysy_parser.y" // lalr1.cc:906
+#line 328 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()=std::make_shared<SyntaxInitValList>();
 	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ()));
-	std::cout<<"InitValList : InitVal"<<std::endl;
+	//std::cout<<"InitValList : InitVal"<<std::endl;
     }
-#line 2836 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2839 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 32:
-#line 330 "Sysy_parser.y" // lalr1.cc:906
+#line 333 "Sysy_parser.y" // lalr1.cc:906
     {
 	yystack_[2].value.as< std::shared_ptr<SyntaxInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ()));
 	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxInitValList> > ());
-	std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
+	//std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
     }
-#line 2846 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2849 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 33:
-#line 338 "Sysy_parser.y" // lalr1.cc:906
+#line 341 "Sysy_parser.y" // lalr1.cc:906
     {
 	//一维数组
 	yylhs.value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()=std::make_shared<SyntaxParamArrayExpList>();
 	yylhs.value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ()));
-	std::cout<<"One IndexList"<<std::endl;
+	//std::cout<<"One IndexList"<<std::endl;
     }
-#line 2857 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2860 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 34:
-#line 344 "Sysy_parser.y" // lalr1.cc:906
+#line 347 "Sysy_parser.y" // lalr1.cc:906
     {
     	//多维数组
 		yystack_[3].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ());
-		std::cout<<"Muti IndexList"<<std::endl;
+		//std::cout<<"Muti IndexList"<<std::endl;
     }
-#line 2868 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2871 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 35:
-#line 352 "Sysy_parser.y" // lalr1.cc:906
+#line 355 "Sysy_parser.y" // lalr1.cc:906
     {
 	//不带参数的返回类型为Void的函数
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->type=yystack_[4].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[3].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
-	std::cout<<"Void FuncDef without Param"<<std::endl;
+	//std::cout<<"Void FuncDef without Param"<<std::endl;
     }
-#line 2881 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2884 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 36:
-#line 360 "Sysy_parser.y" // lalr1.cc:906
+#line 363 "Sysy_parser.y" // lalr1.cc:906
     {
 	//带有参数的返回值为Void的函数
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
@@ -2889,746 +2892,746 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[4].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->FuncFParamList=yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list;
-	std::cout<<"Void FuncDef with Param"<<std::endl;
+	//std::cout<<"Void FuncDef with Param"<<std::endl;
     }
-#line 2895 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2898 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 37:
-#line 369 "Sysy_parser.y" // lalr1.cc:906
+#line 372 "Sysy_parser.y" // lalr1.cc:906
     {
     //无参数的返回值为int的函数
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->type=yystack_[4].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[3].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
-	std::cout<<"Int FuncDef without Param"<<std::endl;
+	//std::cout<<"Int FuncDef without Param"<<std::endl;
     }
-#line 2908 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2911 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 38:
-#line 377 "Sysy_parser.y" // lalr1.cc:906
+#line 380 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
     yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->type=yystack_[5].value.as< type_specifier > ();
     yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[4].value.as< std::string > ();
     yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
     yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->FuncFParamList=yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list;
-	std::cout<<"Int FuncDef with Param"<<std::endl;
+	//std::cout<<"Int FuncDef with Param"<<std::endl;
     }
-#line 2921 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2924 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 39:
-#line 387 "Sysy_parser.y" // lalr1.cc:906
+#line 390 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< type_specifier > ()=TYPE_VOID;
     }
-#line 2929 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2932 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 40:
-#line 392 "Sysy_parser.y" // lalr1.cc:906
+#line 395 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()=std::make_shared<SyntaxFuncFParamList>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list.emplace_back(yystack_[0].value.as< std::shared_ptr<SyntaxFuncFParam> > ());
     }
-#line 2938 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2941 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 41:
-#line 396 "Sysy_parser.y" // lalr1.cc:906
+#line 399 "Sysy_parser.y" // lalr1.cc:906
     {
     	yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxFuncFParam> > ()));
     	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ());
     }
-#line 2947 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2950 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 42:
-#line 403 "Sysy_parser.y" // lalr1.cc:906
+#line 406 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=yystack_[1].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[0].value.as< std::string > ();
-	std::cout<<"FuncFParam : BType T_IDENTIFIER"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER"<<std::endl;
     }
-#line 2958 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2961 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 43:
-#line 409 "Sysy_parser.y" // lalr1.cc:906
+#line 412 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=yystack_[3].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[2].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->isarray=true;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET"<<std::endl;
     }
-#line 2970 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2973 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 44:
-#line 416 "Sysy_parser.y" // lalr1.cc:906
+#line 419 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=yystack_[4].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[3].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->isarray=true;
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET IndexList"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET T_RBRACKET IndexList"<<std::endl;
     }
-#line 2983 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2986 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 45:
-#line 424 "Sysy_parser.y" // lalr1.cc:906
+#line 427 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=yystack_[5].value.as< type_specifier > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[4].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->isarray=true;
 	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list;
-	std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET IndexList"<<std::endl;
+	//std::cout<<"FuncFParam : BType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET IndexList"<<std::endl;
     }
-#line 2996 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 2999 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 46:
-#line 434 "Sysy_parser.y" // lalr1.cc:906
+#line 437 "Sysy_parser.y" // lalr1.cc:906
     {
 	
     }
-#line 3004 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3007 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 47:
-#line 437 "Sysy_parser.y" // lalr1.cc:906
+#line 440 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxBlock> > ()=std::make_shared<SyntaxBlock>();
     	yylhs.value.as< std::shared_ptr<SyntaxBlock> > ()->BlockItemList=yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ()->list;
-    	std::cout<<"Block"<<std::endl;
+    	//std::cout<<"Block"<<std::endl;
     }
-#line 3014 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3017 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 48:
-#line 444 "Sysy_parser.y" // lalr1.cc:906
+#line 447 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItemList> > ()=std::make_shared<SyntaxBlockItemList>();
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItemList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlockItem> > ()));
-	std::cout<<"BlockItemList : BlockItem "<<std::endl;
+	//std::cout<<"BlockItemList : BlockItem "<<std::endl;
     }
-#line 3024 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3027 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 49:
-#line 449 "Sysy_parser.y" // lalr1.cc:906
+#line 452 "Sysy_parser.y" // lalr1.cc:906
     {
     yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlockItem> > ()));
     yylhs.value.as< std::shared_ptr<SyntaxBlockItemList> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ());
-	std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
+	//std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
     }
-#line 3034 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3037 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 50:
-#line 456 "Sysy_parser.y" // lalr1.cc:906
+#line 459 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDecl> > ());
-	std::cout<<"BlockItem: ConstDecl"<<std::endl;
+	//std::cout<<"BlockItem: ConstDecl"<<std::endl;
     }
-#line 3044 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3047 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 51:
-#line 462 "Sysy_parser.y" // lalr1.cc:906
+#line 465 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDecl> > ());
-	std::cout<<"BlockItem:VarDecl"<<std::endl;
+	//std::cout<<"BlockItem:VarDecl"<<std::endl;
     }
-#line 3054 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3057 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 52:
-#line 467 "Sysy_parser.y" // lalr1.cc:906
+#line 470 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
 	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
-	std::cout<<"BlockItem:Stmt"<<std::endl;
+	//std::cout<<"BlockItem:Stmt"<<std::endl;
     }
-#line 3064 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3067 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 53:
-#line 475 "Sysy_parser.y" // lalr1.cc:906
+#line 478 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxBreakStmt> > ());
-	std::cout<<"Stmt:break"<<std::endl;
+	//std::cout<<"Stmt:break"<<std::endl;
     }
-#line 3074 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3077 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 54:
-#line 480 "Sysy_parser.y" // lalr1.cc:906
+#line 483 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxContinueStmt> > ());
-		std::cout<<"Stmt:Continue"<<std::endl;
+		//std::cout<<"Stmt:Continue"<<std::endl;
     }
-#line 3084 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3087 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 55:
-#line 485 "Sysy_parser.y" // lalr1.cc:906
+#line 488 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAssignStmt> > ());
-		std::cout<<"Stmt:AssignStmt"<<std::endl;
+		//std::cout<<"Stmt:AssignStmt"<<std::endl;
     }
-#line 3094 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3097 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 56:
-#line 490 "Sysy_parser.y" // lalr1.cc:906
+#line 493 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
-		std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
+		//std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
     }
-#line 3104 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3107 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 57:
-#line 495 "Sysy_parser.y" // lalr1.cc:906
+#line 498 "Sysy_parser.y" // lalr1.cc:906
     {
     }
-#line 3111 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3114 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 58:
-#line 497 "Sysy_parser.y" // lalr1.cc:906
+#line 500 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
-		std::cout<<"Stmt: Block"<<std::endl;
+		//std::cout<<"Stmt: Block"<<std::endl;
     }
-#line 3121 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3124 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 59:
-#line 502 "Sysy_parser.y" // lalr1.cc:906
+#line 505 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxSelectStmt> > ());
-		std::cout<<"SelectStmt"<<std::endl;
+		//std::cout<<"SelectStmt"<<std::endl;
     }
-#line 3131 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3134 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 60:
-#line 507 "Sysy_parser.y" // lalr1.cc:906
+#line 510 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxIterationStmt> > ());
-		std::cout<<"IterationStmt"<<std::endl;
+		//std::cout<<"IterationStmt"<<std::endl;
     }
-#line 3141 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3144 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 61:
-#line 512 "Sysy_parser.y" // lalr1.cc:906
+#line 515 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
 		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxReturnStmt> > ());
-		std::cout<<"ReturnStmt"<<std::endl;
+		//std::cout<<"ReturnStmt"<<std::endl;
     }
-#line 3151 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3154 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 62:
-#line 519 "Sysy_parser.y" // lalr1.cc:906
+#line 522 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxBreakStmt> > ()=std::make_shared<SyntaxBreakStmt>();
     }
-#line 3159 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3162 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 63:
-#line 523 "Sysy_parser.y" // lalr1.cc:906
+#line 526 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxContinueStmt> > ()=std::make_shared<SyntaxContinueStmt>();
     }
-#line 3167 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3170 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 64:
-#line 527 "Sysy_parser.y" // lalr1.cc:906
+#line 530 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxAssignStmt> > ()=std::make_shared<SyntaxAssignStmt>();
 	yylhs.value.as< std::shared_ptr<SyntaxAssignStmt> > ()->LVal=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxLVal> > ());
     }
-#line 3176 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3179 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 65:
-#line 533 "Sysy_parser.y" // lalr1.cc:906
+#line 536 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()=std::make_shared<SyntaxSelectStmt>();
 	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxCond> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->ifStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
     }
-#line 3186 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3189 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 66:
-#line 538 "Sysy_parser.y" // lalr1.cc:906
+#line 541 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()=std::make_shared<SyntaxSelectStmt>();
     	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->Cond=std::move(yystack_[4].value.as< std::shared_ptr<SyntaxCond> > ());
     	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->ifStmt=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxStmt> > ());
     	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->elseStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
     }
-#line 3197 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3200 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 67:
-#line 546 "Sysy_parser.y" // lalr1.cc:906
+#line 549 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()=std::make_shared<SyntaxIterationStmt>();
 	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxCond> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
     }
-#line 3207 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3210 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 68:
-#line 552 "Sysy_parser.y" // lalr1.cc:906
+#line 555 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()=std::make_shared<SyntaxReturnStmt>();
     }
-#line 3215 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3218 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 69:
-#line 555 "Sysy_parser.y" // lalr1.cc:906
+#line 558 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()=std::make_shared<SyntaxReturnStmt>();
 	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
     }
-#line 3224 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3227 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 70:
-#line 561 "Sysy_parser.y" // lalr1.cc:906
+#line 564 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxExp> > ()=std::make_shared<SyntaxExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	std::cout<<"Exp : AddExp"<<std::endl;
+	//std::cout<<"Exp : AddExp"<<std::endl;
     }
-#line 3234 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3237 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 71:
-#line 568 "Sysy_parser.y" // lalr1.cc:906
+#line 571 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxCond> > ()=std::make_shared<SyntaxCond>();
 	yylhs.value.as< std::shared_ptr<SyntaxCond> > ()->LOrExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLOrExp> > ());
-	std::cout<<"Cond : LOrExp"<<std::endl;
+	//std::cout<<"Cond : LOrExp"<<std::endl;
     }
-#line 3244 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3247 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 72:
-#line 575 "Sysy_parser.y" // lalr1.cc:906
+#line 578 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()=std::make_shared<SyntaxLVal>();
 	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()->id=yystack_[0].value.as< std::string > ();
-	std::cout<<"LVal:Ident"<<std::endl;
+	//std::cout<<"LVal:Ident"<<std::endl;
     }
-#line 3254 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3257 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 73:
-#line 580 "Sysy_parser.y" // lalr1.cc:906
+#line 583 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()=std::make_shared<SyntaxLVal>();
 	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()->id=yystack_[1].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()->ArrayExpList=yystack_[0].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list;
-	std::cout<<"LVal:T_IDENTIFIER IndexList"<<std::endl;
+	//std::cout<<"LVal:T_IDENTIFIER IndexList"<<std::endl;
     }
-#line 3265 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3268 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 74:
-#line 588 "Sysy_parser.y" // lalr1.cc:906
+#line 591 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
-	std::cout<<"PrimaryExp:(Exp)"<<std::endl;
+	//std::cout<<"PrimaryExp:(Exp)"<<std::endl;
     }
-#line 3275 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3278 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 75:
-#line 593 "Sysy_parser.y" // lalr1.cc:906
+#line 596 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->LVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLVal> > ());
-    std::cout<<"PrimaryExp：LVal"<<std::endl;
+    //std::cout<<"PrimaryExp：LVal"<<std::endl;
 	}
-#line 3285 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3288 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 76:
-#line 598 "Sysy_parser.y" // lalr1.cc:906
+#line 601 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Number=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxNumber> > ());
-    std::cout<<"PrimaryExp：Number"<<std::endl;
+    //std::cout<<"PrimaryExp：Number"<<std::endl;
 	}
-#line 3295 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3298 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 77:
-#line 605 "Sysy_parser.y" // lalr1.cc:906
+#line 608 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxNumber> > ()=std::make_shared<SyntaxNumber>();
 	yylhs.value.as< std::shared_ptr<SyntaxNumber> > ()->num=yystack_[0].value.as< int > ();
-    std::cout<<"Numbers"<<std::endl;
+    //std::cout<<"Numbers"<<std::endl;
 	}
-#line 3305 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3308 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 78:
-#line 613 "Sysy_parser.y" // lalr1.cc:906
+#line 616 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->PrimaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxPrimaryExp> > ());
-	std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
+	//std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
     }
-#line 3315 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3318 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 79:
-#line 618 "Sysy_parser.y" // lalr1.cc:906
+#line 621 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->Callee=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxCallee> > ());
-	std::cout<<"UnaryExp:Callee"<<std::endl;
+	//std::cout<<"UnaryExp:Callee"<<std::endl;
     }
-#line 3325 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3328 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 80:
-#line 623 "Sysy_parser.y" // lalr1.cc:906
+#line 626 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->op=yystack_[1].value.as< unaryop > ();
-    std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
+    //std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
 	}
-#line 3336 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3339 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 81:
-#line 631 "Sysy_parser.y" // lalr1.cc:906
+#line 634 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()=std::make_shared<SyntaxCallee>();
 	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->id=yystack_[2].value.as< std::string > ();
     }
-#line 3345 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3348 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 82:
-#line 635 "Sysy_parser.y" // lalr1.cc:906
+#line 638 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()=std::make_shared<SyntaxCallee>();
 	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->id=yystack_[3].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->ExpList=yystack_[1].value.as< std::shared_ptr<SyntaxExpList> > ()->list;
 	}
-#line 3355 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3358 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 83:
-#line 643 "Sysy_parser.y" // lalr1.cc:906
+#line 646 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< unaryop > ()=OP_POS;
-	std::cout<<"+"<<std::endl;
+	//std::cout<<"+"<<std::endl;
     }
-#line 3364 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3367 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 84:
-#line 647 "Sysy_parser.y" // lalr1.cc:906
+#line 650 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< unaryop > ()=OP_NEG;
-    std::cout<<"-"<<std::endl;
+    //std::cout<<"-"<<std::endl;
 	}
-#line 3373 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3376 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 85:
-#line 651 "Sysy_parser.y" // lalr1.cc:906
+#line 654 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< unaryop > ()=OP_NOT;
-    std::cout<<"！"<<std::endl;
+    //std::cout<<"！"<<std::endl;
 	}
-#line 3382 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3385 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 86:
-#line 657 "Sysy_parser.y" // lalr1.cc:906
+#line 660 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()=std::make_shared<SyntaxExpList>();
 	yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ()));
-    std::cout<<"FuncRParams : Exp "<<std::endl;
+    //std::cout<<"FuncRParams : Exp "<<std::endl;
 	}
-#line 3392 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3395 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 87:
-#line 662 "Sysy_parser.y" // lalr1.cc:906
+#line 665 "Sysy_parser.y" // lalr1.cc:906
     {
     yystack_[2].value.as< std::shared_ptr<SyntaxExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ()));
     yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxExpList> > ());
-    std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
+    //std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
 	}
-#line 3402 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3405 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 88:
-#line 669 "Sysy_parser.y" // lalr1.cc:906
+#line 672 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
-	std::cout<<"MulExp : UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : UnaryExp"<<std::endl;
     }
-#line 3412 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3415 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 89:
-#line 674 "Sysy_parser.y" // lalr1.cc:906
+#line 677 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_MUL;
-	std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
     }
-#line 3424 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3427 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 90:
-#line 681 "Sysy_parser.y" // lalr1.cc:906
+#line 684 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_DIV;
-	std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
     }
-#line 3436 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3439 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 91:
-#line 688 "Sysy_parser.y" // lalr1.cc:906
+#line 691 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_MOD;
-	std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
+	//std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
     }
-#line 3448 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3451 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 92:
-#line 697 "Sysy_parser.y" // lalr1.cc:906
+#line 700 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
-    //std::cout<<""<<std::endl;
+    ////std::cout<<""<<std::endl;
 	}
-#line 3458 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3461 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 93:
-#line 702 "Sysy_parser.y" // lalr1.cc:906
+#line 705 "Sysy_parser.y" // lalr1.cc:906
     {
    	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
    	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxAddExp> > ());
    	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
    	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->op=OP_PLUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
-#line 3470 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3473 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 94:
-#line 709 "Sysy_parser.y" // lalr1.cc:906
+#line 712 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxAddExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->op=OP_MINUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
-#line 3482 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3485 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 95:
-#line 718 "Sysy_parser.y" // lalr1.cc:906
+#line 721 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	std::cout<<"RelExp : AddExp	"<<std::endl;
+	//std::cout<<"RelExp : AddExp	"<<std::endl;
     }
-#line 3492 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3495 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 96:
-#line 723 "Sysy_parser.y" // lalr1.cc:906
+#line 726 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_LT;
-	std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
     }
-#line 3504 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3507 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 97:
-#line 730 "Sysy_parser.y" // lalr1.cc:906
+#line 733 "Sysy_parser.y" // lalr1.cc:906
     {
   	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
   	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
   	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
   	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_GT;
-	std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
     }
-#line 3516 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3519 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 98:
-#line 737 "Sysy_parser.y" // lalr1.cc:906
+#line 740 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_LTE;
-	std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
     }
-#line 3528 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3531 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 99:
-#line 744 "Sysy_parser.y" // lalr1.cc:906
+#line 747 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_GTE;
-	std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
     }
-#line 3540 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3543 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 100:
-#line 753 "Sysy_parser.y" // lalr1.cc:906
+#line 756 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	std::cout<<"EqExp : RelExp"<<std::endl;
+	//std::cout<<"EqExp : RelExp"<<std::endl;
     }
-#line 3550 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3553 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 101:
-#line 758 "Sysy_parser.y" // lalr1.cc:906
+#line 761 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxEqExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->op=OP_EQ;
-	std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
     }
-#line 3562 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3565 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 102:
-#line 765 "Sysy_parser.y" // lalr1.cc:906
+#line 768 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxEqExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->op=OP_NEQ;
-	std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
     }
-#line 3574 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3577 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 103:
-#line 774 "Sysy_parser.y" // lalr1.cc:906
+#line 777 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()=std::make_shared<SyntaxLAndExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxEqExp> > ());
-	std::cout<<"LAndExp : EqExp"<<std::endl;
+	//std::cout<<"LAndExp : EqExp"<<std::endl;
     }
-#line 3584 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3587 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 104:
-#line 779 "Sysy_parser.y" // lalr1.cc:906
+#line 782 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()=std::make_shared<SyntaxLAndExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->LAndExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxLAndExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxEqExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->op=OP_AND;
-	std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
+	//std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
     }
-#line 3596 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3599 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 105:
-#line 788 "Sysy_parser.y" // lalr1.cc:906
+#line 791 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()=std::make_shared<SyntaxLOrExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLAndExp> > ());
-	std::cout<<"LOrExp : LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LAndExp"<<std::endl;
     }
-#line 3606 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3609 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 106:
-#line 793 "Sysy_parser.y" // lalr1.cc:906
+#line 796 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()=std::make_shared<SyntaxLOrExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LOrExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxLOrExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLAndExp> > ());
 	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->op=OP_OR;
-	std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
     }
-#line 3618 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3621 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 107:
-#line 802 "Sysy_parser.y" // lalr1.cc:906
+#line 805 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<SyntaxConstExp> > ()=std::make_shared<SyntaxConstExp>();
 	yylhs.value.as< std::shared_ptr<SyntaxConstExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	std::cout<<"ConstExp : AddExp"<<std::endl;
+	//std::cout<<"ConstExp : AddExp"<<std::endl;
     }
-#line 3628 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3631 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
 
 
-#line 3632 "./build/sysy_parser.cc" // lalr1.cc:906
+#line 3635 "./build/sysy_parser.cc" // lalr1.cc:906
             default:
               break;
             }
@@ -4020,17 +4023,17 @@ namespace yy {
   const unsigned short
   sysy_parser::yyrline_[] =
   {
-       0,   137,   137,   144,   151,   158,   163,   168,   175,   184,
-     189,   196,   201,   209,   215,   221,   231,   236,   244,   249,
-     252,   260,   268,   273,   279,   286,   296,   301,   309,   314,
-     317,   325,   330,   338,   344,   352,   360,   369,   377,   387,
-     392,   396,   403,   409,   416,   424,   434,   437,   444,   449,
-     456,   462,   467,   475,   480,   485,   490,   495,   497,   502,
-     507,   512,   519,   523,   527,   533,   538,   546,   552,   555,
-     561,   568,   575,   580,   588,   593,   598,   605,   613,   618,
-     623,   631,   635,   643,   647,   651,   657,   662,   669,   674,
-     681,   688,   697,   702,   709,   718,   723,   730,   737,   744,
-     753,   758,   765,   774,   779,   788,   793,   802
+       0,   137,   137,   145,   152,   159,   166,   171,   178,   187,
+     192,   199,   204,   212,   218,   224,   234,   239,   247,   252,
+     255,   263,   271,   276,   282,   289,   299,   304,   312,   317,
+     320,   328,   333,   341,   347,   355,   363,   372,   380,   390,
+     395,   399,   406,   412,   419,   427,   437,   440,   447,   452,
+     459,   465,   470,   478,   483,   488,   493,   498,   500,   505,
+     510,   515,   522,   526,   530,   536,   541,   549,   555,   558,
+     564,   571,   578,   583,   591,   596,   601,   608,   616,   621,
+     626,   634,   638,   646,   650,   654,   660,   665,   672,   677,
+     684,   691,   700,   705,   712,   721,   726,   733,   740,   747,
+     756,   761,   768,   777,   782,   791,   796,   805
   };
 
   // Print the state stack on the debug stream.
@@ -4114,8 +4117,8 @@ namespace yy {
 
 
 } // yy
-#line 4118 "./build/sysy_parser.cc" // lalr1.cc:1217
-#line 809 "Sysy_parser.y" // lalr1.cc:1218
+#line 4121 "./build/sysy_parser.cc" // lalr1.cc:1217
+#line 812 "Sysy_parser.y" // lalr1.cc:1218
 
 //void yy::sysy_parser::error (const std::string& m){
 //	std::cerr << "Find error in parsering, " << m<< "\n";

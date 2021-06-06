@@ -1,1 +1,1 @@
-int a[100];
+const int a=1;

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libIRBuilder.a  CMakeFiles/IRBuilder.dir/monkeyType.cc.o CMakeFiles/IRBuilder.dir/SYSYCBuilder.cc.o
+/usr/bin/ranlib libIRBuilder.a

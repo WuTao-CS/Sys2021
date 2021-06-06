@@ -181,7 +181,8 @@ struct SyntaxInitVal : SyntaxTreeNode {
   std::shared_ptr<SyntaxExp> Exp;
   std::vector<int> bounds;
 };
-struct SyntaxInitValList {
+struct SyntaxInitValList 
+{
   std::vector<std::shared_ptr<SyntaxInitVal>> list;
 };
 struct SyntaxFuncDef : SyntaxTreeNode {
@@ -195,7 +196,8 @@ struct SyntaxFuncDef : SyntaxTreeNode {
 struct SyntaxFuncFParamList {
   std::vector<std::shared_ptr<SyntaxFuncFParam>> list;
 };
-struct SyntaxFuncFParam : SyntaxTreeNode {
+struct SyntaxFuncFParam : SyntaxTreeNode 
+{
   virtual void accept(syntax_tree_visitor &) final;
   type_specifier type;
   std::string id;

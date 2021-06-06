@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SYSYCompiler"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\;CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\;CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\cmake\llvm\;CMake Files\src\;CMake Files\src\front\;CMake Files\src\syntax_tree\;CMake Files\src\IRBuilder\;CMake Files\src\IR\;CMake Files\src\CodeGen\;CMake Files\src\OptimizePass\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="intrinsics_gen">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 intrinsics_gen"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compiler">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/compiler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compiler/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/compiler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="driver">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libdriver.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 driver"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="driver/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libdriver.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 driver/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scanner">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libscanner.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 scanner"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scanner/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libscanner.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 scanner/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parser">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 parser"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parser/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/libparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 parser/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/front/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syntax_tree">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/libsyntax_tree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 syntax_tree"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syntax_tree/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/libsyntax_tree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 syntax_tree/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/syntax_tree/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IRBuilder">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/libIRBuilder.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 IRBuilder"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IRBuilder/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/libIRBuilder.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 IRBuilder/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IRBuilder/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IR_lib">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/libIR_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 IR_lib"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IR_lib/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/libIR_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 IR_lib/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/IR/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CodeGen">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/libCodeGen.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 CodeGen"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CodeGen/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/libCodeGen.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 CodeGen/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/CodeGen/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Pass">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libPass.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 Pass"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Pass/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libPass.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 Pass/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ActiveVars">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libActiveVars.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 ActiveVars"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ActiveVars/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libActiveVars.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 ActiveVars/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="RegisterAllocation">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libRegisterAllocation.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 RegisterAllocation"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="RegisterAllocation/fast">
+				<Option output="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/libRegisterAllocation.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-6.0/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/front"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/syntax_tree"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IR"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/IRBuilder"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/CodeGen"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/OptimizePass"/>
+					<Add directory="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/include/HIR"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 RegisterAllocation/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/cmake-build-debug/src/OptimizePass/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/CodeGen/Analyzer.cc">
+			<Option target="CodeGen"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/CodeGen/CodeGen.cc">
+			<Option target="CodeGen"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/CodeGen/InstructionsGen.cc">
+			<Option target="CodeGen"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/CodeGen/RegAlloc.cc">
+			<Option target="CodeGen"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/HIR/AccumulatePattern.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/HIR/BBExps.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/HIR/LoopMerge.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/BaseBlock.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/BasicBlock.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Constant.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Function.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/GlobalVariable.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Instruction.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Module.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Type.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/User.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/Value.cc">
+			<Option target="IR_lib"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IRBuilder/SYSYCBuilder.cc">
+			<Option target="IRBuilder"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IRBuilder/monkeyType.cc">
+			<Option target="IRBuilder"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/ActiveVars.cc">
+			<Option target="ActiveVars"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/BBCommonSubExper.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/BBConstPropagation.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/CondSimplify.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/ConstFlod.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/ConstLoopExpansion.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/DeadCodeEliminate.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/Dominators.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/FunctionInline.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/FunctionOptimization.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/GlobalVariableLocal.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/HIRToMIR.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/HighIRsimplyCFG.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/IRCheck.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/InstructionSchedule.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/LoopFind.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/LoopInvariant.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/LowerIR.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/MergeCond.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/Multithreading.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/PowerArray.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/RefactorPartIns.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/RegisterAllocation.cc">
+			<Option target="RegisterAllocation"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/SimplifyCFG.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/Vectorization.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/mem2reg.cc">
+			<Option target="Pass"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/front/sysy_driver.cc">
+			<Option target="driver"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/front/sysy_parser.cc">
+			<Option target="parser"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/front/sysy_scanner.cc">
+			<Option target="scanner"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/main.cc">
+			<Option target="compiler"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/syntax_tree/syntax_tree.cc">
+			<Option target="syntax_tree"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/../../../../../../usr/lib/llvm-6.0/cmake/LLVMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\cmake\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/../../../../../../usr/lib/llvm-6.0/cmake/LLVMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\cmake\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/../../../../../../usr/lib/llvm-6.0/lib/cmake/llvm/LLVM-Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/../../../../../../usr/lib/llvm-6.0/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/../../../../../../usr/lib/llvm-6.0/lib/cmake/llvm/LLVMExports.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\llvm-6.0\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/front/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\front\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/syntax_tree/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\syntax_tree\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IRBuilder/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\IRBuilder\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/IR/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\IR\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/CodeGen/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\CodeGen\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/Sys2021/example/CSC2020-USTC-FlammingMyCompiler-master/src/OptimizePass/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\OptimizePass\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
