@@ -465,138 +465,140 @@ namespace yy {
       // AddExp
       char dummy2[sizeof (std::shared_ptr<SyntaxAddExp>)];
 
-      // ConstIndexList
+      // ArrayConstExpList
       char dummy3[sizeof (std::shared_ptr<SyntaxArrayConstExpList>)];
 
+      // ArrayExpList
+      char dummy4[sizeof (std::shared_ptr<SyntaxArrayExpList>)];
+
       // AssignStmt
-      char dummy4[sizeof (std::shared_ptr<SyntaxAssignStmt>)];
+      char dummy5[sizeof (std::shared_ptr<SyntaxAssignStmt>)];
 
       // Block
-      char dummy5[sizeof (std::shared_ptr<SyntaxBlock>)];
+      char dummy6[sizeof (std::shared_ptr<SyntaxBlock>)];
 
       // BlockItem
-      char dummy6[sizeof (std::shared_ptr<SyntaxBlockItem>)];
+      char dummy7[sizeof (std::shared_ptr<SyntaxBlockItem>)];
 
       // BlockItemList
-      char dummy7[sizeof (std::shared_ptr<SyntaxBlockItemList>)];
+      char dummy8[sizeof (std::shared_ptr<SyntaxBlockItemList>)];
 
       // BreakStmt
-      char dummy8[sizeof (std::shared_ptr<SyntaxBreakStmt>)];
+      char dummy9[sizeof (std::shared_ptr<SyntaxBreakStmt>)];
 
       // Callee
-      char dummy9[sizeof (std::shared_ptr<SyntaxCallee>)];
+      char dummy10[sizeof (std::shared_ptr<SyntaxCallee>)];
 
       // CompUnit
-      char dummy10[sizeof (std::shared_ptr<SyntaxCompUnit>)];
+      char dummy11[sizeof (std::shared_ptr<SyntaxCompUnit>)];
 
       // Cond
-      char dummy11[sizeof (std::shared_ptr<SyntaxCond>)];
+      char dummy12[sizeof (std::shared_ptr<SyntaxCond>)];
 
       // ConstDecl
-      char dummy12[sizeof (std::shared_ptr<SyntaxConstDecl>)];
+      char dummy13[sizeof (std::shared_ptr<SyntaxConstDecl>)];
 
       // ConstDef
-      char dummy13[sizeof (std::shared_ptr<SyntaxConstDef>)];
+      char dummy14[sizeof (std::shared_ptr<SyntaxConstDef>)];
 
       // ConstDefList
-      char dummy14[sizeof (std::shared_ptr<SyntaxConstDefList>)];
+      char dummy15[sizeof (std::shared_ptr<SyntaxConstDefList>)];
 
       // ConstExp
-      char dummy15[sizeof (std::shared_ptr<SyntaxConstExp>)];
+      char dummy16[sizeof (std::shared_ptr<SyntaxConstExp>)];
 
       // ConstInitVal
-      char dummy16[sizeof (std::shared_ptr<SyntaxConstInitVal>)];
+      char dummy17[sizeof (std::shared_ptr<SyntaxConstInitVal>)];
 
       // ConstInitValList
-      char dummy17[sizeof (std::shared_ptr<SyntaxConstInitValList>)];
+      char dummy18[sizeof (std::shared_ptr<SyntaxConstInitValList>)];
 
       // ContinueStmt
-      char dummy18[sizeof (std::shared_ptr<SyntaxContinueStmt>)];
+      char dummy19[sizeof (std::shared_ptr<SyntaxContinueStmt>)];
 
       // DeclDef
-      char dummy19[sizeof (std::shared_ptr<SyntaxDeclDef>)];
+      char dummy20[sizeof (std::shared_ptr<SyntaxDeclDef>)];
 
       // EqExp
-      char dummy20[sizeof (std::shared_ptr<SyntaxEqExp>)];
+      char dummy21[sizeof (std::shared_ptr<SyntaxEqExp>)];
 
       // Exp
-      char dummy21[sizeof (std::shared_ptr<SyntaxExp>)];
+      char dummy22[sizeof (std::shared_ptr<SyntaxExp>)];
 
       // FuncRParams
-      char dummy22[sizeof (std::shared_ptr<SyntaxExpList>)];
+      char dummy23[sizeof (std::shared_ptr<SyntaxExpList>)];
 
       // FuncDef
-      char dummy23[sizeof (std::shared_ptr<SyntaxFuncDef>)];
+      char dummy24[sizeof (std::shared_ptr<SyntaxFuncDef>)];
 
       // FuncFParam
-      char dummy24[sizeof (std::shared_ptr<SyntaxFuncFParam>)];
+      char dummy25[sizeof (std::shared_ptr<SyntaxFuncFParam>)];
 
       // FuncFParams
-      char dummy25[sizeof (std::shared_ptr<SyntaxFuncFParamList>)];
+      char dummy26[sizeof (std::shared_ptr<SyntaxFuncFParamList>)];
 
       // InitVal
-      char dummy26[sizeof (std::shared_ptr<SyntaxInitVal>)];
+      char dummy27[sizeof (std::shared_ptr<SyntaxInitVal>)];
 
       // InitValList
-      char dummy27[sizeof (std::shared_ptr<SyntaxInitValList>)];
+      char dummy28[sizeof (std::shared_ptr<SyntaxInitValList>)];
 
       // IterationStmt
-      char dummy28[sizeof (std::shared_ptr<SyntaxIterationStmt>)];
+      char dummy29[sizeof (std::shared_ptr<SyntaxIterationStmt>)];
 
       // LAndExp
-      char dummy29[sizeof (std::shared_ptr<SyntaxLAndExp>)];
+      char dummy30[sizeof (std::shared_ptr<SyntaxLAndExp>)];
 
       // LOrExp
-      char dummy30[sizeof (std::shared_ptr<SyntaxLOrExp>)];
+      char dummy31[sizeof (std::shared_ptr<SyntaxLOrExp>)];
 
       // LVal
-      char dummy31[sizeof (std::shared_ptr<SyntaxLVal>)];
+      char dummy32[sizeof (std::shared_ptr<SyntaxLVal>)];
 
       // MulExp
-      char dummy32[sizeof (std::shared_ptr<SyntaxMulExp>)];
+      char dummy33[sizeof (std::shared_ptr<SyntaxMulExp>)];
 
       // Number
-      char dummy33[sizeof (std::shared_ptr<SyntaxNumber>)];
+      char dummy34[sizeof (std::shared_ptr<SyntaxNumber>)];
 
-      // IndexList
-      char dummy34[sizeof (std::shared_ptr<SyntaxParamArrayExpList>)];
+      // ParamArrayExpList
+      char dummy35[sizeof (std::shared_ptr<SyntaxParamArrayExpList>)];
 
       // PrimaryExp
-      char dummy35[sizeof (std::shared_ptr<SyntaxPrimaryExp>)];
+      char dummy36[sizeof (std::shared_ptr<SyntaxPrimaryExp>)];
 
       // RelExp
-      char dummy36[sizeof (std::shared_ptr<SyntaxRelExp>)];
+      char dummy37[sizeof (std::shared_ptr<SyntaxRelExp>)];
 
       // ReturnStmt
-      char dummy37[sizeof (std::shared_ptr<SyntaxReturnStmt>)];
+      char dummy38[sizeof (std::shared_ptr<SyntaxReturnStmt>)];
 
       // SelectStmt
-      char dummy38[sizeof (std::shared_ptr<SyntaxSelectStmt>)];
+      char dummy39[sizeof (std::shared_ptr<SyntaxSelectStmt>)];
 
       // Stmt
-      char dummy39[sizeof (std::shared_ptr<SyntaxStmt>)];
+      char dummy40[sizeof (std::shared_ptr<SyntaxStmt>)];
 
       // UnaryExp
-      char dummy40[sizeof (std::shared_ptr<SyntaxUnaryExp>)];
+      char dummy41[sizeof (std::shared_ptr<SyntaxUnaryExp>)];
 
       // VarDecl
-      char dummy41[sizeof (std::shared_ptr<SyntaxVarDecl>)];
+      char dummy42[sizeof (std::shared_ptr<SyntaxVarDecl>)];
 
       // VarDef
-      char dummy42[sizeof (std::shared_ptr<SyntaxVarDef>)];
+      char dummy43[sizeof (std::shared_ptr<SyntaxVarDef>)];
 
       // VarDefList
-      char dummy43[sizeof (std::shared_ptr<SyntaxVarDefList>)];
+      char dummy44[sizeof (std::shared_ptr<SyntaxVarDefList>)];
 
       // T_IDENTIFIER
-      char dummy44[sizeof (std::string)];
+      char dummy45[sizeof (std::string)];
 
-      // BType
       // FuncType
-      char dummy45[sizeof (type_specifier)];
+      char dummy46[sizeof (type_specifier)];
 
       // UnaryOp
-      char dummy46[sizeof (unaryop)];
+      char dummy47[sizeof (unaryop)];
 };
 
     /// Symbol semantic values.
@@ -699,6 +701,7 @@ namespace yy {
       basic_symbol (typename Base::kind_type t, YY_RVREF (int) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAddExp>) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayConstExpList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayExpList>) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAssignStmt>) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlock>) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlockItem>) v, YY_RVREF (location_type) l);
@@ -1034,7 +1037,7 @@ namespace yy {
     /// \param yyvalue   the value to check
     static bool yy_table_value_is_error_ (int yyvalue);
 
-    static const short yypact_ninf_;
+    static const signed char yypact_ninf_;
     static const signed char yytable_ninf_;
 
     /// Convert a scanner token number \a t to a symbol number.
@@ -1183,7 +1186,7 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 266,     ///< Last index in yytable_.
+      yylast_ = 225,     ///< Last index in yytable_.
       yynnts_ = 46,  ///< Number of nonterminal symbols.
       yyfinal_ = 12, ///< Termination state number.
       yyterror_ = 1,
@@ -1199,7 +1202,7 @@ namespace yy {
 
 
 } // yy
-#line 1203 "./build/sysy_parser.hh" // lalr1.cc:403
+#line 1206 "./build/sysy_parser.hh" // lalr1.cc:403
 
 
 

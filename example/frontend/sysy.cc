@@ -15,7 +15,8 @@ int main (int argc, char *argv[])
             driver.trace_parsing = true;
         else if (argv[i] == std::string ("-s"))
             driver.trace_scanning = true;
-        else if ( root = driver.parse(argv[i]) ){
+        else if ( root = driver.parse(argv[i]) )
+        {
             std::cout << driver.root << "KO";
             printer->visit(*root);
         }

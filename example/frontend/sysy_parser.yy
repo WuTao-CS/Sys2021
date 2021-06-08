@@ -22,7 +22,7 @@ class sysy_driver;
 %initial-action
 {
     // Initialize the initial location.
-    @$.begin.filename = @$.end.filename = &driver.file;
+    @$.begin.filename = @$.T_END.filename = &driver.file;
 };
 
 // Enable tracing and verbose errors (which may be wrong!)
@@ -39,21 +39,21 @@ class sysy_driver;
 // Tokens:
 %define api.token.prefix {TOK_}
 
-%token END
-%token ERROR 258 ADD 259 SUB 260 MUL 261 DIV 262 LT 263 LTE 264
-%token GT 265 GTE 266 EQ 267 NEQ 268 ASSIN 269 SEMICOLON 270 
-%token COMMA 271 LPARENTHESE 272 RPARENTHESE 273 LBRACKET 274 
-%token RBRACKET 275 LBRACE 276 RBRACE 277 ELSE 278 IF 279
-%token INT 280 RETURN 281 VOID 282 WHILE 283 
-%token <std::string>IDENTIFIER 284
-%token <int>NUMBER 285 
-%token ARRAY 286 LETTER 287 EOL 288 COMMENT 289 
-%token BLANK 290 CONST 291 BREAK 292 CONTINUE 293 NOT 294
-%token AND 295 OR 296 MOD 297
+%token T_END
+%token T_ERROR 258 T_ADD 259 T_SUB 260 T_MUL 261 T_DIV 262 T_LT 263 T_LTE 264
+%token T_GT 265 T_GTE 266 T_EQ 267 T_NEQ 268 T_ASSIN 269 T_SEMICOLIN 270 
+%token T_COMMA 271 T_LPARENTHESE 272 T_RPARENTHESE 273 T_LBRACKET 274 
+%token T_RBRACKET 275 T_LBRACE 276 T_RBRACE 277 T_ELSE 278 T_IF 279
+%token T_INT 280 T_RETURN 281 T_VOID 282 T_WHILE 283 
+%token <std::string>T_IDENTIFIER 284
+%token <int>T_NUMBER 285 
+%token T_ARRAY 286 T_LETTER 287 T_EOL 288 T_COMMENT 289 
+%token T_BLANK 290 T_CONST 291 T_BREAK 292 T_CONTINUE 293 T_NOT 294
+%token T_AND 295 T_OR 296 T_MOD 297
 
 // Use variant-based semantic values: %type and %token expect genuine types
-/* %token <std::string> IDENTIFIER "identifier"
-%token <int> NUMBER "number" */
+/* %token <std::string> T_IDENTIFIER "identifier"
+%token <int> T_NUMBER "number" */
 %type <SyntaxCompUnit*>CompUnit
 %type <SyntaxDeclDef*>DeclDef
 // %type <SyntaxDecl*>Decl
@@ -109,10 +109,10 @@ class sysy_driver;
 %start Begin 
 
 %%
-Begin: CompUnit END { 
+Begin: CompUnit T_END { 
   auto printer=new syntax_tree_printer; 
   // printer->visit(*$1);
-  // std::cout << "test END\n";
+  // std::cout << "test T_END\n";
   driver.root = $1;
   // std::cout << driver.root << $1;
   // printer->visit(*(driver.root));
@@ -147,13 +147,13 @@ DeclDef:ConstDecl{
     $$->FuncDef=std::shared_ptr<SyntaxFuncDef>($1);
   }
 	;
-ConstDecl:CONST DefType ConstDefList SEMICOLON{
+ConstDecl:T_CONST DefType ConstDefList T_SEMICOLIN{
     $$=new SyntaxConstDecl();
     $$->ConstDefList.swap($3->list);
     $$->type=TYPE_INT;
 }
 	;
-ConstDefList:ConstDefList COMMA ConstDef{
+ConstDefList:ConstDefList T_COMMA ConstDef{
     $1->list.push_back(std::shared_ptr<SyntaxConstDef>($3));
     $$=$1;
 }
@@ -162,14 +162,14 @@ ConstDefList:ConstDefList COMMA ConstDef{
     $$->list.push_back(std::shared_ptr<SyntaxConstDef>($1));
   }
 	;
-ConstDef:IDENTIFIER ArrayConstExpList ASSIN ConstInitVal{
+ConstDef:T_IDENTIFIER ArrayConstExpList T_ASSIN ConstInitVal{
     $$=new SyntaxConstDef();
     $$->ArrayConstExpList.swap($2->list);
     $$->id=$1;
     $$->ConstInitVal=std::shared_ptr<SyntaxConstInitVal>($4);
 }
 	;
-ArrayConstExpList:ArrayConstExpList LBRACKET ConstExp RBRACKET{
+ArrayConstExpList:ArrayConstExpList T_LBRACKET ConstExp T_RBRACKET{
     $1->list.push_back(std::shared_ptr<SyntaxConstExp>($3));
     $$=$1;
 }
@@ -181,17 +181,17 @@ ConstInitVal:ConstExp{
     $$=new SyntaxConstInitVal();
     $$->ConstExp=std::shared_ptr<SyntaxConstExp>($1);
 }
-	| LBRACE ConstInitValList RBRACE{
+	| T_LBRACE ConstInitValList T_RBRACE{
     $$=new SyntaxConstInitVal();
     $$->ConstExp=nullptr;
     $$->ConstInitValList.swap($2->list);
   }
-	| LBRACE RBRACE{
+	| T_LBRACE T_RBRACE{
     $$=new SyntaxConstInitVal();
     $$->ConstExp=nullptr;
   }
 	;
-ConstInitValList:ConstInitValList COMMA ConstInitVal{
+ConstInitValList:ConstInitValList T_COMMA ConstInitVal{
     $1->list.push_back(std::shared_ptr<SyntaxConstInitVal>($3));
     $$=$1;
 }
@@ -200,13 +200,13 @@ ConstInitValList:ConstInitValList COMMA ConstInitVal{
     $$->list.push_back(std::shared_ptr<SyntaxConstInitVal>($1));
   }
 	;
-VarDecl:DefType VarDefList SEMICOLON{
+VarDecl:DefType VarDefList T_SEMICOLIN{
     $$=new SyntaxVarDecl();
     $$->VarDefList.swap($2->list);
     $$->type=TYPE_INT;
 }
 	;
-VarDefList:VarDefList COMMA VarDef{
+VarDefList:VarDefList T_COMMA VarDef{
     $1->list.push_back(std::shared_ptr<SyntaxVarDef>($3));
     $$=$1;
 }
@@ -215,13 +215,13 @@ VarDefList:VarDefList COMMA VarDef{
     $$->list.push_back(std::shared_ptr<SyntaxVarDef>($1));
   }
 	;
-VarDef:IDENTIFIER ArrayConstExpList{
+VarDef:T_IDENTIFIER ArrayConstExpList{
     $$=new SyntaxVarDef();
     $$->id=$1;
     $$->ArrayConstExpList.swap($2->list);
     $$->InitVal=nullptr;
 }
-	| IDENTIFIER ArrayConstExpList ASSIN InitVal{
+	| T_IDENTIFIER ArrayConstExpList T_ASSIN InitVal{
     $$=new SyntaxVarDef();
     $$->id=$1;
     $$->ArrayConstExpList.swap($2->list);
@@ -232,17 +232,17 @@ InitVal:Exp{
     $$=new SyntaxInitVal();
     $$->Exp=std::shared_ptr<SyntaxExp>($1);
 }
-	| LBRACE RBRACE{
+	| T_LBRACE T_RBRACE{
     $$=new SyntaxInitVal();
     $$->Exp=nullptr;
   }
-	| LBRACE InitValList RBRACE{
+	| T_LBRACE InitValList T_RBRACE{
     $$=new SyntaxInitVal();
     $$->Exp=nullptr;
     $$->InitValList.swap($2->list);
   }
 	;
-InitValList:InitValList COMMA InitVal{
+InitValList:InitValList T_COMMA InitVal{
     $1->list.push_back(std::shared_ptr<SyntaxInitVal>($3));
     $$=$1;
   }
@@ -251,13 +251,13 @@ InitValList:InitValList COMMA InitVal{
     $$->list.push_back(std::shared_ptr<SyntaxInitVal>($1));
   }
 	;
-FuncDef:DefType IDENTIFIER LPARENTHESE RPARENTHESE Block{
+FuncDef:DefType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block{
     $$=new SyntaxFuncDef();
     $$->type=$1;
     $$->id=$2;
     $$->Block=std::shared_ptr<SyntaxBlock>($5);
 }
-	| DefType IDENTIFIER LPARENTHESE FuncFParamList RPARENTHESE Block{
+	| DefType T_IDENTIFIER T_LPARENTHESE FuncFParamList T_RPARENTHESE Block{
     $$=new SyntaxFuncDef();
     $$->type=$1;
     $$->id=$2;
@@ -265,10 +265,10 @@ FuncDef:DefType IDENTIFIER LPARENTHESE RPARENTHESE Block{
     $$->Block=std::shared_ptr<SyntaxBlock>($6);
   }
 	;
-DefType:VOID{$$=TYPE_VOID;}
-	| INT{$$=TYPE_INT;}
+DefType:T_VOID{$$=TYPE_VOID;}
+	| T_ELSE{$$=TYPE_INT;}
 	;
-FuncFParamList:FuncFParamList COMMA FuncFParam{
+FuncFParamList:FuncFParamList T_COMMA FuncFParam{
     $1->list.push_back(std::shared_ptr<SyntaxFuncFParam>($3));
     $$=$1;
 }
@@ -277,29 +277,29 @@ FuncFParamList:FuncFParamList COMMA FuncFParam{
     $$->list.push_back(std::shared_ptr<SyntaxFuncFParam>($1));
   }
 	;
-FuncFParam:DefType IDENTIFIER ParamArrayExpList{
+FuncFParam:DefType T_IDENTIFIER ParamArrayExpList{
     $$=new SyntaxFuncFParam();
     $$->type=TYPE_INT;
     $$->isarray=1;
     $$->id=$2;
     $$->ParamArrayExpList.swap($3->list);
 }
-	| DefType IDENTIFIER{
+	| DefType T_IDENTIFIER{
     $$=new SyntaxFuncFParam();
     $$->type=TYPE_INT;
     $$->id=$2;
     $$->isarray=0;
   }
 	;
-ParamArrayExpList:ParamArrayExpList LBRACKET Exp RBRACKET{
+ParamArrayExpList:ParamArrayExpList T_LBRACKET Exp T_RBRACKET{
     $1->list.push_back(std::shared_ptr<SyntaxExp>($3));
     $$=$1;
 }
-	| ARRAY{
+	| T_ARRAY{
     $$=new SyntaxParamArrayExpList();
   }
 	;
-Block:LBRACE BlockItemList RBRACE{
+Block:T_LBRACE BlockItemList T_RBRACE{
     $$=new SyntaxBlock();
     $$->BlockItemList.swap($2->list);
 }
@@ -345,7 +345,7 @@ Stmt:AssignStmt{
     $$->IterationStmt=nullptr;
     $$->ReturnStmt=nullptr;
   }
-	| Exp SEMICOLON{
+	| Exp T_SEMICOLIN{
     $$=new SyntaxStmt();
     $$->BreakStmt=nullptr;
     $$->ContinueStmt=nullptr;
@@ -356,7 +356,7 @@ Stmt:AssignStmt{
     $$->IterationStmt=nullptr;
     $$->ReturnStmt=nullptr;
   }
-	| SEMICOLON{
+	| T_SEMICOLIN{
     $$=new SyntaxStmt();
     $$->BreakStmt=nullptr;
     $$->ContinueStmt=nullptr;
@@ -434,44 +434,44 @@ Stmt:AssignStmt{
     $$->ReturnStmt=std::shared_ptr<SyntaxReturnStmt>($1);
   }
 	;
-BreakStmt:BREAK SEMICOLON{
+BreakStmt:T_BREAK T_SEMICOLIN{
     $$=new SyntaxBreakStmt();
 }
 	;
-ContinueStmt:CONTINUE SEMICOLON{
+ContinueStmt:T_CONTINUE T_SEMICOLIN{
     $$=new SyntaxContinueStmt();
 }
 	;
-AssignStmt:LVal ASSIN Exp SEMICOLON{
+AssignStmt:LVal T_ASSIN Exp T_SEMICOLIN{
     $$=new SyntaxAssignStmt();
     $$->LVal=std::shared_ptr<SyntaxLVal>($1);
     $$->Exp=std::shared_ptr<SyntaxExp>($3);
 }
 	;
-SelectStmt:IF LPARENTHESE Cond RPARENTHESE Stmt{
+SelectStmt:T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt{
     $$=new SyntaxSelectStmt();
     $$->Cond=std::shared_ptr<SyntaxCond>($3);
     $$->ifStmt=std::shared_ptr<SyntaxStmt>($5);
 }
-	| IF LPARENTHESE Cond RPARENTHESE Stmt ELSE Stmt{
+	| T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt{
     $$=new SyntaxSelectStmt();
     $$->Cond=std::shared_ptr<SyntaxCond>($3);
     $$->ifStmt=std::shared_ptr<SyntaxStmt>($5);
     $$->elseStmt=std::shared_ptr<SyntaxStmt>($7);
   }
 	;
-IterationStmt:WHILE LPARENTHESE Cond RPARENTHESE Stmt{
+IterationStmt:T_WHILE T_LPARENTHESE Cond T_RPARENTHESE Stmt{
     // std::cout<<"ok"<<std::endl;
     $$=new SyntaxIterationStmt();
     $$->Cond=std::shared_ptr<SyntaxCond>($3);
     $$->Stmt=std::shared_ptr<SyntaxStmt>($5);
 }
 	;
-ReturnStmt:RETURN Exp SEMICOLON{
+ReturnStmt:T_RETURN Exp T_SEMICOLIN{
     $$=new SyntaxReturnStmt();
     $$->Exp=std::shared_ptr<SyntaxExp>($2);
 }
-	| RETURN SEMICOLON{
+	| T_RETURN T_SEMICOLIN{
     $$=new SyntaxReturnStmt();
     $$->Exp=nullptr;
   }
@@ -487,13 +487,13 @@ Cond:LOrExp{
     $$->LOrExp=std::shared_ptr<SyntaxLOrExp>($1);
 }
 	;
-LVal:IDENTIFIER ArrayExpList{
+LVal:T_IDENTIFIER ArrayExpList{
     $$=new SyntaxLVal();
     $$->id=$1;
     $$->ArrayExpList.swap($2->list);
 }
 	;
-ArrayExpList:ArrayExpList LBRACKET Exp RBRACKET{
+ArrayExpList:ArrayExpList T_LBRACKET Exp T_RBRACKET{
     $1->list.push_back(std::shared_ptr<SyntaxExp>($3));
     $$=$1;
 }
@@ -501,7 +501,7 @@ ArrayExpList:ArrayExpList LBRACKET Exp RBRACKET{
     $$=new SyntaxArrayExpList();
   }
 	;
-PrimaryExp:LPARENTHESE Exp RPARENTHESE{
+PrimaryExp:T_LPARENTHESE Exp T_RPARENTHESE{
     $$=new SyntaxPrimaryExp();
     $$->Exp=std::shared_ptr<SyntaxExp>($2);
     $$->LVal=nullptr;
@@ -520,7 +520,7 @@ PrimaryExp:LPARENTHESE Exp RPARENTHESE{
     $$->Number=std::shared_ptr<SyntaxNumber>($1);
   }
 	;
-Number:NUMBER{
+Number:T_NUMBER{
     $$=new SyntaxNumber();
     $$->num=$1;
 }
@@ -547,21 +547,21 @@ UnaryExp:PrimaryExp{
     $$->UnaryExp=std::shared_ptr<SyntaxUnaryExp>($2);
   }
 	;
-Callee:IDENTIFIER LPARENTHESE ExpList RPARENTHESE{
+Callee:T_IDENTIFIER T_LPARENTHESE ExpList T_RPARENTHESE{
     $$=new SyntaxCallee();
     $$->id=$1;
     $$->ExpList.swap($3->list);
   }
-  | IDENTIFIER LPARENTHESE RPARENTHESE {
+  | T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE {
     $$=new SyntaxCallee();
     $$->id=$1;
   }
 	;
-UnaryOp: ADD{$$=OP_POS;}
-	| SUB{$$=OP_NEG;}
-	| NOT{$$=OP_NOT;}
+UnaryOp: T_ADD{$$=OP_POS;}
+	| T_SUB{$$=OP_NEG;}
+	| T_NOT{$$=OP_NOT;}
 	;
-ExpList:ExpList COMMA Exp{
+ExpList:ExpList T_COMMA Exp{
     $1->list.push_back(std::shared_ptr<SyntaxExp>($3));
     $$=$1;
     }
@@ -575,19 +575,19 @@ MulExp:UnaryExp{
     $$->MulExp=nullptr;
     $$->UnaryExp=std::shared_ptr<SyntaxUnaryExp>($1);
 }
-	| MulExp MUL UnaryExp{
+	| MulExp T_MUL UnaryExp{
     $$=new SyntaxMulExp();
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($1);
     $$->UnaryExp=std::shared_ptr<SyntaxUnaryExp>($3);
     $$->op=OP_MUL;
   }
-	| MulExp DIV UnaryExp{
+	| MulExp T_DIV UnaryExp{
     $$=new SyntaxMulExp();
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($1);
     $$->UnaryExp=std::shared_ptr<SyntaxUnaryExp>($3);
     $$->op=OP_DIV;
   }
-	| MulExp MOD UnaryExp{
+	| MulExp T_MOD UnaryExp{
     $$=new SyntaxMulExp();
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($1);
     $$->UnaryExp=std::shared_ptr<SyntaxUnaryExp>($3);
@@ -599,13 +599,13 @@ AddExp:MulExp{
     $$->AddExp=nullptr;
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($1);
 }
-	| AddExp ADD MulExp{
+	| AddExp T_ADD MulExp{
     $$=new SyntaxAddExp();
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($1);
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($3);
     $$->op=OP_PLUS;
   }
-	| AddExp SUB MulExp{
+	| AddExp T_SUB MulExp{
     $$=new SyntaxAddExp();
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($1);
     $$->MulExp=std::shared_ptr<SyntaxMulExp>($3);
@@ -617,25 +617,25 @@ RelExp:AddExp{
     $$->RelExp=nullptr;
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($1);
 }
-	| RelExp LT AddExp{
+	| RelExp T_LT AddExp{
     $$=new SyntaxRelExp();
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($1);
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($3);
     $$->op=OP_LT;
   }
-	| RelExp GT AddExp{
+	| RelExp T_GT AddExp{
     $$=new SyntaxRelExp();
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($1);
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($3);
     $$->op=OP_GT;
   }
-	| RelExp LTE AddExp{
+	| RelExp T_LTE AddExp{
     $$=new SyntaxRelExp();
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($1);
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($3);
     $$->op=OP_LTE;
   }
-	| RelExp GTE AddExp{
+	| RelExp T_GTE AddExp{
     $$=new SyntaxRelExp();
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($1);
     $$->AddExp=std::shared_ptr<SyntaxAddExp>($3);
@@ -647,13 +647,13 @@ EqExp:RelExp{
     $$->EqExp=nullptr;
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($1);
   }
-	| EqExp EQ RelExp{
+	| EqExp T_EQ RelExp{
     $$=new SyntaxEqExp();
     $$->EqExp=std::shared_ptr<SyntaxEqExp>($1);
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($3);
     $$->op=OP_EQ;
   }
-	| EqExp NEQ RelExp{
+	| EqExp T_NEQ RelExp{
     $$=new SyntaxEqExp();
     $$->EqExp=std::shared_ptr<SyntaxEqExp>($1);
     $$->RelExp=std::shared_ptr<SyntaxRelExp>($3);
@@ -665,7 +665,7 @@ LAndExp:EqExp {
     $$->LAndExp=nullptr;
     $$->EqExp=std::shared_ptr<SyntaxEqExp>($1);
   }
-	| LAndExp AND EqExp{
+	| LAndExp T_AND EqExp{
     $$=new SyntaxLAndExp();
     $$->LAndExp=std::shared_ptr<SyntaxLAndExp>($1);
     $$->EqExp=std::shared_ptr<SyntaxEqExp>($3);
@@ -677,7 +677,7 @@ LOrExp:LAndExp{
     $$->LOrExp=nullptr;
     $$->LAndExp=std::shared_ptr<SyntaxLAndExp>($1);
   }
-	| LOrExp OR LAndExp{
+	| LOrExp T_OR LAndExp{
     $$=new SyntaxLOrExp();
     $$->LOrExp=std::shared_ptr<SyntaxLOrExp>($1);
     $$->LAndExp=std::shared_ptr<SyntaxLAndExp>($3);
@@ -693,8 +693,8 @@ ConstExp:AddExp{
 %%
 
 // Register errors to the driver:
-void yy::sysy_parser::error (const location_type& l,
+void yy::sysy_parser::T_ERROR (const location_type& l,
                           const std::string& m)
 {
-    driver.error(l, m);
+    driver.T_ERROR(l, m);
 }

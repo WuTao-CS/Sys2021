@@ -1,14 +1,11 @@
 #ifndef _SYNTAX_TREE_HPP_
 #define _SYNTAX_TREE_HPP_
 
-#include <vector>
-#include <memory>
 #include <iostream>
+#include <memory>
+#include <vector>
 
-enum type_specifier {
-  TYPE_INT,
-  TYPE_VOID
-};
+enum type_specifier { TYPE_INT, TYPE_VOID };
 
 enum relop {
   // <=
@@ -107,7 +104,7 @@ struct SyntaxLAndExp;
 struct SyntaxLOrExp;
 struct SyntaxConstExp;
 class syntax_tree_visitor;
-class syntax_tree_printer;
+
 class syntax_tree {
 public:
   syntax_tree(std::shared_ptr<SyntaxCompUnit>& start_node) {
@@ -121,287 +118,232 @@ public:
   void run_visitor(syntax_tree_visitor &visitor);
 
 private:
-  std::shared_ptr<SyntaxCompUnit> root = nullptr;//根节点
+  std::shared_ptr<SyntaxCompUnit> root = nullptr;
 };
 
-struct SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) = 0;
+struct SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) = 0;
 };
-struct SyntaxCompUnit:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final ;
-  std::vector<std::shared_ptr<SyntaxDeclDef>>
-  DeclDefList;
+struct SyntaxCompUnit : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxDeclDef>> DeclDefList;
 };
-struct SyntaxDeclDef:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxConstDecl>
-  ConstDecl;
-  std::shared_ptr<SyntaxVarDecl>
-  VarDecl;
-  std::shared_ptr<SyntaxFuncDef>
-  FuncDef;
+struct SyntaxDeclDef : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxConstDecl> ConstDecl;
+  std::shared_ptr<SyntaxVarDecl> VarDecl;
+  std::shared_ptr<SyntaxFuncDef> FuncDef;
 };
-struct SyntaxConstDecl:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxConstDef>>
-  ConstDefList;
+struct SyntaxConstDecl : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxConstDef>> ConstDefList;
   type_specifier type;
 };
-struct SyntaxConstDefList{
-  std::vector<std::shared_ptr<SyntaxConstDef>>list;
+struct SyntaxConstDefList {
+  std::vector<std::shared_ptr<SyntaxConstDef>> list;
 };
 // struct SyntaxBType;
-struct SyntaxConstDef:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxConstExp>>
-  ArrayConstExpList;
-  std::shared_ptr<SyntaxConstInitVal>
-  ConstInitVal;
+struct SyntaxConstDef : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxConstExp>> ArrayConstExpList;
+  std::shared_ptr<SyntaxConstInitVal> ConstInitVal;
   std::string id;
 };
-struct SyntaxArrayConstExpList{
-  std::vector<std::shared_ptr<SyntaxConstExp>>list;
+struct SyntaxArrayConstExpList {
+  std::vector<std::shared_ptr<SyntaxConstExp>> list;
 };
-struct SyntaxConstInitVal:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxConstExp>
-  ConstExp;
-  std::vector<std::shared_ptr<SyntaxConstInitVal>>
-  ConstInitValList;       
+struct SyntaxConstInitVal : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxConstExp> ConstExp;
+  std::vector<std::shared_ptr<SyntaxConstInitVal>> ConstInitValList;
+  std::vector<int> bounds;
 };
-struct SyntaxConstInitValList{
-  std::vector<std::shared_ptr<SyntaxConstInitVal>>list;
+struct SyntaxConstInitValList {
+  std::vector<std::shared_ptr<SyntaxConstInitVal>> list;
 };
-struct SyntaxVarDecl:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxVarDef>>
-  VarDefList;
+struct SyntaxVarDecl : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxVarDef>> VarDefList;
   type_specifier type;
 };
-struct SyntaxVarDefList{
-  std::vector<std::shared_ptr<SyntaxVarDef>>list;
+struct SyntaxVarDefList {
+  std::vector<std::shared_ptr<SyntaxVarDef>> list;
 };
-struct SyntaxVarDef:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxVarDef : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   std::string id;
-  std::vector<std::shared_ptr<SyntaxConstExp>>
-  ArrayConstExpList;
-  std::shared_ptr<SyntaxInitVal>
-  InitVal;
+  std::vector<std::shared_ptr<SyntaxConstExp>> ArrayConstExpList;
+  std::shared_ptr<SyntaxInitVal> InitVal;
 };
-struct SyntaxInitVal:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxInitVal>>       
-  InitValList;  
-  std::shared_ptr<SyntaxExp>
-  Exp;
+struct SyntaxInitVal : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxInitVal>> InitValList;
+  std::shared_ptr<SyntaxExp> Exp;
+  std::vector<int> bounds;
 };
-struct SyntaxInitValList{
-  std::vector<std::shared_ptr<SyntaxInitVal>>list;
+struct SyntaxInitValList 
+{
+  std::vector<std::shared_ptr<SyntaxInitVal>> list;
 };
-struct SyntaxFuncDef:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxFuncDef : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   type_specifier type;
   std::string id;
-  std::vector<std::shared_ptr<SyntaxFuncFParam>>
-  FuncFParamList;
-  std::shared_ptr<SyntaxBlock>
-  Block;
+  std::vector<std::shared_ptr<SyntaxFuncFParam>> FuncFParamList;
+  std::shared_ptr<SyntaxBlock> Block;
 };
 // struct SyntaxFuncType;
-struct SyntaxFuncFParamList{
-  std::vector<std::shared_ptr<SyntaxFuncFParam>>list;
+struct SyntaxFuncFParamList {
+  std::vector<std::shared_ptr<SyntaxFuncFParam>> list;
 };
-struct SyntaxFuncFParam:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxFuncFParam : SyntaxTreeNode 
+{
+  virtual void accept(syntax_tree_visitor &) final;
   type_specifier type;
   std::string id;
   bool isarray;
-  std::vector<std::shared_ptr<SyntaxExp>>
-  ParamArrayExpList;
+  std::vector<std::shared_ptr<SyntaxExp>> ParamArrayExpList;
 };
-struct SyntaxParamArrayExpList{
-  std::vector<std::shared_ptr<SyntaxExp>>list;
+struct SyntaxParamArrayExpList {
+  std::vector<std::shared_ptr<SyntaxExp>> list;
 };
-struct SyntaxBlock:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxBlockItem>>
-  BlockItemList;
+struct SyntaxBlock : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxBlockItem>> BlockItemList;
 };
-struct SyntaxBlockItemList{
-  std::vector<std::shared_ptr<SyntaxBlockItem>>list;
+struct SyntaxBlockItemList {
+  std::vector<std::shared_ptr<SyntaxBlockItem>> list;
 };
-struct SyntaxBlockItem:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxConstDecl>
-  ConstDecl;
-  std::shared_ptr<SyntaxVarDecl>
-  VarDecl;
-  std::shared_ptr<SyntaxStmt>
-  Stmt;
+struct SyntaxBlockItem : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxConstDecl> ConstDecl;
+  std::shared_ptr<SyntaxVarDecl> VarDecl;
+  std::shared_ptr<SyntaxStmt> Stmt;
 };
-struct SyntaxStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxBreakStmt>
-  BreakStmt;
-  std::shared_ptr<SyntaxContinueStmt>
-  ContinueStmt;
-  std::shared_ptr<SyntaxAssignStmt>
-  AssignStmt;
-  std::shared_ptr<SyntaxExp>
-  Exp;
-  std::shared_ptr<SyntaxBlock>
-  Block;
-  std::shared_ptr<SyntaxSelectStmt>
-  SelectStmt;
-  std::shared_ptr<SyntaxIterationStmt>
-  IterationStmt;
-  std::shared_ptr<SyntaxReturnStmt>
-  ReturnStmt;
+struct SyntaxStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxBreakStmt> BreakStmt;
+  std::shared_ptr<SyntaxContinueStmt> ContinueStmt;
+  std::shared_ptr<SyntaxAssignStmt> AssignStmt;
+  std::shared_ptr<SyntaxExp> Exp;
+  std::shared_ptr<SyntaxBlock> Block;
+  std::shared_ptr<SyntaxSelectStmt> SelectStmt;
+  std::shared_ptr<SyntaxIterationStmt> IterationStmt;
+  std::shared_ptr<SyntaxReturnStmt> ReturnStmt;
 };
-struct SyntaxBreakStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxBreakStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
 };
-struct SyntaxContinueStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxContinueStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
 };
-struct SyntaxAssignStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxLVal>
-  LVal;
-  std::shared_ptr<SyntaxExp>
-  Exp;
+struct SyntaxAssignStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxLVal> LVal;
+  std::shared_ptr<SyntaxExp> Exp;
 };
-struct SyntaxSelectStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxCond>
-  Cond;
-  std::shared_ptr<SyntaxStmt>
-  ifStmt;
-  std::shared_ptr<SyntaxStmt>
-  elseStmt;
+struct SyntaxSelectStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxCond> Cond;
+  std::shared_ptr<SyntaxStmt> ifStmt;
+  std::shared_ptr<SyntaxStmt> elseStmt;
 };
-struct SyntaxIterationStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxCond>
-  Cond;
-  std::shared_ptr<SyntaxStmt>
-  Stmt;
-}; 
-struct SyntaxReturnStmt:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxExp>
-  Exp;
+struct SyntaxIterationStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxCond> Cond;
+  std::shared_ptr<SyntaxStmt> Stmt;
+};
+struct SyntaxReturnStmt : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxExp> Exp;
 };
 
-struct SyntaxExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxAddExp>
-  AddExp;
+struct SyntaxExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxAddExp> AddExp;
 };
-struct SyntaxCond:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxLOrExp>
-  LOrExp;
+struct SyntaxCond : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxLOrExp> LOrExp;
 };
-struct SyntaxLVal:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::vector<std::shared_ptr<SyntaxExp>>
-  ArrayExpList;
+struct SyntaxLVal : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::vector<std::shared_ptr<SyntaxExp>> ArrayExpList;
   std::string id;
 };
-struct SyntaxArrayExpList{
-  std::vector<std::shared_ptr<SyntaxExp>>list;
+struct SyntaxArrayExpList {
+  std::vector<std::shared_ptr<SyntaxExp>> list;
 };
-struct SyntaxPrimaryExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxExp>
-  Exp;
-  std::shared_ptr<SyntaxLVal>
-  LVal;
-  std::shared_ptr<SyntaxNumber>
-  Number;
+struct SyntaxPrimaryExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxExp> Exp;
+  std::shared_ptr<SyntaxLVal> LVal;
+  std::shared_ptr<SyntaxNumber> Number;
 };
-struct SyntaxNumber:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxNumber : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   int32_t num;
 };
-struct SyntaxUnaryExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxUnaryExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   unaryop op;
-  std::shared_ptr<SyntaxPrimaryExp>
-  PrimaryExp;
-  std::shared_ptr<SyntaxCallee>
-  Callee;
-  std::shared_ptr<SyntaxUnaryExp>
-  UnaryExp;
+  std::shared_ptr<SyntaxPrimaryExp> PrimaryExp;
+  std::shared_ptr<SyntaxCallee> Callee;
+  std::shared_ptr<SyntaxUnaryExp> UnaryExp;
 };
-struct SyntaxCallee:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxCallee : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   std::string id;
-  std::vector<std::shared_ptr<SyntaxExp>>
-  ExpList;
+  std::vector<std::shared_ptr<SyntaxExp>> ExpList;
 };
 // struct SyntaxUnaryOp:SyntaxTreeNode{};
-struct SyntaxExpList{
-  std::vector<std::shared_ptr<SyntaxExp>>list;
+struct SyntaxExpList {
+  std::vector<std::shared_ptr<SyntaxExp>> list;
 };
-struct SyntaxMulExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxMulExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   mulop op;
-  std::shared_ptr<SyntaxMulExp>
-  MulExp;
-  std::shared_ptr<SyntaxUnaryExp>
-  UnaryExp;
+  std::shared_ptr<SyntaxMulExp> MulExp;
+  std::shared_ptr<SyntaxUnaryExp> UnaryExp;
 };
-struct SyntaxAddExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxAddExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   addop op;
-  std::shared_ptr<SyntaxAddExp>
-  AddExp;
-  std::shared_ptr<SyntaxMulExp>
-  MulExp;
+  std::shared_ptr<SyntaxAddExp> AddExp;
+  std::shared_ptr<SyntaxMulExp> MulExp;
 };
-struct SyntaxRelExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxRelExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   relop op;
-  std::shared_ptr<SyntaxRelExp>
-  RelExp;
-  std::shared_ptr<SyntaxAddExp>
-  AddExp;
+  std::shared_ptr<SyntaxRelExp> RelExp;
+  std::shared_ptr<SyntaxAddExp> AddExp;
 };
-struct SyntaxEqExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxEqExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   relop op;
-  std::shared_ptr<SyntaxEqExp>
-  EqExp;
-  std::shared_ptr<SyntaxRelExp>
-  RelExp;
+  std::shared_ptr<SyntaxEqExp> EqExp;
+  std::shared_ptr<SyntaxRelExp> RelExp;
 };
-struct SyntaxLAndExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxLAndExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   logop op;
-  std::shared_ptr<SyntaxLAndExp>
-  LAndExp;
-  std::shared_ptr<SyntaxEqExp>
-  EqExp;
+  std::shared_ptr<SyntaxLAndExp> LAndExp;
+  std::shared_ptr<SyntaxEqExp> EqExp;
 };
-struct SyntaxLOrExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
+struct SyntaxLOrExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
   logop op;
-  std::shared_ptr<SyntaxLOrExp>
-  LOrExp;
-  std::shared_ptr<SyntaxLAndExp>
-  LAndExp;
+  std::shared_ptr<SyntaxLOrExp> LOrExp;
+  std::shared_ptr<SyntaxLAndExp> LAndExp;
 };
-struct SyntaxConstExp:SyntaxTreeNode{
-  virtual void accept(syntax_tree_visitor&) final;
-  std::shared_ptr<SyntaxAddExp>
-  AddExp;
+struct SyntaxConstExp : SyntaxTreeNode {
+  virtual void accept(syntax_tree_visitor &) final;
+  std::shared_ptr<SyntaxAddExp> AddExp;
 };
 
 class syntax_tree_visitor {
- public:
+public:
+  virtual void visit(SyntaxConstExp &) = 0;
   virtual void visit(SyntaxCompUnit &) = 0;
   virtual void visit(SyntaxConstDecl &) = 0;
   virtual void visit(SyntaxConstDef &) = 0;
@@ -419,6 +361,7 @@ class syntax_tree_visitor {
   virtual void visit(SyntaxIterationStmt &) = 0;
   virtual void visit(SyntaxReturnStmt &) = 0;
   virtual void visit(SyntaxLVal &) = 0;
+  virtual void visit(SyntaxPrimaryExp &) = 0;
   virtual void visit(SyntaxNumber &) = 0;
   virtual void visit(SyntaxUnaryExp &) = 0;
   virtual void visit(SyntaxCallee &) = 0;
@@ -431,6 +374,7 @@ class syntax_tree_visitor {
 };
 class syntax_tree_printer : public syntax_tree_visitor {
 public:
+    syntax_tree_printer();
   void visit(SyntaxCompUnit &) final;
   void visit(SyntaxConstDecl &) final;
   void visit(SyntaxConstDef &) final;
@@ -448,6 +392,7 @@ public:
   void visit(SyntaxIterationStmt &) final;
   void visit(SyntaxReturnStmt &) final;
   void visit(SyntaxLVal &) final;
+  void visit(SyntaxPrimaryExp &) final;
   void visit(SyntaxNumber &) final;
   void visit(SyntaxUnaryExp &) final;
   void visit(SyntaxCallee &) final;
@@ -457,9 +402,14 @@ public:
   void visit(SyntaxEqExp &) final;
   void visit(SyntaxLAndExp &) final;
   void visit(SyntaxLOrExp &) final;
+  void visit(SyntaxConstExp &) final;
   void add_depth() { depth += 2; }
-  void remove_depth() { depth -= 2; }
-private :
+  void remove_depth() {
+    // std::cerr<<"depth-4"<<std::endl;
+    depth -= 2;
+  }
+
+private:
   int depth = 0;
 };
 #endif // _SYNTAX_TREE_HPP_
