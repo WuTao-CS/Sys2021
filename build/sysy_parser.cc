@@ -46,7 +46,7 @@ using namespace std;
 #undef yylex
 #define yylex scanner->yylex
 
-std::shared_ptr<SyntaxCompUnit> rootFromParser;
+std::shared_ptr<TreeNodeCompUnit> rootFromParser;
 
 #line 52 "./build/sysy_parser.cc" // lalr1.cc:431
 
@@ -192,175 +192,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxAddExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeAddExp> > (YY_MOVE (other.value));
         break;
 
       case 50: // ArrayConstExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxArrayConstExpList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeArrayConstExpList> > (YY_MOVE (other.value));
         break;
 
       case 75: // ArrayExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxArrayExpList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeArrayExpList> > (YY_MOVE (other.value));
         break;
 
       case 68: // AssignStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxAssignStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeAssignStmt> > (YY_MOVE (other.value));
         break;
 
       case 62: // Block
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlock> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlock> > (YY_MOVE (other.value));
         break;
 
       case 64: // BlockItem
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlockItem> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlockItem> > (YY_MOVE (other.value));
         break;
 
       case 63: // BlockItemList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlockItemList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlockItemList> > (YY_MOVE (other.value));
         break;
 
       case 66: // BreakStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBreakStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBreakStmt> > (YY_MOVE (other.value));
         break;
 
       case 79: // Callee
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCallee> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCallee> > (YY_MOVE (other.value));
         break;
 
       case 45: // CompUnit
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCompUnit> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCompUnit> > (YY_MOVE (other.value));
         break;
 
       case 73: // Cond
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCond> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCond> > (YY_MOVE (other.value));
         break;
 
       case 47: // ConstDecl
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDecl> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDecl> > (YY_MOVE (other.value));
         break;
 
       case 48: // ConstDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDef> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDef> > (YY_MOVE (other.value));
         break;
 
       case 49: // ConstDefList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDefList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDefList> > (YY_MOVE (other.value));
         break;
 
       case 88: // ConstExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstExp> > (YY_MOVE (other.value));
         break;
 
       case 51: // ConstInitVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstInitVal> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstInitVal> > (YY_MOVE (other.value));
         break;
 
       case 52: // ConstInitValList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstInitValList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstInitValList> > (YY_MOVE (other.value));
         break;
 
       case 67: // ContinueStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxContinueStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeContinueStmt> > (YY_MOVE (other.value));
         break;
 
       case 46: // DeclDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxDeclDef> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeDeclDef> > (YY_MOVE (other.value));
         break;
 
       case 85: // EqExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxEqExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeEqExp> > (YY_MOVE (other.value));
         break;
 
       case 72: // Exp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeExp> > (YY_MOVE (other.value));
         break;
 
       case 81: // FuncRParams
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxExpList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeExpList> > (YY_MOVE (other.value));
         break;
 
       case 58: // FuncDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncDef> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncDef> > (YY_MOVE (other.value));
         break;
 
       case 60: // FuncFParam
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncFParam> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncFParam> > (YY_MOVE (other.value));
         break;
 
       case 59: // FuncFParams
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncFParamList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncFParamList> > (YY_MOVE (other.value));
         break;
 
       case 56: // InitVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxInitVal> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeInitVal> > (YY_MOVE (other.value));
         break;
 
       case 57: // InitValList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxInitValList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeInitValList> > (YY_MOVE (other.value));
         break;
 
       case 70: // IterationStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxIterationStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeIterationStmt> > (YY_MOVE (other.value));
         break;
 
       case 86: // LAndExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLAndExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLAndExp> > (YY_MOVE (other.value));
         break;
 
       case 87: // LOrExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLOrExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLOrExp> > (YY_MOVE (other.value));
         break;
 
       case 74: // LVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLVal> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLVal> > (YY_MOVE (other.value));
         break;
 
       case 82: // MulExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxMulExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeMulExp> > (YY_MOVE (other.value));
         break;
 
       case 77: // Number
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxNumber> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeNumber> > (YY_MOVE (other.value));
         break;
 
       case 61: // ParamArrayExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxParamArrayExpList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeParamArrayExpList> > (YY_MOVE (other.value));
         break;
 
       case 76: // PrimaryExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxPrimaryExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodePrimaryExp> > (YY_MOVE (other.value));
         break;
 
       case 84: // RelExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxRelExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeRelExp> > (YY_MOVE (other.value));
         break;
 
       case 71: // ReturnStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxReturnStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeReturnStmt> > (YY_MOVE (other.value));
         break;
 
       case 69: // SelectStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxSelectStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeSelectStmt> > (YY_MOVE (other.value));
         break;
 
       case 65: // Stmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxStmt> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeStmt> > (YY_MOVE (other.value));
         break;
 
       case 78: // UnaryExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxUnaryExp> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeUnaryExp> > (YY_MOVE (other.value));
         break;
 
       case 53: // VarDecl
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDecl> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDecl> > (YY_MOVE (other.value));
         break;
 
       case 55: // VarDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDef> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDef> > (YY_MOVE (other.value));
         break;
 
       case 54: // VarDefList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDefList> > (YY_MOVE (other.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDefList> > (YY_MOVE (other.value));
         break;
 
       case 31: // T_IDENTIFIER
@@ -397,301 +397,301 @@ namespace yy {
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAddExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeAddExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayConstExpList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeArrayConstExpList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayExpList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeArrayExpList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAssignStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeAssignStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlock>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlock>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlockItem>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlockItem>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlockItemList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlockItemList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBreakStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBreakStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCallee>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCallee>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCompUnit>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCompUnit>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCond>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCond>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDecl>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDecl>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDef>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDef>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDefList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDefList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstInitVal>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstInitVal>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstInitValList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstInitValList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxContinueStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeContinueStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxDeclDef>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeDeclDef>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxEqExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeEqExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxExpList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeExpList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncDef>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncDef>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncFParam>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncFParam>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncFParamList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncFParamList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxInitVal>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeInitVal>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxInitValList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeInitValList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxIterationStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeIterationStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLAndExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLAndExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLOrExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLOrExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLVal>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLVal>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxMulExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeMulExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxNumber>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeNumber>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxParamArrayExpList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeParamArrayExpList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxPrimaryExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodePrimaryExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxRelExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeRelExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxReturnStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeReturnStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxSelectStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeSelectStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxStmt>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeStmt>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxUnaryExp>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeUnaryExp>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDecl>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDecl>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDef>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDef>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
   {}
 
   template <typename Base>
-  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDefList>) v, YY_RVREF (location_type) l)
+  sysy_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDefList>) v, YY_RVREF (location_type) l)
     : Base (t)
     , value (YY_MOVE (v))
     , location (YY_MOVE (l))
@@ -748,175 +748,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.template destroy< std::shared_ptr<SyntaxAddExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeAddExp> > ();
         break;
 
       case 50: // ArrayConstExpList
-        value.template destroy< std::shared_ptr<SyntaxArrayConstExpList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeArrayConstExpList> > ();
         break;
 
       case 75: // ArrayExpList
-        value.template destroy< std::shared_ptr<SyntaxArrayExpList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeArrayExpList> > ();
         break;
 
       case 68: // AssignStmt
-        value.template destroy< std::shared_ptr<SyntaxAssignStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeAssignStmt> > ();
         break;
 
       case 62: // Block
-        value.template destroy< std::shared_ptr<SyntaxBlock> > ();
+        value.template destroy< std::shared_ptr<TreeNodeBlock> > ();
         break;
 
       case 64: // BlockItem
-        value.template destroy< std::shared_ptr<SyntaxBlockItem> > ();
+        value.template destroy< std::shared_ptr<TreeNodeBlockItem> > ();
         break;
 
       case 63: // BlockItemList
-        value.template destroy< std::shared_ptr<SyntaxBlockItemList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeBlockItemList> > ();
         break;
 
       case 66: // BreakStmt
-        value.template destroy< std::shared_ptr<SyntaxBreakStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeBreakStmt> > ();
         break;
 
       case 79: // Callee
-        value.template destroy< std::shared_ptr<SyntaxCallee> > ();
+        value.template destroy< std::shared_ptr<TreeNodeCallee> > ();
         break;
 
       case 45: // CompUnit
-        value.template destroy< std::shared_ptr<SyntaxCompUnit> > ();
+        value.template destroy< std::shared_ptr<TreeNodeCompUnit> > ();
         break;
 
       case 73: // Cond
-        value.template destroy< std::shared_ptr<SyntaxCond> > ();
+        value.template destroy< std::shared_ptr<TreeNodeCond> > ();
         break;
 
       case 47: // ConstDecl
-        value.template destroy< std::shared_ptr<SyntaxConstDecl> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstDecl> > ();
         break;
 
       case 48: // ConstDef
-        value.template destroy< std::shared_ptr<SyntaxConstDef> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstDef> > ();
         break;
 
       case 49: // ConstDefList
-        value.template destroy< std::shared_ptr<SyntaxConstDefList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstDefList> > ();
         break;
 
       case 88: // ConstExp
-        value.template destroy< std::shared_ptr<SyntaxConstExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstExp> > ();
         break;
 
       case 51: // ConstInitVal
-        value.template destroy< std::shared_ptr<SyntaxConstInitVal> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstInitVal> > ();
         break;
 
       case 52: // ConstInitValList
-        value.template destroy< std::shared_ptr<SyntaxConstInitValList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeConstInitValList> > ();
         break;
 
       case 67: // ContinueStmt
-        value.template destroy< std::shared_ptr<SyntaxContinueStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeContinueStmt> > ();
         break;
 
       case 46: // DeclDef
-        value.template destroy< std::shared_ptr<SyntaxDeclDef> > ();
+        value.template destroy< std::shared_ptr<TreeNodeDeclDef> > ();
         break;
 
       case 85: // EqExp
-        value.template destroy< std::shared_ptr<SyntaxEqExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeEqExp> > ();
         break;
 
       case 72: // Exp
-        value.template destroy< std::shared_ptr<SyntaxExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeExp> > ();
         break;
 
       case 81: // FuncRParams
-        value.template destroy< std::shared_ptr<SyntaxExpList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeExpList> > ();
         break;
 
       case 58: // FuncDef
-        value.template destroy< std::shared_ptr<SyntaxFuncDef> > ();
+        value.template destroy< std::shared_ptr<TreeNodeFuncDef> > ();
         break;
 
       case 60: // FuncFParam
-        value.template destroy< std::shared_ptr<SyntaxFuncFParam> > ();
+        value.template destroy< std::shared_ptr<TreeNodeFuncFParam> > ();
         break;
 
       case 59: // FuncFParams
-        value.template destroy< std::shared_ptr<SyntaxFuncFParamList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeFuncFParamList> > ();
         break;
 
       case 56: // InitVal
-        value.template destroy< std::shared_ptr<SyntaxInitVal> > ();
+        value.template destroy< std::shared_ptr<TreeNodeInitVal> > ();
         break;
 
       case 57: // InitValList
-        value.template destroy< std::shared_ptr<SyntaxInitValList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeInitValList> > ();
         break;
 
       case 70: // IterationStmt
-        value.template destroy< std::shared_ptr<SyntaxIterationStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeIterationStmt> > ();
         break;
 
       case 86: // LAndExp
-        value.template destroy< std::shared_ptr<SyntaxLAndExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeLAndExp> > ();
         break;
 
       case 87: // LOrExp
-        value.template destroy< std::shared_ptr<SyntaxLOrExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeLOrExp> > ();
         break;
 
       case 74: // LVal
-        value.template destroy< std::shared_ptr<SyntaxLVal> > ();
+        value.template destroy< std::shared_ptr<TreeNodeLVal> > ();
         break;
 
       case 82: // MulExp
-        value.template destroy< std::shared_ptr<SyntaxMulExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeMulExp> > ();
         break;
 
       case 77: // Number
-        value.template destroy< std::shared_ptr<SyntaxNumber> > ();
+        value.template destroy< std::shared_ptr<TreeNodeNumber> > ();
         break;
 
       case 61: // ParamArrayExpList
-        value.template destroy< std::shared_ptr<SyntaxParamArrayExpList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeParamArrayExpList> > ();
         break;
 
       case 76: // PrimaryExp
-        value.template destroy< std::shared_ptr<SyntaxPrimaryExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodePrimaryExp> > ();
         break;
 
       case 84: // RelExp
-        value.template destroy< std::shared_ptr<SyntaxRelExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeRelExp> > ();
         break;
 
       case 71: // ReturnStmt
-        value.template destroy< std::shared_ptr<SyntaxReturnStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeReturnStmt> > ();
         break;
 
       case 69: // SelectStmt
-        value.template destroy< std::shared_ptr<SyntaxSelectStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeSelectStmt> > ();
         break;
 
       case 65: // Stmt
-        value.template destroy< std::shared_ptr<SyntaxStmt> > ();
+        value.template destroy< std::shared_ptr<TreeNodeStmt> > ();
         break;
 
       case 78: // UnaryExp
-        value.template destroy< std::shared_ptr<SyntaxUnaryExp> > ();
+        value.template destroy< std::shared_ptr<TreeNodeUnaryExp> > ();
         break;
 
       case 53: // VarDecl
-        value.template destroy< std::shared_ptr<SyntaxVarDecl> > ();
+        value.template destroy< std::shared_ptr<TreeNodeVarDecl> > ();
         break;
 
       case 55: // VarDef
-        value.template destroy< std::shared_ptr<SyntaxVarDef> > ();
+        value.template destroy< std::shared_ptr<TreeNodeVarDef> > ();
         break;
 
       case 54: // VarDefList
-        value.template destroy< std::shared_ptr<SyntaxVarDefList> > ();
+        value.template destroy< std::shared_ptr<TreeNodeVarDefList> > ();
         break;
 
       case 31: // T_IDENTIFIER
@@ -957,175 +957,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.move< std::shared_ptr<SyntaxAddExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeAddExp> > (YY_MOVE (s.value));
         break;
 
       case 50: // ArrayConstExpList
-        value.move< std::shared_ptr<SyntaxArrayConstExpList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeArrayConstExpList> > (YY_MOVE (s.value));
         break;
 
       case 75: // ArrayExpList
-        value.move< std::shared_ptr<SyntaxArrayExpList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeArrayExpList> > (YY_MOVE (s.value));
         break;
 
       case 68: // AssignStmt
-        value.move< std::shared_ptr<SyntaxAssignStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeAssignStmt> > (YY_MOVE (s.value));
         break;
 
       case 62: // Block
-        value.move< std::shared_ptr<SyntaxBlock> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeBlock> > (YY_MOVE (s.value));
         break;
 
       case 64: // BlockItem
-        value.move< std::shared_ptr<SyntaxBlockItem> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeBlockItem> > (YY_MOVE (s.value));
         break;
 
       case 63: // BlockItemList
-        value.move< std::shared_ptr<SyntaxBlockItemList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeBlockItemList> > (YY_MOVE (s.value));
         break;
 
       case 66: // BreakStmt
-        value.move< std::shared_ptr<SyntaxBreakStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeBreakStmt> > (YY_MOVE (s.value));
         break;
 
       case 79: // Callee
-        value.move< std::shared_ptr<SyntaxCallee> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeCallee> > (YY_MOVE (s.value));
         break;
 
       case 45: // CompUnit
-        value.move< std::shared_ptr<SyntaxCompUnit> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeCompUnit> > (YY_MOVE (s.value));
         break;
 
       case 73: // Cond
-        value.move< std::shared_ptr<SyntaxCond> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeCond> > (YY_MOVE (s.value));
         break;
 
       case 47: // ConstDecl
-        value.move< std::shared_ptr<SyntaxConstDecl> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstDecl> > (YY_MOVE (s.value));
         break;
 
       case 48: // ConstDef
-        value.move< std::shared_ptr<SyntaxConstDef> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstDef> > (YY_MOVE (s.value));
         break;
 
       case 49: // ConstDefList
-        value.move< std::shared_ptr<SyntaxConstDefList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstDefList> > (YY_MOVE (s.value));
         break;
 
       case 88: // ConstExp
-        value.move< std::shared_ptr<SyntaxConstExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstExp> > (YY_MOVE (s.value));
         break;
 
       case 51: // ConstInitVal
-        value.move< std::shared_ptr<SyntaxConstInitVal> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstInitVal> > (YY_MOVE (s.value));
         break;
 
       case 52: // ConstInitValList
-        value.move< std::shared_ptr<SyntaxConstInitValList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeConstInitValList> > (YY_MOVE (s.value));
         break;
 
       case 67: // ContinueStmt
-        value.move< std::shared_ptr<SyntaxContinueStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeContinueStmt> > (YY_MOVE (s.value));
         break;
 
       case 46: // DeclDef
-        value.move< std::shared_ptr<SyntaxDeclDef> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeDeclDef> > (YY_MOVE (s.value));
         break;
 
       case 85: // EqExp
-        value.move< std::shared_ptr<SyntaxEqExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeEqExp> > (YY_MOVE (s.value));
         break;
 
       case 72: // Exp
-        value.move< std::shared_ptr<SyntaxExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeExp> > (YY_MOVE (s.value));
         break;
 
       case 81: // FuncRParams
-        value.move< std::shared_ptr<SyntaxExpList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeExpList> > (YY_MOVE (s.value));
         break;
 
       case 58: // FuncDef
-        value.move< std::shared_ptr<SyntaxFuncDef> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeFuncDef> > (YY_MOVE (s.value));
         break;
 
       case 60: // FuncFParam
-        value.move< std::shared_ptr<SyntaxFuncFParam> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeFuncFParam> > (YY_MOVE (s.value));
         break;
 
       case 59: // FuncFParams
-        value.move< std::shared_ptr<SyntaxFuncFParamList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeFuncFParamList> > (YY_MOVE (s.value));
         break;
 
       case 56: // InitVal
-        value.move< std::shared_ptr<SyntaxInitVal> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeInitVal> > (YY_MOVE (s.value));
         break;
 
       case 57: // InitValList
-        value.move< std::shared_ptr<SyntaxInitValList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeInitValList> > (YY_MOVE (s.value));
         break;
 
       case 70: // IterationStmt
-        value.move< std::shared_ptr<SyntaxIterationStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeIterationStmt> > (YY_MOVE (s.value));
         break;
 
       case 86: // LAndExp
-        value.move< std::shared_ptr<SyntaxLAndExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeLAndExp> > (YY_MOVE (s.value));
         break;
 
       case 87: // LOrExp
-        value.move< std::shared_ptr<SyntaxLOrExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeLOrExp> > (YY_MOVE (s.value));
         break;
 
       case 74: // LVal
-        value.move< std::shared_ptr<SyntaxLVal> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeLVal> > (YY_MOVE (s.value));
         break;
 
       case 82: // MulExp
-        value.move< std::shared_ptr<SyntaxMulExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeMulExp> > (YY_MOVE (s.value));
         break;
 
       case 77: // Number
-        value.move< std::shared_ptr<SyntaxNumber> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeNumber> > (YY_MOVE (s.value));
         break;
 
       case 61: // ParamArrayExpList
-        value.move< std::shared_ptr<SyntaxParamArrayExpList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeParamArrayExpList> > (YY_MOVE (s.value));
         break;
 
       case 76: // PrimaryExp
-        value.move< std::shared_ptr<SyntaxPrimaryExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodePrimaryExp> > (YY_MOVE (s.value));
         break;
 
       case 84: // RelExp
-        value.move< std::shared_ptr<SyntaxRelExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeRelExp> > (YY_MOVE (s.value));
         break;
 
       case 71: // ReturnStmt
-        value.move< std::shared_ptr<SyntaxReturnStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeReturnStmt> > (YY_MOVE (s.value));
         break;
 
       case 69: // SelectStmt
-        value.move< std::shared_ptr<SyntaxSelectStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeSelectStmt> > (YY_MOVE (s.value));
         break;
 
       case 65: // Stmt
-        value.move< std::shared_ptr<SyntaxStmt> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeStmt> > (YY_MOVE (s.value));
         break;
 
       case 78: // UnaryExp
-        value.move< std::shared_ptr<SyntaxUnaryExp> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeUnaryExp> > (YY_MOVE (s.value));
         break;
 
       case 53: // VarDecl
-        value.move< std::shared_ptr<SyntaxVarDecl> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeVarDecl> > (YY_MOVE (s.value));
         break;
 
       case 55: // VarDef
-        value.move< std::shared_ptr<SyntaxVarDef> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeVarDef> > (YY_MOVE (s.value));
         break;
 
       case 54: // VarDefList
-        value.move< std::shared_ptr<SyntaxVarDefList> > (YY_MOVE (s.value));
+        value.move< std::shared_ptr<TreeNodeVarDefList> > (YY_MOVE (s.value));
         break;
 
       case 31: // T_IDENTIFIER
@@ -1517,175 +1517,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxAddExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeAddExp> > (YY_MOVE (that.value));
         break;
 
       case 50: // ArrayConstExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxArrayConstExpList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeArrayConstExpList> > (YY_MOVE (that.value));
         break;
 
       case 75: // ArrayExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxArrayExpList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeArrayExpList> > (YY_MOVE (that.value));
         break;
 
       case 68: // AssignStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxAssignStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeAssignStmt> > (YY_MOVE (that.value));
         break;
 
       case 62: // Block
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlock> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlock> > (YY_MOVE (that.value));
         break;
 
       case 64: // BlockItem
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlockItem> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlockItem> > (YY_MOVE (that.value));
         break;
 
       case 63: // BlockItemList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBlockItemList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBlockItemList> > (YY_MOVE (that.value));
         break;
 
       case 66: // BreakStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxBreakStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeBreakStmt> > (YY_MOVE (that.value));
         break;
 
       case 79: // Callee
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCallee> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCallee> > (YY_MOVE (that.value));
         break;
 
       case 45: // CompUnit
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCompUnit> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCompUnit> > (YY_MOVE (that.value));
         break;
 
       case 73: // Cond
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxCond> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeCond> > (YY_MOVE (that.value));
         break;
 
       case 47: // ConstDecl
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDecl> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDecl> > (YY_MOVE (that.value));
         break;
 
       case 48: // ConstDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDef> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDef> > (YY_MOVE (that.value));
         break;
 
       case 49: // ConstDefList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstDefList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstDefList> > (YY_MOVE (that.value));
         break;
 
       case 88: // ConstExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstExp> > (YY_MOVE (that.value));
         break;
 
       case 51: // ConstInitVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstInitVal> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstInitVal> > (YY_MOVE (that.value));
         break;
 
       case 52: // ConstInitValList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxConstInitValList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeConstInitValList> > (YY_MOVE (that.value));
         break;
 
       case 67: // ContinueStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxContinueStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeContinueStmt> > (YY_MOVE (that.value));
         break;
 
       case 46: // DeclDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxDeclDef> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeDeclDef> > (YY_MOVE (that.value));
         break;
 
       case 85: // EqExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxEqExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeEqExp> > (YY_MOVE (that.value));
         break;
 
       case 72: // Exp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeExp> > (YY_MOVE (that.value));
         break;
 
       case 81: // FuncRParams
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxExpList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeExpList> > (YY_MOVE (that.value));
         break;
 
       case 58: // FuncDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncDef> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncDef> > (YY_MOVE (that.value));
         break;
 
       case 60: // FuncFParam
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncFParam> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncFParam> > (YY_MOVE (that.value));
         break;
 
       case 59: // FuncFParams
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxFuncFParamList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeFuncFParamList> > (YY_MOVE (that.value));
         break;
 
       case 56: // InitVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxInitVal> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeInitVal> > (YY_MOVE (that.value));
         break;
 
       case 57: // InitValList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxInitValList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeInitValList> > (YY_MOVE (that.value));
         break;
 
       case 70: // IterationStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxIterationStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeIterationStmt> > (YY_MOVE (that.value));
         break;
 
       case 86: // LAndExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLAndExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLAndExp> > (YY_MOVE (that.value));
         break;
 
       case 87: // LOrExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLOrExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLOrExp> > (YY_MOVE (that.value));
         break;
 
       case 74: // LVal
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxLVal> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeLVal> > (YY_MOVE (that.value));
         break;
 
       case 82: // MulExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxMulExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeMulExp> > (YY_MOVE (that.value));
         break;
 
       case 77: // Number
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxNumber> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeNumber> > (YY_MOVE (that.value));
         break;
 
       case 61: // ParamArrayExpList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxParamArrayExpList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeParamArrayExpList> > (YY_MOVE (that.value));
         break;
 
       case 76: // PrimaryExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxPrimaryExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodePrimaryExp> > (YY_MOVE (that.value));
         break;
 
       case 84: // RelExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxRelExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeRelExp> > (YY_MOVE (that.value));
         break;
 
       case 71: // ReturnStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxReturnStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeReturnStmt> > (YY_MOVE (that.value));
         break;
 
       case 69: // SelectStmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxSelectStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeSelectStmt> > (YY_MOVE (that.value));
         break;
 
       case 65: // Stmt
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxStmt> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeStmt> > (YY_MOVE (that.value));
         break;
 
       case 78: // UnaryExp
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxUnaryExp> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeUnaryExp> > (YY_MOVE (that.value));
         break;
 
       case 53: // VarDecl
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDecl> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDecl> > (YY_MOVE (that.value));
         break;
 
       case 55: // VarDef
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDef> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDef> > (YY_MOVE (that.value));
         break;
 
       case 54: // VarDefList
-        value.YY_MOVE_OR_COPY< std::shared_ptr<SyntaxVarDefList> > (YY_MOVE (that.value));
+        value.YY_MOVE_OR_COPY< std::shared_ptr<TreeNodeVarDefList> > (YY_MOVE (that.value));
         break;
 
       case 31: // T_IDENTIFIER
@@ -1720,175 +1720,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.move< std::shared_ptr<SyntaxAddExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeAddExp> > (YY_MOVE (that.value));
         break;
 
       case 50: // ArrayConstExpList
-        value.move< std::shared_ptr<SyntaxArrayConstExpList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeArrayConstExpList> > (YY_MOVE (that.value));
         break;
 
       case 75: // ArrayExpList
-        value.move< std::shared_ptr<SyntaxArrayExpList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeArrayExpList> > (YY_MOVE (that.value));
         break;
 
       case 68: // AssignStmt
-        value.move< std::shared_ptr<SyntaxAssignStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeAssignStmt> > (YY_MOVE (that.value));
         break;
 
       case 62: // Block
-        value.move< std::shared_ptr<SyntaxBlock> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeBlock> > (YY_MOVE (that.value));
         break;
 
       case 64: // BlockItem
-        value.move< std::shared_ptr<SyntaxBlockItem> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeBlockItem> > (YY_MOVE (that.value));
         break;
 
       case 63: // BlockItemList
-        value.move< std::shared_ptr<SyntaxBlockItemList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeBlockItemList> > (YY_MOVE (that.value));
         break;
 
       case 66: // BreakStmt
-        value.move< std::shared_ptr<SyntaxBreakStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeBreakStmt> > (YY_MOVE (that.value));
         break;
 
       case 79: // Callee
-        value.move< std::shared_ptr<SyntaxCallee> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeCallee> > (YY_MOVE (that.value));
         break;
 
       case 45: // CompUnit
-        value.move< std::shared_ptr<SyntaxCompUnit> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeCompUnit> > (YY_MOVE (that.value));
         break;
 
       case 73: // Cond
-        value.move< std::shared_ptr<SyntaxCond> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeCond> > (YY_MOVE (that.value));
         break;
 
       case 47: // ConstDecl
-        value.move< std::shared_ptr<SyntaxConstDecl> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstDecl> > (YY_MOVE (that.value));
         break;
 
       case 48: // ConstDef
-        value.move< std::shared_ptr<SyntaxConstDef> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstDef> > (YY_MOVE (that.value));
         break;
 
       case 49: // ConstDefList
-        value.move< std::shared_ptr<SyntaxConstDefList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstDefList> > (YY_MOVE (that.value));
         break;
 
       case 88: // ConstExp
-        value.move< std::shared_ptr<SyntaxConstExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstExp> > (YY_MOVE (that.value));
         break;
 
       case 51: // ConstInitVal
-        value.move< std::shared_ptr<SyntaxConstInitVal> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstInitVal> > (YY_MOVE (that.value));
         break;
 
       case 52: // ConstInitValList
-        value.move< std::shared_ptr<SyntaxConstInitValList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeConstInitValList> > (YY_MOVE (that.value));
         break;
 
       case 67: // ContinueStmt
-        value.move< std::shared_ptr<SyntaxContinueStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeContinueStmt> > (YY_MOVE (that.value));
         break;
 
       case 46: // DeclDef
-        value.move< std::shared_ptr<SyntaxDeclDef> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeDeclDef> > (YY_MOVE (that.value));
         break;
 
       case 85: // EqExp
-        value.move< std::shared_ptr<SyntaxEqExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeEqExp> > (YY_MOVE (that.value));
         break;
 
       case 72: // Exp
-        value.move< std::shared_ptr<SyntaxExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeExp> > (YY_MOVE (that.value));
         break;
 
       case 81: // FuncRParams
-        value.move< std::shared_ptr<SyntaxExpList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeExpList> > (YY_MOVE (that.value));
         break;
 
       case 58: // FuncDef
-        value.move< std::shared_ptr<SyntaxFuncDef> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeFuncDef> > (YY_MOVE (that.value));
         break;
 
       case 60: // FuncFParam
-        value.move< std::shared_ptr<SyntaxFuncFParam> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeFuncFParam> > (YY_MOVE (that.value));
         break;
 
       case 59: // FuncFParams
-        value.move< std::shared_ptr<SyntaxFuncFParamList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeFuncFParamList> > (YY_MOVE (that.value));
         break;
 
       case 56: // InitVal
-        value.move< std::shared_ptr<SyntaxInitVal> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeInitVal> > (YY_MOVE (that.value));
         break;
 
       case 57: // InitValList
-        value.move< std::shared_ptr<SyntaxInitValList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeInitValList> > (YY_MOVE (that.value));
         break;
 
       case 70: // IterationStmt
-        value.move< std::shared_ptr<SyntaxIterationStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeIterationStmt> > (YY_MOVE (that.value));
         break;
 
       case 86: // LAndExp
-        value.move< std::shared_ptr<SyntaxLAndExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeLAndExp> > (YY_MOVE (that.value));
         break;
 
       case 87: // LOrExp
-        value.move< std::shared_ptr<SyntaxLOrExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeLOrExp> > (YY_MOVE (that.value));
         break;
 
       case 74: // LVal
-        value.move< std::shared_ptr<SyntaxLVal> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeLVal> > (YY_MOVE (that.value));
         break;
 
       case 82: // MulExp
-        value.move< std::shared_ptr<SyntaxMulExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeMulExp> > (YY_MOVE (that.value));
         break;
 
       case 77: // Number
-        value.move< std::shared_ptr<SyntaxNumber> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeNumber> > (YY_MOVE (that.value));
         break;
 
       case 61: // ParamArrayExpList
-        value.move< std::shared_ptr<SyntaxParamArrayExpList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeParamArrayExpList> > (YY_MOVE (that.value));
         break;
 
       case 76: // PrimaryExp
-        value.move< std::shared_ptr<SyntaxPrimaryExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodePrimaryExp> > (YY_MOVE (that.value));
         break;
 
       case 84: // RelExp
-        value.move< std::shared_ptr<SyntaxRelExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeRelExp> > (YY_MOVE (that.value));
         break;
 
       case 71: // ReturnStmt
-        value.move< std::shared_ptr<SyntaxReturnStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeReturnStmt> > (YY_MOVE (that.value));
         break;
 
       case 69: // SelectStmt
-        value.move< std::shared_ptr<SyntaxSelectStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeSelectStmt> > (YY_MOVE (that.value));
         break;
 
       case 65: // Stmt
-        value.move< std::shared_ptr<SyntaxStmt> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeStmt> > (YY_MOVE (that.value));
         break;
 
       case 78: // UnaryExp
-        value.move< std::shared_ptr<SyntaxUnaryExp> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeUnaryExp> > (YY_MOVE (that.value));
         break;
 
       case 53: // VarDecl
-        value.move< std::shared_ptr<SyntaxVarDecl> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeVarDecl> > (YY_MOVE (that.value));
         break;
 
       case 55: // VarDef
-        value.move< std::shared_ptr<SyntaxVarDef> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeVarDef> > (YY_MOVE (that.value));
         break;
 
       case 54: // VarDefList
-        value.move< std::shared_ptr<SyntaxVarDefList> > (YY_MOVE (that.value));
+        value.move< std::shared_ptr<TreeNodeVarDefList> > (YY_MOVE (that.value));
         break;
 
       case 31: // T_IDENTIFIER
@@ -1923,175 +1923,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        value.move< std::shared_ptr<SyntaxAddExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeAddExp> > (that.value);
         break;
 
       case 50: // ArrayConstExpList
-        value.move< std::shared_ptr<SyntaxArrayConstExpList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeArrayConstExpList> > (that.value);
         break;
 
       case 75: // ArrayExpList
-        value.move< std::shared_ptr<SyntaxArrayExpList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeArrayExpList> > (that.value);
         break;
 
       case 68: // AssignStmt
-        value.move< std::shared_ptr<SyntaxAssignStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeAssignStmt> > (that.value);
         break;
 
       case 62: // Block
-        value.move< std::shared_ptr<SyntaxBlock> > (that.value);
+        value.move< std::shared_ptr<TreeNodeBlock> > (that.value);
         break;
 
       case 64: // BlockItem
-        value.move< std::shared_ptr<SyntaxBlockItem> > (that.value);
+        value.move< std::shared_ptr<TreeNodeBlockItem> > (that.value);
         break;
 
       case 63: // BlockItemList
-        value.move< std::shared_ptr<SyntaxBlockItemList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeBlockItemList> > (that.value);
         break;
 
       case 66: // BreakStmt
-        value.move< std::shared_ptr<SyntaxBreakStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeBreakStmt> > (that.value);
         break;
 
       case 79: // Callee
-        value.move< std::shared_ptr<SyntaxCallee> > (that.value);
+        value.move< std::shared_ptr<TreeNodeCallee> > (that.value);
         break;
 
       case 45: // CompUnit
-        value.move< std::shared_ptr<SyntaxCompUnit> > (that.value);
+        value.move< std::shared_ptr<TreeNodeCompUnit> > (that.value);
         break;
 
       case 73: // Cond
-        value.move< std::shared_ptr<SyntaxCond> > (that.value);
+        value.move< std::shared_ptr<TreeNodeCond> > (that.value);
         break;
 
       case 47: // ConstDecl
-        value.move< std::shared_ptr<SyntaxConstDecl> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstDecl> > (that.value);
         break;
 
       case 48: // ConstDef
-        value.move< std::shared_ptr<SyntaxConstDef> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstDef> > (that.value);
         break;
 
       case 49: // ConstDefList
-        value.move< std::shared_ptr<SyntaxConstDefList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstDefList> > (that.value);
         break;
 
       case 88: // ConstExp
-        value.move< std::shared_ptr<SyntaxConstExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstExp> > (that.value);
         break;
 
       case 51: // ConstInitVal
-        value.move< std::shared_ptr<SyntaxConstInitVal> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstInitVal> > (that.value);
         break;
 
       case 52: // ConstInitValList
-        value.move< std::shared_ptr<SyntaxConstInitValList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeConstInitValList> > (that.value);
         break;
 
       case 67: // ContinueStmt
-        value.move< std::shared_ptr<SyntaxContinueStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeContinueStmt> > (that.value);
         break;
 
       case 46: // DeclDef
-        value.move< std::shared_ptr<SyntaxDeclDef> > (that.value);
+        value.move< std::shared_ptr<TreeNodeDeclDef> > (that.value);
         break;
 
       case 85: // EqExp
-        value.move< std::shared_ptr<SyntaxEqExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeEqExp> > (that.value);
         break;
 
       case 72: // Exp
-        value.move< std::shared_ptr<SyntaxExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeExp> > (that.value);
         break;
 
       case 81: // FuncRParams
-        value.move< std::shared_ptr<SyntaxExpList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeExpList> > (that.value);
         break;
 
       case 58: // FuncDef
-        value.move< std::shared_ptr<SyntaxFuncDef> > (that.value);
+        value.move< std::shared_ptr<TreeNodeFuncDef> > (that.value);
         break;
 
       case 60: // FuncFParam
-        value.move< std::shared_ptr<SyntaxFuncFParam> > (that.value);
+        value.move< std::shared_ptr<TreeNodeFuncFParam> > (that.value);
         break;
 
       case 59: // FuncFParams
-        value.move< std::shared_ptr<SyntaxFuncFParamList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeFuncFParamList> > (that.value);
         break;
 
       case 56: // InitVal
-        value.move< std::shared_ptr<SyntaxInitVal> > (that.value);
+        value.move< std::shared_ptr<TreeNodeInitVal> > (that.value);
         break;
 
       case 57: // InitValList
-        value.move< std::shared_ptr<SyntaxInitValList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeInitValList> > (that.value);
         break;
 
       case 70: // IterationStmt
-        value.move< std::shared_ptr<SyntaxIterationStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeIterationStmt> > (that.value);
         break;
 
       case 86: // LAndExp
-        value.move< std::shared_ptr<SyntaxLAndExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeLAndExp> > (that.value);
         break;
 
       case 87: // LOrExp
-        value.move< std::shared_ptr<SyntaxLOrExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeLOrExp> > (that.value);
         break;
 
       case 74: // LVal
-        value.move< std::shared_ptr<SyntaxLVal> > (that.value);
+        value.move< std::shared_ptr<TreeNodeLVal> > (that.value);
         break;
 
       case 82: // MulExp
-        value.move< std::shared_ptr<SyntaxMulExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeMulExp> > (that.value);
         break;
 
       case 77: // Number
-        value.move< std::shared_ptr<SyntaxNumber> > (that.value);
+        value.move< std::shared_ptr<TreeNodeNumber> > (that.value);
         break;
 
       case 61: // ParamArrayExpList
-        value.move< std::shared_ptr<SyntaxParamArrayExpList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeParamArrayExpList> > (that.value);
         break;
 
       case 76: // PrimaryExp
-        value.move< std::shared_ptr<SyntaxPrimaryExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodePrimaryExp> > (that.value);
         break;
 
       case 84: // RelExp
-        value.move< std::shared_ptr<SyntaxRelExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeRelExp> > (that.value);
         break;
 
       case 71: // ReturnStmt
-        value.move< std::shared_ptr<SyntaxReturnStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeReturnStmt> > (that.value);
         break;
 
       case 69: // SelectStmt
-        value.move< std::shared_ptr<SyntaxSelectStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeSelectStmt> > (that.value);
         break;
 
       case 65: // Stmt
-        value.move< std::shared_ptr<SyntaxStmt> > (that.value);
+        value.move< std::shared_ptr<TreeNodeStmt> > (that.value);
         break;
 
       case 78: // UnaryExp
-        value.move< std::shared_ptr<SyntaxUnaryExp> > (that.value);
+        value.move< std::shared_ptr<TreeNodeUnaryExp> > (that.value);
         break;
 
       case 53: // VarDecl
-        value.move< std::shared_ptr<SyntaxVarDecl> > (that.value);
+        value.move< std::shared_ptr<TreeNodeVarDecl> > (that.value);
         break;
 
       case 55: // VarDef
-        value.move< std::shared_ptr<SyntaxVarDef> > (that.value);
+        value.move< std::shared_ptr<TreeNodeVarDef> > (that.value);
         break;
 
       case 54: // VarDefList
-        value.move< std::shared_ptr<SyntaxVarDefList> > (that.value);
+        value.move< std::shared_ptr<TreeNodeVarDefList> > (that.value);
         break;
 
       case 31: // T_IDENTIFIER
@@ -2349,175 +2349,175 @@ namespace yy {
         break;
 
       case 83: // AddExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxAddExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeAddExp> > ();
         break;
 
       case 50: // ArrayConstExpList
-        yylhs.value.emplace< std::shared_ptr<SyntaxArrayConstExpList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeArrayConstExpList> > ();
         break;
 
       case 75: // ArrayExpList
-        yylhs.value.emplace< std::shared_ptr<SyntaxArrayExpList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeArrayExpList> > ();
         break;
 
       case 68: // AssignStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxAssignStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeAssignStmt> > ();
         break;
 
       case 62: // Block
-        yylhs.value.emplace< std::shared_ptr<SyntaxBlock> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeBlock> > ();
         break;
 
       case 64: // BlockItem
-        yylhs.value.emplace< std::shared_ptr<SyntaxBlockItem> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeBlockItem> > ();
         break;
 
       case 63: // BlockItemList
-        yylhs.value.emplace< std::shared_ptr<SyntaxBlockItemList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeBlockItemList> > ();
         break;
 
       case 66: // BreakStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxBreakStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeBreakStmt> > ();
         break;
 
       case 79: // Callee
-        yylhs.value.emplace< std::shared_ptr<SyntaxCallee> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeCallee> > ();
         break;
 
       case 45: // CompUnit
-        yylhs.value.emplace< std::shared_ptr<SyntaxCompUnit> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeCompUnit> > ();
         break;
 
       case 73: // Cond
-        yylhs.value.emplace< std::shared_ptr<SyntaxCond> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeCond> > ();
         break;
 
       case 47: // ConstDecl
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstDecl> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstDecl> > ();
         break;
 
       case 48: // ConstDef
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstDef> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstDef> > ();
         break;
 
       case 49: // ConstDefList
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstDefList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstDefList> > ();
         break;
 
       case 88: // ConstExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstExp> > ();
         break;
 
       case 51: // ConstInitVal
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstInitVal> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstInitVal> > ();
         break;
 
       case 52: // ConstInitValList
-        yylhs.value.emplace< std::shared_ptr<SyntaxConstInitValList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeConstInitValList> > ();
         break;
 
       case 67: // ContinueStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxContinueStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeContinueStmt> > ();
         break;
 
       case 46: // DeclDef
-        yylhs.value.emplace< std::shared_ptr<SyntaxDeclDef> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeDeclDef> > ();
         break;
 
       case 85: // EqExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxEqExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeEqExp> > ();
         break;
 
       case 72: // Exp
-        yylhs.value.emplace< std::shared_ptr<SyntaxExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeExp> > ();
         break;
 
       case 81: // FuncRParams
-        yylhs.value.emplace< std::shared_ptr<SyntaxExpList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeExpList> > ();
         break;
 
       case 58: // FuncDef
-        yylhs.value.emplace< std::shared_ptr<SyntaxFuncDef> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeFuncDef> > ();
         break;
 
       case 60: // FuncFParam
-        yylhs.value.emplace< std::shared_ptr<SyntaxFuncFParam> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeFuncFParam> > ();
         break;
 
       case 59: // FuncFParams
-        yylhs.value.emplace< std::shared_ptr<SyntaxFuncFParamList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeFuncFParamList> > ();
         break;
 
       case 56: // InitVal
-        yylhs.value.emplace< std::shared_ptr<SyntaxInitVal> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeInitVal> > ();
         break;
 
       case 57: // InitValList
-        yylhs.value.emplace< std::shared_ptr<SyntaxInitValList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeInitValList> > ();
         break;
 
       case 70: // IterationStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxIterationStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeIterationStmt> > ();
         break;
 
       case 86: // LAndExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxLAndExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeLAndExp> > ();
         break;
 
       case 87: // LOrExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxLOrExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeLOrExp> > ();
         break;
 
       case 74: // LVal
-        yylhs.value.emplace< std::shared_ptr<SyntaxLVal> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeLVal> > ();
         break;
 
       case 82: // MulExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxMulExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeMulExp> > ();
         break;
 
       case 77: // Number
-        yylhs.value.emplace< std::shared_ptr<SyntaxNumber> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeNumber> > ();
         break;
 
       case 61: // ParamArrayExpList
-        yylhs.value.emplace< std::shared_ptr<SyntaxParamArrayExpList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeParamArrayExpList> > ();
         break;
 
       case 76: // PrimaryExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxPrimaryExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodePrimaryExp> > ();
         break;
 
       case 84: // RelExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxRelExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeRelExp> > ();
         break;
 
       case 71: // ReturnStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxReturnStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeReturnStmt> > ();
         break;
 
       case 69: // SelectStmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxSelectStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeSelectStmt> > ();
         break;
 
       case 65: // Stmt
-        yylhs.value.emplace< std::shared_ptr<SyntaxStmt> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeStmt> > ();
         break;
 
       case 78: // UnaryExp
-        yylhs.value.emplace< std::shared_ptr<SyntaxUnaryExp> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeUnaryExp> > ();
         break;
 
       case 53: // VarDecl
-        yylhs.value.emplace< std::shared_ptr<SyntaxVarDecl> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeVarDecl> > ();
         break;
 
       case 55: // VarDef
-        yylhs.value.emplace< std::shared_ptr<SyntaxVarDef> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeVarDef> > ();
         break;
 
       case 54: // VarDefList
-        yylhs.value.emplace< std::shared_ptr<SyntaxVarDefList> > ();
+        yylhs.value.emplace< std::shared_ptr<TreeNodeVarDefList> > ();
         break;
 
       case 31: // T_IDENTIFIER
@@ -2555,10 +2555,10 @@ namespace yy {
   case 2:
 #line 138 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::make_shared<SyntaxCompUnit>();
+	yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ()=std::make_shared<TreeNodeCompUnit>();
 	// emplace_back效果类似于push_back，会调用构造函数和转移构造函数,如果可以在插入的时候直接构造，就只需要构造一次即可。
-	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxDeclDef> > ()));
-	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeDeclDef> > ()));
+	rootFromParser=yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ();
 	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
@@ -2568,9 +2568,9 @@ namespace yy {
   case 3:
 #line 146 "Sysy_parser.y" // lalr1.cc:906
     {
-	yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxDeclDef> > ()));
-	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ());
-	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
+	yystack_[1].value.as< std::shared_ptr<TreeNodeCompUnit> > ()->DeclDefList.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeDeclDef> > ()));
+	yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeCompUnit> > ());
+	rootFromParser=yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ();
 	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
@@ -2580,8 +2580,8 @@ namespace yy {
   case 4:
 #line 153 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxCompUnit> > ());
-    	rootFromParser=yylhs.value.as< std::shared_ptr<SyntaxCompUnit> > ();
+    	yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ()=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeCompUnit> > ());
+    	rootFromParser=yylhs.value.as< std::shared_ptr<TreeNodeCompUnit> > ();
     	return 0;
     }
 #line 2588 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2590,10 +2590,10 @@ namespace yy {
   case 5:
 #line 160 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDecl> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->VarDecl=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->FuncDef=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()=std::make_shared<TreeNodeDeclDef>();
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstDecl> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->VarDecl=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->FuncDef=nullptr;
 	//std::cout<<"DeclDef : ConstDecl"<<std::endl;
     }
 #line 2600 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2602,10 +2602,10 @@ namespace yy {
   case 6:
 #line 167 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->ConstDecl=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDecl> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->FuncDef=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()=std::make_shared<TreeNodeDeclDef>();
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->ConstDecl=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeVarDecl> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->FuncDef=nullptr;
 	//std::cout<<"DeclDef : VarDecl"<<std::endl;
     }
 #line 2612 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2614,10 +2614,10 @@ namespace yy {
   case 7:
 #line 174 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()=std::make_shared<SyntaxDeclDef>();
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->ConstDecl=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->VarDecl=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxDeclDef> > ()->FuncDef=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxFuncDef> > ());
+    yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()=std::make_shared<TreeNodeDeclDef>();
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->ConstDecl=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->VarDecl=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeDeclDef> > ()->FuncDef=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeFuncDef> > ());
 	//std::cout<<"DeclDef : FuncDef"<<std::endl;
     }
 #line 2624 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2626,10 +2626,10 @@ namespace yy {
   case 8:
 #line 183 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxConstDecl> > ()=std::make_shared<SyntaxConstDecl>();
-	yylhs.value.as< std::shared_ptr<SyntaxConstDecl> > ()->ConstDefList=yystack_[1].value.as< std::shared_ptr<SyntaxConstDefList> > ()->list;
+	yylhs.value.as< std::shared_ptr<TreeNodeConstDecl> > ()=std::make_shared<TreeNodeConstDecl>();
+	yylhs.value.as< std::shared_ptr<TreeNodeConstDecl> > ()->ConstDefList=yystack_[1].value.as< std::shared_ptr<TreeNodeConstDefList> > ()->list;
 	//TODO
-	yylhs.value.as< std::shared_ptr<SyntaxConstDecl> > ()->type=TYPE_INT;
+	yylhs.value.as< std::shared_ptr<TreeNodeConstDecl> > ()->type=TYPE_INT;
 	//std::cout<<"ConstDecl"<<std::endl;
     }
 #line 2636 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2638,10 +2638,10 @@ namespace yy {
   case 9:
 #line 192 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()=std::make_shared<SyntaxConstDef>();
-		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
-		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->id=yystack_[3].value.as< std::string > ();
-		yylhs.value.as< std::shared_ptr<SyntaxConstDef> > ()->ConstInitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeConstDef> > ()=std::make_shared<TreeNodeConstDef>();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()->list;
+		yylhs.value.as< std::shared_ptr<TreeNodeConstDef> > ()->id=yystack_[3].value.as< std::string > ();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstDef> > ()->ConstInitVal=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstInitVal> > ());
 		//std::cout<<"ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal"<<std::endl;
     }
 #line 2648 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2650,8 +2650,8 @@ namespace yy {
   case 10:
 #line 201 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()=std::make_shared<SyntaxConstDefList>();
-	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDef> > ()));
+	yylhs.value.as< std::shared_ptr<TreeNodeConstDefList> > ()=std::make_shared<TreeNodeConstDefList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstDef> > ()));
 	//std::cout<<"ConstDefList : ConstDef"<<std::endl;
     }
 #line 2658 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2660,8 +2660,8 @@ namespace yy {
   case 11:
 #line 206 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yystack_[2].value.as< std::shared_ptr<SyntaxConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDef> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxConstDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxConstDefList> > ());
+    	yystack_[2].value.as< std::shared_ptr<TreeNodeConstDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstDef> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeConstDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeConstDefList> > ());
 		//std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
     }
 #line 2668 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2670,8 +2670,8 @@ namespace yy {
   case 12:
 #line 213 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yystack_[3].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxConstExp> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ());
+    	yystack_[3].value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeConstExp> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ());
 		
     }
 #line 2678 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2680,7 +2680,7 @@ namespace yy {
   case 13:
 #line 218 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()=std::make_shared<SyntaxArrayConstExpList>();
+		yylhs.value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()=std::make_shared<TreeNodeArrayConstExpList>();
 	}
 #line 2686 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2688,8 +2688,8 @@ namespace yy {
   case 14:
 #line 223 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()=std::make_shared<SyntaxConstInitVal>();
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstExp> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()=std::make_shared<TreeNodeConstInitVal>();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()->ConstExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstExp> > ());
     }
 #line 2695 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2697,8 +2697,8 @@ namespace yy {
   case 15:
 #line 227 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()=std::make_shared<SyntaxConstInitVal>();
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstExp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()=std::make_shared<TreeNodeConstInitVal>();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()->ConstExp=nullptr;
 
     }
 #line 2705 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2707,9 +2707,9 @@ namespace yy {
   case 16:
 #line 232 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()=std::make_shared<SyntaxConstInitVal>();
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstExp=nullptr;
-        yylhs.value.as< std::shared_ptr<SyntaxConstInitVal> > ()->ConstInitValList=yystack_[1].value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list;
+    	yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()=std::make_shared<TreeNodeConstInitVal>();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()->ConstExp=nullptr;
+        yylhs.value.as< std::shared_ptr<TreeNodeConstInitVal> > ()->ConstInitValList=yystack_[1].value.as< std::shared_ptr<TreeNodeConstInitValList> > ()->list;
     }
 #line 2715 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2717,8 +2717,8 @@ namespace yy {
   case 17:
 #line 240 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()=std::make_shared<SyntaxConstInitValList>();
-		yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ()));
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitValList> > ()=std::make_shared<TreeNodeConstInitValList>();
+		yylhs.value.as< std::shared_ptr<TreeNodeConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstInitVal> > ()));
     }
 #line 2724 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2726,8 +2726,8 @@ namespace yy {
   case 18:
 #line 244 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yystack_[2].value.as< std::shared_ptr<SyntaxConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstInitVal> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxConstInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxConstInitValList> > ());
+    	yystack_[2].value.as< std::shared_ptr<TreeNodeConstInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstInitVal> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeConstInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeConstInitValList> > ());
 		//std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
     }
 #line 2734 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2736,9 +2736,9 @@ namespace yy {
   case 19:
 #line 252 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()=std::make_shared<SyntaxVarDecl>();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()->type=TYPE_INT;
-		yylhs.value.as< std::shared_ptr<SyntaxVarDecl> > ()->VarDefList=yystack_[1].value.as< std::shared_ptr<SyntaxVarDefList> > ()->list;
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDecl> > ()=std::make_shared<TreeNodeVarDecl>();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDecl> > ()->type=TYPE_INT;
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDecl> > ()->VarDefList=yystack_[1].value.as< std::shared_ptr<TreeNodeVarDefList> > ()->list;
 		//std::cout<<"VarDecl"<<std::endl;
     }
 #line 2745 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2747,8 +2747,8 @@ namespace yy {
   case 20:
 #line 261 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()=std::make_shared<SyntaxVarDefList>();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDef> > ()));
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDefList> > ()=std::make_shared<TreeNodeVarDefList>();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeVarDef> > ()));
 		//std::cout<<"VarDefList:VarDef"<<std::endl;
     }
 #line 2755 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2757,8 +2757,8 @@ namespace yy {
   case 21:
 #line 266 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yystack_[2].value.as< std::shared_ptr<SyntaxVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDef> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxVarDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxVarDefList> > ());
+    	yystack_[2].value.as< std::shared_ptr<TreeNodeVarDefList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeVarDef> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeVarDefList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeVarDefList> > ());
 		//std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
     }
 #line 2765 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2768,10 +2768,10 @@ namespace yy {
 #line 273 "Sysy_parser.y" // lalr1.cc:906
     {
 
-    	yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[1].value.as< std::string > ();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->ArrayConstExpList=yystack_[0].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->InitVal=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()=std::make_shared<TreeNodeVarDef>();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->id=yystack_[1].value.as< std::string > ();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->ArrayConstExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()->list;
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->InitVal=nullptr;
 		//std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList"<<std::endl;
     }
 #line 2778 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2780,10 +2780,10 @@ namespace yy {
   case 23:
 #line 281 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()=std::make_shared<SyntaxVarDef>();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->id=yystack_[3].value.as< std::string > ();
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<SyntaxArrayConstExpList> > ()->list;
-		yylhs.value.as< std::shared_ptr<SyntaxVarDef> > ()->InitVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()=std::make_shared<TreeNodeVarDef>();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->id=yystack_[3].value.as< std::string > ();
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->ArrayConstExpList=yystack_[2].value.as< std::shared_ptr<TreeNodeArrayConstExpList> > ()->list;
+		yylhs.value.as< std::shared_ptr<TreeNodeVarDef> > ()->InitVal=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeInitVal> > ());
 		//std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList T_ASSIGN InitVal"<<std::endl;
     }
 #line 2790 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2792,8 +2792,8 @@ namespace yy {
   case 24:
 #line 290 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()=std::make_shared<SyntaxInitVal>();
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->Exp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()=std::make_shared<TreeNodeInitVal>();
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()->Exp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeExp> > ());
 	//std::cout<<"InitVal:Exp"<<std::endl;
     }
 #line 2800 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2802,8 +2802,8 @@ namespace yy {
   case 25:
 #line 295 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()=std::make_shared<SyntaxInitVal>();
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->Exp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()=std::make_shared<TreeNodeInitVal>();
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()->Exp=nullptr;
 	//std::cout<<"{}"<<std::endl;
     }
 #line 2810 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2812,9 +2812,9 @@ namespace yy {
   case 26:
 #line 300 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()=std::make_shared<SyntaxInitVal>();
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->Exp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxInitVal> > ()->InitValList=yystack_[1].value.as< std::shared_ptr<SyntaxInitValList> > ()->list;
+    yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()=std::make_shared<TreeNodeInitVal>();
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()->Exp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeInitVal> > ()->InitValList=yystack_[1].value.as< std::shared_ptr<TreeNodeInitValList> > ()->list;
 	//std::cout<<"InitVal: { InitValList }"<<std::endl;
     }
 #line 2821 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2823,8 +2823,8 @@ namespace yy {
   case 27:
 #line 309 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()=std::make_shared<SyntaxInitValList>();
-	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ()));
+	yylhs.value.as< std::shared_ptr<TreeNodeInitValList> > ()=std::make_shared<TreeNodeInitValList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeInitVal> > ()));
 	//std::cout<<"InitValList : InitVal"<<std::endl;
     }
 #line 2831 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2833,8 +2833,8 @@ namespace yy {
   case 28:
 #line 314 "Sysy_parser.y" // lalr1.cc:906
     {
-	yystack_[2].value.as< std::shared_ptr<SyntaxInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxInitVal> > ()));
-	yylhs.value.as< std::shared_ptr<SyntaxInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxInitValList> > ());
+	yystack_[2].value.as< std::shared_ptr<TreeNodeInitValList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeInitVal> > ()));
+	yylhs.value.as< std::shared_ptr<TreeNodeInitValList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeInitValList> > ());
 	//std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
     }
 #line 2841 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2844,10 +2844,10 @@ namespace yy {
 #line 322 "Sysy_parser.y" // lalr1.cc:906
     {
 	//不带参数的返回类型为Void的函数
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->type=yystack_[4].value.as< type_specifier > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[3].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()=std::make_shared<TreeNodeFuncDef>();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->type=yystack_[4].value.as< type_specifier > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->id=yystack_[3].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBlock> > ());
 	//std::cout<<"Void FuncDef without Param"<<std::endl;
     }
 #line 2854 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2857,11 +2857,11 @@ namespace yy {
 #line 330 "Sysy_parser.y" // lalr1.cc:906
     {
 	//带有参数的返回值为Void的函数
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()=std::make_shared<SyntaxFuncDef>();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->type=yystack_[5].value.as< type_specifier > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->id=yystack_[4].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->FuncFParamList=yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list;
-	yylhs.value.as< std::shared_ptr<SyntaxFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()=std::make_shared<TreeNodeFuncDef>();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->type=yystack_[5].value.as< type_specifier > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->id=yystack_[4].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->FuncFParamList=yystack_[2].value.as< std::shared_ptr<TreeNodeFuncFParamList> > ()->list;
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncDef> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBlock> > ());
 	//std::cout<<"Void FuncDef with Param"<<std::endl;
     }
 #line 2868 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2870,8 +2870,8 @@ namespace yy {
   case 31:
 #line 342 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()=std::make_shared<SyntaxFuncFParamList>();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list.emplace_back(yystack_[0].value.as< std::shared_ptr<SyntaxFuncFParam> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParamList> > ()=std::make_shared<TreeNodeFuncFParamList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParamList> > ()->list.emplace_back(yystack_[0].value.as< std::shared_ptr<TreeNodeFuncFParam> > ());
     }
 #line 2877 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2879,8 +2879,8 @@ namespace yy {
   case 32:
 #line 346 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxFuncFParam> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxFuncFParamList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxFuncFParamList> > ());
+    	yystack_[2].value.as< std::shared_ptr<TreeNodeFuncFParamList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeFuncFParam> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParamList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeFuncFParamList> > ());
     }
 #line 2886 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2888,10 +2888,10 @@ namespace yy {
   case 33:
 #line 353 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=TYPE_INT;
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[0].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->isarray=0;
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=TYPE_INT;
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[0].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=0;
     }
 #line 2897 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2899,11 +2899,11 @@ namespace yy {
   case 34:
 #line 359 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()=std::make_shared<SyntaxFuncFParam>();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->type=TYPE_INT;
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->isarray=1;
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->id=yystack_[1].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list;
+    yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=TYPE_INT;
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=1;
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[1].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list;
     }
 #line 2909 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2912,7 +2912,7 @@ namespace yy {
 #line 368 "Sysy_parser.y" // lalr1.cc:906
     {
 	//一维数组
-	yylhs.value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()=std::make_shared<SyntaxParamArrayExpList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()=std::make_shared<TreeNodeParamArrayExpList>();
     }
 #line 2918 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2921,8 +2921,8 @@ namespace yy {
 #line 372 "Sysy_parser.y" // lalr1.cc:906
     {
     	//多维数组
-		yystack_[3].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ()));
-    	yylhs.value.as< std::shared_ptr<SyntaxParamArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxParamArrayExpList> > ());
+		yystack_[3].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ()));
+    	yylhs.value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ());
     }
 #line 2928 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2930,8 +2930,8 @@ namespace yy {
   case 37:
 #line 380 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxBlock> > ()=std::make_shared<SyntaxBlock>();
-    	yylhs.value.as< std::shared_ptr<SyntaxBlock> > ()->BlockItemList=yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ()->list;
+    	yylhs.value.as< std::shared_ptr<TreeNodeBlock> > ()=std::make_shared<TreeNodeBlock>();
+    	yylhs.value.as< std::shared_ptr<TreeNodeBlock> > ()->BlockItemList=yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ()->list;
     }
 #line 2937 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2939,8 +2939,8 @@ namespace yy {
   case 38:
 #line 386 "Sysy_parser.y" // lalr1.cc:906
     {
-    yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlockItem> > ()));
-    yylhs.value.as< std::shared_ptr<SyntaxBlockItemList> > ()=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxBlockItemList> > ());
+    yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBlockItem> > ()));
+    yylhs.value.as< std::shared_ptr<TreeNodeBlockItemList> > ()=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ());
 	//std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
     }
 #line 2947 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2949,7 +2949,7 @@ namespace yy {
   case 39:
 #line 391 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItemList> > ()=std::make_shared<SyntaxBlockItemList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItemList> > ()=std::make_shared<TreeNodeBlockItemList>();
 	}
 #line 2955 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -2957,10 +2957,10 @@ namespace yy {
   case 40:
 #line 396 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxConstDecl> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->VarDecl=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->Stmt=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstDecl> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->VarDecl=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=nullptr;
 	//std::cout<<"BlockItem: ConstDecl"<<std::endl;
     }
 #line 2967 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2969,10 +2969,10 @@ namespace yy {
   case 41:
 #line 404 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->ConstDecl=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxVarDecl> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->Stmt=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->VarDecl=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeVarDecl> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=nullptr;
 	//std::cout<<"BlockItem:VarDecl"<<std::endl;
     }
 #line 2979 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2981,10 +2981,10 @@ namespace yy {
   case 42:
 #line 411 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()=std::make_shared<SyntaxBlockItem>();
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->ConstDecl=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->VarDecl=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxBlockItem> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
+    yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->VarDecl=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
 	//std::cout<<"BlockItem:Stmt"<<std::endl;
     }
 #line 2991 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -2993,15 +2993,15 @@ namespace yy {
   case 43:
 #line 419 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBreakStmt> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBreakStmt> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 	//std::cout<<"Stmt:break"<<std::endl;
     }
 #line 3008 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3010,15 +3010,15 @@ namespace yy {
   case 44:
 #line 431 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxContinueStmt> > ());
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeContinueStmt> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt:Continue"<<std::endl;
     }
 #line 3025 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3027,16 +3027,16 @@ namespace yy {
   case 45:
 #line 443 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAssignStmt> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAssignStmt> > ());
 		//std::cout<<"Stmt:AssignStmt"<<std::endl;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
     }
 #line 3042 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3044,15 +3044,15 @@ namespace yy {
   case 46:
 #line 455 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
     }
 #line 3059 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3061,15 +3061,15 @@ namespace yy {
   case 47:
 #line 467 "Sysy_parser.y" // lalr1.cc:906
     {
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
     }
 #line 3075 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3077,15 +3077,15 @@ namespace yy {
   case 48:
 #line 478 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxBlock> > ());
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBlock> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt: Block"<<std::endl;
     }
 #line 3092 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3094,15 +3094,15 @@ namespace yy {
   case 49:
 #line 490 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxSelectStmt> > ());
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeSelectStmt> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"SelectStmt"<<std::endl;
     }
 #line 3109 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3111,15 +3111,15 @@ namespace yy {
   case 50:
 #line 502 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxIterationStmt> > ());
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=nullptr;
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeIterationStmt> > ());
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"IterationStmt"<<std::endl;
     }
 #line 3126 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3128,15 +3128,15 @@ namespace yy {
   case 51:
 #line 514 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()=std::make_shared<SyntaxStmt>();
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->BreakStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ContinueStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->AssignStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Exp=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->Block=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->SelectStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->IterationStmt=nullptr;
-		yylhs.value.as< std::shared_ptr<SyntaxStmt> > ()->ReturnStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxReturnStmt> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ContinueStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->AssignStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Exp=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->Block=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->SelectStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
+		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeReturnStmt> > ());
 		//std::cout<<"ReturnStmt"<<std::endl;
     }
 #line 3143 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3145,7 +3145,7 @@ namespace yy {
   case 52:
 #line 528 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxBreakStmt> > ()=std::make_shared<SyntaxBreakStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeBreakStmt> > ()=std::make_shared<TreeNodeBreakStmt>();
     }
 #line 3151 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3153,7 +3153,7 @@ namespace yy {
   case 53:
 #line 532 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxContinueStmt> > ()=std::make_shared<SyntaxContinueStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeContinueStmt> > ()=std::make_shared<TreeNodeContinueStmt>();
     }
 #line 3159 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3161,9 +3161,9 @@ namespace yy {
   case 54:
 #line 536 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxAssignStmt> > ()=std::make_shared<SyntaxAssignStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxAssignStmt> > ()->LVal=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxLVal> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxAssignStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()=std::make_shared<TreeNodeAssignStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()->LVal=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeLVal> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
     }
 #line 3169 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3171,9 +3171,9 @@ namespace yy {
   case 55:
 #line 543 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()=std::make_shared<SyntaxSelectStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxCond> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->ifStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()=std::make_shared<TreeNodeSelectStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeCond> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->ifStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
 #line 3179 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3181,10 +3181,10 @@ namespace yy {
   case 56:
 #line 548 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()=std::make_shared<SyntaxSelectStmt>();
-    	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->Cond=std::move(yystack_[4].value.as< std::shared_ptr<SyntaxCond> > ());
-    	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->ifStmt=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxStmt> > ());
-    	yylhs.value.as< std::shared_ptr<SyntaxSelectStmt> > ()->elseStmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()=std::make_shared<TreeNodeSelectStmt>();
+    	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->Cond=std::move(yystack_[4].value.as< std::shared_ptr<TreeNodeCond> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->ifStmt=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeStmt> > ());
+    	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->elseStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
 #line 3190 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3192,9 +3192,9 @@ namespace yy {
   case 57:
 #line 556 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()=std::make_shared<SyntaxIterationStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxCond> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxIterationStmt> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxStmt> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()=std::make_shared<TreeNodeIterationStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeCond> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
 #line 3200 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3202,8 +3202,8 @@ namespace yy {
   case 58:
 #line 562 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()=std::make_shared<SyntaxReturnStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()->Exp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()=std::make_shared<TreeNodeReturnStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()->Exp=nullptr;
     }
 #line 3209 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3211,8 +3211,8 @@ namespace yy {
   case 59:
 #line 566 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()=std::make_shared<SyntaxReturnStmt>();
-	yylhs.value.as< std::shared_ptr<SyntaxReturnStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()=std::make_shared<TreeNodeReturnStmt>();
+	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
     }
 #line 3218 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3220,8 +3220,8 @@ namespace yy {
   case 60:
 #line 572 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxExp> > ()=std::make_shared<SyntaxExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeExp> > ()=std::make_shared<TreeNodeExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"Exp : AddExp"<<std::endl;
     }
 #line 3228 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3230,8 +3230,8 @@ namespace yy {
   case 61:
 #line 579 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxCond> > ()=std::make_shared<SyntaxCond>();
-	yylhs.value.as< std::shared_ptr<SyntaxCond> > ()->LOrExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLOrExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeCond> > ()=std::make_shared<TreeNodeCond>();
+	yylhs.value.as< std::shared_ptr<TreeNodeCond> > ()->LOrExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLOrExp> > ());
 	//std::cout<<"Cond : LOrExp"<<std::endl;
     }
 #line 3238 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3240,9 +3240,9 @@ namespace yy {
   case 62:
 #line 586 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()=std::make_shared<SyntaxLVal>();
-	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()->id=yystack_[1].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxLVal> > ()->ArrayExpList=yystack_[0].value.as< std::shared_ptr<SyntaxArrayExpList> > ()->list;
+	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()=std::make_shared<TreeNodeLVal>();
+	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()->id=yystack_[1].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()->ArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeArrayExpList> > ()->list;
 	//std::cout<<"LVal:T_IDENTIFIER ParamArrayExpList"<<std::endl;
     }
 #line 3249 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3251,8 +3251,8 @@ namespace yy {
   case 63:
 #line 593 "Sysy_parser.y" // lalr1.cc:906
     {
-	yystack_[3].value.as< std::shared_ptr<SyntaxArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ()));
-    yylhs.value.as< std::shared_ptr<SyntaxArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<SyntaxArrayExpList> > ());
+	yystack_[3].value.as< std::shared_ptr<TreeNodeArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ()));
+    yylhs.value.as< std::shared_ptr<TreeNodeArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeArrayExpList> > ());
 	}
 #line 3258 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3260,7 +3260,7 @@ namespace yy {
   case 64:
 #line 597 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxArrayExpList> > ()=std::make_shared<SyntaxArrayExpList>();
+    yylhs.value.as< std::shared_ptr<TreeNodeArrayExpList> > ()=std::make_shared<TreeNodeArrayExpList>();
   	}
 #line 3266 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3268,10 +3268,10 @@ namespace yy {
   case 65:
 #line 602 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<SyntaxExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->LVal=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Number=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->LVal=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=nullptr;
 	//std::cout<<"PrimaryExp:(Exp)"<<std::endl;
     }
 #line 3278 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3280,10 +3280,10 @@ namespace yy {
   case 66:
 #line 609 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Exp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->LVal=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLVal> > ());
-    yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Number=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->LVal=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLVal> > ());
+    yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=nullptr;
     //std::cout<<"PrimaryExp：LVal"<<std::endl;
 	}
 #line 3290 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3292,10 +3292,10 @@ namespace yy {
   case 67:
 #line 616 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()=std::make_shared<SyntaxPrimaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Exp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->LVal=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxPrimaryExp> > ()->Number=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxNumber> > ());
+    yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->LVal=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeNumber> > ());
     //std::cout<<"PrimaryExp：Number"<<std::endl;
 	}
 #line 3302 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3304,8 +3304,8 @@ namespace yy {
   case 68:
 #line 625 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxNumber> > ()=std::make_shared<SyntaxNumber>();
-	yylhs.value.as< std::shared_ptr<SyntaxNumber> > ()->num=yystack_[0].value.as< int > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeNumber> > ()=std::make_shared<TreeNodeNumber>();
+	yylhs.value.as< std::shared_ptr<TreeNodeNumber> > ()->num=yystack_[0].value.as< int > ();
     //std::cout<<"Numbers"<<std::endl;
 	}
 #line 3312 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3314,11 +3314,11 @@ namespace yy {
   case 69:
 #line 633 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->op=OP_POS;
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->PrimaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxPrimaryExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->Callee=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->UnaryExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=OP_POS;
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->PrimaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodePrimaryExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->Callee=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=nullptr;
 	//std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
     }
 #line 3325 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3327,11 +3327,11 @@ namespace yy {
   case 70:
 #line 641 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->op=OP_POS;
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->PrimaryExp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->Callee=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxCallee> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->UnaryExp=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=OP_POS;
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->PrimaryExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->Callee=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeCallee> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=nullptr;
 	//std::cout<<"UnaryExp:Callee"<<std::endl;
     }
 #line 3338 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3340,11 +3340,11 @@ namespace yy {
   case 71:
 #line 649 "Sysy_parser.y" // lalr1.cc:906
     {
-    yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()=std::make_shared<SyntaxUnaryExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->op=yystack_[1].value.as< unaryop > ();
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->PrimaryExp=nullptr;
-    yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->Callee=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxUnaryExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
+    yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=yystack_[1].value.as< unaryop > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->PrimaryExp=nullptr;
+    yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->Callee=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
     //std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
 	}
 #line 3351 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3353,8 +3353,8 @@ namespace yy {
   case 72:
 #line 659 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()=std::make_shared<SyntaxCallee>();
-	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->id=yystack_[2].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()=std::make_shared<TreeNodeCallee>();
+	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->id=yystack_[2].value.as< std::string > ();
     }
 #line 3360 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3362,9 +3362,9 @@ namespace yy {
   case 73:
 #line 663 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()=std::make_shared<SyntaxCallee>();
-	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->id=yystack_[3].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<SyntaxCallee> > ()->ExpList=yystack_[1].value.as< std::shared_ptr<SyntaxExpList> > ()->list;
+	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()=std::make_shared<TreeNodeCallee>();
+	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->id=yystack_[3].value.as< std::string > ();
+	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->ExpList=yystack_[1].value.as< std::shared_ptr<TreeNodeExpList> > ()->list;
 	}
 #line 3370 "./build/sysy_parser.cc" // lalr1.cc:906
     break;
@@ -3399,8 +3399,8 @@ namespace yy {
   case 77:
 #line 684 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()=std::make_shared<SyntaxExpList>();
-	yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ()));
+	yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()=std::make_shared<TreeNodeExpList>();
+	yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeExp> > ()));
     //std::cout<<"FuncRParams : Exp "<<std::endl;
 	}
 #line 3407 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3409,8 +3409,8 @@ namespace yy {
   case 78:
 #line 689 "Sysy_parser.y" // lalr1.cc:906
     {
-    yystack_[2].value.as< std::shared_ptr<SyntaxExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<SyntaxExp> > ()));
-    yylhs.value.as< std::shared_ptr<SyntaxExpList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxExpList> > ());
+    yystack_[2].value.as< std::shared_ptr<TreeNodeExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeExp> > ()));
+    yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeExpList> > ());
     //std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
 	}
 #line 3417 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3419,8 +3419,8 @@ namespace yy {
   case 79:
 #line 697 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
 	//std::cout<<"MulExp : UnaryExp"<<std::endl;
     }
 #line 3427 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3429,10 +3429,10 @@ namespace yy {
   case 80:
 #line 702 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_MUL;
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_MUL;
 	//std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
     }
 #line 3439 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3441,10 +3441,10 @@ namespace yy {
   case 81:
 #line 709 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_DIV;
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_DIV;
 	//std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
     }
 #line 3451 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3453,10 +3453,10 @@ namespace yy {
   case 82:
 #line 716 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()=std::make_shared<SyntaxMulExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxMulExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxUnaryExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxMulExp> > ()->op=OP_MOD;
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_MOD;
 	//std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
     }
 #line 3463 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3465,8 +3465,8 @@ namespace yy {
   case 83:
 #line 725 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeMulExp> > ());
     ////std::cout<<""<<std::endl;
 	}
 #line 3473 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3475,10 +3475,10 @@ namespace yy {
   case 84:
 #line 730 "Sysy_parser.y" // lalr1.cc:906
     {
-   	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
-   	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxAddExp> > ());
-   	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
-   	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->op=OP_PLUS;
+   	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
+   	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+   	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeMulExp> > ());
+   	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->op=OP_PLUS;
 	////std::cout<<""<<std::endl;
     }
 #line 3485 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3487,10 +3487,10 @@ namespace yy {
   case 85:
 #line 737 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()=std::make_shared<SyntaxAddExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxMulExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxAddExp> > ()->op=OP_MINUS;
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeMulExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->op=OP_MINUS;
 	////std::cout<<""<<std::endl;
     }
 #line 3497 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3499,9 +3499,9 @@ namespace yy {
   case 86:
 #line 746 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"RelExp : AddExp	"<<std::endl;
     }
 #line 3508 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3510,10 +3510,10 @@ namespace yy {
   case 87:
 #line 752 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_LT;
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_LT;
 	//std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
     }
 #line 3520 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3522,10 +3522,10 @@ namespace yy {
   case 88:
 #line 759 "Sysy_parser.y" // lalr1.cc:906
     {
-  	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
-  	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
-  	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-  	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_GT;
+  	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
+  	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+  	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+  	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_GT;
 	//std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
     }
 #line 3532 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3534,10 +3534,10 @@ namespace yy {
   case 89:
 #line 766 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_LTE;
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_LTE;
 	//std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
     }
 #line 3544 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3546,10 +3546,10 @@ namespace yy {
   case 90:
 #line 773 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()=std::make_shared<SyntaxRelExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxRelExp> > ()->op=OP_GTE;
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_GTE;
 	//std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
     }
 #line 3556 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3558,9 +3558,9 @@ namespace yy {
   case 91:
 #line 782 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->EqExp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeRelExp> > ());
 	//std::cout<<"EqExp : RelExp"<<std::endl;
     }
 #line 3567 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3569,10 +3569,10 @@ namespace yy {
   case 92:
 #line 788 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxEqExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->op=OP_EQ;
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeEqExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->op=OP_EQ;
 	//std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
     }
 #line 3579 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3581,10 +3581,10 @@ namespace yy {
   case 93:
 #line 795 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()=std::make_shared<SyntaxEqExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxEqExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxRelExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxEqExp> > ()->op=OP_NEQ;
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeEqExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeRelExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->op=OP_NEQ;
 	//std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
     }
 #line 3591 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3593,9 +3593,9 @@ namespace yy {
   case 94:
 #line 804 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()=std::make_shared<SyntaxLAndExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->LAndExp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxEqExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()=std::make_shared<TreeNodeLAndExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->LAndExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeEqExp> > ());
 	//std::cout<<"LAndExp : EqExp"<<std::endl;
     }
 #line 3602 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3604,10 +3604,10 @@ namespace yy {
   case 95:
 #line 810 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()=std::make_shared<SyntaxLAndExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->LAndExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxLAndExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxEqExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxLAndExp> > ()->op=OP_AND;
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()=std::make_shared<TreeNodeLAndExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->LAndExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeLAndExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeEqExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->op=OP_AND;
 	//std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
     }
 #line 3614 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3616,9 +3616,9 @@ namespace yy {
   case 96:
 #line 819 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()=std::make_shared<SyntaxLOrExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LOrExp=nullptr;
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLAndExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()=std::make_shared<TreeNodeLOrExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LOrExp=nullptr;
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLAndExp> > ());
 	//std::cout<<"LOrExp : LAndExp"<<std::endl;
     }
 #line 3625 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3627,10 +3627,10 @@ namespace yy {
   case 97:
 #line 825 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()=std::make_shared<SyntaxLOrExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LOrExp=std::move(yystack_[2].value.as< std::shared_ptr<SyntaxLOrExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxLAndExp> > ());
-	yylhs.value.as< std::shared_ptr<SyntaxLOrExp> > ()->op=OP_OR;
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()=std::make_shared<TreeNodeLOrExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LOrExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeLOrExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLAndExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->op=OP_OR;
 	//std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
     }
 #line 3637 "./build/sysy_parser.cc" // lalr1.cc:906
@@ -3639,8 +3639,8 @@ namespace yy {
   case 98:
 #line 834 "Sysy_parser.y" // lalr1.cc:906
     {
-	yylhs.value.as< std::shared_ptr<SyntaxConstExp> > ()=std::make_shared<SyntaxConstExp>();
-	yylhs.value.as< std::shared_ptr<SyntaxConstExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<SyntaxAddExp> > ());
+	yylhs.value.as< std::shared_ptr<TreeNodeConstExp> > ()=std::make_shared<TreeNodeConstExp>();
+	yylhs.value.as< std::shared_ptr<TreeNodeConstExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"ConstExp : AddExp"<<std::endl;
     }
 #line 3647 "./build/sysy_parser.cc" // lalr1.cc:906

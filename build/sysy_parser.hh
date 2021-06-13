@@ -463,133 +463,133 @@ namespace yy {
       char dummy1[sizeof (int)];
 
       // AddExp
-      char dummy2[sizeof (std::shared_ptr<SyntaxAddExp>)];
+      char dummy2[sizeof (std::shared_ptr<TreeNodeAddExp>)];
 
       // ArrayConstExpList
-      char dummy3[sizeof (std::shared_ptr<SyntaxArrayConstExpList>)];
+      char dummy3[sizeof (std::shared_ptr<TreeNodeArrayConstExpList>)];
 
       // ArrayExpList
-      char dummy4[sizeof (std::shared_ptr<SyntaxArrayExpList>)];
+      char dummy4[sizeof (std::shared_ptr<TreeNodeArrayExpList>)];
 
       // AssignStmt
-      char dummy5[sizeof (std::shared_ptr<SyntaxAssignStmt>)];
+      char dummy5[sizeof (std::shared_ptr<TreeNodeAssignStmt>)];
 
       // Block
-      char dummy6[sizeof (std::shared_ptr<SyntaxBlock>)];
+      char dummy6[sizeof (std::shared_ptr<TreeNodeBlock>)];
 
       // BlockItem
-      char dummy7[sizeof (std::shared_ptr<SyntaxBlockItem>)];
+      char dummy7[sizeof (std::shared_ptr<TreeNodeBlockItem>)];
 
       // BlockItemList
-      char dummy8[sizeof (std::shared_ptr<SyntaxBlockItemList>)];
+      char dummy8[sizeof (std::shared_ptr<TreeNodeBlockItemList>)];
 
       // BreakStmt
-      char dummy9[sizeof (std::shared_ptr<SyntaxBreakStmt>)];
+      char dummy9[sizeof (std::shared_ptr<TreeNodeBreakStmt>)];
 
       // Callee
-      char dummy10[sizeof (std::shared_ptr<SyntaxCallee>)];
+      char dummy10[sizeof (std::shared_ptr<TreeNodeCallee>)];
 
       // CompUnit
-      char dummy11[sizeof (std::shared_ptr<SyntaxCompUnit>)];
+      char dummy11[sizeof (std::shared_ptr<TreeNodeCompUnit>)];
 
       // Cond
-      char dummy12[sizeof (std::shared_ptr<SyntaxCond>)];
+      char dummy12[sizeof (std::shared_ptr<TreeNodeCond>)];
 
       // ConstDecl
-      char dummy13[sizeof (std::shared_ptr<SyntaxConstDecl>)];
+      char dummy13[sizeof (std::shared_ptr<TreeNodeConstDecl>)];
 
       // ConstDef
-      char dummy14[sizeof (std::shared_ptr<SyntaxConstDef>)];
+      char dummy14[sizeof (std::shared_ptr<TreeNodeConstDef>)];
 
       // ConstDefList
-      char dummy15[sizeof (std::shared_ptr<SyntaxConstDefList>)];
+      char dummy15[sizeof (std::shared_ptr<TreeNodeConstDefList>)];
 
       // ConstExp
-      char dummy16[sizeof (std::shared_ptr<SyntaxConstExp>)];
+      char dummy16[sizeof (std::shared_ptr<TreeNodeConstExp>)];
 
       // ConstInitVal
-      char dummy17[sizeof (std::shared_ptr<SyntaxConstInitVal>)];
+      char dummy17[sizeof (std::shared_ptr<TreeNodeConstInitVal>)];
 
       // ConstInitValList
-      char dummy18[sizeof (std::shared_ptr<SyntaxConstInitValList>)];
+      char dummy18[sizeof (std::shared_ptr<TreeNodeConstInitValList>)];
 
       // ContinueStmt
-      char dummy19[sizeof (std::shared_ptr<SyntaxContinueStmt>)];
+      char dummy19[sizeof (std::shared_ptr<TreeNodeContinueStmt>)];
 
       // DeclDef
-      char dummy20[sizeof (std::shared_ptr<SyntaxDeclDef>)];
+      char dummy20[sizeof (std::shared_ptr<TreeNodeDeclDef>)];
 
       // EqExp
-      char dummy21[sizeof (std::shared_ptr<SyntaxEqExp>)];
+      char dummy21[sizeof (std::shared_ptr<TreeNodeEqExp>)];
 
       // Exp
-      char dummy22[sizeof (std::shared_ptr<SyntaxExp>)];
+      char dummy22[sizeof (std::shared_ptr<TreeNodeExp>)];
 
       // FuncRParams
-      char dummy23[sizeof (std::shared_ptr<SyntaxExpList>)];
+      char dummy23[sizeof (std::shared_ptr<TreeNodeExpList>)];
 
       // FuncDef
-      char dummy24[sizeof (std::shared_ptr<SyntaxFuncDef>)];
+      char dummy24[sizeof (std::shared_ptr<TreeNodeFuncDef>)];
 
       // FuncFParam
-      char dummy25[sizeof (std::shared_ptr<SyntaxFuncFParam>)];
+      char dummy25[sizeof (std::shared_ptr<TreeNodeFuncFParam>)];
 
       // FuncFParams
-      char dummy26[sizeof (std::shared_ptr<SyntaxFuncFParamList>)];
+      char dummy26[sizeof (std::shared_ptr<TreeNodeFuncFParamList>)];
 
       // InitVal
-      char dummy27[sizeof (std::shared_ptr<SyntaxInitVal>)];
+      char dummy27[sizeof (std::shared_ptr<TreeNodeInitVal>)];
 
       // InitValList
-      char dummy28[sizeof (std::shared_ptr<SyntaxInitValList>)];
+      char dummy28[sizeof (std::shared_ptr<TreeNodeInitValList>)];
 
       // IterationStmt
-      char dummy29[sizeof (std::shared_ptr<SyntaxIterationStmt>)];
+      char dummy29[sizeof (std::shared_ptr<TreeNodeIterationStmt>)];
 
       // LAndExp
-      char dummy30[sizeof (std::shared_ptr<SyntaxLAndExp>)];
+      char dummy30[sizeof (std::shared_ptr<TreeNodeLAndExp>)];
 
       // LOrExp
-      char dummy31[sizeof (std::shared_ptr<SyntaxLOrExp>)];
+      char dummy31[sizeof (std::shared_ptr<TreeNodeLOrExp>)];
 
       // LVal
-      char dummy32[sizeof (std::shared_ptr<SyntaxLVal>)];
+      char dummy32[sizeof (std::shared_ptr<TreeNodeLVal>)];
 
       // MulExp
-      char dummy33[sizeof (std::shared_ptr<SyntaxMulExp>)];
+      char dummy33[sizeof (std::shared_ptr<TreeNodeMulExp>)];
 
       // Number
-      char dummy34[sizeof (std::shared_ptr<SyntaxNumber>)];
+      char dummy34[sizeof (std::shared_ptr<TreeNodeNumber>)];
 
       // ParamArrayExpList
-      char dummy35[sizeof (std::shared_ptr<SyntaxParamArrayExpList>)];
+      char dummy35[sizeof (std::shared_ptr<TreeNodeParamArrayExpList>)];
 
       // PrimaryExp
-      char dummy36[sizeof (std::shared_ptr<SyntaxPrimaryExp>)];
+      char dummy36[sizeof (std::shared_ptr<TreeNodePrimaryExp>)];
 
       // RelExp
-      char dummy37[sizeof (std::shared_ptr<SyntaxRelExp>)];
+      char dummy37[sizeof (std::shared_ptr<TreeNodeRelExp>)];
 
       // ReturnStmt
-      char dummy38[sizeof (std::shared_ptr<SyntaxReturnStmt>)];
+      char dummy38[sizeof (std::shared_ptr<TreeNodeReturnStmt>)];
 
       // SelectStmt
-      char dummy39[sizeof (std::shared_ptr<SyntaxSelectStmt>)];
+      char dummy39[sizeof (std::shared_ptr<TreeNodeSelectStmt>)];
 
       // Stmt
-      char dummy40[sizeof (std::shared_ptr<SyntaxStmt>)];
+      char dummy40[sizeof (std::shared_ptr<TreeNodeStmt>)];
 
       // UnaryExp
-      char dummy41[sizeof (std::shared_ptr<SyntaxUnaryExp>)];
+      char dummy41[sizeof (std::shared_ptr<TreeNodeUnaryExp>)];
 
       // VarDecl
-      char dummy42[sizeof (std::shared_ptr<SyntaxVarDecl>)];
+      char dummy42[sizeof (std::shared_ptr<TreeNodeVarDecl>)];
 
       // VarDef
-      char dummy43[sizeof (std::shared_ptr<SyntaxVarDef>)];
+      char dummy43[sizeof (std::shared_ptr<TreeNodeVarDef>)];
 
       // VarDefList
-      char dummy44[sizeof (std::shared_ptr<SyntaxVarDefList>)];
+      char dummy44[sizeof (std::shared_ptr<TreeNodeVarDefList>)];
 
       // T_IDENTIFIER
       char dummy45[sizeof (std::string)];
@@ -699,49 +699,49 @@ namespace yy {
       /// Constructor for valueless symbols, and symbols from each type.
       basic_symbol (typename Base::kind_type t, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (int) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAddExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayConstExpList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxArrayExpList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxAssignStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlock>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlockItem>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBlockItemList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxBreakStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCallee>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCompUnit>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxCond>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDecl>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDef>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstDefList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstInitVal>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxConstInitValList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxContinueStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxDeclDef>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxEqExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxExpList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncDef>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncFParam>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxFuncFParamList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxInitVal>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxInitValList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxIterationStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLAndExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLOrExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxLVal>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxMulExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxNumber>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxParamArrayExpList>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxPrimaryExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxRelExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxReturnStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxSelectStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxStmt>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxUnaryExp>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDecl>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDef>) v, YY_RVREF (location_type) l);
-      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<SyntaxVarDefList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeAddExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeArrayConstExpList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeArrayExpList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeAssignStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlock>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlockItem>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBlockItemList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeBreakStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCallee>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCompUnit>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeCond>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDecl>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDef>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstDefList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstInitVal>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeConstInitValList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeContinueStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeDeclDef>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeEqExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeExpList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncDef>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncFParam>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeFuncFParamList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeInitVal>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeInitValList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeIterationStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLAndExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLOrExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeLVal>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeMulExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeNumber>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeParamArrayExpList>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodePrimaryExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeRelExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeReturnStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeSelectStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeStmt>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeUnaryExp>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDecl>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDef>) v, YY_RVREF (location_type) l);
+      basic_symbol (typename Base::kind_type t, YY_RVREF (std::shared_ptr<TreeNodeVarDefList>) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (std::string) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (type_specifier) v, YY_RVREF (location_type) l);
       basic_symbol (typename Base::kind_type t, YY_RVREF (unaryop) v, YY_RVREF (location_type) l);

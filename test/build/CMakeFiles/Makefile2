@@ -359,12 +359,12 @@ clean: CMakeFiles/ActiveVars.dir/clean
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/IR_lib.dir/all
 CMakeFiles/main.dir/all: CMakeFiles/IRBuilder.dir/all
-CMakeFiles/main.dir/all: CMakeFiles/RegisterAllocation.dir/all
-CMakeFiles/main.dir/all: CMakeFiles/ActiveVars.dir/all
-CMakeFiles/main.dir/all: CMakeFiles/Pass.dir/all
 CMakeFiles/main.dir/all: CMakeFiles/CodeGen.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/Pass.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/ActiveVars.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/IR_lib.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/RegisterAllocation.dir/all
 CMakeFiles/main.dir/all: CMakeFiles/sysy_driver.dir/all
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build

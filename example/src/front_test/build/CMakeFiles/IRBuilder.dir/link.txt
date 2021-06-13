@@ -1,2 +1,0 @@
-/usr/bin/ar qc libIRBuilder.a  CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.o
-/usr/bin/ranlib libIRBuilder.a
