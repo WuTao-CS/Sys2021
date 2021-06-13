@@ -18,13 +18,13 @@ public:
     yy::sysyFlexLexer lexer;
     bool trace_scanning;
     bool trace_parsing;
-//    SyntaxCompUnit *root = nullptr;
-    std::shared_ptr<SyntaxCompUnit> root=std::make_shared<SyntaxCompUnit>();
+//    TreeNodeCompUnit *root = nullptr;
+    std::shared_ptr<TreeNodeCompUnit> root=std::make_shared<TreeNodeCompUnit>();
 
     void error(const yy::location &l, const std::string &m);
     void error(const std::string &m);
 
     std::string preprocess();
-    std::shared_ptr<SyntaxCompUnit> parse(const std::string &f);
+    std::shared_ptr<TreeNodeCompUnit> parse(const std::string &f);
 };
 #endif

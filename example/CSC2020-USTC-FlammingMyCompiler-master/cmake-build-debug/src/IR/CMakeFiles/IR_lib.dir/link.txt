@@ -1,2 +1,0 @@
-/usr/bin/ar qc libIR_lib.a  CMakeFiles/IR_lib.dir/Type.cc.o CMakeFiles/IR_lib.dir/User.cc.o CMakeFiles/IR_lib.dir/Value.cc.o CMakeFiles/IR_lib.dir/BasicBlock.cc.o CMakeFiles/IR_lib.dir/Constant.cc.o CMakeFiles/IR_lib.dir/Function.cc.o CMakeFiles/IR_lib.dir/GlobalVariable.cc.o CMakeFiles/IR_lib.dir/Instruction.cc.o CMakeFiles/IR_lib.dir/Module.cc.o CMakeFiles/IR_lib.dir/BaseBlock.cc.o
-/usr/bin/ranlib libIR_lib.a

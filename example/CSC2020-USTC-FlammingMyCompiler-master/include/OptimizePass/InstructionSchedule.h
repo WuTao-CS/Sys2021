@@ -8,7 +8,7 @@
 
 class InstructionSchedule : public Transform {
 public:
-  const bool DEBUG = true;
+  const bool DEBUG = false;
 
 public:
   InstructionSchedule(Module *m) : Transform(m) {}

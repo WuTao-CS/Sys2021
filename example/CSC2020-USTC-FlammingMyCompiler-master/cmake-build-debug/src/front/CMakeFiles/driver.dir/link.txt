@@ -1,2 +1,0 @@
-/usr/bin/ar qc libdriver.a  CMakeFiles/driver.dir/sysy_driver.cc.o
-/usr/bin/ranlib libdriver.a

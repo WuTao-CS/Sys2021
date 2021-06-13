@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     bool opti = false;
     bool debug = true;
 
-    std::shared_ptr<SyntaxCompUnit> root;
+    std::shared_ptr<TreeNodeCompUnit> root;
     sysy_driver driver;
     syntax_tree_printer printer;
     int res = 0;

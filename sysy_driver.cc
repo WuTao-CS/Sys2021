@@ -2,13 +2,13 @@
 #include <fstream>
 #include "sysy_driver.hh"
 
-extern std::shared_ptr<SyntaxCompUnit> rootFromParser;
+extern std::shared_ptr<TreeNodeCompUnit> rootFromParser;
 
 sysy_driver::sysy_driver() : trace_scanning(false), trace_parsing(false) {
 }
 sysy_driver::~sysy_driver() {}
 
-std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
+std::shared_ptr<TreeNodeCompUnit> sysy_driver::parse(const std::string &f) {
     file = f;
     std::cout<<"Opening file "<<file<<"\n";
 
@@ -22,7 +22,8 @@ std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
 
     std::cout<<"Starting parsing!\n";
     int x = parser.parse();
-    if(x){
+    if(x)
+    {
         std::cerr<<"Parse failed!"<<"\n";
         assert(x == 0);
     }

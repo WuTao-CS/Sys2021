@@ -5,230 +5,232 @@
 // #define DEBUG
 
 #define _SYNTAX_TREE_NODE_ERROR_                                               \
-  std::cerr << "Abort due to node cast error." << std::endl;                   \
+  std::cout << "Abort due to node cast error." << std::endl;                   \
   std::abort();
 
-/*
-更改情况
-*/
 
-void syntax_tree::run_visitor(syntax_tree_visitor &visitor) {
+void syntax_tree::run_visitor(syntax_tree_visitor &visitor) 
+{
   root->accept(visitor);
 }
-
-// void SyntaxCompUnit::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);}
-void SyntaxDeclDef::accept(syntax_tree_visitor &visitor) {
+//
+void TreeNodeDeclDef::accept(syntax_tree_visitor &visitor) 
+{
 #ifdef DEBUG
-  std::cout << "SyntaxDeclDef" << std::endl;
+  std::cout << "TreeNodeDeclDef" << std::endl;
 #endif
-  if (this->ConstDecl) {
+  if (this->ConstDecl) 
+  {
     this->ConstDecl->accept(visitor);
     return;
-  } else if (this->FuncDef) {
+  } 
+  else if (this->FuncDef) 
+  {
     this->FuncDef->accept(visitor);
     return;
-  } else if (this->VarDecl) {
+  } 
+  else if (this->VarDecl) 
+  {
     this->VarDecl->accept(visitor);
     return;
   }
   _SYNTAX_TREE_NODE_ERROR_
 }
 
-// void SyntaxConstDecl::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxConstDef::accept(syntax_tree_visitor
-// &visitor) {visitor.visit(*this);} void
-// SyntaxConstInitVal::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxVarDecl::accept(syntax_tree_visitor
-// &visitor) {visitor.visit(*this);} void
-// SyntaxVarDef::accept(syntax_tree_visitor &visitor) {visitor.vist(*this);}
-// void SyntaxInitVal::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxFuncDef::accept(syntax_tree_visitor
-// &visitor) {visitor.visit(*this);} void
-// SyntaxFuncFParam::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxBlock::accept(syntax_tree_visitor
-// &visitor) {visitor.visit(*this);}
 
-void SyntaxBlockItem::accept(syntax_tree_visitor &visitor) {
+void TreeNodeBlockItem::accept(syntax_tree_visitor &visitor) 
+{
 #ifdef DEBUG
-  std::cout << "SyntaxBlockItem" << std::endl;
+  std::cout << "TreeNodeBlockItem" << std::endl;
 #endif
-  if (this->ConstDecl) {
+  if (this->ConstDecl) 
+  {
     this->ConstDecl->accept(visitor);
     return;
-  } else if (this->VarDecl) {
+  } 
+  else if (this->VarDecl) 
+  {
     this->VarDecl->accept(visitor);
     return;
-  } else if (this->Stmt) {
+  } 
+  else if (this->Stmt) 
+  {
     this->Stmt->accept(visitor);
     return;
   }
   _SYNTAX_TREE_NODE_ERROR_
 }
 
-void SyntaxStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeStmt::accept(syntax_tree_visitor &visitor) 
+{
 #ifdef DEBUG
-  std::cout << "SyntaxStmt" << std::endl;
+  std::cout << "TreeNodeStmt" << std::endl;
 #endif
-  if (this->AssignStmt) {
+  if (this->AssignStmt) 
+  {
     this->AssignStmt->accept(visitor);
     return;
-  } else if (this->Block) {
+  } 
+  else if (this->Block) 
+  {
     this->Block->accept(visitor);
     return;
-  } else if (this->BreakStmt) {
+  } 
+  else if (this->BreakStmt) 
+  {
     this->BreakStmt->accept(visitor);
     return;
-  } else if (this->ContinueStmt) {
+  } 
+  else if (this->ContinueStmt) 
+  {
     this->ContinueStmt->accept(visitor);
     return;
-  } else if (this->Exp) {
+  } 
+  else if (this->Exp) 
+  {
     this->Exp->accept(visitor);
     return;
-  } else if (this->IterationStmt) {
+  } 
+  else if (this->IterationStmt) 
+  {
     this->IterationStmt->accept(visitor);
     return;
-  } else if (this->ReturnStmt) {
+  } 
+  else if (this->ReturnStmt) 
+  {
     this->ReturnStmt->accept(visitor);
     return;
-  } else if (this->SelectStmt) {
+  } 
+  else if (this->SelectStmt) 
+  {
     this->SelectStmt->accept(visitor);
     return;
   }
   _SYNTAX_TREE_NODE_ERROR_
 }
 
-// void SyntaxBreakStmt::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxContinueStmt::accept(syntax_tree_visitor
-// &visitor) {visitor.visit(*this);} void
-// SyntaxAssignStmt::accept(syntax_tree_visitor &visitor)
-// {visitor.visit(*this);} void SyntaxSelectStmt::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxIterationStmt::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxReturnStmt::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-void SyntaxExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeExp::accept(syntax_tree_visitor &visitor) 
+{
 #ifdef DEBUG
-  std::cout << "SyntaxExp" << std::endl;
+  std::cout << "TreeNodeExp" << std::endl;
 #endif
   this->AddExp->accept(visitor);
 }
-void SyntaxCond::accept(syntax_tree_visitor &visitor) {
+void TreeNodeCond::accept(syntax_tree_visitor &visitor) 
+{
 #ifdef DEBUG
-  std::cout << "SyntaxCond" << std::endl;
+  std::cout << "TreeNodeCond" << std::endl;
 #endif
   this->LOrExp->accept(visitor);
 }
-// void SyntaxLVal::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-void SyntaxPrimaryExp::accept(syntax_tree_visitor &visitor) {
-  // #ifdef DEBUG
-  // std::cout << "SyntaxPrimaryExp" << std::endl;
-  // #endif
-  visitor.visit(*this);
-  // if (this->Exp) {
-  //     this->Exp->accept(visitor);
-  //     return;
-  // } else if (this->LVal) {
-  //     this->LVal->accept(visitor);
-  //     return;
-  // } else if (this->Number) {
-  //     this->Number->accept(visitor);
-  //     return;
-  // }
 
-  // _SYNTAX_TREE_NODE_ERROR_
-}
-// void SyntaxNumber::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxUnaryExp::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-// void SyntaxCallee::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxMulExp::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-// void SyntaxAddExp::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxRelExp::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-// void SyntaxEqExp::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-// void SyntaxLAndExp::accept(syntax_tree_visitor
-// &visitor){visitor.visit(*this);} void
-// SyntaxLOrExp::accept(syntax_tree_visitor &visitor){visitor.visit(*this);}
-void SyntaxConstExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodePrimaryExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxCompUnit::accept(syntax_tree_visitor &visitor) {
+
+void TreeNodeConstExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxConstDecl::accept(syntax_tree_visitor &visitor) {
+void TreeNodeCompUnit::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxConstDef::accept(syntax_tree_visitor &visitor) {
+void TreeNodeConstDecl::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxConstInitVal::accept(syntax_tree_visitor &visitor) {
+void TreeNodeConstDef::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxVarDecl::accept(syntax_tree_visitor &visitor) {
+void TreeNodeConstInitVal::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxVarDef::accept(syntax_tree_visitor &visitor) {
+void TreeNodeVarDecl::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxInitVal::accept(syntax_tree_visitor &visitor) {
+void TreeNodeVarDef::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxFuncDef::accept(syntax_tree_visitor &visitor) {
+void TreeNodeInitVal::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxFuncFParam::accept(syntax_tree_visitor &visitor) {
+void TreeNodeFuncDef::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxBlock::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
-void SyntaxBreakStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeFuncFParam::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxContinueStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeBlock::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
+void TreeNodeBreakStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxAssignStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeContinueStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxSelectStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeAssignStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxIterationStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeSelectStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxReturnStmt::accept(syntax_tree_visitor &visitor) {
+void TreeNodeIterationStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxLVal::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
-void SyntaxNumber::accept(syntax_tree_visitor &visitor) {
+void TreeNodeReturnStmt::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxUnaryExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeLVal::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
+void TreeNodeNumber::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxCallee::accept(syntax_tree_visitor &visitor) {
+void TreeNodeUnaryExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxMulExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeCallee::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxAddExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeMulExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxRelExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeAddExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxEqExp::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
-void SyntaxLAndExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeRelExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
-void SyntaxLOrExp::accept(syntax_tree_visitor &visitor) {
+void TreeNodeEqExp::accept(syntax_tree_visitor &visitor) { visitor.visit(*this); }
+void TreeNodeLAndExp::accept(syntax_tree_visitor &visitor) 
+{
+  visitor.visit(*this);
+}
+void TreeNodeLOrExp::accept(syntax_tree_visitor &visitor) 
+{
   visitor.visit(*this);
 }
 
 #define _DEBUG_PRINT_N_(N)                                                     \
-  { std::cout << std::string(N, '-'); }
+  { std::cout << N << std::string(N, '-'); }
 
 #define _TYPE_(t) (((t) == TYPE_INT) ? "int" : "void")
 
@@ -237,7 +239,7 @@ void SyntaxLOrExp::accept(syntax_tree_visitor &visitor) {
 syntax_tree_printer::syntax_tree_printer(){
 }
 
-void syntax_tree_printer::visit(SyntaxConstExp &node) {
+void syntax_tree_printer::visit(TreeNodeConstExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "const_exp" << std::endl;
   add_depth();
@@ -245,7 +247,7 @@ void syntax_tree_printer::visit(SyntaxConstExp &node) {
   remove_depth();
 }
 
-void syntax_tree_printer::visit(SyntaxCompUnit &node) {
+void syntax_tree_printer::visit(TreeNodeCompUnit &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "CompUnit" << std::endl;
   add_depth();
@@ -255,7 +257,7 @@ void syntax_tree_printer::visit(SyntaxCompUnit &node) {
 //  std::cout<<"here"<<std::endl;
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxConstDecl &node) {
+void syntax_tree_printer::visit(TreeNodeConstDecl &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "ConstDecl" << _TYPE_(node.type) << std::endl;
   add_depth();
@@ -264,7 +266,7 @@ void syntax_tree_printer::visit(SyntaxConstDecl &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxConstDef &node) {
+void syntax_tree_printer::visit(TreeNodeConstDef &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "ConstDef:" << '\t' << node.id << '\n';
   add_depth();
@@ -276,7 +278,7 @@ void syntax_tree_printer::visit(SyntaxConstDef &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxConstInitVal &node) {
+void syntax_tree_printer::visit(TreeNodeConstInitVal &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "ConstInitVal" << std::endl;
   add_depth();
@@ -289,7 +291,7 @@ void syntax_tree_printer::visit(SyntaxConstInitVal &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxVarDecl &node) {
+void syntax_tree_printer::visit(TreeNodeVarDecl &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "VarDecl:\t" << _TYPE_(node.type) << std::endl;
   add_depth();
@@ -298,7 +300,7 @@ void syntax_tree_printer::visit(SyntaxVarDecl &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxVarDef &node) {
+void syntax_tree_printer::visit(TreeNodeVarDef &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "VarDef:\t" << node.id << std::endl;
   add_depth();
@@ -310,7 +312,7 @@ void syntax_tree_printer::visit(SyntaxVarDef &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxInitVal &node) {
+void syntax_tree_printer::visit(TreeNodeInitVal &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "ConstInitVal" << std::endl;
   add_depth();
@@ -323,7 +325,7 @@ void syntax_tree_printer::visit(SyntaxInitVal &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxFuncDef &node) {
+void syntax_tree_printer::visit(TreeNodeFuncDef &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "FuncDef:\t" << _TYPE_(node.type) << node.id << std::endl;
   add_depth();
@@ -335,7 +337,7 @@ void syntax_tree_printer::visit(SyntaxFuncDef &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxFuncFParam &node) {
+void syntax_tree_printer::visit(TreeNodeFuncFParam &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "FuncFParam" << node.type << node.id
             << "\tisarray:" << node.isarray << '\n';
@@ -345,7 +347,7 @@ void syntax_tree_printer::visit(SyntaxFuncFParam &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxBlock &node) {
+void syntax_tree_printer::visit(TreeNodeBlock &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "Block" << std::endl;
   add_depth();
@@ -354,15 +356,15 @@ void syntax_tree_printer::visit(SyntaxBlock &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxBreakStmt &node) {
+void syntax_tree_printer::visit(TreeNodeBreakStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "break;" << std::endl;
 }
-void syntax_tree_printer::visit(SyntaxContinueStmt &node) {
+void syntax_tree_printer::visit(TreeNodeContinueStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "continue;\n";
 }
-void syntax_tree_printer::visit(SyntaxAssignStmt &node) {
+void syntax_tree_printer::visit(TreeNodeAssignStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "AssignStmt" << std::endl;
   add_depth();
@@ -370,7 +372,7 @@ void syntax_tree_printer::visit(SyntaxAssignStmt &node) {
   node.Exp->accept(*this);
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxSelectStmt &node) {
+void syntax_tree_printer::visit(TreeNodeSelectStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "SelectStmt" << std::endl;
   add_depth();
@@ -381,7 +383,7 @@ void syntax_tree_printer::visit(SyntaxSelectStmt &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxIterationStmt &node) {
+void syntax_tree_printer::visit(TreeNodeIterationStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "WhileLoop" << std::endl;
   add_depth();
@@ -391,7 +393,7 @@ void syntax_tree_printer::visit(SyntaxIterationStmt &node) {
   node.Stmt->accept(*this);
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxReturnStmt &node) {
+void syntax_tree_printer::visit(TreeNodeReturnStmt &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "Return" << std::endl;
   add_depth();
@@ -400,7 +402,7 @@ void syntax_tree_printer::visit(SyntaxReturnStmt &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxLVal &node) {
+void syntax_tree_printer::visit(TreeNodeLVal &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "Lval:\t" << node.id << std::endl;
   add_depth();
@@ -410,7 +412,7 @@ void syntax_tree_printer::visit(SyntaxLVal &node) {
   remove_depth();
 }
 
-void syntax_tree_printer::visit(SyntaxPrimaryExp &node) {
+void syntax_tree_printer::visit(TreeNodePrimaryExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "PrimaryExp:\t" << std::endl;
   add_depth();
@@ -422,14 +424,13 @@ void syntax_tree_printer::visit(SyntaxPrimaryExp &node) {
     node.Number->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"PrimaryExp"<<std::endl;
 }
 
-void syntax_tree_printer::visit(SyntaxNumber &node) {
+void syntax_tree_printer::visit(TreeNodeNumber &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "Number:\t" << node.num << '\n';
 }
-void syntax_tree_printer::visit(SyntaxUnaryExp &node) {
+void syntax_tree_printer::visit(TreeNodeUnaryExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "UnaryExp: " << node.op << std::endl;
   add_depth();
@@ -438,13 +439,11 @@ void syntax_tree_printer::visit(SyntaxUnaryExp &node) {
   } else if (node.Callee) {
     node.Callee->accept(*this);
   } else {
-    // _DEBUG_PRINT_N_(depth);
-    // std::cout << node.op<<std::endl;
     node.UnaryExp->accept(*this);
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxCallee &node) {
+void syntax_tree_printer::visit(TreeNodeCallee &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "Call:\t" << node.id << std::endl;
   add_depth();
@@ -453,7 +452,7 @@ void syntax_tree_printer::visit(SyntaxCallee &node) {
   }
   remove_depth();
 }
-void syntax_tree_printer::visit(SyntaxMulExp &node) {
+void syntax_tree_printer::visit(TreeNodeMulExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "MulExp:\t" << node.op << std::endl;
   add_depth();
@@ -464,9 +463,8 @@ void syntax_tree_printer::visit(SyntaxMulExp &node) {
     node.UnaryExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"MulExp"<<std::endl;
 }
-void syntax_tree_printer::visit(SyntaxAddExp &node) {
+void syntax_tree_printer::visit(TreeNodeAddExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "AddExp:\t" << node.op << std::endl;
   add_depth();
@@ -477,9 +475,8 @@ void syntax_tree_printer::visit(SyntaxAddExp &node) {
     node.MulExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"AddExp"<<std::endl;
 }
-void syntax_tree_printer::visit(SyntaxRelExp &node) {
+void syntax_tree_printer::visit(TreeNodeRelExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "RelExp:\t" << node.op << std::endl;
   add_depth();
@@ -490,9 +487,8 @@ void syntax_tree_printer::visit(SyntaxRelExp &node) {
     node.AddExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"RelExp"<<std::endl;
 }
-void syntax_tree_printer::visit(SyntaxEqExp &node) {
+void syntax_tree_printer::visit(TreeNodeEqExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "EqExp:\t" << node.op << std::endl;
   add_depth();
@@ -503,9 +499,8 @@ void syntax_tree_printer::visit(SyntaxEqExp &node) {
     node.RelExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"EqExp"<<std::endl;
 }
-void syntax_tree_printer::visit(SyntaxLAndExp &node) {
+void syntax_tree_printer::visit(TreeNodeLAndExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "LogicalAndExp:\t" << node.op << std::endl;
   add_depth();
@@ -516,9 +511,8 @@ void syntax_tree_printer::visit(SyntaxLAndExp &node) {
     node.EqExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"LogicalAndExp"<<std::endl;
 }
-void syntax_tree_printer::visit(SyntaxLOrExp &node) {
+void syntax_tree_printer::visit(TreeNodeLOrExp &node) {
   _DEBUG_PRINT_N_(depth);
   std::cout << "LogicalOrExp:\t" << node.op << std::endl;
   add_depth();
@@ -529,5 +523,4 @@ void syntax_tree_printer::visit(SyntaxLOrExp &node) {
     node.LAndExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"LogicalOrExp"<<std::endl;
 }
