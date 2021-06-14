@@ -63,7 +63,7 @@ bool MergeCond::runIf(IfBlock *ifbb, mother_type ty) {
         for (auto instr : condbb->getInstructions()) {
 #ifdef DEBUG
           if (instr->getName() == "78") {
-            std::cerr << sub_condbb->getName() << std::endl;
+            std::cout << sub_condbb->getName() << std::endl;
           }
 #endif
           auto new_instr = instr->copy(sub_condbb);
@@ -85,7 +85,7 @@ bool MergeCond::runIf(IfBlock *ifbb, mother_type ty) {
               } else {
                 new_op = old2new[op];
                 if (!new_op) {
-                  std::cerr << instr->getName() << std::endl;
+                  std::cout << instr->getName() << std::endl;
                   abort();
                 }
               }

@@ -78,7 +78,7 @@ std::pair<bool, int> Analyzer::run(int gas) {
     switch (cur_inst->getInstrType()) {
     case Instruction::Ret:
       if (show_num_steps) {
-        std::cerr << "Static analyzer: finished in " << cnt << " steps!"
+        std::cout << "Static analyzer: finished in " << cnt << " steps!"
                   << std::endl;
       }
       this->ret_gas = gas;
@@ -108,7 +108,7 @@ std::pair<bool, int> Analyzer::run(int gas) {
       const auto &ops = cur_inst->getOperands();
       const auto &callee_func = static_cast<Function *>(ops.at(0));
       if (callee_func->getName() != func->getName()) {
-        std::cerr << "Static analyzer: call is not supported!" << std::endl;
+        std::cout << "Static analyzer: call is not supported!" << std::endl;
         return std::make_pair(false, 0);
       } else {
         auto reg_saved = this->vreg;
@@ -200,7 +200,7 @@ std::pair<bool, int> Analyzer::run(int gas) {
         flag = values.at(0) >= values.at(1);
         break;
       default:
-        std::cerr << "???" << std::endl;
+        std::cout << "???" << std::endl;
         abort();
         break;
       }
@@ -224,14 +224,14 @@ std::pair<bool, int> Analyzer::run(int gas) {
       break;
     case Instruction::Div:
       if (values.at(1) == 0) {
-        std::cerr << "Static analyzer: divided by zero!" << std::endl;
+        std::cout << "Static analyzer: divided by zero!" << std::endl;
         return std::make_pair(false, 0);
       }
       this->vreg[cur_inst] = values.at(0) / values.at(1);
       break;
     case Instruction::Rem:
       if (values.at(1) == 0) {
-        std::cerr << "Static analyzer: divided by zero!" << std::endl;
+        std::cout << "Static analyzer: divided by zero!" << std::endl;
         return std::make_pair(false, 0);
       }
       this->vreg[cur_inst] = values.at(0) % values.at(1);
@@ -265,7 +265,7 @@ std::pair<bool, int> Analyzer::run(int gas) {
           flag = values.at(0) >= values.at(1);
           break;
         default:
-          std::cerr << "???" << std::endl;
+          std::cout << "???" << std::endl;
           abort();
           break;
         }
@@ -320,7 +320,7 @@ std::pair<bool, int> Analyzer::run(int gas) {
       // do nothing here
       break;
     default:
-      std::cerr << "Static analyzer: inst not supported" << std::endl;
+      std::cout << "Static analyzer: inst not supported" << std::endl;
       return std::make_pair(false, 0);
       break;
     }
@@ -328,9 +328,9 @@ std::pair<bool, int> Analyzer::run(int gas) {
     if (!branched) {
       cur_inst = this->next_inst[cur_inst];
     }
-    // std::cerr << gas << std::endl;
+    // std::cout << gas << std::endl;
   }
-  std::cerr << "Static analyzer: gas ran out!" << std::endl;
+  std::cout << "Static analyzer: gas ran out!" << std::endl;
   return std::make_pair(false, 0);
 }
 

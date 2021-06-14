@@ -130,7 +130,7 @@ std::shared_ptr<SyntaxCompUnit> rootFromParser;
 
 #else // !YYDEBUG
 
-# define YYCDEBUG if (false) std::cerr
+# define YYCDEBUG if (false) std::cout
 # define YY_SYMBOL_PRINT(Title, Symbol)  YYUSE (Symbol)
 # define YY_REDUCE_PRINT(Rule)           static_cast<void> (0)
 # define YY_STACK_PRINT()                static_cast<void> (0)
@@ -154,7 +154,7 @@ namespace yy {
     :
 #if YYDEBUG
       yydebug_ (false),
-      yycdebug_ (&std::cerr),
+      yycdebug_ (&std::cout),
 #endif
       scanner (scanner_yyarg)
   {}
@@ -4119,9 +4119,9 @@ namespace yy {
 #line 808 "Sysy_parser.y" // lalr1.cc:1218
 
 //void yy::sysy_parser::error (const std::string& m){
-//	std::cerr << "Find error in parsering, " << m<< "\n";
+//	std::cout << "Find error in parsering, " << m<< "\n";
 //}
 void yy::sysy_parser::error (const location_type& l, const std::string& m){
-	std::cerr << l << "\n";
-	std::cerr << "Find error in parsering, " << m<< "\n";
+	std::cout << l << "\n";
+	std::cout << "Find error in parsering, " << m<< "\n";
 }

@@ -115,7 +115,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/parser.dir/DependInfo.cmake"
-  "CMakeFiles/scanner.dir/DependInfo.cmake"
   "CMakeFiles/sysy_driver.dir/DependInfo.cmake"
+  "CMakeFiles/IRBuilder.dir/DependInfo.cmake"
   "CMakeFiles/main.dir/DependInfo.cmake"
+  "CMakeFiles/scanner.dir/DependInfo.cmake"
+  "CMakeFiles/IR_lib.dir/DependInfo.cmake"
   )

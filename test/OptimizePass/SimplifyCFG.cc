@@ -62,7 +62,7 @@ void SimplifyCFG::RemoveNoPredecessorBB() {
     func_->removeBasicBlock(bb);
   }
 #ifdef DEBUG
-  std::cerr << "RemoveNoPredecessorBB: " << std::endl;
+  std::cout << "RemoveNoPredecessorBB: " << std::endl;
   m_->print();
 #endif
 }
@@ -101,7 +101,7 @@ void SimplifyCFG::MergeSinglePredecessorBB() {
 
 void SimplifyCFG::EliminateSinglePredecessorPhi() {
 #ifdef DEBUG
-  std::cerr << "before EliminateSinglePredecessorPhi: " << std::endl;
+  std::cout << "before EliminateSinglePredecessorPhi: " << std::endl;
   m_->print();
 #endif
   for (auto bb : func_->getBasicBlocks()) {
@@ -111,8 +111,8 @@ void SimplifyCFG::EliminateSinglePredecessorPhi() {
         if (instr->isPHI()) {
           if (instr->getOperand(1) != *(bb->getPreBasicBlocks().begin()) &&
               bb != func_->getEntryBlock()) {
-            std::cerr << "error in EliminateSinglePredecessorPhi" << std::endl;
-            std::cerr << instr->getOperand(1)->getName() << "  #"
+            std::cout << "error in EliminateSinglePredecessorPhi" << std::endl;
+            std::cout << instr->getOperand(1)->getName() << "  #"
                       << (*(bb->getPreBasicBlocks().begin()))->getName()
                       << std::endl;
             exit(_EliminateSinglePredecessorPhi_SimplifyCFG);

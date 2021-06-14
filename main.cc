@@ -1,11 +1,12 @@
 #include "syntax_tree.hh"
 #include "sysy_driver.hh"
-
+#include "SYSYCBuilder.h"
 
 #include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <unordered_set>
+
 using namespace std;
 bool disable_div_optimization = false;
 
@@ -35,6 +36,11 @@ int main(int argc, char **argv)
             auto tree = syntax_tree(root);
             std::cout<<"Generate syntax tree success!\n";
             printer.visit(*root);
+            SYSYCBuilder builder;
+            std::cout<<"Begin to build tree of sysy!"<<std::endl;
+            tree.run_visitor(builder);
+            std::cout<<"End building tree of sysy!"<<std::endl;
+            builder.IRprint();
             
         } 
         else

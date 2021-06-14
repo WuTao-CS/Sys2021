@@ -196,7 +196,7 @@ bool HighIRsimplyCFG::MergeBasicBlock(BasicBlock *bb, BaseBlock *succbb) {
 //             }
 //             else
 //             {
-//                 std::cerr<<"error in HighIRsimplyCFG removeBB"<<std::endl;
+//                 std::cout<<"error in HighIRsimplyCFG removeBB"<<std::endl;
 //                 abort();
 //             }
 //         }

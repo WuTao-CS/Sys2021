@@ -313,7 +313,7 @@ void findNodes(
       // for ( auto arg : func->getArgs()) {
       //     if (std::find(phiNode->vals.begin(), phiNode->vals.end(), arg) !=
       //     phiNode->vals.end()) {
-      //         std::cerr << "Find func args in Phi node!!!\n";
+      //         std::cout << "Find func args in Phi node!!!\n";
       //         abort();
       //     }
       // }

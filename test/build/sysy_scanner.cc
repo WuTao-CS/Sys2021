@@ -860,16 +860,16 @@ do_action:	/* This label is used only to access EOF actions. */
 		if ( yy_flex_debug )
 			{
 			if ( yy_act == 0 )
-				std::cerr << "--scanner backing up\n";
+				std::cout << "--scanner backing up\n";
 			else if ( yy_act < 42 )
-				std::cerr << "--accepting rule at line " << yy_rule_linenum[yy_act] <<
+				std::cout << "--accepting rule at line " << yy_rule_linenum[yy_act] <<
 				         "(\"" << yytext << "\")\n";
 			else if ( yy_act == 42 )
-				std::cerr << "--accepting default rule (\"" << yytext << "\")\n";
+				std::cout << "--accepting default rule (\"" << yytext << "\")\n";
 			else if ( yy_act == 43 )
-				std::cerr << "--(end of buffer or a NUL)\n";
+				std::cout << "--(end of buffer or a NUL)\n";
 			else
-				std::cerr << "--EOF (start condition " << YY_START << ")\n";
+				std::cout << "--EOF (start condition " << YY_START << ")\n";
 			}
 
 		switch ( yy_act )
@@ -2129,7 +2129,7 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 /* %if-c++-only */
 void yyFlexLexer::LexerError( const char* msg )
 {
-    	std::cerr << msg << std::endl;
+    	std::cout << msg << std::endl;
 	exit( YY_EXIT_FAILURE );
 }
 /* %endif */

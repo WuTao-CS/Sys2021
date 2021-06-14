@@ -7,7 +7,7 @@ void BBConstPropagation::run() {
     for (auto bb : func->getBasicBlocks()) {
       bb_ = bb;
 #ifdef DEBUG
-      std::cerr << "BBConstPropagation: " << bb_->getName() << std::endl;
+      std::cout << "BBConstPropagation: " << bb_->getName() << std::endl;
 #endif
       ConstPropagation();
     }
@@ -81,7 +81,7 @@ void BBConstPropagation::ConstPropagation() {
   std::vector<Instruction *> wait_delete;
   for (auto instr : bb_->getInstructions()) {
 #ifdef DEBUG
-    std::cerr << "instr: " << instr->getName() << std::endl;
+    std::cout << "instr: " << instr->getName() << std::endl;
 #endif
 
     if (instr->isAdd() || instr->isSub() || instr->isMul() || instr->isDiv() ||
@@ -120,13 +120,13 @@ void BBConstPropagation::ConstPropagation() {
         // wait_delete.push_back(instr);
       } else {
 #ifdef DEBUG
-        std::cerr << v1->getName() << std::endl;
+        std::cout << v1->getName() << std::endl;
 #endif
 
         if (array_const_def_.find(dynamic_cast<User *>(v1)->getOperand(0)) !=
             array_const_def_.end()) {
 #ifdef DEBUG
-          std::cerr << "delete in const propa" << std::endl;
+          std::cout << "delete in const propa" << std::endl;
 #endif
           array_const_def_.erase(
               array_const_def_.find(dynamic_cast<User *>(v1)->getOperand(0)));
@@ -211,7 +211,7 @@ ConstantInt *BBConstPropagation::getDefVal(Value *v) {
     }
   } else if (arg_v != nullptr) {
   } else {
-    std::cerr << "error in constpropagation getdefval" << std::endl;
+    std::cout << "error in constpropagation getdefval" << std::endl;
     // exit_ifnot(_CantGetDefVal_getDefVal_BBConstPropagation, false);
     return nullptr;
   }
@@ -220,12 +220,12 @@ ConstantInt *BBConstPropagation::getDefVal(Value *v) {
 
 ConstantInt *BBConstPropagation::setDefVal(Value *v, ConstantInt *const_val) {
 #ifdef DEBUG
-  std::cerr << "setdef: " << v->getName() << std::endl;
+  std::cout << "setdef: " << v->getName() << std::endl;
 #endif
 
   auto instr_v = dynamic_cast<Instruction *>(v);
 #ifdef DEBUG
-  std::cerr << "setdef: " << instr_v->getName() << std::endl;
+  std::cout << "setdef: " << instr_v->getName() << std::endl;
 #endif
 
   auto global_v = dynamic_cast<GlobalVariable *>(v);
@@ -275,7 +275,7 @@ ConstantInt *BBConstPropagation::setDefVal(Value *v, ConstantInt *const_val) {
       }
     }
   } else {
-    std::cerr << "error in constpropagation setdefval" << std::endl;
+    std::cout << "error in constpropagation setdefval" << std::endl;
     // exit_ifnot(_CantSetDefVal_setDefVal_BBConstPropagation, false);
     return nullptr;
   }

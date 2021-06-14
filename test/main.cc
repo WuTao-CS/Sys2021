@@ -186,12 +186,12 @@ int main(int argc, char **argv)
             //     // CodeGen
             //     std::cout<<"Begin to generate code!"<<std::endl;
             //     CodeGen code_generator(builder.getModule(), debug);
-            //     std::cerr << std::endl
+            //     std::cout << std::endl
             //               << "### IR (without RegAlloc) ###" << std::endl
             //               << std::endl;
             //     builder.getModule().get()->print();
             //     std::string asm_code = code_generator.generateModuleCode(true);
-            //     std::cerr << std::endl
+            //     std::cout << std::endl
             //               << "### IR (with RegAlloc) ###" << std::endl
             //               << std::endl;
             //     code_generator.printIR();

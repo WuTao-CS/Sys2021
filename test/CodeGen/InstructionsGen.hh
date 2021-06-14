@@ -45,7 +45,7 @@ class Reg : public Value {
 public:
   explicit Reg(int id) : id(id) {
     if (id < 0 || id > max_reg_id) {
-      std::cerr << "Invalid Reg ID!" << std::endl;
+      std::cout << "Invalid Reg ID!" << std::endl;
       abort();
     }
   }
@@ -72,11 +72,11 @@ public:
   explicit RegShift(int id, int shift, ShiftType _t = ShiftType::lsl)
       : id(id), shift(shift), _t(_t) {
     if (id < 0 || id > max_reg_id) {
-      std::cerr << "Invalid Reg ID!" << std::endl;
+      std::cout << "Invalid Reg ID!" << std::endl;
       abort();
     }
     if (shift < 0 || shift > 31) {
-      std::cerr << "Invalid Reg shift!" << std::endl;
+      std::cout << "Invalid Reg shift!" << std::endl;
       abort();
     }
   }

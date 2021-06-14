@@ -403,7 +403,7 @@ public:
   void visit(SyntaxConstExp &) final;
   void add_depth() { depth += 6; }
   void remove_depth() {
-    // std::cerr<<"depth-4"<<std::endl;
+    // std::cout<<"depth-4"<<std::endl;
     depth -= 6;
   }
 

@@ -247,7 +247,7 @@ BBset_t *LoopFind::getParentLoop(BBset_t *set) {
       return loop;
     }
   }
-  std::cerr << "loopBase " + base->getName() + "(" +
+  std::cout << "loopBase " + base->getName() + "(" +
                    base->getParent()->getName() + ")" +
                    " doesn't have a entry\n";
   exit_ifnot(_getParentLoop_LoopFind, false && "Loop has no In BB");

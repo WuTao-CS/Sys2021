@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -90,17 +102,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -112,28 +113,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -181,19 +170,6 @@ parser/fast:
 .PHONY : parser/fast
 
 #=============================================================================
-# Target rules for targets named scanner
-
-# Build rule for target.
-scanner: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 scanner
-.PHONY : scanner
-
-# fast build rule for target.
-scanner/fast:
-	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/build
-.PHONY : scanner/fast
-
-#=============================================================================
 # Target rules for targets named sysy_driver
 
 # Build rule for target.
@@ -207,6 +183,19 @@ sysy_driver/fast:
 .PHONY : sysy_driver/fast
 
 #=============================================================================
+# Target rules for targets named IRBuilder
+
+# Build rule for target.
+IRBuilder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IRBuilder
+.PHONY : IRBuilder
+
+# fast build rule for target.
+IRBuilder/fast:
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/build
+.PHONY : IRBuilder/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -218,6 +207,362 @@ main: cmake_check_build_system
 main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
+
+#=============================================================================
+# Target rules for targets named scanner
+
+# Build rule for target.
+scanner: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scanner
+.PHONY : scanner
+
+# fast build rule for target.
+scanner/fast:
+	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/build
+.PHONY : scanner/fast
+
+#=============================================================================
+# Target rules for targets named IR_lib
+
+# Build rule for target.
+IR_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IR_lib
+.PHONY : IR_lib
+
+# fast build rule for target.
+IR_lib/fast:
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/build
+.PHONY : IR_lib/fast
+
+IR/BaseBlock.o: IR/BaseBlock.cc.o
+
+.PHONY : IR/BaseBlock.o
+
+# target to build an object file
+IR/BaseBlock.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.o
+.PHONY : IR/BaseBlock.cc.o
+
+IR/BaseBlock.i: IR/BaseBlock.cc.i
+
+.PHONY : IR/BaseBlock.i
+
+# target to preprocess a source file
+IR/BaseBlock.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.i
+.PHONY : IR/BaseBlock.cc.i
+
+IR/BaseBlock.s: IR/BaseBlock.cc.s
+
+.PHONY : IR/BaseBlock.s
+
+# target to generate assembly for a file
+IR/BaseBlock.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.s
+.PHONY : IR/BaseBlock.cc.s
+
+IR/BasicBlock.o: IR/BasicBlock.cc.o
+
+.PHONY : IR/BasicBlock.o
+
+# target to build an object file
+IR/BasicBlock.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BasicBlock.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BasicBlock.cc.o
+.PHONY : IR/BasicBlock.cc.o
+
+IR/BasicBlock.i: IR/BasicBlock.cc.i
+
+.PHONY : IR/BasicBlock.i
+
+# target to preprocess a source file
+IR/BasicBlock.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BasicBlock.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BasicBlock.cc.i
+.PHONY : IR/BasicBlock.cc.i
+
+IR/BasicBlock.s: IR/BasicBlock.cc.s
+
+.PHONY : IR/BasicBlock.s
+
+# target to generate assembly for a file
+IR/BasicBlock.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BasicBlock.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BasicBlock.cc.s
+.PHONY : IR/BasicBlock.cc.s
+
+IR/Constant.o: IR/Constant.cc.o
+
+.PHONY : IR/Constant.o
+
+# target to build an object file
+IR/Constant.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Constant.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Constant.cc.o
+.PHONY : IR/Constant.cc.o
+
+IR/Constant.i: IR/Constant.cc.i
+
+.PHONY : IR/Constant.i
+
+# target to preprocess a source file
+IR/Constant.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Constant.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Constant.cc.i
+.PHONY : IR/Constant.cc.i
+
+IR/Constant.s: IR/Constant.cc.s
+
+.PHONY : IR/Constant.s
+
+# target to generate assembly for a file
+IR/Constant.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Constant.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Constant.cc.s
+.PHONY : IR/Constant.cc.s
+
+IR/Function.o: IR/Function.cc.o
+
+.PHONY : IR/Function.o
+
+# target to build an object file
+IR/Function.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Function.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Function.cc.o
+.PHONY : IR/Function.cc.o
+
+IR/Function.i: IR/Function.cc.i
+
+.PHONY : IR/Function.i
+
+# target to preprocess a source file
+IR/Function.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Function.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Function.cc.i
+.PHONY : IR/Function.cc.i
+
+IR/Function.s: IR/Function.cc.s
+
+.PHONY : IR/Function.s
+
+# target to generate assembly for a file
+IR/Function.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Function.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Function.cc.s
+.PHONY : IR/Function.cc.s
+
+IR/GlobalVariable.o: IR/GlobalVariable.cc.o
+
+.PHONY : IR/GlobalVariable.o
+
+# target to build an object file
+IR/GlobalVariable.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/GlobalVariable.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.o
+.PHONY : IR/GlobalVariable.cc.o
+
+IR/GlobalVariable.i: IR/GlobalVariable.cc.i
+
+.PHONY : IR/GlobalVariable.i
+
+# target to preprocess a source file
+IR/GlobalVariable.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/GlobalVariable.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.i
+.PHONY : IR/GlobalVariable.cc.i
+
+IR/GlobalVariable.s: IR/GlobalVariable.cc.s
+
+.PHONY : IR/GlobalVariable.s
+
+# target to generate assembly for a file
+IR/GlobalVariable.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/GlobalVariable.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.s
+.PHONY : IR/GlobalVariable.cc.s
+
+IR/Instruction.o: IR/Instruction.cc.o
+
+.PHONY : IR/Instruction.o
+
+# target to build an object file
+IR/Instruction.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Instruction.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Instruction.cc.o
+.PHONY : IR/Instruction.cc.o
+
+IR/Instruction.i: IR/Instruction.cc.i
+
+.PHONY : IR/Instruction.i
+
+# target to preprocess a source file
+IR/Instruction.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Instruction.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Instruction.cc.i
+.PHONY : IR/Instruction.cc.i
+
+IR/Instruction.s: IR/Instruction.cc.s
+
+.PHONY : IR/Instruction.s
+
+# target to generate assembly for a file
+IR/Instruction.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Instruction.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Instruction.cc.s
+.PHONY : IR/Instruction.cc.s
+
+IR/Module.o: IR/Module.cc.o
+
+.PHONY : IR/Module.o
+
+# target to build an object file
+IR/Module.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Module.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Module.cc.o
+.PHONY : IR/Module.cc.o
+
+IR/Module.i: IR/Module.cc.i
+
+.PHONY : IR/Module.i
+
+# target to preprocess a source file
+IR/Module.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Module.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Module.cc.i
+.PHONY : IR/Module.cc.i
+
+IR/Module.s: IR/Module.cc.s
+
+.PHONY : IR/Module.s
+
+# target to generate assembly for a file
+IR/Module.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Module.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Module.cc.s
+.PHONY : IR/Module.cc.s
+
+IR/Type.o: IR/Type.cc.o
+
+.PHONY : IR/Type.o
+
+# target to build an object file
+IR/Type.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Type.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Type.cc.o
+.PHONY : IR/Type.cc.o
+
+IR/Type.i: IR/Type.cc.i
+
+.PHONY : IR/Type.i
+
+# target to preprocess a source file
+IR/Type.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Type.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Type.cc.i
+.PHONY : IR/Type.cc.i
+
+IR/Type.s: IR/Type.cc.s
+
+.PHONY : IR/Type.s
+
+# target to generate assembly for a file
+IR/Type.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Type.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Type.cc.s
+.PHONY : IR/Type.cc.s
+
+IR/User.o: IR/User.cc.o
+
+.PHONY : IR/User.o
+
+# target to build an object file
+IR/User.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/User.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/User.cc.o
+.PHONY : IR/User.cc.o
+
+IR/User.i: IR/User.cc.i
+
+.PHONY : IR/User.i
+
+# target to preprocess a source file
+IR/User.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/User.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/User.cc.i
+.PHONY : IR/User.cc.i
+
+IR/User.s: IR/User.cc.s
+
+.PHONY : IR/User.s
+
+# target to generate assembly for a file
+IR/User.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/User.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/User.cc.s
+.PHONY : IR/User.cc.s
+
+IR/Value.o: IR/Value.cc.o
+
+.PHONY : IR/Value.o
+
+# target to build an object file
+IR/Value.cc.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Value.cc.o
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Value.cc.o
+.PHONY : IR/Value.cc.o
+
+IR/Value.i: IR/Value.cc.i
+
+.PHONY : IR/Value.i
+
+# target to preprocess a source file
+IR/Value.cc.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Value.cc.i
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Value.cc.i
+.PHONY : IR/Value.cc.i
+
+IR/Value.s: IR/Value.cc.s
+
+.PHONY : IR/Value.s
+
+# target to generate assembly for a file
+IR/Value.cc.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Value.cc.s
+	$(MAKE) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/Value.cc.s
+.PHONY : IR/Value.cc.s
+
+IRBuilder/SYSYCBuilder.o: IRBuilder/SYSYCBuilder.cc.o
+
+.PHONY : IRBuilder/SYSYCBuilder.o
+
+# target to build an object file
+IRBuilder/SYSYCBuilder.cc.o:
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o
+.PHONY : IRBuilder/SYSYCBuilder.cc.o
+
+IRBuilder/SYSYCBuilder.i: IRBuilder/SYSYCBuilder.cc.i
+
+.PHONY : IRBuilder/SYSYCBuilder.i
+
+# target to preprocess a source file
+IRBuilder/SYSYCBuilder.cc.i:
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.i
+.PHONY : IRBuilder/SYSYCBuilder.cc.i
+
+IRBuilder/SYSYCBuilder.s: IRBuilder/SYSYCBuilder.cc.s
+
+.PHONY : IRBuilder/SYSYCBuilder.s
+
+# target to generate assembly for a file
+IRBuilder/SYSYCBuilder.cc.s:
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.s
+.PHONY : IRBuilder/SYSYCBuilder.cc.s
 
 main.o: main.cc.o
 
@@ -339,8 +684,8 @@ sysy_scanner.o: sysy_scanner.cc.o
 
 # target to build an object file
 sysy_scanner.cc.o:
-	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.o
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_scanner.cc.o
+	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.o
 .PHONY : sysy_scanner.cc.o
 
 sysy_scanner.i: sysy_scanner.cc.i
@@ -349,8 +694,8 @@ sysy_scanner.i: sysy_scanner.cc.i
 
 # target to preprocess a source file
 sysy_scanner.cc.i:
-	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.i
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_scanner.cc.i
+	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.i
 .PHONY : sysy_scanner.cc.i
 
 sysy_scanner.s: sysy_scanner.cc.s
@@ -359,8 +704,8 @@ sysy_scanner.s: sysy_scanner.cc.s
 
 # target to generate assembly for a file
 sysy_scanner.cc.s:
-	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.s
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_scanner.cc.s
+	$(MAKE) -f CMakeFiles/scanner.dir/build.make CMakeFiles/scanner.dir/sysy_scanner.cc.s
 .PHONY : sysy_scanner.cc.s
 
 # Help Target
@@ -370,16 +715,50 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... edit_cache"
 	@echo "... parser"
-	@echo "... scanner"
 	@echo "... rebuild_cache"
 	@echo "... sysy_driver"
+	@echo "... IRBuilder"
 	@echo "... main"
-	@echo "... edit_cache"
-	@echo "... install/local"
-	@echo "... test"
+	@echo "... scanner"
+	@echo "... IR_lib"
+	@echo "... IR/BaseBlock.o"
+	@echo "... IR/BaseBlock.i"
+	@echo "... IR/BaseBlock.s"
+	@echo "... IR/BasicBlock.o"
+	@echo "... IR/BasicBlock.i"
+	@echo "... IR/BasicBlock.s"
+	@echo "... IR/Constant.o"
+	@echo "... IR/Constant.i"
+	@echo "... IR/Constant.s"
+	@echo "... IR/Function.o"
+	@echo "... IR/Function.i"
+	@echo "... IR/Function.s"
+	@echo "... IR/GlobalVariable.o"
+	@echo "... IR/GlobalVariable.i"
+	@echo "... IR/GlobalVariable.s"
+	@echo "... IR/Instruction.o"
+	@echo "... IR/Instruction.i"
+	@echo "... IR/Instruction.s"
+	@echo "... IR/Module.o"
+	@echo "... IR/Module.i"
+	@echo "... IR/Module.s"
+	@echo "... IR/Type.o"
+	@echo "... IR/Type.i"
+	@echo "... IR/Type.s"
+	@echo "... IR/User.o"
+	@echo "... IR/User.i"
+	@echo "... IR/User.s"
+	@echo "... IR/Value.o"
+	@echo "... IR/Value.i"
+	@echo "... IR/Value.s"
+	@echo "... IRBuilder/SYSYCBuilder.o"
+	@echo "... IRBuilder/SYSYCBuilder.i"
+	@echo "... IRBuilder/SYSYCBuilder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

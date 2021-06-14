@@ -27,7 +27,7 @@ void BranchMerge::simplifyAlgebra(AriExp *exp) {}
 AriExp *BranchMerge::getCondInst(BranchInst *br) {
   AriExp *ret = new AriExp();
   if (br->getNumOperand() != 3) {
-    std::cerr << "error getCondInst" << std::endl;
+    std::cout << "error getCondInst" << std::endl;
     abort();
   } else {
     ret = getAriExp(br->getOperand(0));
@@ -87,13 +87,13 @@ AriExp *BranchMerge::getAriExp(Value *op_val) {
           ari_op = AriExp::LE;
           break;
         default:
-          std::cerr << "error in getAriExp" << std::endl;
+          std::cout << "error in getAriExp" << std::endl;
           abort();
           break;
         }
         break;
       default:
-        std::cerr << "error in getAriExp" << std::endl;
+        std::cout << "error in getAriExp" << std::endl;
         abort();
         break;
       }
@@ -102,7 +102,7 @@ AriExp *BranchMerge::getAriExp(Value *op_val) {
       if (op1 && op2) {
         return new AriExp(op1, op2, ari_op);
       } else {
-        std::cerr << "error in getAriExp" << std::endl;
+        std::cout << "error in getAriExp" << std::endl;
         abort();
       }
       return nullptr;

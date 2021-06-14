@@ -107,9 +107,9 @@ void InstructionSchedule::initNode(NodePtr node) {
     node->unit = Unit::M;
     break;
   default:
-    std::cerr << "Instruction not supported by InstructionSchedule"
+    std::cout << "Instruction not supported by InstructionSchedule"
               << std::endl;
-    std::cerr << node->inst->CommentPrint() << std::endl;
+    std::cout << node->inst->CommentPrint() << std::endl;
     abort();
     break;
   }
@@ -252,13 +252,13 @@ InstructionSchedule::schedule(std::list<Instruction *> &insts) {
   }
   result_insts.push_back(insts.back());
   if (DEBUG) {
-    std::cerr << ">>>>>>>>>> before scheduling <<<<<<<<<<<" << std::endl;
+    std::cout << ">>>>>>>>>> before scheduling <<<<<<<<<<<" << std::endl;
     for (auto inst : insts) {
-      std::cerr << inst->CommentPrint() << std::endl;
+      std::cout << inst->CommentPrint() << std::endl;
     }
-    std::cerr << ">>>>>>>>>> after scheduling <<<<<<<<<<<" << std::endl;
+    std::cout << ">>>>>>>>>> after scheduling <<<<<<<<<<<" << std::endl;
     for (auto inst : result_insts) {
-      std::cerr << inst->CommentPrint() << std::endl;
+      std::cout << inst->CommentPrint() << std::endl;
     }
   }
   assertEqual(result_insts, insts);

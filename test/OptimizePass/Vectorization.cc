@@ -47,7 +47,7 @@ void Vectorization::run() {
     }
     if (tryVectorizate(cond, body)) {
       vectorizate_loops++;
-      // std::cerr << "Vectorizate " << body->getName() << std::endl;
+      // std::cout << "Vectorizate " << body->getName() << std::endl;
     }
   }
 }

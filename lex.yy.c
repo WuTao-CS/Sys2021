@@ -2309,7 +2309,7 @@ void yyfree (void * ptr )
 // CHANGE: The linker will choke if there's no implementation of the
 // default `yylex` even if it's never called.
 int yyFlexLexer::yylex() {
-    std::cerr << "'int yyFlexLexer::yylex()' should never be called." << std::endl;
+    std::cout << "'int yyFlexLexer::yylex()' should never be called." << std::endl;
     exit(1);
 }
 

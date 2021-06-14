@@ -230,11 +230,10 @@ void TreeNodeLOrExp::accept(syntax_tree_visitor &visitor)
 }
 
 #define _DEBUG_PRINT_N_(N)                                                     \
-  { std::cout << N << std::string(N, '-'); }
+  { std::cout <<std::string(N, '-'); }
 
 #define _TYPE_(t) (((t) == TYPE_INT) ? "int" : "void")
 
-// TODO(zyh) 删除printer
 
 syntax_tree_printer::syntax_tree_printer(){
 }

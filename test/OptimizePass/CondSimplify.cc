@@ -514,11 +514,11 @@ Exp *Exp::create(Value *root) {
 
 void Exp::print() {
   PRINT_DEPTH_(print_depth_)
-  std::cerr << "op: " << op_name[op_] << std::endl;
+  std::cout << "op: " << op_name[op_] << std::endl;
   print_depth_ += 4;
   if (op_ == Assign) {
     PRINT_DEPTH_(print_depth_)
-    std::cerr << "%" << val_->getName() << std::endl;
+    std::cout << "%" << val_->getName() << std::endl;
   } else {
     lhs_->setPrintDepth(print_depth_);
     lhs_->print();

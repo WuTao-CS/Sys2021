@@ -5,7 +5,7 @@
 
 #define _IRBUILDER_ERROR_(str)                                                 \
   {                                                                            \
-    std::cerr << "Error in IRbuilder-> " << str << std::endl;                  \
+    std::cout << "Error in IRbuilder-> " << str << std::endl;                  \
     std::abort();                                                              \
   }
 

@@ -119,7 +119,7 @@ void LowerIR::splitGEP(BasicBlock *bb) {
       inst->removeUseOfOps();
       iter = insts.erase(iter);
     } else if (inst->isGEP()) {
-      std::cerr << "GEP have more than 2 operands ???" << std::endl;
+      std::cout << "GEP have more than 2 operands ???" << std::endl;
       exit_ifnot(_splitGEP_LowerIR, false);
     } else {
       ++iter;

@@ -82,7 +82,7 @@ void CodeGen::findMTVars(Function *func) {
           Instruction *cur_inst = Q.front();
           Q.pop();
           if (flag && CodeGen::is_mt_start(cur_inst)) {
-            std::cerr << "MTSTART followed by MTSTART!!!" << std::endl;
+            std::cout << "MTSTART followed by MTSTART!!!" << std::endl;
             abort();
           }
           if (flag && CodeGen::is_mt_end(cur_inst)) {
@@ -91,7 +91,7 @@ void CodeGen::findMTVars(Function *func) {
           if (flag) {
             if (this->in_mt_env[cur_inst] != nullptr) {
               if (this->in_mt_env[cur_inst] != inst) {
-                std::cerr << "MTSTART conflict!!!" << std::endl;
+                std::cout << "MTSTART conflict!!!" << std::endl;
                 abort();
               } else {
                 // visited -> no expand
@@ -767,14 +767,14 @@ std::string CodeGen::generateInstructionCode(Instruction *inst) {
                                  InstGen::Reg(op_reg_2));
         break;
       default:
-        std::cerr << "???" << std::endl;
+        std::cout << "???" << std::endl;
         abort();
         break;
       }
     }
     asm_code += CodeGen::getFromSpecificReg(inst, alu_ret);
   } else if (CodeGen::is_mt_inst(inst)) {
-    std::cerr << "Please use Call __mtstart / __mtend instead" << std::endl;
+    std::cout << "Please use Call __mtstart / __mtend instead" << std::endl;
     abort();
   } else if (inst->getInstrType() == Instruction::Br) {
     auto inst_br = dynamic_cast<BranchInst *>(inst);
@@ -940,10 +940,10 @@ std::string CodeGen::generateInstructionCode(Instruction *inst) {
     }
   } else if (inst->getInstrType() == Instruction::PHI) {
   } else if (inst->getInstrType() == Instruction::AddAddr) {
-    std::cerr << "IR instruction AddAddr is deprecated" << std::endl;
+    std::cout << "IR instruction AddAddr is deprecated" << std::endl;
     abort();
   } else if (inst->getInstrType() == Instruction::BIC) {
-    std::cerr << "IR instruction BIC is deprecated" << std::endl;
+    std::cout << "IR instruction BIC is deprecated" << std::endl;
     abort();
     assert(this->register_mapping.count(ops.at(2)));
     int alu_op0 = this->register_mapping.count(ops.at(0))
@@ -965,12 +965,12 @@ std::string CodeGen::generateInstructionCode(Instruction *inst) {
                              InstGen::Reg(alu_op1), InstGen::Reg(alu_op2));
     asm_code += getFromSpecificReg(inst, alu_ret);
   } else {
-    std::cerr << "Cannot translate this function:" << std::endl;
+    std::cout << "Cannot translate this function:" << std::endl;
     inst->getFunction()->print();
-    std::cerr << std::endl;
-    std::cerr << "Cannot translate this instruction:" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Cannot translate this instruction:" << std::endl;
     inst->print();
-    std::cerr << std::endl;
+    std::cout << std::endl;
     abort();
   }
   return asm_code;
@@ -985,7 +985,7 @@ std::string CodeGen::generateFunctionCall(Instruction *inst,
   auto in_func = inst->getFunction();
   auto save_registers = CodeGen::getCallerSaveRegisters(in_func);
   if (this->context_active_vars.count(inst)) {
-    // std::cerr << "Using ABI optimization" << std::endl;
+    // std::cout << "Using ABI optimization" << std::endl;
     std::set<int> regs_set;
     for (auto &v : this->context_active_vars.at(inst)) {
       if (this->register_mapping.count(v)) {
@@ -1141,7 +1141,7 @@ void CodeGen::allocateStackSpace(Function *func) {
           register_mapping.erase(inst);
         }
         if (!allocate_regs.count(InstGen::Reg(map_reg_id))) {
-          std::cerr << "Reg " << map_reg_id << " should not be allocated"
+          std::cout << "Reg " << map_reg_id << " should not be allocated"
                     << std::endl;
           abort();
         }
@@ -1214,7 +1214,7 @@ std::string CodeGen::virtualRegMove(std::vector<Value *> target,
   for (auto it = L.begin(); it != L.end(); it++) {
     for (auto it2 = L.begin(); it2 != L.end(); it2++) {
       if (it2 != it && CodeGen::isSameMapping(it2->first, it->first)) {
-        std::cerr << "virtualRegMove race condition" << std::endl;
+        std::cout << "virtualRegMove race condition" << std::endl;
         abort();
       }
     }
@@ -1302,7 +1302,7 @@ std::string CodeGen::assignToSpecificReg(Value *val, int target, int sp_ofs) {
                                 InstGen::Addr(InstGen::sp, offset));
     }
   } else {
-    std::cerr << "Function assignToSpecificReg exception!" << std::endl;
+    std::cout << "Function assignToSpecificReg exception!" << std::endl;
     abort();
   }
   return asm_code;
@@ -1330,7 +1330,7 @@ std::string CodeGen::getFromSpecificReg(Value *val, int source, int sp_ofs) {
                                  InstGen::Addr(InstGen::sp, offset));
     }
   } else {
-    std::cerr << "Function getFromSpecificReg exception!" << std::endl;
+    std::cout << "Function getFromSpecificReg exception!" << std::endl;
     abort();
   }
   return asm_code;
@@ -1394,7 +1394,7 @@ std::string CodeGen::generateInitializerCode(Constant *init) {
   } else {
     auto val = CodeGen::getConstIntVal(init);
     if (!val.second) {
-      std::cerr << "Function generateInitializerCode exception!" << std::endl;
+      std::cout << "Function generateInitializerCode exception!" << std::endl;
       abort();
     }
     asm_code += InstGen::spaces + ".long" + " " + std::to_string(val.first) +
@@ -1469,7 +1469,7 @@ std::pair<int, bool> CodeGen::getConstIntVal(Value *val) { // disabled
       }
     }
   }
-  std::cerr << "Function getConstIntVal exception!" << std::endl;
+  std::cout << "Function getConstIntVal exception!" << std::endl;
   abort();
 }
 
@@ -1502,7 +1502,7 @@ InstGen::CmpOp CodeGen::cmpConvert(CmpInst::CmpOp myCmpOp, bool reverse) {
       asmCmpOp = InstGen::CmpOp::LE;
       break;
     default:
-      std::cerr << "CmpOp type not valid" << std::endl;
+      std::cout << "CmpOp type not valid" << std::endl;
       abort();
     }
   } else {
@@ -1526,7 +1526,7 @@ InstGen::CmpOp CodeGen::cmpConvert(CmpInst::CmpOp myCmpOp, bool reverse) {
       asmCmpOp = InstGen::CmpOp::GT;
       break;
     default:
-      std::cerr << "CmpOp type not valid" << std::endl;
+      std::cout << "CmpOp type not valid" << std::endl;
       abort();
     }
   }

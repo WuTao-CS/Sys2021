@@ -264,7 +264,7 @@ void DeadCodeEliminate::deleteDeadStore(Function *func) {
 }
 
 void DeadCodeEliminate::printStats() {
-  std::cerr << "DeadCodeEliminate: remove " << func_counter << " functions, "
+  std::cout << "DeadCodeEliminate: remove " << func_counter << " functions, "
             << inst_counter << " instructions, " << store_counter << " stores."
             << std::endl;
 }

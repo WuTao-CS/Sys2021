@@ -143,8 +143,8 @@ void BBCommonSubExper::CommonSubExperElimination() {
       auto args = getCallArgs(dynamic_cast<CallInst *>(instr));
       if (eliminatableCall(func_id) && !instr->isVoid()) {
 #ifdef DEBUG
-        std::cerr << "elimi id :" << std::endl;
-        std::cerr << func_id << std::endl;
+        std::cout << "elimi id :" << std::endl;
+        std::cout << func_id << std::endl;
 #endif
 
         if (call_val.find({func_id, *args}) != call_val.end()) {
@@ -220,7 +220,7 @@ bool BBCommonSubExper::eliminatableCall(std::string func_id) {
 void BBCommonSubExper::getEliminatableCall() {
   for (auto func : m_->getFunctions()) {
 #ifdef DEBUG
-    std::cerr << func->getName() << std::endl;
+    std::cout << func->getName() << std::endl;
 #endif
 
     auto elimi = true;
@@ -239,7 +239,7 @@ void BBCommonSubExper::getEliminatableCall() {
 
     if (elimi) {
 #ifdef DEBUG
-      std::cerr << func->getName() << std::endl;
+      std::cout << func->getName() << std::endl;
 #endif
       eliminatable_call_.insert(func->getName());
     }

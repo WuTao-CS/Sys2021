@@ -188,6 +188,12 @@ FrontEnd_BINARY_DIR:STATIC=/home/linux/Desktop/Sys2021/build
 FrontEnd_SOURCE_DIR:STATIC=/home/linux/Desktop/Sys2021
 
 //Dependencies for target
+IRBuilder_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+IR_lib_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
 parser_LIB_DEPENDS:STATIC=
 
 //Dependencies for target

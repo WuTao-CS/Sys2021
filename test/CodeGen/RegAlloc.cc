@@ -141,21 +141,21 @@ std::map<Value *, int> CodeGen::regAlloc() {
     }
     // debug
     if (this->debug && false) { // disabled
-      std::cerr << "LIVE IN:" << std::endl;
+      std::cout << "LIVE IN:" << std::endl;
       for (auto &p : live_in) {
-        std::cerr << "  BB:" << p.first->getName() << "  ";
+        std::cout << "  BB:" << p.first->getName() << "  ";
         for (auto &v : p.second) {
-          std::cerr << "%" << v->getName() << " ";
+          std::cout << "%" << v->getName() << " ";
         }
-        std::cerr << std::endl;
+        std::cout << std::endl;
       }
-      std::cerr << "LIVE OUT:" << std::endl;
+      std::cout << "LIVE OUT:" << std::endl;
       for (auto &p : live_out) {
-        std::cerr << "  BB:" << p.first->getName() << "  ";
+        std::cout << "  BB:" << p.first->getName() << "  ";
         for (auto &v : p.second) {
-          std::cerr << "%" << v->getName() << " ";
+          std::cout << "%" << v->getName() << " ";
         }
-        std::cerr << std::endl;
+        std::cout << std::endl;
       }
     }
     // create IG
@@ -265,7 +265,7 @@ std::map<Value *, int> CodeGen::regAlloc() {
              bs = lf.getParentLoop(bs)) {
           nested_level++;
         }
-        // std::cerr << nested_level << std::endl;
+        // std::cout << nested_level << std::endl;
         double scale_factor = pow(loop_scale, nested_level);
         for (auto &inst : bb->getInstructions()) {
           const auto &ops = inst->getOperands();
@@ -397,10 +397,10 @@ void CodeGen::printIR() {
     if (func->getBasicBlocks().empty()) {
       continue;
     }
-    std::cerr << "define " << func->getFunctionType()->CommentPrint() << "@"
+    std::cout << "define " << func->getFunctionType()->CommentPrint() << "@"
               << func->getName() << "(";
     for (auto &arg : func->getArgs()) {
-      std::cerr << "["
+      std::cout << "["
                 << (this->register_mapping.count(arg)
                         ? std::string("REG ") +
                               std::to_string(this->register_mapping.at(arg))
@@ -409,43 +409,43 @@ void CodeGen::printIR() {
                 << "%" << arg->getName()
                 << (arg == func->getArgs().back() ? "" : ",  ");
     }
-    std::cerr << ")" << std::endl;
+    std::cout << ")" << std::endl;
     for (auto &bb : func->getBasicBlocks()) {
       int nested_level = 0;
       for (auto bs = lf.getBaseLoop(bb); bs != nullptr;
            bs = lf.getParentLoop(bs)) {
         nested_level++;
       }
-      std::cerr << "<label>" << bb->getName() << ":   "
+      std::cout << "<label>" << bb->getName() << ":   "
                 << "level=" << nested_level << "   "
                 << "preds=";
       for (auto &pred_bb : bb->getPreBasicBlocks()) {
         if (pred_bb == bb->getPreBasicBlocks().front()) {
-          std::cerr << "(";
+          std::cout << "(";
         }
-        std::cerr << "%" << pred_bb->getName();
+        std::cout << "%" << pred_bb->getName();
         if (pred_bb == bb->getPreBasicBlocks().back()) {
-          std::cerr << ")";
+          std::cout << ")";
         } else {
-          std::cerr << " ";
+          std::cout << " ";
         }
       }
-      std::cerr << "   ";
-      std::cerr << "succs=";
+      std::cout << "   ";
+      std::cout << "succs=";
       for (auto &succ_bb : bb->getSuccBasicBlocks()) {
         if (succ_bb == bb->getSuccBasicBlocks().front()) {
-          std::cerr << "(";
+          std::cout << "(";
         }
-        std::cerr << "%" << succ_bb->getName();
+        std::cout << "%" << succ_bb->getName();
         if (succ_bb == bb->getSuccBasicBlocks().back()) {
-          std::cerr << ")";
+          std::cout << ")";
         } else {
-          std::cerr << " ";
+          std::cout << " ";
         }
       }
-      std::cerr << std::endl;
+      std::cout << std::endl;
       for (auto &inst : bb->getInstructions()) {
-        std::cerr << (this->in_mt_env[inst] != nullptr ? " MT " : "    ")
+        std::cout << (this->in_mt_env[inst] != nullptr ? " MT " : "    ")
                   << (this->register_mapping.count(inst)
                           ? std::string("REG ") +
                                 std::to_string(this->register_mapping.at(inst))
@@ -486,8 +486,8 @@ void CodeGen::printStat() {
     }
     max_reg_used = std::max(max_reg_used, (int)used_regs.size());
   }
-  std::cerr << "Number of Used Regs: " << max_reg_used << std::endl;
-  std::cerr << "Number of Spills: " << spill_count << std::endl;
-  std::cerr << "Total Spill Costs: " << this->spill_cost_total << std::endl;
-  std::cerr << "Total Color Bonus: " << this->color_bonus_total << std::endl;
+  std::cout << "Number of Used Regs: " << max_reg_used << std::endl;
+  std::cout << "Number of Spills: " << spill_count << std::endl;
+  std::cout << "Total Spill Costs: " << this->spill_cost_total << std::endl;
+  std::cout << "Total Color Bonus: " << this->color_bonus_total << std::endl;
 }

@@ -119,7 +119,7 @@ BasicBlock *HIRToMIR::genBaseBlock(BaseBlock *basebb, BasicBlock *next_bb,
     basicbbs.push_front(cond_bb);
     return cond_bb;
   } else {
-    std::cerr << "Unknown baseblock" << std::endl;
+    std::cout << "Unknown baseblock" << std::endl;
     exit_ifnot(_UnoknowBaseBB_genBaseBlock_HIRTOMIR, false);
   }
   return nullptr;

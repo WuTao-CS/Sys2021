@@ -17,32 +17,32 @@ void IRCheck::CheckParent() {
   for (auto func : m_->getFunctions()) {
     for (auto bb : func->getBasicBlocks()) {
       if (bb->getParent() == nullptr) {
-        std::cerr << "bb with no parent" << std::endl;
+        std::cout << "bb with no parent" << std::endl;
         throw std::exception();
       }
       if (bb->getParent() != func) {
-        std::cerr << "bb with wrong parent" << std::endl;
+        std::cout << "bb with wrong parent" << std::endl;
         throw std::exception();
       }
       for (auto instr : bb->getInstructions()) {
         if (instr->getParent() == nullptr) {
-          std::cerr << instr->CommentPrint() << std::endl;
-          std::cerr << "instr with no parent" << std::endl;
+          std::cout << instr->CommentPrint() << std::endl;
+          std::cout << "instr with no parent" << std::endl;
           throw std::exception();
         }
         if (instr->getParent() != bb) {
-          std::cerr << instr->CommentPrint() << std::endl;
-          std::cerr << "instr with wrong parent" << std::endl;
+          std::cout << instr->CommentPrint() << std::endl;
+          std::cout << "instr with wrong parent" << std::endl;
           throw std::exception();
         }
         if (instr->getFunction() == nullptr) {
-          std::cerr << instr->CommentPrint() << std::endl;
-          std::cerr << "instr with no function" << std::endl;
+          std::cout << instr->CommentPrint() << std::endl;
+          std::cout << "instr with no function" << std::endl;
           throw std::exception();
         }
         if (instr->getFunction() != func) {
-          std::cerr << instr->CommentPrint() << std::endl;
-          std::cerr << "instr with wrong function" << std::endl;
+          std::cout << instr->CommentPrint() << std::endl;
+          std::cout << "instr with wrong function" << std::endl;
           throw std::exception();
         }
       }
@@ -59,7 +59,7 @@ void IRCheck::CheckPhiPosition() {
           if (pos_begin) {
             continue;
           } else {
-            std::cerr << "phi postion error" << std::endl;
+            std::cout << "phi postion error" << std::endl;
             throw std::exception();
           }
         } else {
@@ -76,7 +76,7 @@ void IRCheck::CheckRetBrPostion() {
       for (auto instr : bb->getInstructions()) {
         if (instr->isBr() || instr->isRet()) {
           if (instr != bb->getTerminator()) {
-            std::cerr << "bb <label>%" << bb->getName()
+            std::cout << "bb <label>%" << bb->getName()
                       << " error in br ret position" << std::endl;
             throw std::exception();
           }
@@ -90,7 +90,7 @@ void IRCheck::CheckTerminate() {
   for (auto func : m_->getFunctions()) {
     for (auto bb : func->getBasicBlocks()) {
       if (bb->getTerminator() == nullptr) {
-        std::cerr << "bb <label>%" << bb->getName()
+        std::cout << "bb <label>%" << bb->getName()
                   << " doesn't have terminator" << std::endl;
         throw std::exception();
       }
@@ -110,7 +110,7 @@ void IRCheck::CheckPredSucc() {
           }
         }
         if (!find) {
-          std::cerr << "error in bb pre & succ" << std::endl;
+          std::cout << "error in bb pre & succ" << std::endl;
           throw std::exception();
         }
       }
@@ -123,7 +123,7 @@ void IRCheck::CheckPredSucc() {
           }
         }
         if (!find) {
-          std::cerr << "error in bb pre & succ" << std::endl;
+          std::cout << "error in bb pre & succ" << std::endl;
           throw std::exception();
         }
       }
@@ -135,7 +135,7 @@ void IRCheck::CheckEntry() {
   for (auto &func : m_->getFunctions()) {
     if (!func->getBasicBlocks().empty()) {
       if (func->getEntryBlock() != func->getBasicBlocks().front()) {
-        std::cerr << "entry block is not the first block" << std::endl;
+        std::cout << "entry block is not the first block" << std::endl;
         throw std::exception();
       }
     }
@@ -148,19 +148,19 @@ void IRCheck::CheckUseList() {
     auto uses = global->getUseList();
     auto uniq = std::unordered_set<Use, UseHash>(uses.begin(), uses.end());
     if (uniq.size() != uses.size()) {
-      std::cerr << "global @" << global->getName() << " has duplicate use"
+      std::cout << "global @" << global->getName() << " has duplicate use"
                 << std::endl;
       throw std::exception();
     }
     for (auto use : uses) {
       auto val = dynamic_cast<User *>(use.val_);
       if (!val) {
-        std::cerr << "global @" << global->getName() << " has non-User type use"
+        std::cout << "global @" << global->getName() << " has non-User type use"
                   << std::endl;
         throw std::exception();
       }
       if (val->getOperand(use.arg_no_) != global) {
-        std::cerr << "value %" << val->getName() << " don't use global @"
+        std::cout << "value %" << val->getName() << " don't use global @"
                   << global->getName() << std::endl;
         throw std::exception();
       }
@@ -172,19 +172,19 @@ void IRCheck::CheckUseList() {
     auto uses = func->getUseList();
     auto uniq = std::unordered_set<Use, UseHash>(uses.begin(), uses.end());
     if (uniq.size() != uses.size()) {
-      std::cerr << "func @" << func->getName() << " has duplicate use"
+      std::cout << "func @" << func->getName() << " has duplicate use"
                 << std::endl;
       throw std::exception();
     }
     for (auto use : uses) {
       auto val = dynamic_cast<User *>(use.val_);
       if (!val) {
-        std::cerr << "func @" << func->getName() << " has non-User type use"
+        std::cout << "func @" << func->getName() << " has non-User type use"
                   << std::endl;
         throw std::exception();
       }
       if (val->getOperand(use.arg_no_) != func) {
-        std::cerr << "value %" << val->getName() << " don't use func @"
+        std::cout << "value %" << val->getName() << " don't use func @"
                   << func->getName() << std::endl;
         throw std::exception();
       }
@@ -195,19 +195,19 @@ void IRCheck::CheckUseList() {
       auto uses = arg->getUseList();
       auto uniq = std::unordered_set<Use, UseHash>(uses.begin(), uses.end());
       if (uniq.size() != uses.size()) {
-        std::cerr << "arg %" << arg->getName() << " has duplicate use"
+        std::cout << "arg %" << arg->getName() << " has duplicate use"
                   << std::endl;
         throw std::exception();
       }
       for (auto use : uses) {
         auto val = dynamic_cast<User *>(use.val_);
         if (!val) {
-          std::cerr << "arg %" << arg->getName() << " has non-User type use"
+          std::cout << "arg %" << arg->getName() << " has non-User type use"
                     << std::endl;
           throw std::exception();
         }
         if (val->getOperand(use.arg_no_) != arg) {
-          std::cerr << "value %" << val->getName() << " don't use arg %"
+          std::cout << "value %" << val->getName() << " don't use arg %"
                     << arg->getName() << std::endl;
           throw std::exception();
         }
@@ -219,19 +219,19 @@ void IRCheck::CheckUseList() {
       auto uses = bb->getUseList();
       auto uniq = std::unordered_set<Use, UseHash>(uses.begin(), uses.end());
       if (uniq.size() != uses.size()) {
-        std::cerr << "bb <label>%" << bb->getName() << " has duplicate use"
+        std::cout << "bb <label>%" << bb->getName() << " has duplicate use"
                   << std::endl;
         throw std::exception();
       }
       for (auto use : uses) {
         auto val = dynamic_cast<User *>(use.val_);
         if (!val) {
-          std::cerr << "bb <label>%" << bb->getName()
+          std::cout << "bb <label>%" << bb->getName()
                     << " has non-User type use" << std::endl;
           throw std::exception();
         }
         if (val->getOperand(use.arg_no_) != bb) {
-          std::cerr << "value %" << val->getName() << " don't use bb <label>%"
+          std::cout << "value %" << val->getName() << " don't use bb <label>%"
                     << bb->getName() << std::endl;
           throw std::exception();
         }
@@ -242,19 +242,19 @@ void IRCheck::CheckUseList() {
         auto uses = inst->getUseList();
         auto uniq = std::unordered_set<Use, UseHash>(uses.begin(), uses.end());
         if (uniq.size() != uses.size()) {
-          std::cerr << "inst %" << inst->getName() << " has duplicate use"
+          std::cout << "inst %" << inst->getName() << " has duplicate use"
                     << std::endl;
           throw std::exception();
         }
         for (auto use : uses) {
           auto val = dynamic_cast<User *>(use.val_);
           if (!val) {
-            std::cerr << "inst %" << inst->getName() << " has non-User type use"
+            std::cout << "inst %" << inst->getName() << " has non-User type use"
                       << std::endl;
             throw std::exception();
           }
           if (val->getOperand(use.arg_no_) != inst) {
-            std::cerr << "value %" << val->getName() << " don't use inst %"
+            std::cout << "value %" << val->getName() << " don't use inst %"
                       << inst->getName() << std::endl;
             throw std::exception();
           }
@@ -264,7 +264,7 @@ void IRCheck::CheckUseList() {
           auto uses = op->getUseList();
           auto iter = std::find(uses.begin(), uses.end(), Use(inst, index));
           if (iter == uses.end()) {
-            std::cerr << "inst %" << inst->getName()
+            std::cout << "inst %" << inst->getName()
                       << " is not in use list of operand %" << op->getName()
                       << std::endl;
             throw std::exception();
@@ -300,8 +300,8 @@ void IRCheck::CheckOperandExit() {
               global_defined.find(op) != global_defined.end())
             continue;
           else {
-            std::cerr << inst->CommentPrint() << std::endl;
-            std::cerr << "inst %" << inst->getName()
+            std::cout << inst->CommentPrint() << std::endl;
+            std::cout << "inst %" << inst->getName()
                       << " has undefined operand %" << op->getName()
                       << std::endl;
             throw std::exception();

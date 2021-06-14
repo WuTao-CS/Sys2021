@@ -63,7 +63,7 @@ public:
     try {
       ir_check.run();
     } catch (...) {
-      std::cerr << "IRCheck ERROR after SYSYCBuilder" << std::endl;
+      std::cout << "IRCheck ERROR after SYSYCBuilder" << std::endl;
       exit(1);
     }
 
@@ -74,14 +74,14 @@ public:
       pass->run();
       std::cout<<"End running pass!\n";
       if (print_ir || pass->isPrintIR()) {
-        std::cerr << ">>>>>>>>>>>> After pass " << pass->getName()
+        std::cout << ">>>>>>>>>>>> After pass " << pass->getName()
                   << " <<<<<<<<<<<<" << std::endl;
         m_->print();
       }
       try {
         ir_check.run();
       } catch (...) {
-        std::cerr << "IRCheck ERROR after pass " << pass->getName()
+        std::cout << "IRCheck ERROR after pass " << pass->getName()
                   << std::endl;
         exit(i * 2);
       }

@@ -807,9 +807,9 @@ ConstExp : AddExp {
 
 %%
 //void yy::sysy_parser::error (const std::string& m){
-//	std::cerr << "Find error in parsering, " << m<< "\n";
+//	std::cout << "Find error in parsering, " << m<< "\n";
 //}
 void yy::sysy_parser::error (const location_type& l, const std::string& m){
-	std::cerr << l << "\n";
-	std::cerr << "Find error in parsering, " << m<< "\n";
+	std::cout << l << "\n";
+	std::cout << "Find error in parsering, " << m<< "\n";
 }

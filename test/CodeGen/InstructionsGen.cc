@@ -631,7 +631,7 @@ std::string vvmul(const Reg &target, const Reg &v1, const Reg &v2,
     asm_code += spaces + "vpadd.i32 d16, d16, d16" + newline;
     asm_code += spaces + "vmov.32 " + target.getName() + ", d16[0]" + newline;
   } else {
-    std::cerr << "Unsupported SIMD vector mul vector length: " << len
+    std::cout << "Unsupported SIMD vector mul vector length: " << len
               << std::endl;
     abort();
   }

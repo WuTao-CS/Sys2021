@@ -55,7 +55,7 @@ void GlobalVariableLocal::run() {
     auto var = *iter;
     // unused global variable
     if (var_func_use[var].size() == 0) {
-      // std::cerr << "Remove global variable " << var->getName() << std::endl;
+      // std::cout << "Remove global variable " << var->getName() << std::endl;
       iter = global_vars.erase(iter);
       continue;
     }
@@ -68,7 +68,7 @@ void GlobalVariableLocal::run() {
         iter = global_vars.erase(iter);
         continue;
       }
-      // std::cerr << "Global variable " << var->getName()
+      // std::cout << "Global variable " << var->getName()
       //     << " local to function " << func->getName() << std::endl;
       // remove it
     } else if (var->getType()->isArrayTy()) {

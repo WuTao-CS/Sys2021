@@ -11,7 +11,7 @@ void PowerArray::run() {
 
 #ifdef DEBUG
       if (power_array == nullptr) {
-        std::cerr << "debug in Power" << func->getName() << std::endl;
+        std::cout << "debug in Power" << func->getName() << std::endl;
       }
 #endif
       replaceWithShl(power_array);
@@ -79,7 +79,7 @@ Value *PowerArray::getPowerArray() {
 void PowerArray::replaceWithShl(Value *array) {
   std::vector<Instruction *> wait_delete;
   if (array == nullptr) {
-    // std::cerr<<"no bitset"<<std::endl;
+    // std::cout<<"no bitset"<<std::endl;
     return;
   }
   for (auto use : array->getUseList()) {
@@ -95,9 +95,9 @@ void PowerArray::replaceWithShl(Value *array) {
             builder->insertInstr(gep_use_instr, shl);
             gep_use_instr->replaceAllUseWith(shl);
 #ifdef DEBUG
-            std::cerr << "gep: " << use_instr->getName() << std::endl;
-            std::cerr << "load: " << gep_use_instr->getName() << std::endl;
-            std::cerr << "gepoffset: " << getGepOffset(use_instr)->getName()
+            std::cout << "gep: " << use_instr->getName() << std::endl;
+            std::cout << "load: " << gep_use_instr->getName() << std::endl;
+            std::cout << "gepoffset: " << getGepOffset(use_instr)->getName()
                       << std::endl;
 #endif
           }

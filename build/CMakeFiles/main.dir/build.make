@@ -188,13 +188,288 @@ CMakeFiles/main.dir/sysy_driver.cc.o.provides: CMakeFiles/main.dir/sysy_driver.c
 CMakeFiles/main.dir/sysy_driver.cc.o.provides.build: CMakeFiles/main.dir/sysy_driver.cc.o
 
 
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o: ../IRBuilder/SYSYCBuilder.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o -c /home/linux/Desktop/Sys2021/IRBuilder/SYSYCBuilder.cc
+
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IRBuilder/SYSYCBuilder.cc > CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.i
+
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IRBuilder/SYSYCBuilder.cc -o CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.s
+
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.requires
+
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.provides: CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.provides
+
+CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.provides.build: CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o
+
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/BaseBlock.cc.o: ../IR/BaseBlock.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/IR/BaseBlock.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/BaseBlock.cc.o -c /home/linux/Desktop/Sys2021/IR/BaseBlock.cc
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/BaseBlock.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/BaseBlock.cc > CMakeFiles/main.dir/IR/BaseBlock.cc.i
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/BaseBlock.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/BaseBlock.cc -o CMakeFiles/main.dir/IR/BaseBlock.cc.s
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/BaseBlock.cc.o.requires
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.o.provides: CMakeFiles/main.dir/IR/BaseBlock.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/BaseBlock.cc.o.provides
+
+CMakeFiles/main.dir/IR/BaseBlock.cc.o.provides.build: CMakeFiles/main.dir/IR/BaseBlock.cc.o
+
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/BasicBlock.cc.o: ../IR/BasicBlock.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/IR/BasicBlock.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/BasicBlock.cc.o -c /home/linux/Desktop/Sys2021/IR/BasicBlock.cc
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/BasicBlock.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/BasicBlock.cc > CMakeFiles/main.dir/IR/BasicBlock.cc.i
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/BasicBlock.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/BasicBlock.cc -o CMakeFiles/main.dir/IR/BasicBlock.cc.s
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/BasicBlock.cc.o.requires
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.o.provides: CMakeFiles/main.dir/IR/BasicBlock.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BasicBlock.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/BasicBlock.cc.o.provides
+
+CMakeFiles/main.dir/IR/BasicBlock.cc.o.provides.build: CMakeFiles/main.dir/IR/BasicBlock.cc.o
+
+
+CMakeFiles/main.dir/IR/Constant.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Constant.cc.o: ../IR/Constant.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/IR/Constant.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Constant.cc.o -c /home/linux/Desktop/Sys2021/IR/Constant.cc
+
+CMakeFiles/main.dir/IR/Constant.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Constant.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Constant.cc > CMakeFiles/main.dir/IR/Constant.cc.i
+
+CMakeFiles/main.dir/IR/Constant.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Constant.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Constant.cc -o CMakeFiles/main.dir/IR/Constant.cc.s
+
+CMakeFiles/main.dir/IR/Constant.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Constant.cc.o.requires
+
+CMakeFiles/main.dir/IR/Constant.cc.o.provides: CMakeFiles/main.dir/IR/Constant.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Constant.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Constant.cc.o.provides
+
+CMakeFiles/main.dir/IR/Constant.cc.o.provides.build: CMakeFiles/main.dir/IR/Constant.cc.o
+
+
+CMakeFiles/main.dir/IR/Function.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Function.cc.o: ../IR/Function.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/IR/Function.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Function.cc.o -c /home/linux/Desktop/Sys2021/IR/Function.cc
+
+CMakeFiles/main.dir/IR/Function.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Function.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Function.cc > CMakeFiles/main.dir/IR/Function.cc.i
+
+CMakeFiles/main.dir/IR/Function.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Function.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Function.cc -o CMakeFiles/main.dir/IR/Function.cc.s
+
+CMakeFiles/main.dir/IR/Function.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Function.cc.o.requires
+
+CMakeFiles/main.dir/IR/Function.cc.o.provides: CMakeFiles/main.dir/IR/Function.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Function.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Function.cc.o.provides
+
+CMakeFiles/main.dir/IR/Function.cc.o.provides.build: CMakeFiles/main.dir/IR/Function.cc.o
+
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/GlobalVariable.cc.o: ../IR/GlobalVariable.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/IR/GlobalVariable.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/GlobalVariable.cc.o -c /home/linux/Desktop/Sys2021/IR/GlobalVariable.cc
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/GlobalVariable.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/GlobalVariable.cc > CMakeFiles/main.dir/IR/GlobalVariable.cc.i
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/GlobalVariable.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/GlobalVariable.cc -o CMakeFiles/main.dir/IR/GlobalVariable.cc.s
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/GlobalVariable.cc.o.requires
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.o.provides: CMakeFiles/main.dir/IR/GlobalVariable.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/GlobalVariable.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/GlobalVariable.cc.o.provides
+
+CMakeFiles/main.dir/IR/GlobalVariable.cc.o.provides.build: CMakeFiles/main.dir/IR/GlobalVariable.cc.o
+
+
+CMakeFiles/main.dir/IR/Instruction.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Instruction.cc.o: ../IR/Instruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/IR/Instruction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Instruction.cc.o -c /home/linux/Desktop/Sys2021/IR/Instruction.cc
+
+CMakeFiles/main.dir/IR/Instruction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Instruction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Instruction.cc > CMakeFiles/main.dir/IR/Instruction.cc.i
+
+CMakeFiles/main.dir/IR/Instruction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Instruction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Instruction.cc -o CMakeFiles/main.dir/IR/Instruction.cc.s
+
+CMakeFiles/main.dir/IR/Instruction.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Instruction.cc.o.requires
+
+CMakeFiles/main.dir/IR/Instruction.cc.o.provides: CMakeFiles/main.dir/IR/Instruction.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Instruction.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Instruction.cc.o.provides
+
+CMakeFiles/main.dir/IR/Instruction.cc.o.provides.build: CMakeFiles/main.dir/IR/Instruction.cc.o
+
+
+CMakeFiles/main.dir/IR/Module.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Module.cc.o: ../IR/Module.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/IR/Module.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Module.cc.o -c /home/linux/Desktop/Sys2021/IR/Module.cc
+
+CMakeFiles/main.dir/IR/Module.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Module.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Module.cc > CMakeFiles/main.dir/IR/Module.cc.i
+
+CMakeFiles/main.dir/IR/Module.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Module.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Module.cc -o CMakeFiles/main.dir/IR/Module.cc.s
+
+CMakeFiles/main.dir/IR/Module.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Module.cc.o.requires
+
+CMakeFiles/main.dir/IR/Module.cc.o.provides: CMakeFiles/main.dir/IR/Module.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Module.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Module.cc.o.provides
+
+CMakeFiles/main.dir/IR/Module.cc.o.provides.build: CMakeFiles/main.dir/IR/Module.cc.o
+
+
+CMakeFiles/main.dir/IR/Type.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Type.cc.o: ../IR/Type.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/main.dir/IR/Type.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Type.cc.o -c /home/linux/Desktop/Sys2021/IR/Type.cc
+
+CMakeFiles/main.dir/IR/Type.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Type.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Type.cc > CMakeFiles/main.dir/IR/Type.cc.i
+
+CMakeFiles/main.dir/IR/Type.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Type.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Type.cc -o CMakeFiles/main.dir/IR/Type.cc.s
+
+CMakeFiles/main.dir/IR/Type.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Type.cc.o.requires
+
+CMakeFiles/main.dir/IR/Type.cc.o.provides: CMakeFiles/main.dir/IR/Type.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Type.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Type.cc.o.provides
+
+CMakeFiles/main.dir/IR/Type.cc.o.provides.build: CMakeFiles/main.dir/IR/Type.cc.o
+
+
+CMakeFiles/main.dir/IR/User.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/User.cc.o: ../IR/User.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/main.dir/IR/User.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/User.cc.o -c /home/linux/Desktop/Sys2021/IR/User.cc
+
+CMakeFiles/main.dir/IR/User.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/User.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/User.cc > CMakeFiles/main.dir/IR/User.cc.i
+
+CMakeFiles/main.dir/IR/User.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/User.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/User.cc -o CMakeFiles/main.dir/IR/User.cc.s
+
+CMakeFiles/main.dir/IR/User.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/User.cc.o.requires
+
+CMakeFiles/main.dir/IR/User.cc.o.provides: CMakeFiles/main.dir/IR/User.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/User.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/User.cc.o.provides
+
+CMakeFiles/main.dir/IR/User.cc.o.provides.build: CMakeFiles/main.dir/IR/User.cc.o
+
+
+CMakeFiles/main.dir/IR/Value.cc.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/IR/Value.cc.o: ../IR/Value.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/main.dir/IR/Value.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/IR/Value.cc.o -c /home/linux/Desktop/Sys2021/IR/Value.cc
+
+CMakeFiles/main.dir/IR/Value.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/IR/Value.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/linux/Desktop/Sys2021/IR/Value.cc > CMakeFiles/main.dir/IR/Value.cc.i
+
+CMakeFiles/main.dir/IR/Value.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/IR/Value.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/linux/Desktop/Sys2021/IR/Value.cc -o CMakeFiles/main.dir/IR/Value.cc.s
+
+CMakeFiles/main.dir/IR/Value.cc.o.requires:
+
+.PHONY : CMakeFiles/main.dir/IR/Value.cc.o.requires
+
+CMakeFiles/main.dir/IR/Value.cc.o.provides: CMakeFiles/main.dir/IR/Value.cc.o.requires
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/Value.cc.o.provides.build
+.PHONY : CMakeFiles/main.dir/IR/Value.cc.o.provides
+
+CMakeFiles/main.dir/IR/Value.cc.o.provides.build: CMakeFiles/main.dir/IR/Value.cc.o
+
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.cc.o" \
 "CMakeFiles/main.dir/sysy_parser.cc.o" \
 "CMakeFiles/main.dir/sysy_scanner.cc.o" \
 "CMakeFiles/main.dir/syntax_tree.cc.o" \
-"CMakeFiles/main.dir/sysy_driver.cc.o"
+"CMakeFiles/main.dir/sysy_driver.cc.o" \
+"CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o" \
+"CMakeFiles/main.dir/IR/BaseBlock.cc.o" \
+"CMakeFiles/main.dir/IR/BasicBlock.cc.o" \
+"CMakeFiles/main.dir/IR/Constant.cc.o" \
+"CMakeFiles/main.dir/IR/Function.cc.o" \
+"CMakeFiles/main.dir/IR/GlobalVariable.cc.o" \
+"CMakeFiles/main.dir/IR/Instruction.cc.o" \
+"CMakeFiles/main.dir/IR/Module.cc.o" \
+"CMakeFiles/main.dir/IR/Type.cc.o" \
+"CMakeFiles/main.dir/IR/User.cc.o" \
+"CMakeFiles/main.dir/IR/Value.cc.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
@@ -204,9 +479,23 @@ main: CMakeFiles/main.dir/sysy_parser.cc.o
 main: CMakeFiles/main.dir/sysy_scanner.cc.o
 main: CMakeFiles/main.dir/syntax_tree.cc.o
 main: CMakeFiles/main.dir/sysy_driver.cc.o
+main: CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o
+main: CMakeFiles/main.dir/IR/BaseBlock.cc.o
+main: CMakeFiles/main.dir/IR/BasicBlock.cc.o
+main: CMakeFiles/main.dir/IR/Constant.cc.o
+main: CMakeFiles/main.dir/IR/Function.cc.o
+main: CMakeFiles/main.dir/IR/GlobalVariable.cc.o
+main: CMakeFiles/main.dir/IR/Instruction.cc.o
+main: CMakeFiles/main.dir/IR/Module.cc.o
+main: CMakeFiles/main.dir/IR/Type.cc.o
+main: CMakeFiles/main.dir/IR/User.cc.o
+main: CMakeFiles/main.dir/IR/Value.cc.o
 main: CMakeFiles/main.dir/build.make
+main: libIRBuilder.a
+main: libsysy_driver.a
+main: libIR_lib.a
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -219,6 +508,17 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/sysy_parser.cc.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/sysy_scanner.cc.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/syntax_tree.cc.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/sysy_driver.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/BaseBlock.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/BasicBlock.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Constant.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Function.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/GlobalVariable.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Instruction.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Module.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Type.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/User.cc.o.requires
+CMakeFiles/main.dir/requires: CMakeFiles/main.dir/IR/Value.cc.o.requires
 
 .PHONY : CMakeFiles/main.dir/requires
 

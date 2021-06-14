@@ -24,7 +24,7 @@ std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
     std::cout<<"Starting parsing!\n";
     int x = parser.parse();
     if(x){
-        std::cerr<<"Parse failed!"<<"\n";
+        std::cout<<"Parse failed!"<<"\n";
         assert(x == 0);
     }
     std::cout<<"Parse succeed!"<<"\n";
@@ -37,8 +37,8 @@ std::shared_ptr<SyntaxCompUnit> sysy_driver::parse(const std::string &f) {
 }
 
 void sysy_driver::error(const yy::location &l, const std::string &m) {
-    std::cerr << l << ": " << m << std::endl;
+    std::cout << l << ": " << m << std::endl;
 }
 void sysy_driver::error(const std::string &m) {
-    std::cerr << m << std::endl;
+    std::cout << m << std::endl;
 }

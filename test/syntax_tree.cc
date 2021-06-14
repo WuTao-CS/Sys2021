@@ -5,7 +5,7 @@
 // #define DEBUG
 
 #define _SYNTAX_TREE_NODE_ERROR_                                               \
-  std::cerr << "Abort due to node cast error." << std::endl;                   \
+  std::cout << "Abort due to node cast error." << std::endl;                   \
   std::abort();
 
 /*
@@ -420,7 +420,7 @@ void syntax_tree_printer::visit(SyntaxPrimaryExp &node) {
     node.Number->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"PrimaryExp"<<std::endl;
+  // std::cout<<"PrimaryExp"<<std::endl;
 }
 
 void syntax_tree_printer::visit(SyntaxNumber &node) {
@@ -462,7 +462,7 @@ void syntax_tree_printer::visit(SyntaxMulExp &node) {
     node.UnaryExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"MulExp"<<std::endl;
+  // std::cout<<"MulExp"<<std::endl;
 }
 void syntax_tree_printer::visit(SyntaxAddExp &node) {
   _DEBUG_PRINT_N_(depth);
@@ -475,7 +475,7 @@ void syntax_tree_printer::visit(SyntaxAddExp &node) {
     node.MulExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"AddExp"<<std::endl;
+  // std::cout<<"AddExp"<<std::endl;
 }
 void syntax_tree_printer::visit(SyntaxRelExp &node) {
   _DEBUG_PRINT_N_(depth);
@@ -488,7 +488,7 @@ void syntax_tree_printer::visit(SyntaxRelExp &node) {
     node.AddExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"RelExp"<<std::endl;
+  // std::cout<<"RelExp"<<std::endl;
 }
 void syntax_tree_printer::visit(SyntaxEqExp &node) {
   _DEBUG_PRINT_N_(depth);
@@ -501,7 +501,7 @@ void syntax_tree_printer::visit(SyntaxEqExp &node) {
     node.RelExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"EqExp"<<std::endl;
+  // std::cout<<"EqExp"<<std::endl;
 }
 void syntax_tree_printer::visit(SyntaxLAndExp &node) {
   _DEBUG_PRINT_N_(depth);
@@ -514,7 +514,7 @@ void syntax_tree_printer::visit(SyntaxLAndExp &node) {
     node.EqExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"LogicalAndExp"<<std::endl;
+  // std::cout<<"LogicalAndExp"<<std::endl;
 }
 void syntax_tree_printer::visit(SyntaxLOrExp &node) {
   _DEBUG_PRINT_N_(depth);
@@ -527,5 +527,5 @@ void syntax_tree_printer::visit(SyntaxLOrExp &node) {
     node.LAndExp->accept(*this);
   }
   remove_depth();
-  // std::cerr<<"LogicalOrExp"<<std::endl;
+  // std::cout<<"LogicalOrExp"<<std::endl;
 }

@@ -29,7 +29,7 @@ ConstantInt *ConstFlod::compute(Instruction::OpID op, ConstantInt *v1,
     ret = lhs | rhs;
     break;
   default:
-    std::cerr << "error in const flod" << std::endl;
+    std::cout << "error in const flod" << std::endl;
     exit_ifnot(_CantFindSuitableOp_compute_ConstFlod, false);
     break;
   }
@@ -47,7 +47,7 @@ ConstantInt *ConstFlod::compute(Instruction::OpID op, ConstantInt *v1) {
     ret = -hs;
     break;
   default:
-    std::cerr << "error in const flod" << std::endl;
+    std::cout << "error in const flod" << std::endl;
     exit_ifnot(_CantFindSuitableOp_compute_ConstFlod, false);
     break;
   }
@@ -79,7 +79,7 @@ ConstantInt *ConstFlod::compute(CmpInst::CmpOp op, ConstantInt *v1,
     ret = lhs < rhs;
     break;
   default:
-    std::cerr << "error in const flod" << std::endl;
+    std::cout << "error in const flod" << std::endl;
     exit_ifnot(_CantFindSuitableOp_compute_ConstFlod, false);
     break;
   }

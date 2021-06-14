@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/linux/Desktop/Sys2021/. -I/home/linux/Desktop/Sys2021/./build 
+CXX_INCLUDES = -I/home/linux/Desktop/Sys2021/. -I/home/linux/Desktop/Sys2021/./build -I/home/linux/Desktop/Sys2021/./IR -I/home/linux/Desktop/Sys2021/./IRBuilder 
 
