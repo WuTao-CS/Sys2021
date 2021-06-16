@@ -1,7 +1,3 @@
-//
-// Created by cqy on 2020/6/11.
-//
-
 #ifndef SYSYC_SYSYBUILDER_HPP
 #define SYSYC_SYSYBUILDER_HPP
 

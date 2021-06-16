@@ -45,6 +45,7 @@ add_library(
         ./IR/Module.cc
         ./IR/BaseBlock.cc
 )
+
 set(SRC
         main.cc
         sysy_parser.cc
@@ -62,7 +63,6 @@ set(SRC
         ./IR/Type.cc
         ./IR/User.cc
         ./IR/Value.cc
-
         )
 # target_link_libraries(
 #         main

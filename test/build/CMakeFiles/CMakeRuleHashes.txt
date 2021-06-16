@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-982d2bb6c5a96c0f31319e10358e9d67 sysy_scanner.cc

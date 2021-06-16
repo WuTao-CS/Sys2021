@@ -174,9 +174,9 @@ clean: CMakeFiles/IRBuilder.dir/clean
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/IR_lib.dir/all
-CMakeFiles/main.dir/all: CMakeFiles/IRBuilder.dir/all
 CMakeFiles/main.dir/all: CMakeFiles/sysy_driver.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/IRBuilder.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/IR_lib.dir/all
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 "Built target main"
