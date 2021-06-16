@@ -494,6 +494,7 @@ main: CMakeFiles/main.dir/build.make
 main: libIRBuilder.a
 main: libsysy_driver.a
 main: libIR_lib.a
+main: /usr/lib/llvm-6.0/lib/libLLVM-6.0.so.1
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

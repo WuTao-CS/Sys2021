@@ -157,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
 # Target rules for targets named parser
 
 # Build rule for target.
@@ -170,17 +183,17 @@ parser/fast:
 .PHONY : parser/fast
 
 #=============================================================================
-# Target rules for targets named sysy_driver
+# Target rules for targets named intrinsics_gen
 
 # Build rule for target.
-sysy_driver: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sysy_driver
-.PHONY : sysy_driver
+intrinsics_gen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 intrinsics_gen
+.PHONY : intrinsics_gen
 
 # fast build rule for target.
-sysy_driver/fast:
-	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/build
-.PHONY : sysy_driver/fast
+intrinsics_gen/fast:
+	$(MAKE) -f CMakeFiles/intrinsics_gen.dir/build.make CMakeFiles/intrinsics_gen.dir/build
+.PHONY : intrinsics_gen/fast
 
 #=============================================================================
 # Target rules for targets named IRBuilder
@@ -196,17 +209,17 @@ IRBuilder/fast:
 .PHONY : IRBuilder/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named sysy_driver
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+sysy_driver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sysy_driver
+.PHONY : sysy_driver
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+sysy_driver/fast:
+	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/build
+.PHONY : sysy_driver/fast
 
 #=============================================================================
 # Target rules for targets named scanner
@@ -540,8 +553,8 @@ IRBuilder/SYSYCBuilder.o: IRBuilder/SYSYCBuilder.cc.o
 
 # target to build an object file
 IRBuilder/SYSYCBuilder.cc.o:
-	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.o
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.o
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.o
 .PHONY : IRBuilder/SYSYCBuilder.cc.o
 
 IRBuilder/SYSYCBuilder.i: IRBuilder/SYSYCBuilder.cc.i
@@ -550,8 +563,8 @@ IRBuilder/SYSYCBuilder.i: IRBuilder/SYSYCBuilder.cc.i
 
 # target to preprocess a source file
 IRBuilder/SYSYCBuilder.cc.i:
-	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.i
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.i
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.i
 .PHONY : IRBuilder/SYSYCBuilder.cc.i
 
 IRBuilder/SYSYCBuilder.s: IRBuilder/SYSYCBuilder.cc.s
@@ -560,8 +573,8 @@ IRBuilder/SYSYCBuilder.s: IRBuilder/SYSYCBuilder.cc.s
 
 # target to generate assembly for a file
 IRBuilder/SYSYCBuilder.cc.s:
-	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.s
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SYSYCBuilder.cc.s
+	$(MAKE) -f CMakeFiles/IRBuilder.dir/build.make CMakeFiles/IRBuilder.dir/IRBuilder/SYSYCBuilder.cc.s
 .PHONY : IRBuilder/SYSYCBuilder.cc.s
 
 main.o: main.cc.o
@@ -624,8 +637,8 @@ sysy_driver.o: sysy_driver.cc.o
 
 # target to build an object file
 sysy_driver.cc.o:
-	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.o
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_driver.cc.o
+	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.o
 .PHONY : sysy_driver.cc.o
 
 sysy_driver.i: sysy_driver.cc.i
@@ -634,8 +647,8 @@ sysy_driver.i: sysy_driver.cc.i
 
 # target to preprocess a source file
 sysy_driver.cc.i:
-	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.i
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_driver.cc.i
+	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.i
 .PHONY : sysy_driver.cc.i
 
 sysy_driver.s: sysy_driver.cc.s
@@ -644,8 +657,8 @@ sysy_driver.s: sysy_driver.cc.s
 
 # target to generate assembly for a file
 sysy_driver.cc.s:
-	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.s
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_driver.cc.s
+	$(MAKE) -f CMakeFiles/sysy_driver.dir/build.make CMakeFiles/sysy_driver.dir/sysy_driver.cc.s
 .PHONY : sysy_driver.cc.s
 
 sysy_parser.o: sysy_parser.cc.o
@@ -654,8 +667,8 @@ sysy_parser.o: sysy_parser.cc.o
 
 # target to build an object file
 sysy_parser.cc.o:
-	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.o
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_parser.cc.o
+	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.o
 .PHONY : sysy_parser.cc.o
 
 sysy_parser.i: sysy_parser.cc.i
@@ -664,8 +677,8 @@ sysy_parser.i: sysy_parser.cc.i
 
 # target to preprocess a source file
 sysy_parser.cc.i:
-	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.i
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_parser.cc.i
+	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.i
 .PHONY : sysy_parser.cc.i
 
 sysy_parser.s: sysy_parser.cc.s
@@ -674,8 +687,8 @@ sysy_parser.s: sysy_parser.cc.s
 
 # target to generate assembly for a file
 sysy_parser.cc.s:
-	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.s
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/sysy_parser.cc.s
+	$(MAKE) -f CMakeFiles/parser.dir/build.make CMakeFiles/parser.dir/sysy_parser.cc.s
 .PHONY : sysy_parser.cc.s
 
 sysy_scanner.o: sysy_scanner.cc.o
@@ -719,11 +732,12 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
+	@echo "... main"
 	@echo "... parser"
+	@echo "... intrinsics_gen"
+	@echo "... IRBuilder"
 	@echo "... rebuild_cache"
 	@echo "... sysy_driver"
-	@echo "... IRBuilder"
-	@echo "... main"
 	@echo "... scanner"
 	@echo "... IR_lib"
 	@echo "... IR/BaseBlock.o"

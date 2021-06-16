@@ -193,6 +193,9 @@ IRBuilder_LIB_DEPENDS:STATIC=
 //Dependencies for target
 IR_lib_LIB_DEPENDS:STATIC=
 
+//The directory containing a CMake configuration file for LLVM.
+LLVM_DIR:PATH=/usr/lib/llvm-6.0/cmake
+
 //Dependencies for target
 parser_LIB_DEPENDS:STATIC=
 
