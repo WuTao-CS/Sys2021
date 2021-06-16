@@ -1,8 +1,12 @@
 #include "syntax_tree.hh"
 #include <iostream>
 #include <string>
-
-// #define DEBUG
+#include "llvm/IR/DerivedTypes.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Verifier.h"
+using namespace llvm;
 
 #define _SYNTAX_TREE_NODE_ERROR_                                               \
   std::cout << "Abort due to node cast error." << std::endl;                   \
