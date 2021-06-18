@@ -109,10 +109,10 @@ llvm_main: CMakeFiles/llvm_main.dir/llvm-main.cpp.o
 llvm_main: CMakeFiles/llvm_main.dir/llvm-builder/SYSYBuilderllvm.cpp.o
 llvm_main: CMakeFiles/llvm_main.dir/build.make
 llvm_main: libsysy_driver.a
-llvm_main: /usr/lib/llvm-6.0/lib/libLLVM-6.0.so.1
 llvm_main: libparser.a
 llvm_main: libscanner.a
 llvm_main: libsyntax_tree.a
+llvm_main: /usr/lib/llvm-6.0/lib/libLLVM-6.0.so.1
 llvm_main: CMakeFiles/llvm_main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable llvm_main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/llvm_main.dir/link.txt --verbose=$(VERBOSE)

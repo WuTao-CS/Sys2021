@@ -10,7 +10,7 @@ using namespace yy;
 
 %option c++
 %option yyclass="yy::sysyFlexLexer"
-%option noyywrap nodefault outfile="./build/sysy_scanner.cc"
+%option noyywrap nodefault outfile="./front/sysy_scanner.cc"
 %option yylineno
 %option debug
 

@@ -58,7 +58,8 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "*.sy": "c"
+        "*.sy": "c",
+        "bit": "cpp"
     },
     "cmake.configureOnOpen": true
 }

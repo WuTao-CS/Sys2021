@@ -69,10 +69,21 @@ include CMakeFiles/scanner.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/scanner.dir/flags.make
 
+../front/sysy_scanner.cc: ../Sysy_scaner.l
+../front/sysy_scanner.cc: ../Sysy_parser.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../front/sysy_scanner.cc, ../front/sysy_parser.cc, ../front/sysy_parser.hh"
+	cd /home/linux/Desktop/Sys2021 && flex -d Sysy_scaner.l && bison -d -v Sysy_parser.y
+
+../front/sysy_parser.cc: ../front/sysy_scanner.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate ../front/sysy_parser.cc
+
+../front/sysy_parser.hh: ../front/sysy_scanner.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate ../front/sysy_parser.hh
+
 CMakeFiles/scanner.dir/front/sysy_scanner.cc.o: CMakeFiles/scanner.dir/flags.make
 CMakeFiles/scanner.dir/front/sysy_scanner.cc.o: ../front/sysy_scanner.cc
 CMakeFiles/scanner.dir/front/sysy_scanner.cc.o: CMakeFiles/scanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/scanner.dir/front/sysy_scanner.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/scanner.dir/front/sysy_scanner.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/scanner.dir/front/sysy_scanner.cc.o -MF CMakeFiles/scanner.dir/front/sysy_scanner.cc.o.d -o CMakeFiles/scanner.dir/front/sysy_scanner.cc.o -c /home/linux/Desktop/Sys2021/front/sysy_scanner.cc
 
 CMakeFiles/scanner.dir/front/sysy_scanner.cc.i: cmake_force
@@ -93,7 +104,7 @@ scanner_EXTERNAL_OBJECTS =
 libscanner.a: CMakeFiles/scanner.dir/front/sysy_scanner.cc.o
 libscanner.a: CMakeFiles/scanner.dir/build.make
 libscanner.a: CMakeFiles/scanner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libscanner.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libscanner.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/scanner.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/scanner.dir/link.txt --verbose=$(VERBOSE)
 
@@ -105,7 +116,9 @@ CMakeFiles/scanner.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/scanner.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/scanner.dir/clean
 
-CMakeFiles/scanner.dir/depend:
+CMakeFiles/scanner.dir/depend: ../front/sysy_parser.cc
+CMakeFiles/scanner.dir/depend: ../front/sysy_parser.hh
+CMakeFiles/scanner.dir/depend: ../front/sysy_scanner.cc
 	cd /home/linux/Desktop/Sys2021/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/linux/Desktop/Sys2021 /home/linux/Desktop/Sys2021 /home/linux/Desktop/Sys2021/build /home/linux/Desktop/Sys2021/build /home/linux/Desktop/Sys2021/build/CMakeFiles/scanner.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/scanner.dir/depend
 

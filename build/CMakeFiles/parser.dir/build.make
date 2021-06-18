@@ -69,10 +69,21 @@ include CMakeFiles/parser.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/parser.dir/flags.make
 
+../front/sysy_scanner.cc: ../Sysy_scaner.l
+../front/sysy_scanner.cc: ../Sysy_parser.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../front/sysy_scanner.cc, ../front/sysy_parser.cc, ../front/sysy_parser.hh"
+	cd /home/linux/Desktop/Sys2021 && flex -d Sysy_scaner.l && bison -d -v Sysy_parser.y
+
+../front/sysy_parser.cc: ../front/sysy_scanner.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate ../front/sysy_parser.cc
+
+../front/sysy_parser.hh: ../front/sysy_scanner.cc
+	@$(CMAKE_COMMAND) -E touch_nocreate ../front/sysy_parser.hh
+
 CMakeFiles/parser.dir/front/sysy_parser.cc.o: CMakeFiles/parser.dir/flags.make
 CMakeFiles/parser.dir/front/sysy_parser.cc.o: ../front/sysy_parser.cc
 CMakeFiles/parser.dir/front/sysy_parser.cc.o: CMakeFiles/parser.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parser.dir/front/sysy_parser.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parser.dir/front/sysy_parser.cc.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parser.dir/front/sysy_parser.cc.o -MF CMakeFiles/parser.dir/front/sysy_parser.cc.o.d -o CMakeFiles/parser.dir/front/sysy_parser.cc.o -c /home/linux/Desktop/Sys2021/front/sysy_parser.cc
 
 CMakeFiles/parser.dir/front/sysy_parser.cc.i: cmake_force
@@ -93,7 +104,7 @@ parser_EXTERNAL_OBJECTS =
 libparser.a: CMakeFiles/parser.dir/front/sysy_parser.cc.o
 libparser.a: CMakeFiles/parser.dir/build.make
 libparser.a: CMakeFiles/parser.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libparser.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libparser.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/parser.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parser.dir/link.txt --verbose=$(VERBOSE)
 
@@ -105,7 +116,9 @@ CMakeFiles/parser.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/parser.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/parser.dir/clean
 
-CMakeFiles/parser.dir/depend:
+CMakeFiles/parser.dir/depend: ../front/sysy_parser.cc
+CMakeFiles/parser.dir/depend: ../front/sysy_parser.hh
+CMakeFiles/parser.dir/depend: ../front/sysy_scanner.cc
 	cd /home/linux/Desktop/Sys2021/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/linux/Desktop/Sys2021 /home/linux/Desktop/Sys2021 /home/linux/Desktop/Sys2021/build /home/linux/Desktop/Sys2021/build /home/linux/Desktop/Sys2021/build/CMakeFiles/parser.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/parser.dir/depend
 

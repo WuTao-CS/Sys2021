@@ -11,8 +11,8 @@ std::shared_ptr<TreeNodeCompUnit> rootFromParser;
 %}
 
 %language "c++"
-%defines "./build/sysy_parser.hh"
-%output "./build/sysy_parser.cc"
+%defines "./front/sysy_parser.hh"
+%output "./front/sysy_parser.cc"
 
 %locations
 %define parser_class_name {sysy_parser}

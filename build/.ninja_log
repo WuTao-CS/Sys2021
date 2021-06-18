@@ -1,0 +1,14 @@
+# ninja log v5
+4837	4937	1624018619915248646	libparser.a	581fabc73f3f72d7
+0	4837	1624018619811251045	CMakeFiles/parser.dir/front/sysy_parser.cc.o	91ae7ecc9c55194c
+1	3580	1624018618559279973	CMakeFiles/llvm_main.dir/llvm-builder/SYSYBuilderllvm.cpp.o	98507a444ef8244
+4937	5555	1624018620543234214	llvm_main	ecb7d0a3bf33eebf
+3015	3035	1624018618027292300	libscanner.a	dad025d1aae7a85f
+3030	3052	1624018618043291930	libsysy_driver.a	6441c6bddd2d8eb3
+2	3030	1624018618003292856	CMakeFiles/sysy_driver.dir/front/sysy_driver.cc.o	92036579211fa261
+3013	3041	1624018618031292208	libsyntax_tree.a	d9e0438b2aa1caa3
+1	3015	1624018617987293229	CMakeFiles/scanner.dir/front/sysy_scanner.cc.o	79eb96f842712340
+2	3011	1624018617983293322	CMakeFiles/syntax_tree.dir/front/syntax_tree.cc.o	9dc9e050126629cc
+229	240	1624018615231357635	libsysy_io.a	28fe0c9b8071f295
+1	4557	1624018619531257505	CMakeFiles/llvm_main.dir/llvm-main.cpp.o	31cb9c94f1106fb9
+1	228	1624018615215358011	CMakeFiles/sysy_io.dir/llvm-builder/io.c.o	802ef2866257acdd

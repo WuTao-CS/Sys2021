@@ -1,6 +1,12 @@
-cmake_minimum_required(VERSION 3.10)
-project(FrontEnd)
+cmake_minimum_required(VERSION 3.16)
+SET(CMAKE_CXX_COMPILER /usr/bin/clang++)
+project(SYSYCompiler)
+
+SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb -Wno-everything ")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 set(CMAKE_CXX_STANDARD 17)
+
 
 # # Import LLVM
 find_package(LLVM REQUIRED CONFIG)
@@ -10,16 +16,16 @@ llvm_map_components_to_libnames(
         llvm_libs
         all
 )
+find_library(found_LLVM LLVM)
 include_directories(${LLVM_INCLUDE_DIRS})
 add_definitions(${LLVM_DEFINITIONS})
 
-include_directories(./)
+include_directories(./front/)
 include_directories(./build/)
-include_directories(./IR/)
-include_directories(./IRBuilder/)
+include_directories(./llvm-builder)
 
 add_custom_command(
-    OUTPUT ${CMAKE_BINARY_DIR}/sysy_scanner.cc ${CMAKE_BINARY_DIR}/sysy_parser.cc ${CMAKE_BINARY_DIR}/sysy_parser.hh
+    OUTPUT ${CMAKE_SOURCE_DIR}/front/sysy_scanner.cc ${CMAKE_SOURCE_DIR}/front/sysy_parser.cc ${CMAKE_SOURCE_DIR}/front/sysy_parser.hh
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     DEPENDS Sysy_scaner.l Sysy_parser.y
     COMMAND flex -d Sysy_scaner.l && bison -d -v Sysy_parser.y
@@ -27,77 +33,46 @@ add_custom_command(
 
 add_library(
         scanner STATIC
-        sysy_scanner.cc
+        ../front/sysy_scanner.cc
 )
 
 add_library(
         parser STATIC
-        sysy_parser.cc
+        ../front/sysy_parser.cc
 )
 add_library(
-        sysy_driver STATIC
-        sysy_driver.cc
-)
-add_library(
-        IRBuilder
-        ./IRBuilder/SYSYCBuilder.cc
-)
-
-add_library(
-        IR_lib STATIC
-        ./IR/Type.cc
-        ./IR/User.cc
-        ./IR/Value.cc
-        ./IR/BasicBlock.cc
-        ./IR/Constant.cc
-        ./IR/Function.cc
-        ./IR/GlobalVariable.cc
-        ./IR/Instruction.cc
-        ./IR/Module.cc
-        ./IR/BaseBlock.cc
-)
-
-set(SRC
-        main.cc
-        sysy_parser.cc
-        sysy_scanner.cc
-        syntax_tree.cc
-        sysy_driver.cc
-        ./IRBuilder/SYSYCBuilder.cc
-        ./IR/BaseBlock.cc
-        ./IR/BasicBlock.cc
-        ./IR/Constant.cc
-        ./IR/Function.cc
-        ./IR/GlobalVariable.cc
-        ./IR/Instruction.cc
-        ./IR/Module.cc
-        ./IR/Type.cc
-        ./IR/User.cc
-        ./IR/Value.cc
-        )
-# target_link_libraries(
-#         main
-#         sysy_driver
-# )
-add_executable(main ${SRC} )
-target_link_libraries(
-        main
-        IRBuilder
         sysy_driver
-        IR_lib
+        ./front/sysy_driver.cc
+)
+add_library(
+        sysy_io 
+        ./llvm-builder/io.c
+)
+
+add_library(
+        syntax_tree
+        ./front/syntax_tree.cc
+)
+
+add_executable(
+        llvm_main
+        ./llvm-main.cpp
+        ./llvm-builder/SYSYBuilderllvm.cpp
+)
+target_compile_options(
+        llvm_main
+        PRIVATE "-fno-rtti"
+)
+target_link_libraries(
+        llvm_main
+        sysy_driver
+        parser
+        scanner
+        syntax_tree
         LLVM
 )
 
 install(
-        TARGETS main
+        TARGETS llvm_main
         RUNTIME DESTINATION bin
 )
-
-
-
-# enable_testing()
-# file(GLOB test_file "test/*.sy")
-
-# foreach(file ${test_file})
-#     add_test(NAME ${file} COMMAND main ${file})
-# endforeach()
