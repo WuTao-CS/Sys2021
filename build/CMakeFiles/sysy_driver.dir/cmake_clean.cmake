@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/sysy_driver.dir/sysy_driver.cc.o"
-  "libsysy_driver.pdb"
+  "CMakeFiles/sysy_driver.dir/front/sysy_driver.cc.o"
+  "CMakeFiles/sysy_driver.dir/front/sysy_driver.cc.o.d"
   "libsysy_driver.a"
+  "libsysy_driver.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

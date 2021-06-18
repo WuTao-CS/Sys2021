@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "sysy_scanner.cc"
-  "sysy_parser.cc"
-  "sysy_parser.hh"
-  "CMakeFiles/parser.dir/sysy_parser.cc.o"
-  "libparser.pdb"
+  "CMakeFiles/parser.dir/front/sysy_parser.cc.o"
+  "CMakeFiles/parser.dir/front/sysy_parser.cc.o.d"
   "libparser.a"
+  "libparser.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
