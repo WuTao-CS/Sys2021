@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/sysy_io.dir/llvm-builder/io.c.o"
-  "CMakeFiles/sysy_io.dir/llvm-builder/io.c.o.d"
+  "CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o"
+  "CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o.d"
   "libsysy_io.a"
   "libsysy_io.pdb"
 )

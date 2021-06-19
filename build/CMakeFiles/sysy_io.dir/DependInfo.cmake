@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/linux/Desktop/Sys2021/llvm-builder/io.c" "CMakeFiles/sysy_io.dir/llvm-builder/io.c.o" "gcc" "CMakeFiles/sysy_io.dir/llvm-builder/io.c.o.d"
+  "/home/linux/Desktop/Sys2021/llvm-builder/sylib.c" "CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o" "gcc" "CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o.d"
   )
 
 # Targets to which this target links.

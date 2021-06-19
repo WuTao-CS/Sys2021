@@ -849,9 +849,7 @@ FuncType : T_VOID
 	}
     ;
 %%
-//void yy::sysy_parser::error (const std::string& m){
-//	std::cout << "Find error in parsering, " << m<< "\n";
-//}
+
 void yy::sysy_parser::error (const location_type& l, const std::string& m){
 	std::cout << l << "\n";
 	std::cout << "Find error in parsering, " << m<< "\n";

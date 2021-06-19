@@ -46,7 +46,7 @@ add_library(
 )
 add_library(
         sysy_io 
-        ./llvm-builder/io.c
+        ./llvm-builder/sylib.c
 )
 
 add_library(

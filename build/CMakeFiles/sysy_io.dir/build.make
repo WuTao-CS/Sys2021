@@ -69,28 +69,28 @@ include CMakeFiles/sysy_io.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/sysy_io.dir/flags.make
 
-CMakeFiles/sysy_io.dir/llvm-builder/io.c.o: CMakeFiles/sysy_io.dir/flags.make
-CMakeFiles/sysy_io.dir/llvm-builder/io.c.o: ../llvm-builder/io.c
-CMakeFiles/sysy_io.dir/llvm-builder/io.c.o: CMakeFiles/sysy_io.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/sysy_io.dir/llvm-builder/io.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sysy_io.dir/llvm-builder/io.c.o -MF CMakeFiles/sysy_io.dir/llvm-builder/io.c.o.d -o CMakeFiles/sysy_io.dir/llvm-builder/io.c.o -c /home/linux/Desktop/Sys2021/llvm-builder/io.c
+CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o: CMakeFiles/sysy_io.dir/flags.make
+CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o: ../llvm-builder/sylib.c
+CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o: CMakeFiles/sysy_io.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o -MF CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o.d -o CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o -c /home/linux/Desktop/Sys2021/llvm-builder/sylib.c
 
-CMakeFiles/sysy_io.dir/llvm-builder/io.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sysy_io.dir/llvm-builder/io.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/linux/Desktop/Sys2021/llvm-builder/io.c > CMakeFiles/sysy_io.dir/llvm-builder/io.c.i
+CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/linux/Desktop/Sys2021/llvm-builder/sylib.c > CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.i
 
-CMakeFiles/sysy_io.dir/llvm-builder/io.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sysy_io.dir/llvm-builder/io.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/linux/Desktop/Sys2021/llvm-builder/io.c -o CMakeFiles/sysy_io.dir/llvm-builder/io.c.s
+CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/linux/Desktop/Sys2021/llvm-builder/sylib.c -o CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.s
 
 # Object files for target sysy_io
 sysy_io_OBJECTS = \
-"CMakeFiles/sysy_io.dir/llvm-builder/io.c.o"
+"CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o"
 
 # External object files for target sysy_io
 sysy_io_EXTERNAL_OBJECTS =
 
-libsysy_io.a: CMakeFiles/sysy_io.dir/llvm-builder/io.c.o
+libsysy_io.a: CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o
 libsysy_io.a: CMakeFiles/sysy_io.dir/build.make
 libsysy_io.a: CMakeFiles/sysy_io.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/linux/Desktop/Sys2021/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libsysy_io.a"

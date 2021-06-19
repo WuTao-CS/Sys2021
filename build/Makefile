@@ -372,29 +372,29 @@ llvm-builder/SYSYBuilderllvm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/llvm_main.dir/build.make CMakeFiles/llvm_main.dir/llvm-builder/SYSYBuilderllvm.cpp.s
 .PHONY : llvm-builder/SYSYBuilderllvm.cpp.s
 
-llvm-builder/io.o: llvm-builder/io.c.o
-.PHONY : llvm-builder/io.o
+llvm-builder/sylib.o: llvm-builder/sylib.c.o
+.PHONY : llvm-builder/sylib.o
 
 # target to build an object file
-llvm-builder/io.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/io.c.o
-.PHONY : llvm-builder/io.c.o
+llvm-builder/sylib.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.o
+.PHONY : llvm-builder/sylib.c.o
 
-llvm-builder/io.i: llvm-builder/io.c.i
-.PHONY : llvm-builder/io.i
+llvm-builder/sylib.i: llvm-builder/sylib.c.i
+.PHONY : llvm-builder/sylib.i
 
 # target to preprocess a source file
-llvm-builder/io.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/io.c.i
-.PHONY : llvm-builder/io.c.i
+llvm-builder/sylib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.i
+.PHONY : llvm-builder/sylib.c.i
 
-llvm-builder/io.s: llvm-builder/io.c.s
-.PHONY : llvm-builder/io.s
+llvm-builder/sylib.s: llvm-builder/sylib.c.s
+.PHONY : llvm-builder/sylib.s
 
 # target to generate assembly for a file
-llvm-builder/io.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/io.c.s
-.PHONY : llvm-builder/io.c.s
+llvm-builder/sylib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sysy_io.dir/build.make CMakeFiles/sysy_io.dir/llvm-builder/sylib.c.s
+.PHONY : llvm-builder/sylib.c.s
 
 llvm-main.o: llvm-main.cpp.o
 .PHONY : llvm-main.o
@@ -454,9 +454,9 @@ help:
 	@echo "... llvm-builder/SYSYBuilderllvm.o"
 	@echo "... llvm-builder/SYSYBuilderllvm.i"
 	@echo "... llvm-builder/SYSYBuilderllvm.s"
-	@echo "... llvm-builder/io.o"
-	@echo "... llvm-builder/io.i"
-	@echo "... llvm-builder/io.s"
+	@echo "... llvm-builder/sylib.o"
+	@echo "... llvm-builder/sylib.i"
+	@echo "... llvm-builder/sylib.s"
 	@echo "... llvm-main.o"
 	@echo "... llvm-main.i"
 	@echo "... llvm-main.s"

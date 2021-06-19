@@ -34,68 +34,78 @@ void print_help(std::string exe_name) {
 int main(int argc, char **argv) {
     std::string target_path;
     std::string input_path;
-    bool emit = false;
-    for (int i = 1;i < argc;++i) {
-        if (argv[i] == "-h"s || argv[i] == "--help"s) {
+    bool emit =false;
+    for (int i = 1;i < argc;i++) 
+    {
+        if (argv[i] == "-h"s || argv[i] == "--help"s) 
+        {
             print_help(argv[0]);
             return 0;
-        } else if (argv[i] == "-o"s) {
-            if (target_path.empty() && i + 1 < argc) {
+        } 
+        else if (argv[i] == "-o"s) 
+        {
+            if (target_path.empty() && i + 1 < argc) 
+            {
                 target_path = argv[i + 1];
                 i += 1;
-            } else {
+            } 
+            else 
+            {
                 print_help(argv[0]);
                 return 0;
             }
-        } else if (argv[i] == "-emit-llvm"s) {
-            emit = true;
-        } else {
-            if (input_path.empty()) {
+        }
+        else 
+        {
+            if (input_path.empty()) 
+            {
                 input_path = argv[i];
-            } else {
+            } 
+            else 
+            {
                 print_help(argv[0]);
                 return 0;
             }
         }
     }
-    emit = true;
-    if (input_path.empty()) {
+    if (input_path.empty()) 
+    {
         print_help(argv[0]);
         return 0;
     }
-    if (target_path.empty()) {
+    if (target_path.empty()) 
+    {
         auto pos = input_path.rfind('.');
-        if (pos == std::string::npos) {
+        if (pos == std::string::npos) 
+        {
             std::cerr << argv[0] << ": input file " << input_path << " has unknown filetype!" << std::endl;
             return -1;
-        } else {
-            if (input_path.substr(pos) != ".sy") {
+        } 
+        else 
+        {
+            if (input_path.substr(pos) != ".sy") 
+            {
                 std::cerr << argv[0] << ": input file " << input_path << " has unknown filetype!" << std::endl;
                 return -1;
             }
-            if (emit) {
-                target_path = input_path.substr(0, pos) + ".ll";
-            } else {
-                target_path = input_path.substr(0, pos);
-            }
+            target_path = input_path.substr(0, pos);
         }
     }
 
-    // TreeNodeCompUnit *root;
     std::shared_ptr<TreeNodeCompUnit> root;
     sysy_driver driver;
     syntax_tree_printer printer;
     root = driver.parse(input_path);
     auto tree = syntax_tree(root);
-    // syntax_tree_printer pr;
-    // pr.visit(*root);
+
     
     SYSYCBuilder builder;
 
     std::cout<<input_path.c_str()<<": "<<std::endl;
-    
     tree.run_visitor(builder);
-    std::cout<<"succ"<<std::endl;
+    std::cout<<"########语法树结构##############"<<std::endl;
+    printer.visit(*root);
+    std::cout<<"##############################"<<std::endl;
     
     auto mod = builder.build();
     mod->setSourceFileName(input_path);
@@ -140,22 +150,33 @@ int main(int argc, char **argv) {
     PM.add(MMI);
 
 
-    if (emit) {
-        std::cout<<"emit-llvm"<<std::endl;
-        auto output_file = llvm::make_unique<llvm::ToolOutputFile>(target_path, error_msg, llvm::sys::fs::F_None);
-        if(error_msg.value()) {
+    if (emit) 
+    {
+        std::string ir_path=target_path+".ll";   
+        auto output_file = llvm::make_unique<llvm::ToolOutputFile>(ir_path, error_msg, llvm::sys::fs::F_None);
+        if(error_msg.value()) 
+        {
+            std::cout<<"Error in IR"<<std::endl;
             llvm::errs() << error_msg.message() << "\n";
             return -1;
         }
         auto output_ostream = &output_file->os();
         PM.run(*mod);
         mod->print(*output_ostream, nullptr);
+        std::cout<<"##########中间代码##############"<<std::endl;
+        mod->print(llvm::errs(), nullptr);
+        std::cout<<"###############################"<<std::endl;
         output_file->keep();
+        auto commands = std::string("lli ") + target_path + ".ll";
+        std::system(commands.c_str());
         return 0;
-    } else {
+    } 
+    else
+    {
         auto obj_file_name = target_path + ".o";
         auto obj_file = llvm::make_unique<llvm::ToolOutputFile>(obj_file_name, error_msg, llvm::sys::fs::F_None);
-        if(error_msg.value()) {
+        if(error_msg.value()) 
+        {
             llvm::errs() << error_msg.message() << "\n";
             return -1;
         }
@@ -167,6 +188,7 @@ int main(int argc, char **argv) {
         LLVMTM.addAsmPrinter(PM, *obj_ostream, TargetMachine::CGFT_ObjectFile, MMI->getContext());
         PM.add(createFreeMachineFunctionPass());
         PM.run(*mod);
+        
         obj_file->keep();
 
         auto command_string = std::string("clang -w ") + target_path + ".o -o " + target_path + " -L. -lsysy_io";

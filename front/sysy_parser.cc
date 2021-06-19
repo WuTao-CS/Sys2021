@@ -4138,9 +4138,7 @@ namespace yy {
 #line 4139 "./front/sysy_parser.cc" // lalr1.cc:1217
 #line 851 "Sysy_parser.y" // lalr1.cc:1218
 
-//void yy::sysy_parser::error (const std::string& m){
-//	std::cout << "Find error in parsering, " << m<< "\n";
-//}
+
 void yy::sysy_parser::error (const location_type& l, const std::string& m){
 	std::cout << l << "\n";
 	std::cout << "Find error in parsering, " << m<< "\n";

@@ -19,7 +19,7 @@ void syntax_tree::run_visitor(syntax_tree_visitor &visitor)
 //
 void TreeNodeDeclDef::accept(syntax_tree_visitor &visitor) 
 {
-#ifdef DEBUG
+#ifdef MY_DEBUG
   std::cout << "TreeNodeDeclDef" << std::endl;
 #endif
   if (this->ConstDecl) 
@@ -43,7 +43,7 @@ void TreeNodeDeclDef::accept(syntax_tree_visitor &visitor)
 
 void TreeNodeBlockItem::accept(syntax_tree_visitor &visitor) 
 {
-#ifdef DEBUG
+#ifdef MY_DEBUG
   std::cout << "TreeNodeBlockItem" << std::endl;
 #endif
   if (this->ConstDecl) 
@@ -66,7 +66,7 @@ void TreeNodeBlockItem::accept(syntax_tree_visitor &visitor)
 
 void TreeNodeStmt::accept(syntax_tree_visitor &visitor) 
 {
-#ifdef DEBUG
+#ifdef MY_DEBUG
   std::cout << "TreeNodeStmt" << std::endl;
 #endif
   if (this->AssignStmt) 
@@ -114,14 +114,14 @@ void TreeNodeStmt::accept(syntax_tree_visitor &visitor)
 
 void TreeNodeExp::accept(syntax_tree_visitor &visitor) 
 {
-#ifdef DEBUG
+#ifdef MY_DEBUG
   std::cout << "TreeNodeExp" << std::endl;
 #endif
   this->AddExp->accept(visitor);
 }
 void TreeNodeCond::accept(syntax_tree_visitor &visitor) 
 {
-#ifdef DEBUG
+#ifdef MY_DEBUG
   std::cout << "TreeNodeCond" << std::endl;
 #endif
   this->LOrExp->accept(visitor);
@@ -249,14 +249,14 @@ void syntax_tree_printer::visit(TreeNodeConstExp &node) {
   remove_depth();
 }
 
-void syntax_tree_printer::visit(TreeNodeCompUnit &node) {
+void syntax_tree_printer::visit(TreeNodeCompUnit &node) 
+{
   _DEBUG_PRINT_N_(depth);
   std::cout << "CompUnit" << std::endl;
   add_depth();
   for (auto decl : node.DeclDefList) {
     decl->accept(*this);
   }
-//  std::cout<<"here"<<std::endl;
   remove_depth();
 }
 void syntax_tree_printer::visit(TreeNodeConstDecl &node) {
