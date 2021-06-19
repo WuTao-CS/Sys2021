@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SYSYCompiler",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "intrinsics_gen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-intrinsics_gen-Debug-79abf688a842c6ba700c.json",
+					"name" : "intrinsics_gen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "llvm_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-llvm_main-Debug-99a8ea262ca8dc3f6c86.json",
+					"name" : "llvm_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "parser::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-parser-Debug-4124d8370c9e81e5a547.json",
+					"name" : "parser",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "scanner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-scanner-Debug-c1fa21c99c7da1ccbd41.json",
+					"name" : "scanner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "syntax_tree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-syntax_tree-Debug-aeb6637bc85e612d82fe.json",
+					"name" : "syntax_tree",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sysy_driver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sysy_driver-Debug-6db93a60bb28d8471ba6.json",
+					"name" : "sysy_driver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sysy_io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sysy_io-Debug-d1b7e9cacb1728996918.json",
+					"name" : "sysy_io",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/linux/Desktop/Sys2021/build",
+		"source" : "/home/linux/Desktop/Sys2021"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

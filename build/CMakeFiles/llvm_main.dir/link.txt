@@ -1,1 +1,0 @@
-/usr/bin/clang++  -O0 -Wall -g2 -ggdb -Wno-everything  -g CMakeFiles/llvm_main.dir/llvm-main.cpp.o CMakeFiles/llvm_main.dir/llvm-builder/SYSYBuilderllvm.cpp.o -o llvm_main  libsysy_driver.a libparser.a libscanner.a libsyntax_tree.a /usr/lib/llvm-6.0/lib/libLLVM-6.0.so.1 

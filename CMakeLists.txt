@@ -22,7 +22,7 @@ add_definitions(${LLVM_DEFINITIONS})
 
 include_directories(./front/)
 include_directories(./build/)
-include_directories(./llvm-builder)
+include_directories(./LLVM_Builder)
 
 add_custom_command(
     OUTPUT ${CMAKE_SOURCE_DIR}/front/sysy_scanner.cc ${CMAKE_SOURCE_DIR}/front/sysy_parser.cc ${CMAKE_SOURCE_DIR}/front/sysy_parser.hh
@@ -46,7 +46,7 @@ add_library(
 )
 add_library(
         sysy_io 
-        ./llvm-builder/sylib.c
+        ./LLVM_Builder/sylib.c
 )
 
 add_library(
@@ -57,7 +57,7 @@ add_library(
 add_executable(
         llvm_main
         ./llvm-main.cpp
-        ./llvm-builder/SYSYBuilderllvm.cpp
+        ./LLVM_Builder/SYSYBuilderllvm.cpp
 )
 target_compile_options(
         llvm_main

@@ -34,7 +34,8 @@ void print_help(std::string exe_name) {
 int main(int argc, char **argv) {
     std::string target_path;
     std::string input_path;
-    bool emit =false;
+    bool emit =true;
+    bool codegen=true;
     for (int i = 1;i < argc;i++) 
     {
         if (argv[i] == "-h"s || argv[i] == "--help"s) 
@@ -167,11 +168,10 @@ int main(int argc, char **argv) {
         mod->print(llvm::errs(), nullptr);
         std::cout<<"###############################"<<std::endl;
         output_file->keep();
-        auto commands = std::string("lli ") + target_path + ".ll";
-        std::system(commands.c_str());
-        return 0;
+        // auto commands = std::string("lli ") + target_path + ".ll";
+        // std::system(commands.c_str());
     } 
-    else
+    if(codegen)
     {
         auto obj_file_name = target_path + ".o";
         auto obj_file = llvm::make_unique<llvm::ToolOutputFile>(obj_file_name, error_msg, llvm::sys::fs::F_None);
