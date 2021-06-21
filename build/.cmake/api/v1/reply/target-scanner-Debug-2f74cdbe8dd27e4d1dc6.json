@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "libsyntax_tree.a"
+			"path" : "libscanner.a"
 		}
 	],
 	"backtrace" : 1,
@@ -26,19 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 52,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 20,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 23,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -51,6 +45,12 @@
 				"command" : 1,
 				"file" : 0,
 				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -71,7 +71,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/usr/lib/llvm-6.0/include"
+					"path" : "/usr/lib/llvm-8/include"
 				},
 				{
 					"backtrace" : 3,
@@ -101,9 +101,9 @@
 			]
 		}
 	],
-	"id" : "syntax_tree::@6890427a1f51a3e7e1df",
-	"name" : "syntax_tree",
-	"nameOnDisk" : "libsyntax_tree.a",
+	"id" : "scanner::@6890427a1f51a3e7e1df",
+	"name" : "scanner",
+	"nameOnDisk" : "libscanner.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -117,6 +117,13 @@
 			[
 				0
 			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
 		}
 	],
 	"sources" : 
@@ -124,8 +131,15 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "front/syntax_tree.cc",
+			"isGenerated" : true,
+			"path" : "front/sysy_scanner.cc",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "front/sysy_scanner.cc.rule",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

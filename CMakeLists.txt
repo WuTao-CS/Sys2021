@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 # # Import LLVM
+set(LLVM_DIR  /usr/lib/llvm-8/cmake/)
 find_package(LLVM REQUIRED CONFIG)
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
 message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
@@ -55,16 +56,16 @@ add_library(
 )
 
 add_executable(
-        llvm_main
-        ./llvm-main.cpp
-        ./LLVM_Builder/SYSYBuilderllvm.cpp
+        main
+        ./main.cpp
+        ./LLVM_Builder/SysyBuilder.cpp
 )
 target_compile_options(
-        llvm_main
+        main
         PRIVATE "-fno-rtti"
 )
 target_link_libraries(
-        llvm_main
+        main
         sysy_driver
         parser
         scanner
@@ -73,6 +74,6 @@ target_link_libraries(
 )
 
 install(
-        TARGETS llvm_main
+        TARGETS main
         RUNTIME DESTINATION bin
 )

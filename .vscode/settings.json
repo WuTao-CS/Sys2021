@@ -59,7 +59,9 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "*.sy": "c",
-        "bit": "cpp"
+        "bit": "cpp",
+        "*.gen": "cpp",
+        "*.inc": "cpp"
     },
     "cmake.configureOnOpen": true
 }

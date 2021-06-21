@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/llvm-ar-6.0"
+			"value" : "/usr/bin/llvm-ar-8"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -191,7 +191,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/llvm-ranlib-6.0"
+			"value" : "/usr/bin/llvm-ranlib-8"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -1132,18 +1132,6 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
-		},
-		{
-			"name" : "LLVM_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for LLVM."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/lib/llvm-6.0/cmake"
 		},
 		{
 			"name" : "SYSYCompiler_BINARY_DIR",

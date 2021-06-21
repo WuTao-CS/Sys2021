@@ -54,7 +54,7 @@
 						"/usr/include/c++/9",
 						"/usr/include/x86_64-linux-gnu/c++/9",
 						"/usr/include/c++/9/backward",
-						"/usr/include/clang/6.0.0/include",
+						"/usr/include/clang/8.0.0/include",
 						"/usr/local/include",
 						"/usr/include/x86_64-linux-gnu",
 						"/usr/include"
@@ -66,7 +66,7 @@
 						"/lib/x86_64-linux-gnu",
 						"/lib64",
 						"/usr/lib",
-						"/usr/lib/llvm-6.0/lib",
+						"/usr/lib/llvm-8/lib",
 						"/lib",
 						"/usr/local/cuda/lib64"
 					],
@@ -83,7 +83,7 @@
 					]
 				},
 				"path" : "/usr/bin/clang++",
-				"version" : "6.0.0"
+				"version" : "8.0.0"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 

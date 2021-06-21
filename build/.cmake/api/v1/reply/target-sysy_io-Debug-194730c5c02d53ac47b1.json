@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "libsysy_driver.a"
+			"path" : "libsysy_io.a"
 		}
 	],
 	"backtrace" : 1,
@@ -26,19 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 43,
+				"line" : 48,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 20,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 23,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -52,6 +46,12 @@
 				"file" : 0,
 				"line" : 25,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
 			}
 		]
 	},
@@ -61,17 +61,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -O0 -Wall -g2 -ggdb -Wno-everything  -g   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS"
-				},
-				{
-					"fragment" : "-std=gnu++17"
+					"fragment" : "-g   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/usr/lib/llvm-6.0/include"
+					"path" : "/usr/lib/llvm-8/include"
 				},
 				{
 					"backtrace" : 3,
@@ -86,24 +83,16 @@
 					"path" : "/home/linux/Desktop/Sys2021/./LLVM_Builder"
 				}
 			],
-			"language" : "CXX",
-			"languageStandard" : 
-			{
-				"backtraces" : 
-				[
-					1
-				],
-				"standard" : "17"
-			},
+			"language" : "C",
 			"sourceIndexes" : 
 			[
 				0
 			]
 		}
 	],
-	"id" : "sysy_driver::@6890427a1f51a3e7e1df",
-	"name" : "sysy_driver",
-	"nameOnDisk" : "libsysy_driver.a",
+	"id" : "sysy_io::@6890427a1f51a3e7e1df",
+	"name" : "sysy_io",
+	"nameOnDisk" : "libsysy_io.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -124,7 +113,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "front/sysy_driver.cc",
+			"path" : "LLVM_Builder/sylib.c",
 			"sourceGroupIndex" : 0
 		}
 	],
