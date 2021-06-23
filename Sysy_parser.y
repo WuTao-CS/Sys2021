@@ -177,12 +177,23 @@ DeclDef : ConstDecl{
     }
     ;
 
-ConstDecl : T_CONST FuncDef ConstDefList T_SEMICOLIN {
+ConstDecl : T_CONST FuncType ConstDefList T_SEMICOLIN {
 	$$=std::make_shared<TreeNodeConstDecl>();
 	$$->ConstDefList=$3->list;
-	//TODO
 	$$->type=TYPE_INT;
 	std::cout<<"ConstDecl"<<std::endl;
+    }
+    ;
+//常量连续定义（常数链表）
+ConstDefList : ConstDefList T_COMMA ConstDef {
+    	$1->list.emplace_back(std::move($3));
+    	$$=std::move($1);
+		std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
+    }
+	|ConstDef  {
+	$$=std::make_shared<TreeNodeConstDefList>();
+	$$->list.emplace_back(std::move($1));
+	std::cout<<"ConstDefList : ConstDef"<<std::endl;
     }
     ;
 // 常数定义 ConstDef→Ident { '[' ConstExp ']' } '=' ConstInitVal
@@ -193,18 +204,11 @@ ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal {
 		$$->ConstInitVal=std::move($4);
 		std::cout<<"ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal"<<std::endl;
     }
-    ;
-//常量连续定义（常数链表）
-ConstDefList : ConstDef  {
-	$$=std::make_shared<TreeNodeConstDefList>();
-	$$->list.emplace_back(std::move($1));
-	std::cout<<"ConstDefList : ConstDef"<<std::endl;
-    }
-    | ConstDefList T_COMMA ConstDef {
-    	$1->list.emplace_back(std::move($3));
-    	$$=std::move($1);
-		std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
-    }
+	// | T_IDENTIFIER T_ASSIGN ConstInitVal {
+    // 	$$=std::make_shared<TreeNodeConstDef>();
+    // 	$$->ConstInitVal=std::move($3);
+    // 	$$->id=$1;
+    // }
     ;
 // 常量数组定义
 ArrayConstExpList : ArrayConstExpList T_LBRACKET ConstExp T_RBRACKET {

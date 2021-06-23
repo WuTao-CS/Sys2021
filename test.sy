@@ -1,8 +1,5 @@
-int n;
+const int x=4;
 
 int main(){
-	n = 1;
-	int res;
-	res = n+1;
-	return res;
+    return x;
 }

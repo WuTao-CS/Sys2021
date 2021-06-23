@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+bd96496c7d8cedbc1f8fe628f1b768db ../front/sysy_scanner.cc
