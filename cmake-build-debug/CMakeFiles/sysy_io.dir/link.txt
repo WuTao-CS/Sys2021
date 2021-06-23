@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsysy_io.a  CMakeFiles/sysy_io.dir/LLVM_Builder/sylib.c.o
+/usr/bin/ranlib libsysy_io.a

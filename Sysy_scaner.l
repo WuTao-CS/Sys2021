@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <sysyFlexLexer.hh>
 #include "sysy_parser.hh"
+#include <iostream>
 using namespace yy;
 #undef YY_DECL
 #define YY_DECL int yy::sysyFlexLexer::yylex(yy::sysy_parser::semantic_type *yylval, yy::sysy_parser::location_type*)
@@ -80,7 +81,7 @@ P           ([Pp][+-]?{D}+)
 [ \t\v\f]               { }
 [\n]                    { }
 
-.                       {  printf("[ unknown '%s' ]", yytext)    ;}
+.                       {  std::cout<<"##########"<<std::endl    ;}
 
 <<EOF>>                 {  return sysy_parser::token::T_END           ;}
 %%

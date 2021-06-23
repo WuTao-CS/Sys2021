@@ -1,0 +1,13 @@
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/install/local.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/install.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/intrinsics_gen.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/parser.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/scanner.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/sysy_io.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/sysy_driver.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/syntax_tree.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/main.dir
+/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -34,12 +34,12 @@ add_custom_command(
 
 add_library(
         scanner STATIC
-        ../front/sysy_scanner.cc
+        ./front/sysy_scanner.cc
 )
 
 add_library(
         parser STATIC
-        ../front/sysy_parser.cc
+        ./front/sysy_parser.cc
 )
 add_library(
         sysy_driver

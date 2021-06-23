@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SYSYCompiler"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\llvm-8\;CMake Files\..\..\..\..\..\usr\lib\llvm-8\cmake\;CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\;CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\cmake\;CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\cmake\llvm\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="intrinsics_gen">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 intrinsics_gen"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parser">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 parser"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="parser/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libparser.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 parser/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scanner">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libscanner.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 scanner"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="scanner/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libscanner.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 scanner/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sysy_io">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsysy_io.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 sysy_io"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sysy_io/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsysy_io.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 sysy_io/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sysy_driver">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsysy_driver.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 sysy_driver"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sysy_driver/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsysy_driver.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 sysy_driver/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syntax_tree">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsyntax_tree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 syntax_tree"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="syntax_tree/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/libsyntax_tree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 syntax_tree/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/usr/lib/llvm-8/include"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./front"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./build"/>
+					<Add directory="/home/linux/Desktop/compiler/Sys2021/./LLVM_Builder"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/include/clang/8.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/linux/Desktop/compiler/Sys2021/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/linux/Desktop/compiler/Sys2021/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/LLVM_Builder/SysyBuilder.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/LLVM_Builder/SysyBuilder.hpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/LLVM_Builder/sylib.c">
+			<Option target="sysy_io"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/LLVM_Builder/sylib.h">
+			<Option target="sysy_io"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/syntax_tree.cc">
+			<Option target="syntax_tree"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/syntax_tree.hh">
+			<Option target="syntax_tree"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_driver.cc">
+			<Option target="sysy_driver"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_driver.hh">
+			<Option target="sysy_driver"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_parser.cc">
+			<Option target="parser"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_parser.hh">
+			<Option target="parser"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_scanner.cc">
+			<Option target="scanner"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/front/sysy_scanner.cc.rule">
+			<Option target="parser"/>
+			<Option target="scanner"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/../../../../../usr/lib/llvm-8/cmake/LLVMConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\llvm-8\cmake\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/../../../../../usr/lib/llvm-8/cmake/LLVMConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\llvm-8\cmake\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/../../../../../usr/lib/llvm-8/lib/cmake/llvm/LLVM-Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/../../../../../usr/lib/llvm-8/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\cmake\llvm\"/>
+		</Unit>
+		<Unit filename="/home/linux/Desktop/compiler/Sys2021/../../../../../usr/lib/llvm-8/lib/cmake/llvm/LLVMExports.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\llvm-8\lib\cmake\llvm\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
