@@ -1,6 +1,0 @@
-/home/linux/Downloads/CLion-2020.3.1/clion-2020.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/linux/Desktop/compiler/Sys2021
--- Found LLVM 8.0.0
--- Using LLVMConfig.cmake in: /usr/lib/llvm-8/cmake/
--- Configuring done
--- Generating done
--- Build files have been written to: /home/linux/Desktop/compiler/Sys2021/cmake-build-debug
