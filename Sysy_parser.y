@@ -137,14 +137,14 @@ CompUnit : DeclDef {
 	// emplace_back效果类似于push_back，会调用构造函数和转移构造函数,如果可以在插入的时候直接构造，就只需要构造一次即可。
 	$$->DeclDefList.emplace_back(std::move($1));
 	rootFromParser=$$;
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
     | CompUnit DeclDef {
 	$1->DeclDefList.emplace_back(std::move($2));
 	$$=std::move($1);
 	rootFromParser=$$;
-	std::cout<<"CompUnit Decl"<<std::endl;
+	//std::cout<<"CompUnit Decl"<<std::endl;
 
     }
     | CompUnit T_END {
@@ -159,21 +159,21 @@ DeclDef : ConstDecl{
 	$$->ConstDecl=std::move($1);
 	$$->VarDecl=nullptr;
 	$$->FuncDef=nullptr;
-	std::cout<<"DeclDef : ConstDecl"<<std::endl;
+	//std::cout<<"DeclDef : ConstDecl"<<std::endl;
     }
     | VarDecl{
 	$$=std::make_shared<TreeNodeDeclDef>();
 	$$->ConstDecl=nullptr;
     $$->VarDecl=std::move($1);
 	$$->FuncDef=nullptr;
-	std::cout<<"DeclDef : VarDecl"<<std::endl;
+	//std::cout<<"DeclDef : VarDecl"<<std::endl;
     }
     | FuncDef{
     $$=std::make_shared<TreeNodeDeclDef>();
 	$$->ConstDecl=nullptr;
     $$->VarDecl=nullptr;
 	$$->FuncDef=std::move($1);
-	std::cout<<"DeclDef : FuncDef"<<std::endl;
+	//std::cout<<"DeclDef : FuncDef"<<std::endl;
     }
     ;
 
@@ -181,19 +181,19 @@ ConstDecl : T_CONST FuncType ConstDefList T_SEMICOLIN {
 	$$=std::make_shared<TreeNodeConstDecl>();
 	$$->ConstDefList=$3->list;
 	$$->type=TYPE_INT;
-	std::cout<<"ConstDecl"<<std::endl;
+	//std::cout<<"ConstDecl"<<std::endl;
     }
     ;
 //常量连续定义（常数链表）
 ConstDefList : ConstDefList T_COMMA ConstDef {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
+		//std::cout<<"ConstDefList : ConstDefList T_COMMA ConstDef"<<std::endl;
     }
 	|ConstDef  {
 	$$=std::make_shared<TreeNodeConstDefList>();
 	$$->list.emplace_back(std::move($1));
-	std::cout<<"ConstDefList : ConstDef"<<std::endl;
+	//std::cout<<"ConstDefList : ConstDef"<<std::endl;
     }
     ;
 // 常数定义 ConstDef→Ident { '[' ConstExp ']' } '=' ConstInitVal
@@ -202,7 +202,7 @@ ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal {
 		$$->ArrayConstExpList=$2->list;
 		$$->id=$1;
 		$$->ConstInitVal=std::move($4);
-		std::cout<<"ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal"<<std::endl;
+		//std::cout<<"ConstDef : T_IDENTIFIER ArrayConstExpList T_ASSIGN ConstInitVal"<<std::endl;
     }
 	// | T_IDENTIFIER T_ASSIGN ConstInitVal {
     // 	$$=std::make_shared<TreeNodeConstDef>();
@@ -245,7 +245,7 @@ ConstInitValList : ConstInitVal {
     | ConstInitValList T_COMMA ConstInitVal {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
+		//std::cout<<"ConstInitValList : ConstInitValList T_COMMA ConstInitVa"<<std::endl;
     }
     ;
 
@@ -254,7 +254,7 @@ VarDecl : FuncType VarDefList T_SEMICOLIN {
 		$$=std::make_shared<TreeNodeVarDecl>();
 		$$->type=TYPE_INT;
 		$$->VarDefList=$2->list;
-		std::cout<<"VarDecl"<<std::endl;
+		//std::cout<<"VarDecl"<<std::endl;
     }
     ;
 
@@ -262,12 +262,12 @@ VarDecl : FuncType VarDefList T_SEMICOLIN {
 VarDefList : VarDef {
 		$$=std::make_shared<TreeNodeVarDefList>();
 		$$->list.emplace_back(std::move($1));
-		std::cout<<"VarDefList:VarDef"<<std::endl;
+		//std::cout<<"VarDefList:VarDef"<<std::endl;
     }
     | VarDefList T_COMMA VarDef {
     	$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
-		std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
+		//std::cout<<"VarDefList:VarDefList T_COMMA VarDef "<<std::endl;
     }
     ;
 //变量定义VarDef →Ident { '[' ConstExp ']' } | Ident { '[' ConstExp ']' } '=' InitVal
@@ -277,32 +277,32 @@ VarDef : T_IDENTIFIER ArrayConstExpList  {
 		$$->id=$1;
 		$$->ArrayConstExpList=$2->list;
 		$$->InitVal=nullptr;
-		std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList"<<std::endl;
     }
     | T_IDENTIFIER ArrayConstExpList T_ASSIGN InitVal {
     	$$=std::make_shared<TreeNodeVarDef>();
 		$$->id=$1;
 		$$->ArrayConstExpList=$2->list;
 		$$->InitVal=std::move($4);
-		std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList T_ASSIGN InitVal"<<std::endl;
+		//std::cout<<"VarDef: T_IDENTIFIER ArrayConstExpList T_ASSIGN InitVal"<<std::endl;
     }
     ;
 //变量初值 InitVal→Exp | '{' [ InitVal { ',' InitVal } ] '}'
 InitVal : Exp {
 	$$=std::make_shared<TreeNodeInitVal>();
 	$$->Exp=std::move($1);
-	std::cout<<"InitVal:Exp"<<std::endl;
+	//std::cout<<"InitVal:Exp"<<std::endl;
     }
     | T_LBRACE  T_RBRACE {
 	$$=std::make_shared<TreeNodeInitVal>();
 	$$->Exp=nullptr;
-	std::cout<<"{}"<<std::endl;
+	//std::cout<<"{}"<<std::endl;
     }
     | T_LBRACE InitValList T_RBRACE {
     $$=std::make_shared<TreeNodeInitVal>();
 	$$->Exp=nullptr;
 	$$->InitValList=$2->list;
-	std::cout<<"InitVal: { InitValList }"<<std::endl;
+	//std::cout<<"InitVal: { InitValList }"<<std::endl;
     }
     ;
 
@@ -310,12 +310,12 @@ InitVal : Exp {
 InitValList : InitVal {
 	$$=std::make_shared<TreeNodeInitValList>();
 	$$->list.emplace_back(std::move($1));
-	std::cout<<"InitValList : InitVal"<<std::endl;
+	//std::cout<<"InitValList : InitVal"<<std::endl;
     }
     | InitValList T_COMMA InitVal {
 	$1->list.emplace_back(std::move($3));
 	$$=std::move($1);
-	std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
+	//std::cout<<"InitValList T_COMMA InitVal"<<std::endl;
     }
     ;
 
@@ -326,7 +326,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
 	$$->type=$1;
 	$$->id=$2;
 	$$->Block=std::move($5);
-	std::cout<<"Void FuncDef without Param"<<std::endl;
+	//std::cout<<"Void FuncDef without Param"<<std::endl;
     }
     | FuncType T_IDENTIFIER T_LPARENTHESE FuncFParams T_RPARENTHESE Block {
 	//带有参数的返回值为Void的函数
@@ -335,7 +335,7 @@ FuncDef : FuncType T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE Block {
 	$$->id=$2;
 	$$->FuncFParamList=$4->list;
 	$$->Block=std::move($6);
-	std::cout<<"Void FuncDef with Param"<<std::endl;
+	//std::cout<<"Void FuncDef with Param"<<std::endl;
     }
     ;
 
@@ -413,7 +413,7 @@ Block : T_LBRACE BlockItemList T_RBRACE {
 BlockItemList : BlockItemList BlockItem{
     $1->list.emplace_back(std::move($2));
     $$=std::move($1);
-	std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
+	//std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
     }
 	|{
 	$$=std::make_shared<TreeNodeBlockItemList>();
@@ -425,7 +425,7 @@ BlockItem: ConstDecl {
 	$$->ConstDecl=std::move($1);
 	$$->VarDecl=nullptr;
     $$->Stmt=nullptr;
-	std::cout<<"BlockItem: ConstDecl"<<std::endl;
+	//std::cout<<"BlockItem: ConstDecl"<<std::endl;
     }
     |
     VarDecl {
@@ -433,14 +433,14 @@ BlockItem: ConstDecl {
 	$$->ConstDecl=nullptr;
 	$$->VarDecl=std::move($1);
 	$$->Stmt=nullptr;
-	std::cout<<"BlockItem:VarDecl"<<std::endl;
+	//std::cout<<"BlockItem:VarDecl"<<std::endl;
     }
     | Stmt {
     $$=std::make_shared<TreeNodeBlockItem>();
 	$$->ConstDecl=nullptr;
     $$->VarDecl=nullptr;
 	$$->Stmt=std::move($1);
-	std::cout<<"BlockItem:Stmt"<<std::endl;
+	//std::cout<<"BlockItem:Stmt"<<std::endl;
     }
     ;
 Stmt : BreakStmt {
@@ -453,7 +453,7 @@ Stmt : BreakStmt {
     $$->SelectStmt=nullptr;
     $$->IterationStmt=nullptr;
     $$->ReturnStmt=nullptr;
-	std::cout<<"Stmt:break"<<std::endl;
+	//std::cout<<"Stmt:break"<<std::endl;
     }
     | ContinueStmt {
     	$$=std::make_shared<TreeNodeStmt>();
@@ -465,14 +465,14 @@ Stmt : BreakStmt {
 		$$->SelectStmt=nullptr;
 		$$->IterationStmt=nullptr;
 		$$->ReturnStmt=nullptr;
-		std::cout<<"Stmt:Continue"<<std::endl;
+		//std::cout<<"Stmt:Continue"<<std::endl;
     }
     | AssignStmt {
     	$$=std::make_shared<TreeNodeStmt>();
 		$$->BreakStmt=nullptr;
 		$$->ContinueStmt=nullptr;
     	$$->AssignStmt=std::move($1);
-		std::cout<<"Stmt:AssignStmt"<<std::endl;
+		//std::cout<<"Stmt:AssignStmt"<<std::endl;
 		$$->Exp=nullptr;
 		$$->Block=nullptr;
 		$$->SelectStmt=nullptr;
@@ -489,7 +489,7 @@ Stmt : BreakStmt {
 		$$->SelectStmt=nullptr;
 		$$->IterationStmt=nullptr;
 		$$->ReturnStmt=nullptr;
-		std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
+		//std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
     }
     | T_SEMICOLIN {
 		$$=std::make_shared<TreeNodeStmt>();
@@ -512,7 +512,7 @@ Stmt : BreakStmt {
 		$$->SelectStmt=nullptr;
 		$$->IterationStmt=nullptr;
 		$$->ReturnStmt=nullptr;
-		std::cout<<"Stmt: Block"<<std::endl;
+		//std::cout<<"Stmt: Block"<<std::endl;
     }
     | SelectStmt {
     	$$=std::make_shared<TreeNodeStmt>();
@@ -524,7 +524,7 @@ Stmt : BreakStmt {
 		$$->SelectStmt=std::move($1);
 		$$->IterationStmt=nullptr;
     	$$->ReturnStmt=nullptr;
-		std::cout<<"SelectStmt"<<std::endl;
+		//std::cout<<"SelectStmt"<<std::endl;
     }
     | IterationStmt {
     	$$=std::make_shared<TreeNodeStmt>();
@@ -536,7 +536,7 @@ Stmt : BreakStmt {
 		$$->SelectStmt=nullptr;
 		$$->IterationStmt=std::move($1);
 		$$->ReturnStmt=nullptr;
-		std::cout<<"IterationStmt"<<std::endl;
+		//std::cout<<"IterationStmt"<<std::endl;
     }
     | ReturnStmt {
     	$$=std::make_shared<TreeNodeStmt>();
@@ -548,7 +548,7 @@ Stmt : BreakStmt {
 		$$->SelectStmt=nullptr;
 		$$->IterationStmt=nullptr;
 		$$->ReturnStmt=std::move($1);
-		std::cout<<"ReturnStmt"<<std::endl;
+		//std::cout<<"ReturnStmt"<<std::endl;
     }
     ;
 
@@ -599,14 +599,14 @@ ReturnStmt : T_RETURN T_SEMICOLIN {
 Exp : AddExp {
 	$$=std::make_shared<TreeNodeExp>();
 	$$->AddExp=std::move($1);
-	std::cout<<"Exp : AddExp"<<std::endl;
+	//std::cout<<"Exp : AddExp"<<std::endl;
     }
     ;
 
 Cond : LOrExp {
 	$$=std::make_shared<TreeNodeCond>();
 	$$->LOrExp=std::move($1);
-	std::cout<<"Cond : LOrExp"<<std::endl;
+	//std::cout<<"Cond : LOrExp"<<std::endl;
     }
     ;
 // 左值表达式 LVal -> Ident {'[' Exp ']'}
@@ -614,7 +614,7 @@ LVal : T_IDENTIFIER ArrayExpList {
 	$$=std::make_shared<TreeNodeLVal>();
 	$$->id=$1;
 	$$->ArrayExpList=$2->list;
-	std::cout<<"LVal:T_IDENTIFIER ParamArrayExpList"<<std::endl;
+	//std::cout<<"LVal:T_IDENTIFIER ParamArrayExpList"<<std::endl;
     }
     ;
 ArrayExpList:ArrayExpList T_LBRACKET Exp T_RBRACKET {
@@ -631,28 +631,28 @@ PrimaryExp : T_LPARENTHESE Exp T_RPARENTHESE {
 	$$->Exp=std::move($2);
 	$$->LVal=nullptr;
     $$->Number=nullptr;
-	std::cout<<"PrimaryExp:(Exp)"<<std::endl;
+	//std::cout<<"PrimaryExp:(Exp)"<<std::endl;
     }
     | LVal {
     $$=std::make_shared<TreeNodePrimaryExp>();
 	$$->Exp=nullptr;
 	$$->LVal=std::move($1);
     $$->Number=nullptr;
-    std::cout<<"PrimaryExp：LVal"<<std::endl;
+    //std::cout<<"PrimaryExp：LVal"<<std::endl;
 	}
     | Number {
     $$=std::make_shared<TreeNodePrimaryExp>();
 	$$->Exp=nullptr;
 	$$->LVal=nullptr;
 	$$->Number=std::move($1);
-    std::cout<<"PrimaryExp：Number"<<std::endl;
+    //std::cout<<"PrimaryExp：Number"<<std::endl;
 	}
     ;
 
 Number : T_NUMBER {
 	$$=std::make_shared<TreeNodeNumber>();
 	$$->num=$1;
-    std::cout<<"Numbers"<<std::endl;
+    //std::cout<<"Numbers"<<std::endl;
 	}
     ;
 
@@ -663,7 +663,7 @@ UnaryExp : PrimaryExp {
 	$$->PrimaryExp=std::move($1);
 	$$->Callee=nullptr;
     $$->UnaryExp=nullptr;
-	std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
+	//std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
     }
     | Callee {
     $$=std::make_shared<TreeNodeUnaryExp>();
@@ -671,7 +671,7 @@ UnaryExp : PrimaryExp {
 	$$->PrimaryExp=nullptr;
 	$$->Callee=std::move($1);
 	$$->UnaryExp=nullptr;
-	std::cout<<"UnaryExp:Callee"<<std::endl;
+	//std::cout<<"UnaryExp:Callee"<<std::endl;
     }
     | UnaryOp UnaryExp {
     $$=std::make_shared<TreeNodeUnaryExp>();
@@ -679,7 +679,7 @@ UnaryExp : PrimaryExp {
 	$$->PrimaryExp=nullptr;
     $$->Callee=nullptr;
 	$$->UnaryExp=std::move($2);
-    std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
+    //std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
 	}
     ;
 
@@ -697,26 +697,26 @@ Callee : T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE {
 // operand passes to UnaryExp as a attribute
 UnaryOp : T_ADD {
 	$$=OP_POS;
-	std::cout<<"+"<<std::endl;
+	//std::cout<<"+"<<std::endl;
     }
     | T_SUB {
     $$=OP_NEG;
-    std::cout<<"-"<<std::endl;
+    //std::cout<<"-"<<std::endl;
 	}
     | T_NOT {
     $$=OP_NOT;
-    std::cout<<"！"<<std::endl;
+    //std::cout<<"！"<<std::endl;
 	}
     ;
 FuncRParams : FuncRParams T_COMMA Exp {
     $1->list.emplace_back(std::move($3));
     $$=std::move($1);
-    std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
+    //std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
 	}
 	| Exp {
 	$$=std::make_shared<TreeNodeExpList>();
 	$$->list.emplace_back(std::move($1));
-    std::cout<<"FuncRParams : Exp "<<std::endl;
+    //std::cout<<"FuncRParams : Exp "<<std::endl;
 	}
     ;
 
@@ -724,49 +724,49 @@ FuncRParams : FuncRParams T_COMMA Exp {
 MulExp : UnaryExp {
 	$$=std::make_shared<TreeNodeMulExp>();
 	$$->UnaryExp=std::move($1);
-	std::cout<<"MulExp : UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : UnaryExp"<<std::endl;
     }
     | MulExp T_MUL UnaryExp {
 	$$=std::make_shared<TreeNodeMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_MUL;
-	std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
     }
     | MulExp T_DIV UnaryExp {
 	$$=std::make_shared<TreeNodeMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_DIV;
-	std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
+	//std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
     }
     | MulExp T_MOD UnaryExp {
 	$$=std::make_shared<TreeNodeMulExp>();
 	$$->MulExp=std::move($1);
 	$$->UnaryExp=std::move($3);
 	$$->op=OP_MOD;
-	std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
+	//std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
     }
     ;
 //加减表达式AddExp→MulExp | AddExp ('+' | '−') MulExp 
 AddExp : MulExp {
 	$$=std::make_shared<TreeNodeAddExp>();
 	$$->MulExp=std::move($1);
-    //std::cout<<""<<std::endl;
+    ////std::cout<<""<<std::endl;
 	}
     | AddExp T_ADD MulExp {
    	$$=std::make_shared<TreeNodeAddExp>();
    	$$->AddExp=std::move($1);
    	$$->MulExp=std::move($3);
    	$$->op=OP_PLUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
     | AddExp T_SUB MulExp {
 	$$=std::make_shared<TreeNodeAddExp>();
 	$$->AddExp=std::move($1);
 	$$->MulExp=std::move($3);
 	$$->op=OP_MINUS;
-	//std::cout<<""<<std::endl;
+	////std::cout<<""<<std::endl;
     }
     ;
 
@@ -774,35 +774,35 @@ RelExp : AddExp	{
 	$$=std::make_shared<TreeNodeRelExp>();
 	$$->RelExp=nullptr;
 	$$->AddExp=std::move($1);
-	std::cout<<"RelExp : AddExp	"<<std::endl;
+	//std::cout<<"RelExp : AddExp	"<<std::endl;
     }
     | RelExp T_LT AddExp {
 	$$=std::make_shared<TreeNodeRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_LT;
-	std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
     }
     | RelExp T_GT AddExp {
   	$$=std::make_shared<TreeNodeRelExp>();
   	$$->RelExp=std::move($1);
   	$$->AddExp=std::move($3);
   	$$->op=OP_GT;
-	std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
     }
     | RelExp T_LTE AddExp {
 	$$=std::make_shared<TreeNodeRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_LTE;
-	std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
     }
     | RelExp T_GTE AddExp {
 	$$=std::make_shared<TreeNodeRelExp>();
 	$$->RelExp=std::move($1);
 	$$->AddExp=std::move($3);
 	$$->op=OP_GTE;
-	std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
+	//std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
     }
     ;
 
@@ -810,21 +810,21 @@ EqExp : RelExp {
 	$$=std::make_shared<TreeNodeEqExp>();
 	$$->EqExp=nullptr;
 	$$->RelExp=std::move($1);
-	std::cout<<"EqExp : RelExp"<<std::endl;
+	//std::cout<<"EqExp : RelExp"<<std::endl;
     }
     | EqExp T_EQ RelExp {
 	$$=std::make_shared<TreeNodeEqExp>();
 	$$->EqExp=std::move($1);
 	$$->RelExp=std::move($3);
 	$$->op=OP_EQ;
-	std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
     }
     | EqExp T_NEQ RelExp {
 	$$=std::make_shared<TreeNodeEqExp>();
 	$$->EqExp=std::move($1);
 	$$->RelExp=std::move($3);
 	$$->op=OP_NEQ;
-	std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
+	//std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
     }
     ;
 
@@ -832,14 +832,14 @@ LAndExp : EqExp {
 	$$=std::make_shared<TreeNodeLAndExp>();
 	$$->LAndExp=nullptr;
 	$$->EqExp=std::move($1);
-	std::cout<<"LAndExp : EqExp"<<std::endl;
+	//std::cout<<"LAndExp : EqExp"<<std::endl;
     }
     | LAndExp T_AND EqExp {
 	$$=std::make_shared<TreeNodeLAndExp>();
 	$$->LAndExp=std::move($1);
 	$$->EqExp=std::move($3);
 	$$->op=OP_AND;
-	std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
+	//std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
     }
     ;
 
@@ -847,21 +847,21 @@ LOrExp : LAndExp {
 	$$=std::make_shared<TreeNodeLOrExp>();
 	$$->LOrExp=nullptr;
 	$$->LAndExp=std::move($1);
-	std::cout<<"LOrExp : LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LAndExp"<<std::endl;
     }
     | LOrExp T_OR LAndExp {
 	$$=std::make_shared<TreeNodeLOrExp>();
 	$$->LOrExp=std::move($1);
 	$$->LAndExp=std::move($3);
 	$$->op=OP_OR;
-	std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
+	//std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
     }
     ;
 
 ConstExp : AddExp {
 	$$=std::make_shared<TreeNodeConstExp>();
 	$$->AddExp=std::move($1);
-	std::cout<<"ConstExp : AddExp"<<std::endl;
+	//std::cout<<"ConstExp : AddExp"<<std::endl;
     }
     ;
 
