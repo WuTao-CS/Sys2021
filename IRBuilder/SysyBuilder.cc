@@ -5,7 +5,7 @@
 
 #define _IRBUILDER_ERROR_(str)                                                 \
     {                                                                          \
-        std::cout << "Error in IRbuilder-> " << str << std::endl;              \
+        std::cerr << "Error in IRbuilder-> " << str << std::endl;              \
         std::abort();                                                          \
     }
 
@@ -26,53 +26,10 @@ bool pre_enter_scope = false;
 //
 std::vector<Value *> array_init;
 //
-// std::vector<BasicBlock*> iter_expr,iter_cont;
-enum CurBaseListType { WHILE_COND, WHILE_BODY, IF_COND, IF_THEN, IF_ELSE };
-
-std::vector<CurBaseListType> BL_types;
-
-std::vector<BaseBlock *> base_layer;
+std::vector<BasicBlock *> iter_expr, iter_cont;
 
 int tmp_int = 0;
 bool use_int = false;
-bool in_global_init = false;
-
-std::list<BaseBlock *> &getCurBaseList(CurBaseListType ty)
-{
-    auto cur_base = base_layer[base_layer.size() - 1];
-    switch (ty)
-    {
-    case WHILE_COND:
-        assert(cur_base->isWhileBlock());
-        return dynamic_cast<WhileBlock *>(cur_base)->getCondBBs();
-        break;
-
-    case WHILE_BODY:
-        assert(cur_base->isWhileBlock());
-        return dynamic_cast<WhileBlock *>(cur_base)->getBodyBBs();
-        break;
-
-    case IF_COND:
-        assert(cur_base->isIfBlock());
-        return dynamic_cast<IfBlock *>(cur_base)->getCondBBs();
-        break;
-
-    case IF_THEN:
-        assert(cur_base->isIfBlock());
-        return dynamic_cast<IfBlock *>(cur_base)->getIfBodyBBs();
-        break;
-
-    case IF_ELSE:
-        assert(cur_base->isIfBlock());
-        return dynamic_cast<IfBlock *>(cur_base)->getElseBodyBBs();
-        break;
-
-    default:
-        break;
-    }
-    std::list<BaseBlock *> ret;
-    return ret;
-}
 
 Constant *ToConstArray(std::vector<int32_t> &array_bounds,
                        std::vector<Value *> &array_init)
@@ -185,36 +142,20 @@ void SysyBuilder::visit(TreeNodeConstDef &node)
             scope.push(node.id, array_alloc);
             if (node.ConstInitVal != nullptr)
             {
-                array_alloc->setInit();
+                auto alloca = scope.find(node.id);
                 node.ConstInitVal->bounds.assign(array_bounds.begin(),
                                                  array_bounds.end());
                 node.ConstInitVal->accept(*this);
 
-                auto Ptr = builder->CreateGEP(array_alloc, {CONST(0)});
+                auto Ptr = builder->CreateGEP(alloca, {CONST(0)});
                 for (int i = 1; i < node.ConstInitVal->bounds.size(); i++)
                 {
                     Ptr = builder->CreateGEP(Ptr, {CONST(0)});
                 }
                 for (int i = 0; i < array_init.size(); i++)
                 {
-                    auto const_zero =
-                        dynamic_cast<ConstantInt *>(array_init[i]);
-                    if (const_zero)
-                    {
-                        if (const_zero->getValue() == 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (i != 0)
-                    {
-                        auto p = builder->CreateGEP(Ptr, {CONST(i)});
-                        builder->CreateStore(array_init[i], p);
-                    }
-                    else
-                    {
-                        builder->CreateStore(array_init[i], Ptr);
-                    }
+                    builder->CreateStore(array_init[i], Ptr);
+                    Ptr = builder->CreateGEP(Ptr, {CONST(1)});
                 }
             }
         } // get alloc
@@ -266,7 +207,6 @@ void SysyBuilder::visit(TreeNodeConstInitVal &node)
         array_init.assign(init_list.begin(), init_list.end());
     }
 }
-
 void SysyBuilder::visit(TreeNodeVarDecl &node)
 {
     for (auto p : node.VarDefList)
@@ -274,7 +214,6 @@ void SysyBuilder::visit(TreeNodeVarDecl &node)
         p->accept(*this);
     }
 }
-
 void SysyBuilder::visit(TreeNodeVarDef &node)
 {
     if (node.ArrayConstExpList.size() == 0)
@@ -283,9 +222,7 @@ void SysyBuilder::visit(TreeNodeVarDef &node)
         {
             if (node.InitVal != nullptr)
             {
-                in_global_init = true;
                 node.InitVal->accept(*this);
-                in_global_init = false;
                 auto initializer = static_cast<Constant *>(tmp_val);
                 auto var = GlobalVariable::create(node.id, &*module, TyInt32,
                                                   false, initializer);
@@ -331,10 +268,7 @@ void SysyBuilder::visit(TreeNodeVarDef &node)
             {
                 node.InitVal->bounds.assign(array_bounds.begin(),
                                             array_bounds.end());
-                in_global_init = true;
-                // std::cout<<"ok"<<std::endl;
                 node.InitVal->accept(*this);
-                in_global_init = false;
                 auto initializer = ToConstArray(array_bounds, array_init);
                 auto var = GlobalVariable::create(node.id, &*module, TyArray,
                                                   false, initializer);
@@ -353,58 +287,30 @@ void SysyBuilder::visit(TreeNodeVarDef &node)
             scope.push(node.id, array_alloc);
             if (node.InitVal != nullptr)
             {
-                array_alloc->setInit();
+                auto alloca = scope.find(node.id);
                 node.InitVal->bounds.assign(array_bounds.begin(),
                                             array_bounds.end());
                 node.InitVal->accept(*this);
 
-                auto Ptr = builder->CreateGEP(array_alloc, {CONST(0)});
+                auto Ptr = builder->CreateGEP(alloca, {CONST(0)});
                 for (int i = 1; i < node.InitVal->bounds.size(); i++)
                 {
                     Ptr = builder->CreateGEP(Ptr, {CONST(0)});
                 }
                 for (int i = 0; i < array_init.size(); i++)
                 {
-                    auto const_zero =
-                        dynamic_cast<ConstantInt *>(array_init[i]);
-                    if (const_zero)
-                    {
-                        if (const_zero->getValue() == 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (i != 0)
-                    {
-                        auto p = builder->CreateGEP(Ptr, {CONST(i)});
-                        builder->CreateStore(array_init[i], p);
-                    }
-                    else
-                    {
-                        builder->CreateStore(array_init[i], Ptr);
-                    }
+                    builder->CreateStore(array_init[i], Ptr);
+                    Ptr = builder->CreateGEP(Ptr, {CONST(1)});
                 }
             }
         } // get alloc
     }
 }
-
 void SysyBuilder::visit(TreeNodeInitVal &node)
 {
     if (node.Exp != nullptr && node.bounds.size() == 0)
     {
-        if (in_global_init)
-        {
-            use_int = true;
-            node.Exp->accept(*this);
-            // std::cout<<tmp_int<<std::endl;
-            tmp_val = CONST(tmp_int);
-            use_int = false;
-        }
-        else
-        {
-            node.Exp->accept(*this);
-        }
+        node.Exp->accept(*this);
     }
     else
     {
@@ -420,18 +326,7 @@ void SysyBuilder::visit(TreeNodeInitVal &node)
             auto init_val = node.InitValList[i];
             if (init_val->Exp != nullptr)
             {
-                if (in_global_init)
-                {
-                    use_int = true;
-                    init_val->Exp->accept(*this);
-                    // std::cout<<tmp_int<<std::endl;
-                    tmp_val = CONST(tmp_int);
-                    use_int = false;
-                }
-                else
-                {
-                    init_val->Exp->accept(*this);
-                }
+                init_val->Exp->accept(*this);
                 init_list.push_back(tmp_val);
             }
             else
@@ -456,7 +351,6 @@ void SysyBuilder::visit(TreeNodeInitVal &node)
         array_init.assign(init_list.begin(), init_list.end());
     }
 }
-
 void SysyBuilder::visit(TreeNodeFuncDef &node)
 {
     FunctionType *fun_type;
@@ -510,7 +404,6 @@ void SysyBuilder::visit(TreeNodeFuncDef &node)
             scope.push(node.FuncFParamList[i]->id, array_alloc);
             scope.push_params(node.FuncFParamList[i]->id, array_alloc,
                               array_params);
-            args[i]->setArrayBound(array_params);
         }
         else
         {
@@ -520,6 +413,18 @@ void SysyBuilder::visit(TreeNodeFuncDef &node)
         }
     }
     node.Block->accept(*this);
+    if (builder->GetInsertBlock()->getTerminator() == nullptr)
+    {
+        if (cur_fun->getResultType() == TyVoid)
+        {
+            builder->CreateVoidRet();
+        }
+        else if (builder->GetInsertBlock()->empty())
+        {
+            auto parent = builder->GetInsertBlock()->getParent();
+            parent->removeBasicBlock(builder->GetInsertBlock());
+        }
+    }
     scope.exit();
 }
 
@@ -539,58 +444,9 @@ void SysyBuilder::visit(TreeNodeBlock &node)
 
     for (auto &blockitem : node.BlockItemList)
     {
-        if (blockitem->ConstDecl || blockitem->VarDecl)
-        {
-            if (base_layer.size() == 0)
-            {
-                auto allocaBB = BasicBlock::create(&*module, "", cur_fun);
-                builder->SetInsertPoint(allocaBB);
-                blockitem->accept(*this);
-            }
-            else
-            {
-                auto allocaBB = BasicBlock::create(&*module, "");
-                builder->SetInsertPoint(allocaBB);
-                auto &cur_base_list =
-                    getCurBaseList(BL_types[BL_types.size() - 1]);
-                cur_base_list.push_back(allocaBB);
-                auto cur_base = base_layer[base_layer.size() - 1];
-                allocaBB->setBaseFather(cur_base);
-                blockitem->accept(*this);
-            }
-        }
-        else if (blockitem->Stmt)
-        {
-            if (blockitem->Stmt->AssignStmt || blockitem->Stmt->BreakStmt ||
-                blockitem->Stmt->ContinueStmt || blockitem->Stmt->Exp ||
-                blockitem->Stmt->ReturnStmt)
-            {
-                if (base_layer.size() == 0)
-                {
-                    if (builder->GetInsertBlock()->getBaseFather() != nullptr)
-                    {
-                        auto baseBB = BasicBlock::create(&*module, "", cur_fun);
-                        builder->SetInsertPoint(baseBB);
-                    }
-                    blockitem->accept(*this);
-                }
-                else
-                {
-                    auto baseBB = BasicBlock::create(&*module, "");
-                    builder->SetInsertPoint(baseBB);
-                    auto &cur_base_list =
-                        getCurBaseList(BL_types[BL_types.size() - 1]);
-                    cur_base_list.push_back(baseBB);
-                    auto cur_base = base_layer[base_layer.size() - 1];
-                    baseBB->setBaseFather(cur_base);
-                    blockitem->accept(*this);
-                }
-            }
-            else
-            {
-                blockitem->accept(*this);
-            }
-        }
+        blockitem->accept(*this);
+        // if (builder->GetInsertBlock()->getTerminator() != nullptr)
+        // break;
     }
 
     if (need_exit_scope)
@@ -598,17 +454,16 @@ void SysyBuilder::visit(TreeNodeBlock &node)
         scope.exit();
     }
 }
-
 void SysyBuilder::visit(TreeNodeBreakStmt &node)
 {
-
-    builder->CreateBreak(module.get());
+    auto cur_iter = iter_cont[iter_expr.size() - 1];
+    builder->CreateBr(cur_iter);
 }
 
 void SysyBuilder::visit(TreeNodeContinueStmt &node)
 {
-
-    builder->CreateContinue(module.get());
+    auto cur_iter = iter_expr[iter_expr.size() - 1];
+    builder->CreateBr(cur_iter);
 }
 
 void SysyBuilder::visit(TreeNodeAssignStmt &node)
@@ -622,108 +477,63 @@ void SysyBuilder::visit(TreeNodeAssignStmt &node)
 
 void SysyBuilder::visit(TreeNodeSelectStmt &node)
 {
-    IfBlock *ifBB;
-    if (base_layer.size() == 0)
+    node.Cond->accept(*this);
+    auto cond_val = tmp_val;
+    auto trueBB = BasicBlock::create(&*module, "", cur_fun);
+    auto falseBB = BasicBlock::create(&*module, "", cur_fun);
+    auto contBB = BasicBlock::create(&*module, "", cur_fun);
+    if (node.elseStmt == nullptr)
     {
-        ifBB = IfBlock::create(module.get(), "", cur_fun);
+        builder->CreateCondBr(cond_val, trueBB, contBB);
     }
     else
     {
-        ifBB = IfBlock::create(module.get(), "");
-        auto &cur_base_list = getCurBaseList(BL_types[BL_types.size() - 1]);
-        cur_base_list.push_back(ifBB);
-        auto cur_base = base_layer[base_layer.size() - 1];
-        ifBB->setBaseFather(cur_base);
+        builder->CreateCondBr(cond_val, trueBB, falseBB);
     }
+    builder->SetInsertPoint(trueBB);
+    node.ifStmt->accept(*this);
+    if (builder->GetInsertBlock()->getTerminator() == nullptr)
+        builder->CreateBr(contBB);
 
-    base_layer.push_back(ifBB);
-
-    auto exprBB = BasicBlock::create(&*module, "");
-    builder->SetInsertPoint(exprBB);
-    ifBB->addCondBB(exprBB);
-    node.Cond->accept(*this);
-
-    if (node.ifStmt->Block || node.ifStmt->SelectStmt ||
-        node.ifStmt->IterationStmt)
+    if (node.elseStmt == nullptr)
     {
-        BL_types.push_back(IF_THEN);
-        node.ifStmt->accept(*this);
-        BL_types.pop_back();
+        auto parent = falseBB->getParent();
+        parent->removeBasicBlock(falseBB);
     }
-    else if (node.ifStmt->AssignStmt || node.ifStmt->BreakStmt ||
-             node.ifStmt->ContinueStmt || node.ifStmt->Exp ||
-             node.ifStmt->ReturnStmt)
+    else
     {
-        auto trueBB = BasicBlock::create(&*module, "");
-        builder->SetInsertPoint(trueBB);
-        ifBB->addIfBodyBB(trueBB);
-        node.ifStmt->accept(*this);
+        builder->SetInsertPoint(falseBB);
+        node.elseStmt->accept(*this);
+        if (builder->GetInsertBlock()->getTerminator() == nullptr)
+            builder->CreateBr(contBB);
     }
-
-    if (node.elseStmt != nullptr)
-    {
-        if (node.elseStmt->Block || node.elseStmt->SelectStmt ||
-            node.elseStmt->IterationStmt)
-        {
-            BL_types.push_back(IF_ELSE);
-            node.elseStmt->accept(*this);
-            BL_types.pop_back();
-        }
-        else if (node.elseStmt->AssignStmt || node.elseStmt->BreakStmt ||
-                 node.elseStmt->ContinueStmt || node.elseStmt->Exp ||
-                 node.elseStmt->ReturnStmt)
-        {
-            auto falseBB = BasicBlock::create(&*module, "");
-            builder->SetInsertPoint(falseBB);
-            ifBB->addElseBodyBB(falseBB);
-            node.elseStmt->accept(*this);
-        }
-    }
-
-    base_layer.pop_back();
+    builder->SetInsertPoint(contBB);
 }
 
 void SysyBuilder::visit(TreeNodeIterationStmt &node)
 {
-
-    WhileBlock *whileBB;
-    if (base_layer.size() == 0)
-    {
-        whileBB = WhileBlock::create(module.get(), "", cur_fun);
-    }
-    else
-    {
-        whileBB = WhileBlock::create(module.get(), "");
-        auto &cur_base_list = getCurBaseList(BL_types[BL_types.size() - 1]);
-        cur_base_list.push_back(whileBB);
-        auto cur_base = base_layer[base_layer.size() - 1];
-        whileBB->setBaseFather(cur_base);
-    }
-
-    base_layer.push_back(whileBB);
-
-    auto exprBB = BasicBlock::create(&*module, "");
+    auto exprBB = BasicBlock::create(&*module, "", cur_fun);
+    if (builder->GetInsertBlock()->getTerminator() == nullptr)
+        builder->CreateBr(exprBB);
     builder->SetInsertPoint(exprBB);
 
-    whileBB->addCondBB(exprBB);
+    iter_expr.push_back(exprBB);
+
     node.Cond->accept(*this);
+    auto cond_val = tmp_val;
+    auto trueBB = BasicBlock::create(&*module, "", cur_fun);
+    auto contBB = BasicBlock::create(&*module, "", cur_fun);
 
-    if (node.Stmt->Block || node.Stmt->SelectStmt || node.Stmt->IterationStmt)
-    {
-        BL_types.push_back(WHILE_BODY);
-        node.Stmt->accept(*this);
-        BL_types.pop_back();
-    }
-    else if (node.Stmt->AssignStmt || node.Stmt->BreakStmt ||
-             node.Stmt->ContinueStmt || node.Stmt->Exp || node.Stmt->ReturnStmt)
-    {
-        auto trueBB = BasicBlock::create(&*module, "");
-        builder->SetInsertPoint(trueBB);
-        whileBB->addBodyBB(trueBB);
-        node.Stmt->accept(*this);
-    }
+    iter_cont.push_back(contBB);
+    builder->CreateCondBr(cond_val, trueBB, contBB);
+    builder->SetInsertPoint(trueBB);
+    node.Stmt->accept(*this);
+    if (builder->GetInsertBlock()->getTerminator() == nullptr)
+        builder->CreateBr(exprBB);
 
-    base_layer.pop_back();
+    iter_expr.pop_back();
+    iter_cont.pop_back();
+    builder->SetInsertPoint(contBB);
 }
 
 void SysyBuilder::visit(TreeNodeReturnStmt &node)
@@ -737,9 +547,7 @@ void SysyBuilder::visit(TreeNodeReturnStmt &node)
         node.Exp->accept(*this);
         builder->CreateRet(tmp_val);
     }
-    // builder->GetInsertBlock()->intendedBB = intendedBB.back();
 }
-
 void SysyBuilder::visit(TreeNodeLVal &node)
 {
     auto var = scope.find(node.id);
@@ -782,7 +590,7 @@ void SysyBuilder::visit(TreeNodeLVal &node)
         {
             std::vector<Value *> array_params;
             scope.find_params(node.id, array_params);
-            tmp_ptr = builder->CreateLoad(var); // array_load
+            auto array_load = builder->CreateLoad(var);
             for (int i = 0; i < node.ArrayExpList.size(); i++)
             {
                 node.ArrayExpList[i]->accept(*this);
@@ -791,7 +599,7 @@ void SysyBuilder::visit(TreeNodeLVal &node)
                 {
                     val = builder->CreateMul(val, array_params[j]);
                 }
-                tmp_ptr = builder->CreateGEP(tmp_ptr, {val});
+                tmp_ptr = builder->CreateGEP(array_load, {val});
             }
         }
         else
@@ -833,10 +641,9 @@ void SysyBuilder::visit(TreeNodePrimaryExp &node)
     }
     else if (node.LVal)
     {
+        node.LVal->accept(*this);
         if (require_address)
         {
-            require_address = false;
-            node.LVal->accept(*this);
             while (!tmp_val->getType()->getPointerElementType()->isIntegerTy())
             {
                 tmp_val = builder->CreateGEP(tmp_val, {CONST(0)});
@@ -844,7 +651,6 @@ void SysyBuilder::visit(TreeNodePrimaryExp &node)
         }
         else
         {
-            node.LVal->accept(*this);
             if (tmp_val->getType()->isIntegerTy())
             {
                 return;
@@ -868,7 +674,6 @@ void SysyBuilder::visit(TreeNodeNumber &node)
     }
     tmp_val = CONST(node.num);
 }
-
 void SysyBuilder::visit(TreeNodeUnaryExp &node)
 {
     if (use_int)
@@ -924,7 +729,7 @@ void SysyBuilder::visit(TreeNodeUnaryExp &node)
         break;
     case OP_NOT:
         val = builder->CreateCmpEQ(val, CONST(0), &*module);
-        // val = builder->CreateZext(val, TyInt32);
+        val = builder->CreateZext(val, TyInt32);
         break;
     }
     tmp_val = val;
@@ -933,10 +738,6 @@ void SysyBuilder::visit(TreeNodeUnaryExp &node)
 void SysyBuilder::visit(TreeNodeCallee &node)
 {
     auto fun = scope.find(node.id);
-    if (fun == nullptr)
-    {
-        exit(120);
-    }
     std::vector<Value *> args;
     for (int i = 0; i < node.ExpList.size(); i++)
     {
@@ -991,17 +792,6 @@ void SysyBuilder::visit(TreeNodeMulExp &node)
         auto l_val = tmp_val;
         node.UnaryExp->accept(*this);
         auto r_val = tmp_val;
-
-        if (l_val->getType()->isInt1())
-        {
-            l_val = builder->CreateZext(l_val, TyInt32);
-        }
-
-        if (r_val->getType()->isInt1())
-        {
-            r_val = builder->CreateZext(r_val, TyInt32);
-        }
-
         switch (node.op)
         {
         case OP_MUL:
@@ -1048,17 +838,6 @@ void SysyBuilder::visit(TreeNodeAddExp &node)
         auto l_val = tmp_val;
         node.MulExp->accept(*this);
         auto r_val = tmp_val;
-
-        if (l_val->getType()->isInt1())
-        {
-            l_val = builder->CreateZext(l_val, TyInt32);
-        }
-
-        if (r_val->getType()->isInt1())
-        {
-            r_val = builder->CreateZext(r_val, TyInt32);
-        }
-
         switch (node.op)
         {
         case OP_PLUS:
@@ -1084,17 +863,6 @@ void SysyBuilder::visit(TreeNodeRelExp &node)
         auto lval = tmp_val;
         node.AddExp->accept(*this);
         auto rval = tmp_val;
-
-        if (lval->getType()->isInt1())
-        {
-            lval = builder->CreateZext(lval, TyInt32);
-        }
-
-        if (rval->getType()->isInt1())
-        {
-            rval = builder->CreateZext(rval, TyInt32);
-        }
-
         switch (node.op)
         {
         case OP_LTE:
@@ -1110,11 +878,9 @@ void SysyBuilder::visit(TreeNodeRelExp &node)
             logicalVal = builder->CreateCmpGE(lval, rval, &*module);
             break;
         }
-        tmp_val = logicalVal;
-        // tmp_val = builder->CreateZext(logicalVal, TyInt32);
+        tmp_val = builder->CreateZext(logicalVal, TyInt32);
     }
 }
-
 void SysyBuilder::visit(TreeNodeEqExp &node)
 {
     if (node.EqExp == nullptr)
@@ -1127,16 +893,6 @@ void SysyBuilder::visit(TreeNodeEqExp &node)
         auto lval = tmp_val;
         node.RelExp->accept(*this);
         auto rval = tmp_val;
-        if (lval->getType()->isInt1())
-        {
-            lval = builder->CreateZext(lval, TyInt32);
-        }
-
-        if (rval->getType()->isInt1())
-        {
-            rval = builder->CreateZext(rval, TyInt32);
-        }
-
         switch (node.op)
         {
         case OP_EQ:
@@ -1146,47 +902,30 @@ void SysyBuilder::visit(TreeNodeEqExp &node)
             tmp_val = builder->CreateCmpNE(lval, rval, &*module);
             break;
         }
-        // tmp_val = builder->CreateZext(tmp_val, TyInt32);
+        tmp_val = builder->CreateZext(tmp_val, TyInt32);
     }
 }
-
 void SysyBuilder::visit(TreeNodeLAndExp &node)
 {
     if (node.LAndExp == nullptr)
     {
         node.EqExp->accept(*this);
-        // tmp_val = builder->CreateCmpNE(tmp_val, CONST(0), &*module);
+        tmp_val = builder->CreateCmpNE(tmp_val, CONST(0), &*module);
     }
     else
     {
         node.LAndExp->accept(*this);
         auto lval = tmp_val;
         node.EqExp->accept(*this);
-        auto rval = tmp_val;
-        // builder->CreateCmpNE(tmp_val, CONST(0), &*module);
-        if (lval->getType()->isInt1())
-        {
-            lval = builder->CreateZext(lval, TyInt32);
-        }
-
-        if (rval->getType()->isInt1())
-        {
-            rval = builder->CreateZext(rval, TyInt32);
-        }
-
+        auto rval = builder->CreateCmpNE(tmp_val, CONST(0), &*module);
         tmp_val = builder->CreateAnd(lval, rval);
     }
 }
-
 void SysyBuilder::visit(TreeNodeLOrExp &node)
 {
     if (node.LOrExp == nullptr)
     {
         node.LAndExp->accept(*this);
-        if (tmp_val->getType()->isInt32())
-        {
-            tmp_val = builder->CreateCmpNE(tmp_val, CONST(0), &*module);
-        }
     }
     else
     {
@@ -1194,24 +933,9 @@ void SysyBuilder::visit(TreeNodeLOrExp &node)
         auto lval = tmp_val;
         node.LAndExp->accept(*this);
         auto rval = tmp_val;
-        if (lval->getType()->isInt1())
-        {
-            lval = builder->CreateZext(lval, TyInt32);
-        }
-
-        if (rval->getType()->isInt1())
-        {
-            rval = builder->CreateZext(rval, TyInt32);
-        }
-
         tmp_val = builder->CreateOr(lval, rval);
-        if (tmp_val->getType()->isInt32())
-        {
-            tmp_val = builder->CreateCmpNE(tmp_val, CONST(0), &*module);
-        }
     }
 }
-
 void SysyBuilder::visit(TreeNodeConstExp &node)
 {
     use_int = true;

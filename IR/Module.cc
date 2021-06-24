@@ -7,6 +7,29 @@ Module::Module(std::string name) : module_name_(name)
     int1_ty_ = new IntegerType(1);
     int32_ty_ = new IntegerType(32);
     int32ptr_ty_ = new PointerType(int32_ty_);
+
+    instr_id2string_.insert({Instruction::Ret, "ret"});
+    instr_id2string_.insert({Instruction::Br, "br"});
+
+    instr_id2string_.insert({Instruction::Add, "add"});
+    instr_id2string_.insert({Instruction::Sub, "sub"});
+    instr_id2string_.insert({Instruction::Mul, "mul"});
+    instr_id2string_.insert({Instruction::Div, "sdiv"});
+    instr_id2string_.insert({Instruction::Rem, "srem"});
+    // TODO
+    instr_id2string_.insert({Instruction::And, "and"});
+    instr_id2string_.insert({Instruction::Or, "or"});
+    instr_id2string_.insert({Instruction::Not, "srem"});
+
+    instr_id2string_.insert({Instruction::Alloca, "alloca"});
+    instr_id2string_.insert({Instruction::Load, "load"});
+    instr_id2string_.insert({Instruction::Store, "store"});
+
+    instr_id2string_.insert({Instruction::Cmp, "icmp"});
+    instr_id2string_.insert({Instruction::PHI, "phi"});
+    instr_id2string_.insert({Instruction::Call, "call"});
+    instr_id2string_.insert({Instruction::GEP, "getelementptr"});
+    instr_id2string_.insert({Instruction::ZExt, "zext"});
 }
 
 Module::~Module()
@@ -55,42 +78,19 @@ void Module::addGlobalVariable(GlobalVariable *g)
 
 std::string Module::print()
 {
-    std::cout << "; ModuleID = "
-              << "\'" << module_name_ << "\'" << std::endl;
-    std::cout << "source_filename = "
-              << "\"" << source_file_name_ << "\"" << std::endl;
-    std::string module_ir="; ModuleID = ";
-    module_ir+="\'"+module_name_+"\'"+"\n";
-    module_ir+="source_filename = "+std::string("\"")+source_file_name_+std::string("\"")+"\n";
-    for ( auto global_val : this->global_list_)
+    std::string module_ir = "; ModuleID = ";
+    module_ir += "\'" + module_name_ + "\'" + "\n";
+    module_ir += "source_filename = " + std::string("\"") + source_file_name_ +
+                 std::string("\"") + "\n";
+    for (auto global_val : this->global_list_)
     {
         module_ir += global_val->print();
         module_ir += "\n";
     }
-    for ( auto func : this->function_list_)
+    for (auto func : this->function_list_)
     {
         module_ir += func->print();
         module_ir += "\n";
     }
     return module_ir;
-}
-
-void Module::HighIRprint()
-{
-    std::cout << "; Module name: "
-              << "\'" << module_name_ << "\'" << std::endl;
-    std::cout << "source_filename: "
-              << "\"" << source_file_name_ << "\"" << std::endl;
-    for (auto global_var : global_list_)
-    {
-        global_var->print();
-        std::cout << " = "
-                  << "global ";
-        global_var->getInit()->print();
-        std::cout << std::endl;
-    }
-    for (auto func : function_list_)
-    {
-        func->HighIRprint();
-    }
 }

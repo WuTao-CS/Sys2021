@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/linux/Desktop/compiler/Sys2021_v2/front/sysy_scanner.cc" "CMakeFiles/scanner.dir/front/sysy_scanner.cc.o" "gcc" "CMakeFiles/scanner.dir/front/sysy_scanner.cc.o.d"
+  "/home/linux/Desktop/compiler/Sys2021_v3/front/sysy_scanner.cc" "CMakeFiles/scanner.dir/front/sysy_scanner.cc.o" "gcc" "CMakeFiles/scanner.dir/front/sysy_scanner.cc.o.d"
   )
 
 # Targets to which this target links.

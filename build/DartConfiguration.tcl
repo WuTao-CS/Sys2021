@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/linux/Desktop/compiler/Sys2021_v2
-BuildDirectory: /home/linux/Desktop/compiler/Sys2021_v2/build
+SourceDirectory: /home/linux/Desktop/compiler/Sys2021_v3
+BuildDirectory: /home/linux/Desktop/compiler/Sys2021_v3/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/home/linux/cmake-3.20.4-linux-x86_64/bin/cmake" "/home/linux/Desktop/compiler/Sys2021_v2"
+ConfigureCommand: "/home/linux/cmake-3.20.4-linux-x86_64/bin/cmake" "/home/linux/Desktop/compiler/Sys2021_v3"
 MakeCommand: /home/linux/cmake-3.20.4-linux-x86_64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

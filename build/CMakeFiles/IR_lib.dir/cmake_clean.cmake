@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.o"
-  "CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.o.d"
   "CMakeFiles/IR_lib.dir/IR/BasicBlock.cc.o"
   "CMakeFiles/IR_lib.dir/IR/BasicBlock.cc.o.d"
   "CMakeFiles/IR_lib.dir/IR/Constant.cc.o"
@@ -9,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/IR_lib.dir/IR/Function.cc.o.d"
   "CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.o"
   "CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.o.d"
+  "CMakeFiles/IR_lib.dir/IR/IRprinter.cc.o"
+  "CMakeFiles/IR_lib.dir/IR/IRprinter.cc.o.d"
   "CMakeFiles/IR_lib.dir/IR/Instruction.cc.o"
   "CMakeFiles/IR_lib.dir/IR/Instruction.cc.o.d"
   "CMakeFiles/IR_lib.dir/IR/Module.cc.o"

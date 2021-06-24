@@ -177,8 +177,7 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
   /usr/include/c++/9/bits/unordered_map.h \
   /usr/include/c++/9/unordered_set \
   /usr/include/c++/9/bits/unordered_set.h \
-  ../IR/BaseBlock.h \
-  ../IR/Type.h \
+  ../IR/Value.h \
   /usr/include/c++/9/iostream \
   /usr/include/c++/9/ostream \
   /usr/include/c++/9/ios \
@@ -202,14 +201,14 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/istream \
   /usr/include/c++/9/bits/istream.tcc \
+  ../IR/Constant.h \
+  ../IR/Type.h \
   /usr/include/c++/9/vector \
   /usr/include/c++/9/bits/stl_construct.h \
   /usr/include/c++/9/bits/stl_uninitialized.h \
   /usr/include/c++/9/bits/stl_vector.h \
   /usr/include/c++/9/bits/stl_bvector.h \
   /usr/include/c++/9/bits/vector.tcc \
-  ../IR/Value.h \
-  ../IR/Constant.h \
   ../IR/User.h \
   ../IR/Function.h \
   /usr/include/c++/9/cassert \
@@ -217,8 +216,6 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
   /usr/include/c++/9/cstddef \
   /usr/include/c++/9/iterator \
   /usr/include/c++/9/bits/stream_iterator.h \
-  ../IR/BasicBlock.h \
-  ../IR/HighBlock.h \
   ../IR/Instruction.h \
   ../IR/ReturnVal.h \
   ../IR/GlobalVariable.h \
@@ -226,8 +223,8 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
   ../IR/Module.h \
   ../IR/Function.h \
   ../IR/GlobalVariable.h \
-  ../IR/HighBlock.h \
   ../IR/IRBuilder.h \
+  ../IR/BasicBlock.h \
   ../IR/Instruction.h \
   ../IR/Module.h \
   ../IR/Type.h \
@@ -278,8 +275,6 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 
 ../IR/Instruction.h:
 
-../IR/HighBlock.h:
-
 /usr/include/c++/9/iterator:
 
 /usr/include/assert.h:
@@ -290,10 +285,6 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 
 ../IR/User.h:
 
-../IR/Constant.h:
-
-../IR/Value.h:
-
 /usr/include/c++/9/bits/vector.tcc:
 
 /usr/include/c++/9/bits/stl_uninitialized.h:
@@ -302,11 +293,13 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 
 /usr/include/c++/9/vector:
 
+../IR/Type.h:
+
+../IR/Constant.h:
+
 /usr/include/c++/9/bits/istream.tcc:
 
 /usr/include/c++/9/istream:
-
-/usr/include/c++/9/bits/ostream.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
 
@@ -422,8 +415,6 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-../IR/BaseBlock.h:
-
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
@@ -443,8 +434,6 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/9/bits/range_access.h:
-
-../IR/Type.h:
 
 /usr/include/c++/9/bits/unordered_set.h:
 
@@ -533,6 +522,8 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/c++/9/bits/hash_bytes.h:
+
+../IR/Value.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -723,3 +714,5 @@ CMakeFiles/IRBuilder.dir/IRBuilder/SysyBuilder.cc.o: ../IRBuilder/SysyBuilder.cc
 /usr/include/c++/9/bits/stringfwd.h:
 
 /usr/include/c++/9/bits/basic_ios.tcc:
+
+/usr/include/c++/9/bits/ostream.tcc:

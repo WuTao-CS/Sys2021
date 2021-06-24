@@ -57,10 +57,10 @@ RM = /home/linux/cmake-3.20.4-linux-x86_64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/linux/Desktop/compiler/Sys2021_v2
+CMAKE_SOURCE_DIR = /home/linux/Desktop/compiler/Sys2021_v3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/linux/Desktop/compiler/Sys2021_v2/build
+CMAKE_BINARY_DIR = /home/linux/Desktop/compiler/Sys2021_v3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/linux/Desktop/compiler/Sys2021_v2/build/CMakeFiles /home/linux/Desktop/compiler/Sys2021_v2/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/linux/Desktop/compiler/Sys2021_v3/build/CMakeFiles /home/linux/Desktop/compiler/Sys2021_v3/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/linux/Desktop/compiler/Sys2021_v2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/linux/Desktop/compiler/Sys2021_v3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -170,19 +170,6 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named CodeGen
-
-# Build rule for target.
-CodeGen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CodeGen
-.PHONY : CodeGen
-
-# fast build rule for target.
-CodeGen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/build
-.PHONY : CodeGen/fast
 
 #=============================================================================
 # Target rules for targets named parser
@@ -626,168 +613,6 @@ ContinuousUpdate/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/build
 .PHONY : ContinuousUpdate/fast
 
-CodeGen/Analyzer.o: CodeGen/Analyzer.cc.o
-.PHONY : CodeGen/Analyzer.o
-
-# target to build an object file
-CodeGen/Analyzer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/Analyzer.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/Analyzer.cc.o
-.PHONY : CodeGen/Analyzer.cc.o
-
-CodeGen/Analyzer.i: CodeGen/Analyzer.cc.i
-.PHONY : CodeGen/Analyzer.i
-
-# target to preprocess a source file
-CodeGen/Analyzer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/Analyzer.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/Analyzer.cc.i
-.PHONY : CodeGen/Analyzer.cc.i
-
-CodeGen/Analyzer.s: CodeGen/Analyzer.cc.s
-.PHONY : CodeGen/Analyzer.s
-
-# target to generate assembly for a file
-CodeGen/Analyzer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/Analyzer.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/Analyzer.cc.s
-.PHONY : CodeGen/Analyzer.cc.s
-
-CodeGen/CodeGen.o: CodeGen/CodeGen.cc.o
-.PHONY : CodeGen/CodeGen.o
-
-# target to build an object file
-CodeGen/CodeGen.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/CodeGen.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/CodeGen.cc.o
-.PHONY : CodeGen/CodeGen.cc.o
-
-CodeGen/CodeGen.i: CodeGen/CodeGen.cc.i
-.PHONY : CodeGen/CodeGen.i
-
-# target to preprocess a source file
-CodeGen/CodeGen.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/CodeGen.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/CodeGen.cc.i
-.PHONY : CodeGen/CodeGen.cc.i
-
-CodeGen/CodeGen.s: CodeGen/CodeGen.cc.s
-.PHONY : CodeGen/CodeGen.s
-
-# target to generate assembly for a file
-CodeGen/CodeGen.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/CodeGen.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/CodeGen.cc.s
-.PHONY : CodeGen/CodeGen.cc.s
-
-CodeGen/InstructionsGen.o: CodeGen/InstructionsGen.cc.o
-.PHONY : CodeGen/InstructionsGen.o
-
-# target to build an object file
-CodeGen/InstructionsGen.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/InstructionsGen.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/InstructionsGen.cc.o
-.PHONY : CodeGen/InstructionsGen.cc.o
-
-CodeGen/InstructionsGen.i: CodeGen/InstructionsGen.cc.i
-.PHONY : CodeGen/InstructionsGen.i
-
-# target to preprocess a source file
-CodeGen/InstructionsGen.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/InstructionsGen.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/InstructionsGen.cc.i
-.PHONY : CodeGen/InstructionsGen.cc.i
-
-CodeGen/InstructionsGen.s: CodeGen/InstructionsGen.cc.s
-.PHONY : CodeGen/InstructionsGen.s
-
-# target to generate assembly for a file
-CodeGen/InstructionsGen.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/InstructionsGen.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/InstructionsGen.cc.s
-.PHONY : CodeGen/InstructionsGen.cc.s
-
-CodeGen/LoopFind.o: CodeGen/LoopFind.cc.o
-.PHONY : CodeGen/LoopFind.o
-
-# target to build an object file
-CodeGen/LoopFind.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/LoopFind.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/LoopFind.cc.o
-.PHONY : CodeGen/LoopFind.cc.o
-
-CodeGen/LoopFind.i: CodeGen/LoopFind.cc.i
-.PHONY : CodeGen/LoopFind.i
-
-# target to preprocess a source file
-CodeGen/LoopFind.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/LoopFind.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/LoopFind.cc.i
-.PHONY : CodeGen/LoopFind.cc.i
-
-CodeGen/LoopFind.s: CodeGen/LoopFind.cc.s
-.PHONY : CodeGen/LoopFind.s
-
-# target to generate assembly for a file
-CodeGen/LoopFind.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/LoopFind.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/LoopFind.cc.s
-.PHONY : CodeGen/LoopFind.cc.s
-
-CodeGen/RegAlloc.o: CodeGen/RegAlloc.cc.o
-.PHONY : CodeGen/RegAlloc.o
-
-# target to build an object file
-CodeGen/RegAlloc.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/RegAlloc.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/RegAlloc.cc.o
-.PHONY : CodeGen/RegAlloc.cc.o
-
-CodeGen/RegAlloc.i: CodeGen/RegAlloc.cc.i
-.PHONY : CodeGen/RegAlloc.i
-
-# target to preprocess a source file
-CodeGen/RegAlloc.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/RegAlloc.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/RegAlloc.cc.i
-.PHONY : CodeGen/RegAlloc.cc.i
-
-CodeGen/RegAlloc.s: CodeGen/RegAlloc.cc.s
-.PHONY : CodeGen/RegAlloc.s
-
-# target to generate assembly for a file
-CodeGen/RegAlloc.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/CodeGen/RegAlloc.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/CodeGen/RegAlloc.cc.s
-.PHONY : CodeGen/RegAlloc.cc.s
-
-IR/BaseBlock.o: IR/BaseBlock.cc.o
-.PHONY : IR/BaseBlock.o
-
-# target to build an object file
-IR/BaseBlock.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.o
-.PHONY : IR/BaseBlock.cc.o
-
-IR/BaseBlock.i: IR/BaseBlock.cc.i
-.PHONY : IR/BaseBlock.i
-
-# target to preprocess a source file
-IR/BaseBlock.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.i
-.PHONY : IR/BaseBlock.cc.i
-
-IR/BaseBlock.s: IR/BaseBlock.cc.s
-.PHONY : IR/BaseBlock.s
-
-# target to generate assembly for a file
-IR/BaseBlock.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/BaseBlock.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/BaseBlock.cc.s
-.PHONY : IR/BaseBlock.cc.s
-
 IR/BasicBlock.o: IR/BasicBlock.cc.o
 .PHONY : IR/BasicBlock.o
 
@@ -895,6 +720,33 @@ IR/GlobalVariable.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/GlobalVariable.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/GlobalVariable.cc.s
 .PHONY : IR/GlobalVariable.cc.s
+
+IR/IRprinter.o: IR/IRprinter.cc.o
+.PHONY : IR/IRprinter.o
+
+# target to build an object file
+IR/IRprinter.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/IRprinter.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/IRprinter.cc.o
+.PHONY : IR/IRprinter.cc.o
+
+IR/IRprinter.i: IR/IRprinter.cc.i
+.PHONY : IR/IRprinter.i
+
+# target to preprocess a source file
+IR/IRprinter.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/IRprinter.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/IRprinter.cc.i
+.PHONY : IR/IRprinter.cc.i
+
+IR/IRprinter.s: IR/IRprinter.cc.s
+.PHONY : IR/IRprinter.s
+
+# target to generate assembly for a file
+IR/IRprinter.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IR_lib.dir/build.make CMakeFiles/IR_lib.dir/IR/IRprinter.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IR/IRprinter.cc.s
+.PHONY : IR/IRprinter.cc.s
 
 IR/Instruction.o: IR/Instruction.cc.o
 .PHONY : IR/Instruction.o
@@ -1228,31 +1080,12 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
-	@echo "... CodeGen"
 	@echo "... IRBuilder"
 	@echo "... IR_lib"
 	@echo "... main"
 	@echo "... parser"
 	@echo "... scanner"
 	@echo "... sysy_driver"
-	@echo "... CodeGen/Analyzer.o"
-	@echo "... CodeGen/Analyzer.i"
-	@echo "... CodeGen/Analyzer.s"
-	@echo "... CodeGen/CodeGen.o"
-	@echo "... CodeGen/CodeGen.i"
-	@echo "... CodeGen/CodeGen.s"
-	@echo "... CodeGen/InstructionsGen.o"
-	@echo "... CodeGen/InstructionsGen.i"
-	@echo "... CodeGen/InstructionsGen.s"
-	@echo "... CodeGen/LoopFind.o"
-	@echo "... CodeGen/LoopFind.i"
-	@echo "... CodeGen/LoopFind.s"
-	@echo "... CodeGen/RegAlloc.o"
-	@echo "... CodeGen/RegAlloc.i"
-	@echo "... CodeGen/RegAlloc.s"
-	@echo "... IR/BaseBlock.o"
-	@echo "... IR/BaseBlock.i"
-	@echo "... IR/BaseBlock.s"
 	@echo "... IR/BasicBlock.o"
 	@echo "... IR/BasicBlock.i"
 	@echo "... IR/BasicBlock.s"
@@ -1265,6 +1098,9 @@ help:
 	@echo "... IR/GlobalVariable.o"
 	@echo "... IR/GlobalVariable.i"
 	@echo "... IR/GlobalVariable.s"
+	@echo "... IR/IRprinter.o"
+	@echo "... IR/IRprinter.i"
+	@echo "... IR/IRprinter.s"
 	@echo "... IR/Instruction.o"
 	@echo "... IR/Instruction.i"
 	@echo "... IR/Instruction.s"

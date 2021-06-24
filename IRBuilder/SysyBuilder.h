@@ -1,7 +1,3 @@
-//
-// Created by cqy on 2020/6/11.
-//
-
 #ifndef SYSYC_SYSYBUILDER_HPP
 #define SYSYC_SYSYBUILDER_HPP
 
@@ -9,7 +5,6 @@
 #include "Constant.h"
 #include "Function.h"
 #include "GlobalVariable.h"
-#include "HighBlock.h"
 #include "IRBuilder.h"
 #include "Instruction.h"
 #include "Module.h"
@@ -152,15 +147,6 @@ class SysyBuilder : public syntax_tree_visitor
 
         auto mtstart_type = FunctionType::get(TyInt32, {});
 
-        auto mtstart_fun =
-            Function::create(mtstart_type, "__mtstart", module.get());
-
-        std::vector<Type *> mtend_params;
-        mtend_params.push_back(TyInt32);
-        auto mtend_type = FunctionType::get(TyVoid, mtend_params);
-
-        auto mtend_fun = Function::create(mtend_type, "__mtend", module.get());
-
         scope.enter();
         scope.push("getint", getint_fun);
         scope.push("getch", getch_fun);
@@ -170,19 +156,11 @@ class SysyBuilder : public syntax_tree_visitor
         scope.push("putarray", putarray_fun);
         scope.push("_sysy_starttime", starttime_fun);
         scope.push("_sysy_stoptime", stoptime_fun);
-
-        scope.push("__mtstart", mtstart_fun);
-        scope.push("__mtend", mtend_fun);
     }
 
-    void IRprint()
+    std::string IRprint()
     {
-        module->print();
-    }
-
-    void HighIRprint()
-    {
-        module->HighIRprint();
+        return module->print();
     }
 
     std::shared_ptr<Module> getModule()

@@ -8,14 +8,13 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "BaseBlock.h"
 #include "Value.h"
 
 class Function;
 class Instruction;
 class Module;
 
-class BasicBlock : public BaseBlock
+class BasicBlock : public Value
 {
     //基本块，是一个是单入单出的代码块，该类维护了一个指令链表，基本块本身属于
     // Value, 类型是 \<label\>，会被分支指令调用
@@ -35,13 +34,13 @@ class BasicBlock : public BaseBlock
     // 设置BB块所属的函数
     void setParent(Function *parent)
     {
-        func_ = parent;
+        parent_ = parent;
     }
 
     // 返回BB块所属的函数
     Function *getParent() const
     {
-        return func_;
+        return parent_;
     }
     // 返回BB块所属的Module
     Module *getModule() const;
@@ -131,7 +130,19 @@ class BasicBlock : public BaseBlock
     {
         succ_bbs_.clear();
     }
-
+    void addDom(BasicBlock *bb)
+    {
+        doms_.insert(bb);
+    }
+    std::set<BasicBlock *> &getDoms()
+    {
+        return doms_;
+    }
+    void setDoms(std::set<BasicBlock *> &doms)
+    {
+        doms_.clear();
+        doms_.insert(doms.begin(), doms.end());
+    }
     virtual std::string print() override;
 
   protected:
@@ -143,9 +154,12 @@ class BasicBlock : public BaseBlock
   private:
     std::map<Value *, std::set<Value *>> reach_assign_in_; // data flow
     std::map<Value *, std::set<Value *>> reach_assign_out_;
+    Function *parent_;
 
     std::list<BasicBlock *> pre_bbs_;
     std::list<BasicBlock *> succ_bbs_;
+
+    std::set<BasicBlock *> doms_;
 
     std::unordered_set<Value *> activeIn, activeOut, definedVals;
     std::unordered_map<Value *, BasicBlock *> inheritedVals;

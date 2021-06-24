@@ -55,7 +55,6 @@ class Module
         return source_file_name_;
     }
     void addGlobalVariable(GlobalVariable *g);
-    void HighIRprint();
     virtual std::string print();
 
     Function *getMainFunction()
@@ -94,12 +93,18 @@ class Module
     {
         return ir_level_ == MIR_SSA;
     }
+    std::string getInstrOpName(Instruction::OpID instr)
+    {
+        return instr_id2string_[instr];
+    }
 
   private:
     std::list<GlobalVariable *>
         global_list_;                     // The Global Variables in the module
     std::list<Function *> function_list_; // The Functions in the module
     std::map<std::string, Value *> value_sym_; // Symbol table for values
+    std::map<Instruction::OpID, std::string>
+        instr_id2string_; // Instruction from opid to string
 
     std::string module_name_;      // Human readable identifier for the module
     std::string source_file_name_; // Original source file name for module, for

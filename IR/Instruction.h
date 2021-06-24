@@ -26,11 +26,9 @@ class Instruction : public User
         // Standard binary operators
         Add,
         Sub,
-        RSub, // Reverse Subtract
         Mul,
         Div,
         Rem,
-        AddAddr, // deprecated
         // Logical operators
         And,
         Or,
@@ -39,22 +37,12 @@ class Instruction : public User
         Alloca,
         Load,
         Store,
-        // Shift operators
-        Shl,  // <<
-        AShr, // arithmetic >>
-        LShr, // logical >>
         // Other operators
         Cmp,
         PHI,
         Call,
-        GEP,     // GetElementPtr
-        ZExt,    // zero extend
-        MulAdd,  // a*b+c
-        MTSTART, // %thread_id = MTSTART
-        MTEND,   // MTEND %thread_id
-        // NEON SIMD
-        VV, // sum(vector .* vector)
-        BIC
+        GEP,  // GetElementPtr
+        ZExt, // zero extend
     };
     // create instruction, auto insert to bb
     // ty here is result type
@@ -82,7 +70,7 @@ class Instruction : public User
         return const_cast<Function *>(
             static_cast<const Instruction *>(this)->getFunction());
     }
-
+    Module *getModule();
     OpID getInstrType() const
     {
         return op_id_;
@@ -127,11 +115,6 @@ class Instruction : public User
     {
         return op_id_ == Br;
     }
-    bool isNeg()
-    {
-        return op_id_ == Neg;
-    }
-
     bool isAdd()
     {
         return op_id_ == Add;
@@ -139,10 +122,6 @@ class Instruction : public User
     bool isSub()
     {
         return op_id_ == Sub;
-    }
-    bool isRSub()
-    {
-        return op_id_ == RSub;
     }
     bool isMul()
     {
@@ -163,10 +142,6 @@ class Instruction : public User
     bool isOr()
     {
         return op_id_ == Or;
-    }
-    bool isAddAddr()
-    {
-        return op_id_ == AddAddr;
     }
 
     bool isNot()
@@ -191,47 +166,10 @@ class Instruction : public User
     {
         return op_id_ == ZExt;
     }
-    bool isMulAdd()
-    {
-        return op_id_ == MulAdd;
-    }
-
-    bool isShl()
-    {
-        return op_id_ == Shl;
-    }
-    bool isAShr()
-    {
-        return op_id_ == AShr;
-    }
-    bool isLShr()
-    {
-        return op_id_ == LShr;
-    }
-
-    bool isMtstart()
-    {
-        return op_id_ == MTSTART;
-    }
-    bool isMtend()
-    {
-        return op_id_ == MTEND;
-    }
-
-    bool isVV()
-    {
-        return op_id_ == VV;
-    }
-    bool isBic()
-    {
-        return op_id_ == BIC;
-    }
-
     bool isBinary()
     {
-        return (isAdd() || isSub() || isRSub() || isMul() || isDiv() ||
-                isRem() || isAnd() || isOr() || isShl() || isAShr() ||
-                isLShr()) &&
+        return (isAdd() || isSub() || isMul() || isDiv() || isRem() ||
+                isAnd() || isOr()) &&
                (getNumOperand() == 2);
     }
 
@@ -241,7 +179,6 @@ class Instruction : public User
     }
 
     std::string CommentPrint();
-    virtual std::string print() override;
 
     virtual Instruction *copy(BasicBlock *new_bb)
     {
@@ -251,27 +188,56 @@ class Instruction : public User
     {
         op_id_ = id;
     }
-    std::string get_instr_op_name() {
+    std::string getInstrOpName()
+    {
         switch (op_id_)
         {
-            case Ret: return "ret"; break;
-            case Br: return "br"; break;
-            case Add: return "add"; break;
-            case Sub: return "sub"; break;
-            case Mul: return "mul"; break;
-            case Div: return "sdiv"; break;
-            case Alloca: return "alloca"; break;
-            case Load: return "load"; break;
-            case Store: return "store"; break;
-            case Cmp: return "cmp"; break;
-            case PHI: return "phi"; break;
-            case Call: return "call"; break;
-            case getelementptr: return "getelementptr"; break;
-            case ZExt: return "zext"; break;
-            case fptosi: return "fptosi"; break;
-            case sitofp: return "sitofp"; break;
+        case Ret:
+            return "ret";
+            break;
+        case Br:
+            return "br";
+            break;
+        case Add:
+            return "add";
+            break;
+        case Sub:
+            return "sub";
+            break;
+        case Mul:
+            return "mul";
+            break;
+        case Div:
+            return "sdiv";
+            break;
+        case Alloca:
+            return "alloca";
+            break;
+        case Load:
+            return "load";
+            break;
+        case Store:
+            return "store";
+            break;
+        case Cmp:
+            return "cmp";
+            break;
+        case PHI:
+            return "phi";
+            break;
+        case Call:
+            return "call";
+            break;
+        case GEP:
+            return "getelementptr";
+            break;
+        case ZExt:
+            return "zext";
+            break;
 
-            default: return ""; break;
+        default:
+            return "";
+            break;
         }
     }
 
@@ -302,6 +268,7 @@ class UnaryInst : public Instruction
     {
         return new UnaryInst(getType(), getInstrType(), new_bb);
     }
+    // virtual std::string print() override;
 };
 
 class BinaryInst : public Instruction
@@ -335,9 +302,6 @@ class BinaryInst : public Instruction
         return new BinaryInst(v1->getType(), Instruction::Sub, v1, v2);
     }
 
-    // create reverse sub instruction, auto insert to bb
-    static BinaryInst *createRSub(Value *v1, Value *v2, BasicBlock *bb);
-
     // create mul instruction, auto insert to bb
     static BinaryInst *createMul(Value *v1, Value *v2, BasicBlock *bb);
     // create mul instruction, don't insert to bb
@@ -368,29 +332,11 @@ class BinaryInst : public Instruction
     // create Or instruction, auto insert to bb
     static BinaryInst *createOr(Value *v1, Value *v2, BasicBlock *bb);
 
-    // create Shl instruction, auto insert to bb
-    static BinaryInst *createShl(Value *v1, Value *v2, BasicBlock *bb);
-    // create Shl instruction, don't insert to bb
-    static BinaryInst *createShl(Value *v1, Value *v2)
-    {
-        return new BinaryInst(v1->getType(), Instruction::Shl, v1, v2);
-    }
-
-    // create AShr instruction, auto insert to bb
-    static BinaryInst *createAShr(Value *v1, Value *v2, BasicBlock *bb);
-    // create AShl instruction, don't insert to bb
-    static BinaryInst *createAShr(Value *v1, Value *v2)
-    {
-        return new BinaryInst(v1->getType(), Instruction::AShr, v1, v2);
-    }
-
-    // create LShr instruction, auto insert to bb
-    static BinaryInst *createLShr(Value *v1, Value *v2, BasicBlock *bb);
-
     Instruction *copy(BasicBlock *new_bb) override
     {
         return new BinaryInst(getType(), getInstrType(), new_bb);
     }
+    virtual std::string print() override;
 
   private:
     void assertValid();
@@ -432,6 +378,7 @@ class CmpInst : public Instruction
     {
         return new CmpInst(getType(), cmp_op_, new_bb);
     }
+    virtual std::string print() override;
 
   private:
     CmpOp cmp_op_;
@@ -455,6 +402,7 @@ class CallInst : public Instruction
     {
         return new CallInst(getFunction(), new_bb);
     }
+    virtual std::string print() override;
 };
 
 class BranchInst : public Instruction
@@ -482,7 +430,7 @@ class BranchInst : public Instruction
     static BranchInst *createCmpBr(CmpOp op, Value *lhs, Value *rhs,
                                    BasicBlock *if_true, BasicBlock *if_false,
                                    BasicBlock *bb);
-
+    virtual std::string print() override;
     bool isCondBr() const;
     // lhs, rhs, if_true, if_false
     bool isCmpBr() const
@@ -514,7 +462,7 @@ class ReturnInst : public Instruction
     static ReturnInst *createRet(Value *val, BasicBlock *bb);
     static ReturnInst *createVoidRet(BasicBlock *bb);
     bool isVoidRet() const;
-
+    virtual std::string print() override;
     Instruction *copy(BasicBlock *new_bb) override
     {
         return new ReturnInst(getType(), getNumOperand(), new_bb);
@@ -537,7 +485,7 @@ class GetElementPtrInst : public Instruction
                                         BasicBlock *bb);
     static GetElementPtrInst *createGEP(Value *ptr, std::vector<Value *> idxs);
     Type *getElementType() const;
-
+    virtual std::string print() override;
     Instruction *copy(BasicBlock *new_bb) override
     {
         return new GetElementPtrInst(getType(), getNumOperand(), new_bb,
@@ -568,7 +516,7 @@ class StoreInst : public Instruction
     // std::map<Value *, std::set<StoreInst *>> &getInstrIn() { return
     // instr_in_; } std::map<Value *, std::set<StoreInst *>> &getInstrOut() {
     // return instr_out_; }
-
+    virtual std::string print() override;
     bool hasOffset()
     {
         return getNumOperand() >= 3;
@@ -630,6 +578,7 @@ class LoadInst : public Instruction
     LoadInst(Type *ty, Value *ptr, Value *offset);
 
   public:
+    virtual std::string print() override;
     static LoadInst *createLoad(Type *ty, Value *ptr, BasicBlock *bb);
     static LoadInst *createLoad(Type *ty, Value *ptr)
     {
@@ -698,6 +647,7 @@ class AllocaInst : public Instruction
     }
 
   public:
+    virtual std::string print() override;
     static AllocaInst *createAlloca(Type *ty, BasicBlock *bb);
     static AllocaInst *createAlloca(Type *ty)
     {
@@ -744,6 +694,7 @@ class CastInst : public Instruction
                             dest_ty_);
     }
     virtual std::string print() override;
+
   private:
     Type *dest_ty_;
 };
@@ -783,100 +734,6 @@ class PhiInst : public Instruction
     // private:
     //     std::vector<Value *> vals;
     //     std::vector<BasicBlock *> val_bbs;
-};
-
-class MulAddInst : public Instruction
-{
-  private:
-    // v1 * v2 + v3
-    MulAddInst(Value *v1, Value *v2, Value *v3);
-    MulAddInst(Value *v1, Value *v2, Value *v3, BasicBlock *bb);
-    MulAddInst(Type *ty, OpID id, BasicBlock *bb) : Instruction(ty, id, 3, bb)
-    {
-    }
-
-  public:
-    static MulAddInst *createMulAddInst(Value *v1, Value *v2, Value *v3);
-    static MulAddInst *createMulAddInst(Value *v1, Value *v2, Value *v3,
-                                        BasicBlock *bb);
-
-    Instruction *copy(BasicBlock *new_bb) override
-    {
-        return new MulAddInst(getType(), getInstrType(), new_bb);
-    }
-};
-
-class VVInst : public Instruction
-{
-  private:
-    VVInst(Value *v1, Value *v2, Value *v3, BasicBlock *parent);
-    VVInst(unsigned int32_num, Value *v1, Value *v2, BasicBlock *parent);
-    VVInst(unsigned int32_num, Value *v1, Value *v2);
-    VVInst(unsigned int32_num, Type *ty, OpID op, unsigned num_ops,
-           BasicBlock *bb)
-        : Instruction(ty, op, num_ops, bb), int32_num_(int32_num)
-    {
-    }
-    unsigned int32_num_;
-
-  public:
-    static VVInst *createVV(unsigned int32_num, Value *v1, Value *v2)
-    {
-        return new VVInst(int32_num, v1, v2);
-    }
-    static VVInst *createVV(unsigned int32_num, Value *v1, Value *v2,
-                            BasicBlock *parent)
-    {
-        return new VVInst(int32_num, v1, v2, parent);
-    }
-    static VVInst *createVV(Value *v1, Value *v2, Value *v3, BasicBlock *parent)
-    {
-        return new VVInst(v1, v2, v3, parent);
-    }
-
-    unsigned getNumInt32() const
-    {
-        return int32_num_;
-    }
-
-    Instruction *copy(BasicBlock *new_bb) override
-    {
-        return new VVInst(getNumInt32(), getType(), getInstrType(),
-                          getNumOperand(), new_bb);
-    }
-};
-
-class BicInst : public Instruction
-{
-  private:
-    BicInst(Value *v1, Value *v2, Value *v3, BasicBlock *parent);
-
-  public:
-    static BicInst *createBic(Value *v1, Value *v2, Value *v3,
-                              BasicBlock *parent)
-    {
-        return new BicInst(v1, v2, v3, parent);
-    }
-};
-
-class Mtstart : public Instruction
-{
-    // %thread_id = MTSTART %num_threads
-  private:
-    Mtstart(Module *m);
-
-  public:
-    Mtstart *createMtstart(Module *m);
-};
-
-class Mtend : public Instruction
-{
-    // %thread_id = MTSTART %num_threads
-  private:
-    Mtend(Module *m, Mtstart *start);
-
-  public:
-    Mtend *createMtend(Module *m, Mtstart *start);
 };
 
 class HighIR : public Instruction

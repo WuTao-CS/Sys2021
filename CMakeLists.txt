@@ -7,7 +7,6 @@ include_directories(./build/)
 include_directories(./front/)
 include_directories(./IR/)
 include_directories(./IRBuilder/)
-include_directories(./CodeGen/)
 
 add_custom_command(
     OUTPUT ${CMAKE_BINARY_DIR}/sysy_scanner.cc ${CMAKE_BINARY_DIR}/sysy_parser.cc ${CMAKE_BINARY_DIR}/sysy_parser.hh
@@ -45,7 +44,6 @@ add_library(
         ./IR/GlobalVariable.cc
         ./IR/Instruction.cc
         ./IR/Module.cc
-        ./IR/BaseBlock.cc
         ./IR/IRprinter.cc
 )
 set(SRC
@@ -55,7 +53,6 @@ set(SRC
         ./front/syntax_tree.cc
         ./front/sysy_driver.cc
         ./IRBuilder/SysyBuilder.cc
-        ./IR/BaseBlock.cc
         ./IR/BasicBlock.cc
         ./IR/Constant.cc
         ./IR/Function.cc

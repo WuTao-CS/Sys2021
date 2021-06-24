@@ -53,7 +53,10 @@ class Type
     {
         return getTypeID() == PointerTyID;
     }
-
+    static bool isEqType(Type *ty1, Type *ty2)
+    {
+        return ty1 == ty2;
+    }
     bool isInt1();
     bool isInt32();
 

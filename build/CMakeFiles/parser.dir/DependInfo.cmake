@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/linux/Desktop/compiler/Sys2021_v2/front/sysy_parser.cc" "CMakeFiles/parser.dir/front/sysy_parser.cc.o" "gcc" "CMakeFiles/parser.dir/front/sysy_parser.cc.o.d"
+  "/home/linux/Desktop/compiler/Sys2021_v3/front/sysy_parser.cc" "CMakeFiles/parser.dir/front/sysy_parser.cc.o" "gcc" "CMakeFiles/parser.dir/front/sysy_parser.cc.o.d"
   )
 
 # Targets to which this target links.

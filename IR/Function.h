@@ -7,8 +7,6 @@
 #include <list>
 #include <map>
 
-#include "BasicBlock.h"
-#include "HighBlock.h"
 #include "Instruction.h"
 #include "ReturnVal.h"
 #include "User.h"
@@ -16,7 +14,6 @@
 
 class Module;
 class Argument;
-class BaseBlock;
 class BasicBlock;
 class Type;
 class FunctionType;
@@ -76,8 +73,10 @@ class Function : public Value
     }
     // 去除基本块
     void removeBasicBlock(BasicBlock *bb);
-    bool is_declaration() { return basic_blocks_.empty(); }
-    void HighIRprint();
+    bool is_declaration()
+    {
+        return basic_blocks_.empty();
+    }
 
     std::string print() override;
     void setInstrName();
@@ -92,16 +91,10 @@ class Function : public Value
     std::list<Argument *> arguments_; // arguments
     // 函数属于的Module
     Module *parent_;
-    // 函数属于Module的数组
+    // 函数属于Module的数量
     int print_cnt_;
 
-  private:
-    std::list<BaseBlock *> base_blocks_; // base blocks
-
     //    bool multithreading_ = false;
-
-  public:
-    void addBaseBlock(BaseBlock *basebb);
 };
 
 // 函数参数, does not contain actual value

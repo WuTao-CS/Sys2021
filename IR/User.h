@@ -25,7 +25,6 @@ class User : public Value
 
     unsigned getNumOperand() const;
 
-    // TODO(zyh) 待确认
     std::vector<Value *> &getOperands()
     {
         return operands_;
