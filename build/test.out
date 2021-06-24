@@ -1,0 +1,1126 @@
+./test2/00_arr_defn2.sy
+Opening file ./test2/00_arr_defn2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x556f192509e0
+0x556f19250990
+0x556f19250db0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/00_main.sy
+Opening file ./test2/00_main.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563ba99558f0
+0x563ba99558a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/01_var_defn.sy
+Opening file ./test2/01_var_defn.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55cbcf15a620
+0x55cbcf15a5d0
+0x55cbcf15ada0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/02_arr_defn4.sy
+Opening file ./test2/02_arr_defn4.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x564580b2ffb0
+0x564580b2fe70
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/02_var_defn2.sy
+Opening file ./test2/02_var_defn2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x561210adc620
+0x561210adc5d0
+0x561210adc750
+0x561210adcfa0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/03_arr_defn.sy
+Opening file ./test2/03_arr_defn.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x555c853367f0
+0x555c853367a0
+0x555c85336bf0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/03_var_defn2.sy
+Opening file ./test2/03_var_defn2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55ec03c4b6d0
+0x55ec03c4b680
+0x55ec03c4c5a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/04_const_defn.sy
+main: /home/linux/Desktop/compiler/Sys2021_v2/front/sysy_driver.cc:28: std::shared_ptr<TreeNodeCompUnit> sysy_driver::parse(const string&): Assertion `x == 0' failed.
+test.sh: line 3: 19432 Aborted                 (core dumped) ./main $dir_or_file
+./test2/04_func_defn.sy
+Opening file ./test2/04_func_defn.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x560ca8f3d620
+0x560ca8f3d5d0
+0x560ca8f3e040
+0x560ca8f3e9f0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/05_add.sy
+Opening file ./test2/05_add.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x556dd2753620
+0x556dd27535d0
+0x556dd2753750
+0x556dd2753fb0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/05_const_array_defn.sy
+main: /home/linux/Desktop/compiler/Sys2021_v2/front/sysy_driver.cc:28: std::shared_ptr<TreeNodeCompUnit> sysy_driver::parse(const string&): Assertion `x == 0' failed.
+test.sh: line 3: 19436 Aborted                 (core dumped) ./main $dir_or_file
+./test2/06_mod.sy
+Opening file ./test2/06_mod.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x56156bd7b620
+0x56156bd7b5d0
+0x56156bd7b750
+0x56156bd7bfb0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/06_var_defn_func.sy
+Opening file ./test2/06_var_defn_func.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x560b94d07900
+0x560b94d078b0
+0x560b94d08080
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/07_comment1.sy
+Opening file ./test2/07_comment1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x564161a788f0
+0x564161a788a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/07_return_var.sy
+Opening file ./test2/07_return_var.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55dd56854630
+0x55dd568545e0
+0x55dd56854de0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/08_arr_assign.sy
+Opening file ./test2/08_arr_assign.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x561eb882a800
+0x561eb882a7b0
+0x561eb882b150
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/08_comment2.sy
+Opening file ./test2/08_comment2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55a775e058f0
+0x55a775e058a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/09_if.sy
+Opening file ./test2/09_if.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x564af5c7b620
+0x564af5c7b5d0
+0x564af5c7c6e0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/09_void_func.sy
+Opening file ./test2/09_void_func.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x56035d88c780
+0x56035d88c6b0
+0x56035d88d010
+0x56035d88dd80
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/11_continue.sy
+Opening file ./test2/11_continue.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e98d04e430
+0x55e98d04e2f0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/11_while.sy
+Opening file ./test2/11_while.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563bbd264620
+0x563bbd2645d0
+0x563bbd264750
+0x563bbd266020
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/22_if_test1.sy
+Opening file ./test2/22_if_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x564fea1f2f90
+0x564fea1f2a20
+0x564fea1f34f0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/23_if_test2.sy
+Opening file ./test2/23_if_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55ccfe103f10
+0x55ccfe103ec0
+0x55ccfe104470
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/24_if_test3.sy
+Opening file ./test2/24_if_test3.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55a27091f880
+0x55a27091f830
+0x55a27091fde0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/25_if_test4.sy
+Opening file ./test2/25_if_test4.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55930188c9d0
+0x55930188c980
+0x55930188cf30
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/26_if_test5.sy
+Opening file ./test2/26_if_test5.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55eb575659d0
+0x55eb57565980
+0x55eb57565f30
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/27_while_test1.sy
+Opening file ./test2/27_while_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x557fb2fb91a0
+0x557fb2fb9150
+0x557fb2fb9560
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/28_while_test2.sy
+Opening file ./test2/28_while_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x559634ffc510
+0x559634ffc4c0
+0x559634ffc8b0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/29_while_test3.sy
+Opening file ./test2/29_while_test3.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563351f85630
+0x563351f855e0
+0x563351f85760
+0x563351f85890
+0x563351f85a00
+0x563351f90710
+0x563351f91100
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/30_while_if_test1.sy
+Opening file ./test2/30_while_if_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55df5b715b40
+0x55df5b715af0
+0x55df5b7160a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/31_while_if_test2.sy
+Opening file ./test2/31_while_if_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x560dac2e5da0
+0x560dac2e5d50
+0x560dac2e6300
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/32_while_if_test3.sy
+Opening file ./test2/32_while_if_test3.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5581c56c1410
+0x5581c56c0ed0
+0x5581c56c1ec0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/33_func_test1.sy
+Opening file ./test2/33_func_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5605acccf630
+0x5605acccf5e0
+0x5605acccf810
+0x5605accd2f70
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/34_func_test2.sy
+Opening file ./test2/34_func_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e9f75e1de0
+0x55e9f75e1ca0
+0x55e9f75e25a0
+0x55e9f75e2e50
+0x55e9f75e4560
+0x55e9f75e63e0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/35_array_test.sy
+Opening file ./test2/35_array_test.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55eb69ac7800
+0x55eb69ac77b0
+0x55eb69ac8240
+0x55eb69acb840
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/36_domain_test.sy
+Opening file ./test2/36_domain_test.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5571b6736800
+0x5571b67367b0
+0x5571b67377b0
+0x5571b6739b90
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/38_if_complex_expr.sy
+Opening file ./test2/38_if_complex_expr.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x560acea646e0
+0x560acea64690
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/39_assign_complex_expr.sy
+Opening file ./test2/39_assign_complex_expr.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55b2782f0500
+0x55b2782f04b0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/40_index_complex_expr.sy
+Opening file ./test2/40_index_complex_expr.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x561031ecd7b0
+0x561031ecd760
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/41_index_arithmetic_expr.sy
+Opening file ./test2/41_index_arithmetic_expr.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e08d30e880
+0x55e08d30e830
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/42_index_func_ret.sy
+Opening file ./test2/42_index_func_ret.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563370da8040
+0x563370da6030
+0x563370daa5e0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/43_time_prior_plus.sy
+Opening file ./test2/43_time_prior_plus.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55ce27370fc0
+0x55ce27370f70
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/44_add_prior_equal.sy
+Opening file ./test2/44_add_prior_equal.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5638d313d120
+0x5638d313d0d0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/45_equal_prior_logic.sy
+Opening file ./test2/45_equal_prior_logic.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x558977bab5e0
+0x558977bab590
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/46_and_prior_or.sy
+Opening file ./test2/46_and_prior_or.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55a7d5522550
+0x55a7d5522500
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/47_minus_with_sub.sy
+Opening file ./test2/47_minus_with_sub.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55de26804740
+0x55de268046f0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/49_decl_in_defn.sy
+Opening file ./test2/49_decl_in_defn.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x564af566f3d0
+0x564af566eaf0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/50_recursion_test1.sy
+Opening file ./test2/50_recursion_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55b5d4751f10
+0x55b5d4751680
+0x55b5d4752880
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/51_recursion_test2.sy
+Opening file ./test2/51_recursion_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55d3b29b6e10
+0x55d3b29b6dc0
+0x55d3b29b7780
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/52_recursion_test3.sy
+Opening file ./test2/52_recursion_test3.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e50ac8e630
+0x55e50ac8e5e0
+0x55e50ac8e760
+0x55e50ac8fb70
+0x55e50ac90e30
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/53_sort_test1.sy
+Opening file ./test2/53_sort_test1.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55fe810e7630
+0x55fe810e75e0
+0x55fe810e7d20
+0x55fe810f29a0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/54_sort_test2.sy
+Opening file ./test2/54_sort_test2.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x557983abe630
+0x557983abe5e0
+0x557983ac28e0
+0x557983ac9090
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/55_sort_test3.sy
+Opening file ./test2/55_sort_test3.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e8dca53630
+0x55e8dca535e0
+0x55e8dca53810
+0x55e8dca63f30
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/56_sort_test4.sy
+Opening file ./test2/56_sort_test4.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55d3f99f7630
+0x55d3f99f75e0
+0x55d3f99fcfc0
+0x55d3f9a03b50
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/57_sort_test5.sy
+Opening file ./test2/57_sort_test5.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5654ed5a9630
+0x5654ed5a95e0
+0x5654ed5a9810
+0x5654ed5aa690
+0x5654ed5b5600
+0x5654ed5bc180
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/58_sort_test6.sy
+Opening file ./test2/58_sort_test6.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55a654ae2630
+0x55a654ae25e0
+0x55a654ae2810
+0x55a654af2280
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/59_sort_test7.sy
+Opening file ./test2/59_sort_test7.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55b0548a4630
+0x55b0548a45e0
+0x55b0548a4810
+0x55b0548b1600
+0x55b0548bbcf0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/62_long_code.sy
+Opening file ./test2/62_long_code.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5580307ec620
+0x5580307ec5d0
+0x5580307ecd10
+0x5580307f5740
+0x5580307f5ca0
+0x558030801a50
+0x558030806fb0
+0x55803080a230
+0x55803080bc40
+0x55803080fac0
+0x5580308170f0
+0x558030831bf0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/66_go_upstairs.sy
+Opening file ./test2/66_go_upstairs.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55f0e8c16960
+0x55f0e8c16910
+0x55f0e8c16f60
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/67_remove_duplicate_element.sy
+Opening file ./test2/67_remove_duplicate_element.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55799cd924e0
+0x55799cd8f690
+0x55799cd97460
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/68_accumulate.sy
+Opening file ./test2/68_accumulate.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x557d9a15b870
+0x557d9a15b820
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/69_last_word_length.sy
+Opening file ./test2/69_last_word_length.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5561db95f000
+0x5561db95efb0
+0x5561db963730
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/70_multi.sy
+Opening file ./test2/70_multi.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x561af143c810
+0x561af143c7c0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/71_max_subsequence_sum.sy
+Opening file ./test2/71_max_subsequence_sum.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563b1da05640
+0x563b1da055f0
+0x563b1da09d20
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/72_enum.sy
+Opening file ./test2/72_enum.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x560616866e90
+0x560616866e40
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/74_itera_sqrt.sy
+Opening file ./test2/74_itera_sqrt.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x558d4d9e4d20
+0x558d4d9e2f10
+0x558d4d9e6820
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/75_max_container.sy
+Opening file ./test2/75_max_container.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55bb136bbf70
+0x55bb136bbf20
+0x55bb136c0660
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/76_int_factor_sum.sy
+Opening file ./test2/76_int_factor_sum.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55704af61630
+0x55704af615e0
+0x55704af61760
+0x55704af641c0
+0x55704af65500
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/77_unique_path.sy
+Opening file ./test2/77_unique_path.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55ac20a000d0
+0x55ac20a00080
+0x55ac20a006d0
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/78_decbinoct.sy
+Opening file ./test2/78_decbinoct.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x559a8f32e670
+0x559a8f32e620
+0x559a8f330190
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/81_jump_game.sy
+Opening file ./test2/81_jump_game.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x556ea8120ca0
+0x556ea8120c50
+0x556ea8125280
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/82_int_split.sy
+Opening file ./test2/82_int_split.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x559601d05620
+0x559601d055d0
+0x559601d05750
+0x559601d077b0
+0x559601d0b620
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/83_enc_dec.sy
+Opening file ./test2/83_enc_dec.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x563e7077bae0
+0x563e7077ba90
+0x563e7077d070
+0x563e7077f230
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/84_palindrome_number.sy
+Opening file ./test2/84_palindrome_number.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55fe911cb620
+0x55fe911cb5d0
+0x55fe911ce040
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/88_array_concat.sy
+Opening file ./test2/88_array_concat.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5626db8a4090
+0x5626db8a0690
+0x5626db8abc70
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/92_matrix_add.sy
+Opening file ./test2/92_matrix_add.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x558c4ebb8630
+0x558c4ebb85e0
+0x558c4ebb8760
+0x558c4ebb8890
+0x558c4ebbc150
+0x558c4ebc9a40
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/93_matrix_sub.sy
+Opening file ./test2/93_matrix_sub.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x557bf1175630
+0x557bf11755e0
+0x557bf1175760
+0x557bf1175890
+0x557bf1179120
+0x557bf1186950
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/94_matrix_mul.sy
+Opening file ./test2/94_matrix_mul.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5631e9e9a630
+0x5631e9e9a5e0
+0x5631e9e9a760
+0x5631e9e9a890
+0x5631e9ea8dc0
+0x5631e9eb6190
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/95_matrix_tran.sy
+Opening file ./test2/95_matrix_tran.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55a37f6ca630
+0x55a37f6ca5e0
+0x55a37f6ca760
+0x55a37f6ca890
+0x55a37f6cf8b0
+0x55a37f6dcc80
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/96_many_param_call.sy
+Opening file ./test2/96_many_param_call.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5628243999d0
+0x562824399980
+0x56282439c070
+0x5628243a0b10
+0x5628243aae80
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/97_many_global_var.sy
+Opening file ./test2/97_many_global_var.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x5555593cb630
+0x5555593cb5e0
+0x5555593cb760
+0x5555593cb890
+0x5555593cba00
+0x5555593cbb20
+0x5555593cb8e0
+0x5555593cbda0
+0x5555593cbec0
+0x5555593cbfe0
+0x5555593cc210
+0x5555593cc330
+0x5555593cc450
+0x5555593cc570
+0x5555593cc690
+0x5555593cc7b0
+0x5555593cc8d0
+0x5555593cc9f0
+0x5555593ccd20
+0x5555593cce40
+0x5555593ccf60
+0x5555593cd080
+0x5555593cd1a0
+0x5555593cd2c0
+0x5555593cd3e0
+0x5555593cd500
+0x5555593cd620
+0x5555593cd740
+0x5555593cd860
+0x5555593cd980
+0x5555593cdaa0
+0x5555593cdbc0
+0x5555593cdce0
+0x5555593cde00
+0x5555593ce330
+0x5555593ce450
+0x5555593ce570
+0x5555593ce690
+0x5555593ce7b0
+0x5555593ce8d0
+0x5555593ce9f0
+0x5555593cfdf0
+0x5555593d2370
+0x5555593d6bf0
+0x5555593e7c30
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
+./test2/99_register_realloc.sy
+Opening file ./test2/99_register_realloc.sy
+Generating scanner&parser!
+Starting parsing!
+Parse succeed!
+Current root of syntax tree is 0x55e2ac536c20
+0x55e2ac536bd0
+0x55e2ac537220
+Generate syntax tree success!
+Begin to build tree of sysy!
+End building tree of sysy!
+Begin to generate code!
+End generating code!
