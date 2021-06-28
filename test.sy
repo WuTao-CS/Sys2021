@@ -14,7 +14,7 @@ int main()
     {
         a=3;
     }
-    int c=a+b;
+    int c=f(a,b);
     putint(c);
-    return -1;
+    return c;
 }

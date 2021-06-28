@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/linux/Desktop/compiler/Sys2021_v2/. -I/home/linux/Desktop/compiler/Sys2021_v2/./build -I/home/linux/Desktop/compiler/Sys2021_v2/./front -I/home/linux/Desktop/compiler/Sys2021_v2/./IR -I/home/linux/Desktop/compiler/Sys2021_v2/./IRBuilder -I/home/linux/Desktop/compiler/Sys2021_v2/./CodeGen
+CXX_INCLUDES = -I/home/linux/Desktop/compiler/Sys2021_v3/. -I/home/linux/Desktop/compiler/Sys2021_v3/./build -I/home/linux/Desktop/compiler/Sys2021_v3/./front -I/home/linux/Desktop/compiler/Sys2021_v3/./IR -I/home/linux/Desktop/compiler/Sys2021_v3/./IRBuilder -I/home/linux/Desktop/compiler/Sys2021_v3/./codeGen
 
 CXX_FLAGS = -std=gnu++17
 

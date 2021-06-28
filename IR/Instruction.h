@@ -210,6 +210,9 @@ class Instruction : public User
         case Div:
             return "sdiv";
             break;
+        case Rem:
+            return "rem";
+            break;
         case Alloca:
             return "alloca";
             break;

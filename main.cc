@@ -1,9 +1,11 @@
 #include "SysyBuilder.h"
+#include "codeGen.hh"
 #include "syntax_tree.hh"
 #include "sysy_driver.hh"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+
 #include <unordered_set>
 
 using namespace std::literals::string_literals;
@@ -37,6 +39,12 @@ int main(int argc, char **argv)
             SysyBuilder builder;
             tree.run_visitor(builder);
             std::cout << builder.IRprint() << std::endl;
+            codeGen code_generator(builder.getModule());
+            std::string asm_code = code_generator.generateModuleCode();
+            std::ofstream out(target_path);
+            out << asm_code;
+            std::cout << asm_code << std::endl;
+            out.close(); // codegen
             return 0;
         }
         else

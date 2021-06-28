@@ -172,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named CodeGen
+
+# Build rule for target.
+CodeGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CodeGen
+.PHONY : CodeGen
+
+# fast build rule for target.
+CodeGen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/build
+.PHONY : CodeGen/fast
+
+#=============================================================================
 # Target rules for targets named parser
 
 # Build rule for target.
@@ -910,6 +923,60 @@ IRBuilder/SysyBuilder.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/IRBuilder/SysyBuilder.cc.s
 .PHONY : IRBuilder/SysyBuilder.cc.s
 
+codeGen/codeGen.o: codeGen/codeGen.cc.o
+.PHONY : codeGen/codeGen.o
+
+# target to build an object file
+codeGen/codeGen.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/codeGen.cc.o
+.PHONY : codeGen/codeGen.cc.o
+
+codeGen/codeGen.i: codeGen/codeGen.cc.i
+.PHONY : codeGen/codeGen.i
+
+# target to preprocess a source file
+codeGen/codeGen.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/codeGen.cc.i
+.PHONY : codeGen/codeGen.cc.i
+
+codeGen/codeGen.s: codeGen/codeGen.cc.s
+.PHONY : codeGen/codeGen.s
+
+# target to generate assembly for a file
+codeGen/codeGen.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/codeGen.cc.s
+.PHONY : codeGen/codeGen.cc.s
+
+codeGen/instructionsGen.o: codeGen/instructionsGen.cc.o
+.PHONY : codeGen/instructionsGen.o
+
+# target to build an object file
+codeGen/instructionsGen.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/instructionsGen.cc.o
+.PHONY : codeGen/instructionsGen.cc.o
+
+codeGen/instructionsGen.i: codeGen/instructionsGen.cc.i
+.PHONY : codeGen/instructionsGen.i
+
+# target to preprocess a source file
+codeGen/instructionsGen.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/instructionsGen.cc.i
+.PHONY : codeGen/instructionsGen.cc.i
+
+codeGen/instructionsGen.s: codeGen/instructionsGen.cc.s
+.PHONY : codeGen/instructionsGen.s
+
+# target to generate assembly for a file
+codeGen/instructionsGen.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CodeGen.dir/build.make CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codeGen/instructionsGen.cc.s
+.PHONY : codeGen/instructionsGen.cc.s
+
 front/syntax_tree.o: front/syntax_tree.cc.o
 .PHONY : front/syntax_tree.o
 
@@ -1080,6 +1147,7 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
+	@echo "... CodeGen"
 	@echo "... IRBuilder"
 	@echo "... IR_lib"
 	@echo "... main"
@@ -1119,6 +1187,12 @@ help:
 	@echo "... IRBuilder/SysyBuilder.o"
 	@echo "... IRBuilder/SysyBuilder.i"
 	@echo "... IRBuilder/SysyBuilder.s"
+	@echo "... codeGen/codeGen.o"
+	@echo "... codeGen/codeGen.i"
+	@echo "... codeGen/codeGen.s"
+	@echo "... codeGen/instructionsGen.o"
+	@echo "... codeGen/instructionsGen.i"
+	@echo "... codeGen/instructionsGen.s"
 	@echo "... front/syntax_tree.o"
 	@echo "... front/syntax_tree.i"
 	@echo "... front/syntax_tree.s"

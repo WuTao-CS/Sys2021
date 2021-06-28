@@ -8,11 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/linux/Desktop/compiler/Sys2021_v2/CodeGen/Analyzer.cc" "CMakeFiles/CodeGen.dir/CodeGen/Analyzer.cc.o" "gcc" "CMakeFiles/CodeGen.dir/CodeGen/Analyzer.cc.o.d"
-  "/home/linux/Desktop/compiler/Sys2021_v2/CodeGen/CodeGen.cc" "CMakeFiles/CodeGen.dir/CodeGen/CodeGen.cc.o" "gcc" "CMakeFiles/CodeGen.dir/CodeGen/CodeGen.cc.o.d"
-  "/home/linux/Desktop/compiler/Sys2021_v2/CodeGen/InstructionsGen.cc" "CMakeFiles/CodeGen.dir/CodeGen/InstructionsGen.cc.o" "gcc" "CMakeFiles/CodeGen.dir/CodeGen/InstructionsGen.cc.o.d"
-  "/home/linux/Desktop/compiler/Sys2021_v2/CodeGen/LoopFind.cc" "CMakeFiles/CodeGen.dir/CodeGen/LoopFind.cc.o" "gcc" "CMakeFiles/CodeGen.dir/CodeGen/LoopFind.cc.o.d"
-  "/home/linux/Desktop/compiler/Sys2021_v2/CodeGen/RegAlloc.cc" "CMakeFiles/CodeGen.dir/CodeGen/RegAlloc.cc.o" "gcc" "CMakeFiles/CodeGen.dir/CodeGen/RegAlloc.cc.o.d"
+  "/home/linux/Desktop/compiler/Sys2021_v3/codeGen/codeGen.cc" "CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.o" "gcc" "CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.o.d"
+  "/home/linux/Desktop/compiler/Sys2021_v3/codeGen/instructionsGen.cc" "CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.o" "gcc" "CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.o.d"
   )
 
 # Targets to which this target links.
