@@ -2897,86 +2897,63 @@ namespace yy {
   case 34:
 #line 373 "Sysy_parser.y" // lalr1.cc:906
     {
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=yystack_[3].value.as< type_specifier > ();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[2].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=true;
-    }
-#line 2906 "./front/sysy_parser.cc" // lalr1.cc:906
+		yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
+		yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=TYPE_INT;
+		yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=true;
+		yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[1].value.as< std::string > ();
+		yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list;
+	}
+#line 2907 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
   case 35:
-#line 379 "Sysy_parser.y" // lalr1.cc:906
-    {
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=yystack_[4].value.as< type_specifier > ();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[3].value.as< std::string > ();
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=true;
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list;
-    }
-#line 2918 "./front/sysy_parser.cc" // lalr1.cc:906
-    break;
-
-  case 36:
-#line 386 "Sysy_parser.y" // lalr1.cc:906
-    {
-	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()=std::make_shared<TreeNodeFuncFParam>();
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->type=yystack_[5].value.as< type_specifier > ();
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->id=yystack_[4].value.as< std::string > ();
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->isarray=true;
-    	yylhs.value.as< std::shared_ptr<TreeNodeFuncFParam> > ()->ParamArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list;
-    }
-#line 2930 "./front/sysy_parser.cc" // lalr1.cc:906
-    break;
-
-  case 37:
-#line 395 "Sysy_parser.y" // lalr1.cc:906
-    {
-	//一维数组
-	yylhs.value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()=std::make_shared<TreeNodeParamArrayExpList>();
-    }
-#line 2939 "./front/sysy_parser.cc" // lalr1.cc:906
-    break;
-
-  case 38:
-#line 399 "Sysy_parser.y" // lalr1.cc:906
+#line 403 "Sysy_parser.y" // lalr1.cc:906
     {
     	//多维数组
 		yystack_[3].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ()));
     	yylhs.value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ());
     }
-#line 2949 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2917 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 39:
-#line 407 "Sysy_parser.y" // lalr1.cc:906
+  case 36:
+#line 408 "Sysy_parser.y" // lalr1.cc:906
+    {
+	//一维数组
+	yylhs.value.as< std::shared_ptr<TreeNodeParamArrayExpList> > ()=std::make_shared<TreeNodeParamArrayExpList>();
+	}
+#line 2926 "./front/sysy_parser.cc" // lalr1.cc:906
+    break;
+
+  case 37:
+#line 415 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeBlock> > ()=std::make_shared<TreeNodeBlock>();
     	yylhs.value.as< std::shared_ptr<TreeNodeBlock> > ()->BlockItemList=yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ()->list;
     }
-#line 2958 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2935 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 40:
-#line 413 "Sysy_parser.y" // lalr1.cc:906
+  case 38:
+#line 421 "Sysy_parser.y" // lalr1.cc:906
     {
     yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBlockItem> > ()));
     yylhs.value.as< std::shared_ptr<TreeNodeBlockItemList> > ()=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeBlockItemList> > ());
 	//std::cout<<"BlockItemList : BlockItemList BlockItem"<<std::endl;
     }
-#line 2968 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2945 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 41:
-#line 418 "Sysy_parser.y" // lalr1.cc:906
+  case 39:
+#line 426 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItemList> > ()=std::make_shared<TreeNodeBlockItemList>();
 	}
-#line 2976 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2953 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 42:
-#line 423 "Sysy_parser.y" // lalr1.cc:906
+  case 40:
+#line 431 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeConstDecl> > ());
@@ -2984,11 +2961,11 @@ namespace yy {
     yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=nullptr;
 	//std::cout<<"BlockItem: ConstDecl"<<std::endl;
     }
-#line 2988 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2965 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 43:
-#line 431 "Sysy_parser.y" // lalr1.cc:906
+  case 41:
+#line 439 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=nullptr;
@@ -2996,11 +2973,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=nullptr;
 	//std::cout<<"BlockItem:VarDecl"<<std::endl;
     }
-#line 3000 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2977 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 44:
-#line 438 "Sysy_parser.y" // lalr1.cc:906
+  case 42:
+#line 446 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()=std::make_shared<TreeNodeBlockItem>();
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->ConstDecl=nullptr;
@@ -3008,11 +2985,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeBlockItem> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
 	//std::cout<<"BlockItem:Stmt"<<std::endl;
     }
-#line 3012 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 2989 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 45:
-#line 446 "Sysy_parser.y" // lalr1.cc:906
+  case 43:
+#line 454 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeBreakStmt> > ());
@@ -3025,11 +3002,11 @@ namespace yy {
     yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 	//std::cout<<"Stmt:break"<<std::endl;
     }
-#line 3029 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3006 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 46:
-#line 458 "Sysy_parser.y" // lalr1.cc:906
+  case 44:
+#line 466 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3042,11 +3019,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt:Continue"<<std::endl;
     }
-#line 3046 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3023 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 47:
-#line 470 "Sysy_parser.y" // lalr1.cc:906
+  case 45:
+#line 478 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3059,11 +3036,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
     }
-#line 3063 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3040 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 48:
-#line 482 "Sysy_parser.y" // lalr1.cc:906
+  case 46:
+#line 490 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3076,11 +3053,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt:Exp T_SEMICOLIN"<<std::endl;
     }
-#line 3080 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3057 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 49:
-#line 494 "Sysy_parser.y" // lalr1.cc:906
+  case 47:
+#line 502 "Sysy_parser.y" // lalr1.cc:906
     {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3092,11 +3069,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->IterationStmt=nullptr;
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
     }
-#line 3096 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3073 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 50:
-#line 505 "Sysy_parser.y" // lalr1.cc:906
+  case 48:
+#line 513 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3109,11 +3086,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"Stmt: Block"<<std::endl;
     }
-#line 3113 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3090 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 51:
-#line 517 "Sysy_parser.y" // lalr1.cc:906
+  case 49:
+#line 525 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3126,11 +3103,11 @@ namespace yy {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"SelectStmt"<<std::endl;
     }
-#line 3130 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3107 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 52:
-#line 529 "Sysy_parser.y" // lalr1.cc:906
+  case 50:
+#line 537 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3143,11 +3120,11 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=nullptr;
 		//std::cout<<"IterationStmt"<<std::endl;
     }
-#line 3147 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3124 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 53:
-#line 541 "Sysy_parser.y" // lalr1.cc:906
+  case 51:
+#line 549 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()=std::make_shared<TreeNodeStmt>();
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->BreakStmt=nullptr;
@@ -3160,134 +3137,134 @@ namespace yy {
 		yylhs.value.as< std::shared_ptr<TreeNodeStmt> > ()->ReturnStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeReturnStmt> > ());
 		//std::cout<<"ReturnStmt"<<std::endl;
     }
-#line 3164 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3141 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 54:
-#line 555 "Sysy_parser.y" // lalr1.cc:906
+  case 52:
+#line 563 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeBreakStmt> > ()=std::make_shared<TreeNodeBreakStmt>();
     }
-#line 3172 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3149 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 55:
-#line 559 "Sysy_parser.y" // lalr1.cc:906
+  case 53:
+#line 567 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeContinueStmt> > ()=std::make_shared<TreeNodeContinueStmt>();
     }
-#line 3180 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3157 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 56:
-#line 563 "Sysy_parser.y" // lalr1.cc:906
+  case 54:
+#line 571 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()=std::make_shared<TreeNodeAssignStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()->LVal=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeLVal> > ());
 	yylhs.value.as< std::shared_ptr<TreeNodeAssignStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
     }
-#line 3190 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3167 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 57:
-#line 570 "Sysy_parser.y" // lalr1.cc:906
+  case 55:
+#line 578 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()=std::make_shared<TreeNodeSelectStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeCond> > ());
 	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->ifStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
-#line 3200 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3177 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 58:
-#line 575 "Sysy_parser.y" // lalr1.cc:906
+  case 56:
+#line 583 "Sysy_parser.y" // lalr1.cc:906
     {
     	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()=std::make_shared<TreeNodeSelectStmt>();
     	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->Cond=std::move(yystack_[4].value.as< std::shared_ptr<TreeNodeCond> > ());
     	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->ifStmt=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeStmt> > ());
     	yylhs.value.as< std::shared_ptr<TreeNodeSelectStmt> > ()->elseStmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
-#line 3211 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3188 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 59:
-#line 583 "Sysy_parser.y" // lalr1.cc:906
+  case 57:
+#line 591 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()=std::make_shared<TreeNodeIterationStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()->Cond=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeCond> > ());
 	yylhs.value.as< std::shared_ptr<TreeNodeIterationStmt> > ()->Stmt=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeStmt> > ());
     }
-#line 3221 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3198 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 60:
-#line 589 "Sysy_parser.y" // lalr1.cc:906
+  case 58:
+#line 597 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()=std::make_shared<TreeNodeReturnStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()->Exp=nullptr;
     }
-#line 3230 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3207 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 61:
-#line 593 "Sysy_parser.y" // lalr1.cc:906
+  case 59:
+#line 601 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()=std::make_shared<TreeNodeReturnStmt>();
 	yylhs.value.as< std::shared_ptr<TreeNodeReturnStmt> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
     }
-#line 3239 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3216 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 62:
-#line 599 "Sysy_parser.y" // lalr1.cc:906
+  case 60:
+#line 607 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeExp> > ()=std::make_shared<TreeNodeExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"Exp : AddExp"<<std::endl;
     }
-#line 3249 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3226 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 63:
-#line 606 "Sysy_parser.y" // lalr1.cc:906
+  case 61:
+#line 614 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeCond> > ()=std::make_shared<TreeNodeCond>();
 	yylhs.value.as< std::shared_ptr<TreeNodeCond> > ()->LOrExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLOrExp> > ());
 	//std::cout<<"Cond : LOrExp"<<std::endl;
     }
-#line 3259 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3236 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 64:
-#line 613 "Sysy_parser.y" // lalr1.cc:906
+  case 62:
+#line 621 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()=std::make_shared<TreeNodeLVal>();
 	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()->id=yystack_[1].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<TreeNodeLVal> > ()->ArrayExpList=yystack_[0].value.as< std::shared_ptr<TreeNodeArrayExpList> > ()->list;
 	//std::cout<<"LVal:T_IDENTIFIER ParamArrayExpList"<<std::endl;
     }
-#line 3270 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3247 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 65:
-#line 620 "Sysy_parser.y" // lalr1.cc:906
+  case 63:
+#line 628 "Sysy_parser.y" // lalr1.cc:906
     {
 	yystack_[3].value.as< std::shared_ptr<TreeNodeArrayExpList> > ()->list.emplace_back(std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ()));
     yylhs.value.as< std::shared_ptr<TreeNodeArrayExpList> > ()=std::move(yystack_[3].value.as< std::shared_ptr<TreeNodeArrayExpList> > ());
 	}
-#line 3279 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3256 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 66:
-#line 624 "Sysy_parser.y" // lalr1.cc:906
+  case 64:
+#line 632 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodeArrayExpList> > ()=std::make_shared<TreeNodeArrayExpList>();
   	}
-#line 3287 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3264 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 67:
-#line 629 "Sysy_parser.y" // lalr1.cc:906
+  case 65:
+#line 637 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=std::move(yystack_[1].value.as< std::shared_ptr<TreeNodeExp> > ());
@@ -3295,11 +3272,11 @@ namespace yy {
     yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=nullptr;
 	//std::cout<<"PrimaryExp:(Exp)"<<std::endl;
     }
-#line 3299 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3276 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 68:
-#line 636 "Sysy_parser.y" // lalr1.cc:906
+  case 66:
+#line 644 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=nullptr;
@@ -3307,11 +3284,11 @@ namespace yy {
     yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=nullptr;
     //std::cout<<"PrimaryExp：LVal"<<std::endl;
 	}
-#line 3311 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3288 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 69:
-#line 643 "Sysy_parser.y" // lalr1.cc:906
+  case 67:
+#line 651 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()=std::make_shared<TreeNodePrimaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Exp=nullptr;
@@ -3319,21 +3296,21 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodePrimaryExp> > ()->Number=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeNumber> > ());
     //std::cout<<"PrimaryExp：Number"<<std::endl;
 	}
-#line 3323 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3300 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 70:
-#line 652 "Sysy_parser.y" // lalr1.cc:906
+  case 68:
+#line 660 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeNumber> > ()=std::make_shared<TreeNodeNumber>();
 	yylhs.value.as< std::shared_ptr<TreeNodeNumber> > ()->num=yystack_[0].value.as< int > ();
     //std::cout<<"Numbers"<<std::endl;
 	}
-#line 3333 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3310 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 71:
-#line 660 "Sysy_parser.y" // lalr1.cc:906
+  case 69:
+#line 668 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=OP_POS;
@@ -3342,11 +3319,11 @@ namespace yy {
     yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=nullptr;
 	//std::cout<<"UnaryExp:PrimaryExp"<<std::endl;
     }
-#line 3346 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3323 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 72:
-#line 668 "Sysy_parser.y" // lalr1.cc:906
+  case 70:
+#line 676 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=OP_POS;
@@ -3355,11 +3332,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=nullptr;
 	//std::cout<<"UnaryExp:Callee"<<std::endl;
     }
-#line 3359 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3336 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 73:
-#line 676 "Sysy_parser.y" // lalr1.cc:906
+  case 71:
+#line 684 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()=std::make_shared<TreeNodeUnaryExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->op=yystack_[1].value.as< unaryop > ();
@@ -3368,87 +3345,87 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeUnaryExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
     //std::cout<<"UnaryExp:UnaryOp UnaryExp "<<std::endl;
 	}
-#line 3372 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3349 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 74:
-#line 686 "Sysy_parser.y" // lalr1.cc:906
+  case 72:
+#line 694 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()=std::make_shared<TreeNodeCallee>();
 	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->id=yystack_[2].value.as< std::string > ();
     }
-#line 3381 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3358 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 75:
-#line 690 "Sysy_parser.y" // lalr1.cc:906
+  case 73:
+#line 698 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()=std::make_shared<TreeNodeCallee>();
 	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->id=yystack_[3].value.as< std::string > ();
 	yylhs.value.as< std::shared_ptr<TreeNodeCallee> > ()->ExpList=yystack_[1].value.as< std::shared_ptr<TreeNodeExpList> > ()->list;
 	}
-#line 3391 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3368 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 76:
-#line 698 "Sysy_parser.y" // lalr1.cc:906
+  case 74:
+#line 706 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< unaryop > ()=OP_POS;
 	//std::cout<<"+"<<std::endl;
     }
-#line 3400 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3377 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 77:
-#line 702 "Sysy_parser.y" // lalr1.cc:906
+  case 75:
+#line 710 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< unaryop > ()=OP_NEG;
     //std::cout<<"-"<<std::endl;
 	}
-#line 3409 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3386 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 78:
-#line 706 "Sysy_parser.y" // lalr1.cc:906
+  case 76:
+#line 714 "Sysy_parser.y" // lalr1.cc:906
     {
     yylhs.value.as< unaryop > ()=OP_NOT;
     //std::cout<<"！"<<std::endl;
 	}
-#line 3418 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3395 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 79:
-#line 711 "Sysy_parser.y" // lalr1.cc:906
+  case 77:
+#line 719 "Sysy_parser.y" // lalr1.cc:906
     {
     yystack_[2].value.as< std::shared_ptr<TreeNodeExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeExp> > ()));
     yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeExpList> > ());
     //std::cout<<"FuncRParams :Exp,Exp"<<std::endl;
 	}
-#line 3428 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3405 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 80:
-#line 716 "Sysy_parser.y" // lalr1.cc:906
+  case 78:
+#line 724 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()=std::make_shared<TreeNodeExpList>();
 	yylhs.value.as< std::shared_ptr<TreeNodeExpList> > ()->list.emplace_back(std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeExp> > ()));
     //std::cout<<"FuncRParams : Exp "<<std::endl;
 	}
-#line 3438 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3415 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 81:
-#line 724 "Sysy_parser.y" // lalr1.cc:906
+  case 79:
+#line 732 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->UnaryExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeUnaryExp> > ());
 	//std::cout<<"MulExp : UnaryExp"<<std::endl;
     }
-#line 3448 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3425 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 82:
-#line 729 "Sysy_parser.y" // lalr1.cc:906
+  case 80:
+#line 737 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
@@ -3456,11 +3433,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_MUL;
 	//std::cout<<"MulExp : MulExp T_MUL UnaryExp"<<std::endl;
     }
-#line 3460 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3437 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 83:
-#line 736 "Sysy_parser.y" // lalr1.cc:906
+  case 81:
+#line 744 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
@@ -3468,11 +3445,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_DIV;
 	//std::cout<<"MulExp : MulExp T_DIV UnaryExp"<<std::endl;
     }
-#line 3472 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3449 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 84:
-#line 743 "Sysy_parser.y" // lalr1.cc:906
+  case 82:
+#line 751 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()=std::make_shared<TreeNodeMulExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->MulExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeMulExp> > ());
@@ -3480,21 +3457,21 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeMulExp> > ()->op=OP_MOD;
 	//std::cout<<"MulExp :MulExp T_MOD UnaryExp"<<std::endl;
     }
-#line 3484 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3461 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 85:
-#line 752 "Sysy_parser.y" // lalr1.cc:906
+  case 83:
+#line 760 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->MulExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeMulExp> > ());
     ////std::cout<<""<<std::endl;
 	}
-#line 3494 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3471 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 86:
-#line 757 "Sysy_parser.y" // lalr1.cc:906
+  case 84:
+#line 765 "Sysy_parser.y" // lalr1.cc:906
     {
    	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
    	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeAddExp> > ());
@@ -3502,11 +3479,11 @@ namespace yy {
    	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->op=OP_PLUS;
 	////std::cout<<""<<std::endl;
     }
-#line 3506 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3483 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 87:
-#line 764 "Sysy_parser.y" // lalr1.cc:906
+  case 85:
+#line 772 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()=std::make_shared<TreeNodeAddExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->AddExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeAddExp> > ());
@@ -3514,22 +3491,22 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeAddExp> > ()->op=OP_MINUS;
 	////std::cout<<""<<std::endl;
     }
-#line 3518 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3495 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 88:
-#line 773 "Sysy_parser.y" // lalr1.cc:906
+  case 86:
+#line 781 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=nullptr;
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"RelExp : AddExp	"<<std::endl;
     }
-#line 3529 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3506 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 89:
-#line 779 "Sysy_parser.y" // lalr1.cc:906
+  case 87:
+#line 787 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
@@ -3537,11 +3514,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_LT;
 	//std::cout<<"RelExp : RelExp T_LT AddExp	"<<std::endl;
     }
-#line 3541 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3518 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 90:
-#line 786 "Sysy_parser.y" // lalr1.cc:906
+  case 88:
+#line 794 "Sysy_parser.y" // lalr1.cc:906
     {
   	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
   	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
@@ -3549,11 +3526,11 @@ namespace yy {
   	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_GT;
 	//std::cout<<"RelExp : RelExp T_GT AddExp"<<std::endl;
     }
-#line 3553 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3530 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 91:
-#line 793 "Sysy_parser.y" // lalr1.cc:906
+  case 89:
+#line 801 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
@@ -3561,11 +3538,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_LTE;
 	//std::cout<<"RelExp : RelExp T_LTE AddExp"<<std::endl;
     }
-#line 3565 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3542 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 92:
-#line 800 "Sysy_parser.y" // lalr1.cc:906
+  case 90:
+#line 808 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()=std::make_shared<TreeNodeRelExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->RelExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeRelExp> > ());
@@ -3573,22 +3550,22 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeRelExp> > ()->op=OP_GTE;
 	//std::cout<<"RelExp : RelExp T_GTE AddExp"<<std::endl;
     }
-#line 3577 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3554 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 93:
-#line 809 "Sysy_parser.y" // lalr1.cc:906
+  case 91:
+#line 817 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=nullptr;
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->RelExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeRelExp> > ());
 	//std::cout<<"EqExp : RelExp"<<std::endl;
     }
-#line 3588 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3565 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 94:
-#line 815 "Sysy_parser.y" // lalr1.cc:906
+  case 92:
+#line 823 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeEqExp> > ());
@@ -3596,11 +3573,11 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->op=OP_EQ;
 	//std::cout<<"EqExp : EqExp T_EQ RelExp"<<std::endl;
     }
-#line 3600 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3577 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 95:
-#line 822 "Sysy_parser.y" // lalr1.cc:906
+  case 93:
+#line 830 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()=std::make_shared<TreeNodeEqExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->EqExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeEqExp> > ());
@@ -3608,22 +3585,22 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeEqExp> > ()->op=OP_NEQ;
 	//std::cout<<"EqExp : EqExp T_NEQ RelExp"<<std::endl;
     }
-#line 3612 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3589 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 96:
-#line 831 "Sysy_parser.y" // lalr1.cc:906
+  case 94:
+#line 839 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()=std::make_shared<TreeNodeLAndExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->LAndExp=nullptr;
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->EqExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeEqExp> > ());
 	//std::cout<<"LAndExp : EqExp"<<std::endl;
     }
-#line 3623 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3600 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 97:
-#line 837 "Sysy_parser.y" // lalr1.cc:906
+  case 95:
+#line 845 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()=std::make_shared<TreeNodeLAndExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->LAndExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeLAndExp> > ());
@@ -3631,22 +3608,22 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeLAndExp> > ()->op=OP_AND;
 	//std::cout<<"LAndExp : LAndExp T_AND EqExp"<<std::endl;
     }
-#line 3635 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3612 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 98:
-#line 846 "Sysy_parser.y" // lalr1.cc:906
+  case 96:
+#line 854 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()=std::make_shared<TreeNodeLOrExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LOrExp=nullptr;
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LAndExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeLAndExp> > ());
 	//std::cout<<"LOrExp : LAndExp"<<std::endl;
     }
-#line 3646 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3623 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 99:
-#line 852 "Sysy_parser.y" // lalr1.cc:906
+  case 97:
+#line 860 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()=std::make_shared<TreeNodeLOrExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->LOrExp=std::move(yystack_[2].value.as< std::shared_ptr<TreeNodeLOrExp> > ());
@@ -3654,37 +3631,37 @@ namespace yy {
 	yylhs.value.as< std::shared_ptr<TreeNodeLOrExp> > ()->op=OP_OR;
 	//std::cout<<"LOrExp : LOrExp T_OR LAndExp"<<std::endl;
     }
-#line 3658 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3635 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 100:
-#line 861 "Sysy_parser.y" // lalr1.cc:906
+  case 98:
+#line 869 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< std::shared_ptr<TreeNodeConstExp> > ()=std::make_shared<TreeNodeConstExp>();
 	yylhs.value.as< std::shared_ptr<TreeNodeConstExp> > ()->AddExp=std::move(yystack_[0].value.as< std::shared_ptr<TreeNodeAddExp> > ());
 	//std::cout<<"ConstExp : AddExp"<<std::endl;
     }
-#line 3668 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3645 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 101:
-#line 870 "Sysy_parser.y" // lalr1.cc:906
+  case 99:
+#line 878 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< type_specifier > ()=TYPE_VOID;
     }
-#line 3676 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3653 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
-  case 102:
-#line 874 "Sysy_parser.y" // lalr1.cc:906
+  case 100:
+#line 882 "Sysy_parser.y" // lalr1.cc:906
     {
 	yylhs.value.as< type_specifier > ()=TYPE_INT;
 	}
-#line 3684 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3661 "./front/sysy_parser.cc" // lalr1.cc:906
     break;
 
 
-#line 3688 "./front/sysy_parser.cc" // lalr1.cc:906
+#line 3665 "./front/sysy_parser.cc" // lalr1.cc:906
             default:
               break;
             }
@@ -3852,130 +3829,128 @@ namespace yy {
   }
 
 
-  const short sysy_parser::yypact_ninf_ = -143;
+  const signed char sysy_parser::yypact_ninf_ = -101;
 
   const signed char sysy_parser::yytable_ninf_ = -1;
 
   const short
   sysy_parser::yypact_[] =
   {
-     -15,  -143,  -143,    43,     7,  -143,  -143,  -143,  -143,   -22,
-      -3,  -143,  -143,  -143,    20,    78,  -143,  -143,    82,  -143,
-       5,    42,  -143,    34,    53,  -143,    -3,    -7,    28,  -143,
-      48,   142,   184,  -143,  -143,   161,  -143,  -143,  -143,    43,
-      -7,    38,  -143,  -143,   184,    49,    63,  -143,  -143,  -143,
-    -143,  -143,  -143,  -143,  -143,  -143,   184,    77,    99,    99,
-      72,   140,  -143,  -143,   112,  -143,  -143,   163,    90,  -143,
-    -143,    12,   181,    91,  -143,   184,   184,   184,   184,   184,
-    -143,  -143,  -143,    25,  -143,  -143,    95,    96,   111,   117,
-     132,  -143,  -143,  -143,  -143,  -143,  -143,  -143,  -143,  -143,
-    -143,  -143,   137,   139,    34,   123,   135,  -143,   142,  -143,
-    -143,  -143,    73,   184,  -143,  -143,  -143,    77,    77,   161,
-    -143,   184,  -143,   141,   184,  -143,  -143,  -143,   184,  -143,
-     149,   123,  -143,   184,  -143,   138,  -143,   155,    99,     8,
-      92,   120,   133,  -143,   157,   162,   184,   149,  -143,  -143,
-      21,   184,   184,   184,   184,   184,   184,   184,   184,    21,
-    -143,   156,   166,    99,    99,    99,    99,     8,     8,    92,
-     120,  -143,  -143,    21,  -143
+     -12,  -101,  -101,    63,     7,  -101,  -101,  -101,  -101,    -3,
+       6,  -101,  -101,  -101,     4,    82,  -101,  -101,    85,  -101,
+      -8,    41,  -101,    13,    53,  -101,     6,    25,    -9,  -101,
+      28,   137,   184,  -101,  -101,   165,  -101,  -101,  -101,    63,
+      25,    30,  -101,  -101,   184,     8,    48,  -101,  -101,  -101,
+    -101,  -101,  -101,  -101,  -101,  -101,   184,    87,   103,   103,
+      51,    19,  -101,  -101,   107,  -101,  -101,  -101,    49,    68,
+    -101,  -101,    12,   167,   104,  -101,   184,   184,   184,   184,
+     184,  -101,  -101,  -101,    34,  -101,  -101,   110,    66,   113,
+      89,   127,  -101,  -101,  -101,  -101,  -101,  -101,  -101,  -101,
+    -101,  -101,  -101,   132,   134,    13,   184,  -101,   137,  -101,
+    -101,  -101,    62,   184,  -101,  -101,  -101,    87,    87,   165,
+    -101,   184,  -101,   136,   184,  -101,  -101,  -101,   184,   129,
+    -101,   184,  -101,   133,  -101,   139,   103,    65,    96,   115,
+     119,  -101,   143,   160,  -101,  -101,  -101,   135,   184,   184,
+     184,   184,   184,   184,   184,   184,   135,  -101,   154,   103,
+     103,   103,   103,    65,    65,    96,   115,  -101,   135,  -101
   };
 
   const unsigned char
   sysy_parser::yydefact_[] =
   {
-       0,   102,   101,     0,     0,     2,     5,     6,     7,     0,
+       0,   100,    99,     0,     0,     2,     5,     6,     7,     0,
        0,     1,     4,     3,    13,     0,    20,    13,     0,    10,
        0,    22,    19,     0,     0,     8,     0,     0,     0,    31,
-       0,     0,     0,    13,    21,     0,     9,    41,    29,     0,
-       0,    33,    76,    77,     0,     0,    66,    70,    78,    23,
-      24,    68,    71,    69,    81,    72,     0,    85,    62,   100,
-       0,     0,    11,    14,     0,    32,    30,     0,     0,    25,
-      27,     0,     0,    64,    73,     0,     0,     0,     0,     0,
-      12,    15,    17,     0,    49,    39,     0,     0,     0,     0,
-       0,    42,    43,    50,    40,    44,    45,    46,    47,    51,
-      52,    53,     0,    68,     0,    34,     0,    67,     0,    26,
-      74,    80,     0,     0,    82,    83,    84,    86,    87,     0,
-      16,     0,    60,     0,     0,    54,    55,    48,     0,    37,
-      35,     0,    28,     0,    75,     0,    18,     0,    88,    93,
-      96,    98,    63,    61,     0,     0,     0,    36,    79,    65,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-      56,     0,    57,    89,    91,    90,    92,    94,    95,    97,
-      99,    59,    38,     0,    58
+       0,     0,     0,    13,    21,     0,     9,    39,    29,     0,
+       0,    33,    74,    75,     0,     0,    64,    68,    76,    23,
+      24,    66,    69,    67,    79,    70,     0,    83,    60,    98,
+       0,     0,    11,    14,     0,    32,    30,    36,    34,     0,
+      25,    27,     0,     0,    62,    71,     0,     0,     0,     0,
+       0,    12,    15,    17,     0,    47,    37,     0,     0,     0,
+       0,     0,    40,    41,    48,    38,    42,    43,    44,    45,
+      49,    50,    51,     0,    66,     0,     0,    65,     0,    26,
+      72,    78,     0,     0,    80,    81,    82,    84,    85,     0,
+      16,     0,    58,     0,     0,    52,    53,    46,     0,     0,
+      28,     0,    73,     0,    18,     0,    86,    91,    94,    96,
+      61,    59,     0,     0,    35,    77,    63,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,    54,    55,    87,
+      89,    88,    90,    92,    93,    95,    97,    57,     0,    56
   };
 
   const short
   sysy_parser::yypgoto_[] =
   {
-    -143,  -143,   192,   124,  -143,   171,   182,   -55,  -143,   134,
-    -143,   183,   -41,  -143,  -143,  -143,   168,    74,   -16,  -143,
-    -143,  -142,  -143,  -143,  -143,  -143,  -143,  -143,   -30,    84,
-     -62,  -143,  -143,  -143,     0,  -143,  -143,  -143,    30,   -32,
-     -23,    52,    56,  -143,   178,     2
+    -101,  -101,   176,   117,  -101,   156,   166,   -55,  -101,   121,
+    -101,   168,   -43,  -101,  -101,  -101,   153,  -101,   -19,  -101,
+    -101,  -100,  -101,  -101,  -101,  -101,  -101,  -101,   -27,    69,
+     -63,  -101,  -101,  -101,   -23,  -101,  -101,  -101,    35,   -32,
+     -25,    40,    45,  -101,   163,     2
   };
 
   const short
   sysy_parser::yydefgoto_[] =
   {
-      -1,     4,     5,     6,    18,    19,    21,    62,    83,     7,
-      15,    16,    49,    71,     8,    28,    29,   130,    93,    64,
-      94,    95,    96,    97,    98,    99,   100,   101,   102,   137,
-      51,    73,    52,    53,    54,    55,    56,   112,    57,    58,
-     139,   140,   141,   142,    63,     9
+      -1,     4,     5,     6,    18,    19,    21,    62,    84,     7,
+      15,    16,    49,    72,     8,    28,    29,    68,    94,    64,
+      95,    96,    97,    98,    99,   100,   101,   102,   103,   135,
+      51,    74,    52,    53,    54,    55,    56,   112,    57,    58,
+     137,   138,   139,   140,    63,     9
   };
 
   const unsigned char
   sysy_parser::yytable_[] =
   {
-      59,    50,   103,    59,    70,    10,    82,    11,   162,    14,
-      12,    38,     1,     2,    68,    50,    37,   171,   151,   152,
-     153,   154,    30,     3,    66,    27,    42,    43,    17,    59,
-     108,   174,     1,     2,     1,     2,   109,   106,    84,    20,
-      44,    30,   111,   119,    37,     3,    39,    86,    40,   120,
-      87,    88,    46,    47,    42,    43,    74,   123,    31,    67,
-      89,    90,    48,    32,   136,    33,   104,   132,    44,    35,
-       1,     2,    45,    69,    32,   114,   115,   116,    50,    41,
-      46,    47,    72,   135,    75,    76,    77,    59,   103,   138,
-      48,   133,   138,   134,    80,    22,    23,   103,   145,    25,
-      26,    42,    43,   148,    78,    79,   155,   156,   117,   118,
-     107,   103,   113,   122,   121,    44,   161,    42,    43,   163,
-     164,   165,   166,   138,   138,   138,   138,    46,    47,    84,
-     124,    44,   167,   168,   125,    37,    85,    48,    86,     1,
-       2,    87,    88,    46,    47,    42,    43,    42,    43,   126,
-       3,    89,    90,    48,   127,   128,   129,   131,   143,    44,
-     149,    44,   157,    61,    81,    45,    42,    43,    42,    43,
-     146,    46,    47,    46,    47,   150,   158,   159,   172,   160,
-      44,    48,    44,    48,    61,   105,    42,    43,    91,    42,
-      43,   173,    46,    47,    46,    47,    13,    36,    92,    24,
-      44,   110,    48,    44,    48,   147,    34,    65,   144,   169,
-      60,     0,    46,    47,   170,    46,    47,     0,     0,     0,
-       0,     0,    48,     0,     0,    48
+      59,   104,    71,    59,    50,    10,    83,    11,    38,    39,
+      12,    40,    27,    42,    43,     1,     2,    69,    50,     1,
+       2,    66,    30,    20,    42,    43,     3,    44,    14,    59,
+     108,    45,    70,    75,     1,     2,   109,    17,    44,    46,
+      47,    30,    61,    82,    33,     3,   111,   158,    37,    48,
+      46,    47,   119,   114,   115,   116,   167,    31,   120,    41,
+      48,   123,    32,    67,   134,   130,   105,    73,   169,    35,
+     106,    42,    43,    81,    32,   148,   149,   150,   151,   129,
+     131,    50,   132,   122,   104,    44,   133,    59,   107,   136,
+       1,     2,   136,   104,    76,    77,    78,    46,    47,    22,
+      23,   143,    25,    26,   145,   104,   125,    48,    79,    80,
+     152,   153,    42,    43,   117,   118,   159,   160,   161,   162,
+     136,   136,   136,   136,    85,   113,    44,   163,   164,   121,
+      37,    86,   124,    87,     1,     2,    88,    89,    46,    47,
+      42,    43,    42,    43,   126,     3,    90,    91,    48,   127,
+     128,   144,    85,   141,    44,   146,    44,   154,    37,   147,
+      45,    87,   155,   156,    88,    89,    46,    47,    46,    47,
+      42,    43,    42,    43,    90,    91,    48,   157,    48,   168,
+      13,    92,    36,    24,    44,    93,    44,   110,    61,    42,
+      43,    34,    65,   142,   165,    60,    46,    47,    46,    47,
+     166,     0,     0,    44,     0,     0,    48,     0,    48,     0,
+       0,     0,     0,     0,     0,    46,    47,     0,     0,     0,
+       0,     0,     0,     0,     0,    48
   };
 
   const short
   sysy_parser::yycheck_[] =
   {
-      32,    31,    64,    35,    45,     3,    61,     0,   150,    31,
-       3,    27,    27,    28,    44,    45,    23,   159,    10,    11,
-      12,    13,    20,    38,    40,    20,     5,     6,    31,    61,
-      18,   173,    27,    28,    27,    28,    24,    67,    17,    19,
-      19,    39,    72,    18,    23,    38,    18,    26,    20,    24,
-      29,    30,    31,    32,     5,     6,    56,    87,    16,    21,
-      39,    40,    41,    21,   119,    31,    64,   108,    19,    16,
-      27,    28,    23,    24,    21,    75,    76,    77,   108,    31,
-      31,    32,    19,   113,     7,     8,     9,   119,   150,   121,
-      41,    18,   124,    20,    22,    17,    18,   159,   128,    17,
-      18,     5,     6,   133,     5,     6,    14,    15,    78,    79,
-      20,   173,    21,    17,    19,    19,   146,     5,     6,   151,
-     152,   153,   154,   155,   156,   157,   158,    31,    32,    17,
-      19,    19,   155,   156,    17,    23,    24,    41,    26,    27,
-      28,    29,    30,    31,    32,     5,     6,     5,     6,    17,
-      38,    39,    40,    41,    17,    16,    33,    22,    17,    19,
-      22,    19,    42,    23,    24,    23,     5,     6,     5,     6,
-      21,    31,    32,    31,    32,    20,    43,    20,    22,    17,
-      19,    41,    19,    41,    23,    22,     5,     6,    64,     5,
-       6,    25,    31,    32,    31,    32,     4,    26,    64,    17,
-      19,    20,    41,    19,    41,   131,    23,    39,   124,   157,
-      32,    -1,    31,    32,   158,    31,    32,    -1,    -1,    -1,
-      -1,    -1,    41,    -1,    -1,    41
+      32,    64,    45,    35,    31,     3,    61,     0,    27,    18,
+       3,    20,    20,     5,     6,    27,    28,    44,    45,    27,
+      28,    40,    20,    19,     5,     6,    38,    19,    31,    61,
+      18,    23,    24,    56,    27,    28,    24,    31,    19,    31,
+      32,    39,    23,    24,    31,    38,    73,   147,    23,    41,
+      31,    32,    18,    76,    77,    78,   156,    16,    24,    31,
+      41,    88,    21,    33,   119,   108,    64,    19,   168,    16,
+      21,     5,     6,    22,    21,    10,    11,    12,    13,   106,
+      18,   108,    20,    17,   147,    19,   113,   119,    20,   121,
+      27,    28,   124,   156,     7,     8,     9,    31,    32,    17,
+      18,   128,    17,    18,   131,   168,    17,    41,     5,     6,
+      14,    15,     5,     6,    79,    80,   148,   149,   150,   151,
+     152,   153,   154,   155,    17,    21,    19,   152,   153,    19,
+      23,    24,    19,    26,    27,    28,    29,    30,    31,    32,
+       5,     6,     5,     6,    17,    38,    39,    40,    41,    17,
+      16,    22,    17,    17,    19,    22,    19,    42,    23,    20,
+      23,    26,    43,    20,    29,    30,    31,    32,    31,    32,
+       5,     6,     5,     6,    39,    40,    41,    17,    41,    25,
+       4,    64,    26,    17,    19,    64,    19,    20,    23,     5,
+       6,    23,    39,   124,   154,    32,    31,    32,    31,    32,
+     155,    -1,    -1,    19,    -1,    -1,    41,    -1,    41,    -1,
+      -1,    -1,    -1,    -1,    -1,    31,    32,    -1,    -1,    -1,
+      -1,    -1,    -1,    -1,    -1,    41
   };
 
   const unsigned char
@@ -3987,18 +3962,17 @@ namespace yy {
       89,    16,    21,    31,    55,    16,    49,    23,    62,    18,
       20,    31,     5,     6,    19,    23,    31,    32,    41,    56,
       72,    74,    76,    77,    78,    79,    80,    82,    83,    83,
-      88,    23,    51,    88,    63,    60,    62,    21,    72,    24,
-      56,    57,    19,    75,    78,     7,     8,     9,     5,     6,
-      22,    24,    51,    52,    17,    24,    26,    29,    30,    39,
-      40,    47,    53,    62,    64,    65,    66,    67,    68,    69,
-      70,    71,    72,    74,    89,    22,    72,    20,    18,    24,
+      88,    23,    51,    88,    63,    60,    62,    33,    61,    72,
+      24,    56,    57,    19,    75,    78,     7,     8,     9,     5,
+       6,    22,    24,    51,    52,    17,    24,    26,    29,    30,
+      39,    40,    47,    53,    62,    64,    65,    66,    67,    68,
+      69,    70,    71,    72,    74,    89,    21,    20,    18,    24,
       20,    72,    81,    21,    78,    78,    78,    82,    82,    18,
-      24,    19,    17,    72,    19,    17,    17,    17,    16,    33,
-      61,    22,    56,    18,    20,    72,    51,    73,    83,    84,
-      85,    86,    87,    17,    73,    72,    21,    61,    72,    22,
-      20,    10,    11,    12,    13,    14,    15,    42,    43,    20,
-      17,    72,    65,    83,    83,    83,    83,    84,    84,    85,
-      86,    65,    22,    25,    65
+      24,    19,    17,    72,    19,    17,    17,    17,    16,    72,
+      56,    18,    20,    72,    51,    73,    83,    84,    85,    86,
+      87,    17,    73,    72,    22,    72,    22,    20,    10,    11,
+      12,    13,    14,    15,    42,    43,    20,    17,    65,    83,
+      83,    83,    83,    84,    84,    85,    86,    65,    25,    65
   };
 
   const unsigned char
@@ -4007,14 +3981,14 @@ namespace yy {
        0,    44,    45,    45,    45,    46,    46,    46,    47,    48,
       48,    49,    50,    50,    51,    51,    51,    52,    52,    53,
       54,    54,    55,    55,    56,    56,    56,    57,    57,    58,
-      58,    59,    59,    60,    60,    60,    60,    61,    61,    62,
-      63,    63,    64,    64,    64,    65,    65,    65,    65,    65,
-      65,    65,    65,    65,    66,    67,    68,    69,    69,    70,
-      71,    71,    72,    73,    74,    75,    75,    76,    76,    76,
-      77,    78,    78,    78,    79,    79,    80,    80,    80,    81,
-      81,    82,    82,    82,    82,    83,    83,    83,    84,    84,
-      84,    84,    84,    85,    85,    85,    86,    86,    87,    87,
-      88,    89,    89
+      58,    59,    59,    60,    60,    61,    61,    62,    63,    63,
+      64,    64,    64,    65,    65,    65,    65,    65,    65,    65,
+      65,    65,    66,    67,    68,    69,    69,    70,    71,    71,
+      72,    73,    74,    75,    75,    76,    76,    76,    77,    78,
+      78,    78,    79,    79,    80,    80,    80,    81,    81,    82,
+      82,    82,    82,    83,    83,    83,    84,    84,    84,    84,
+      84,    85,    85,    85,    86,    86,    87,    87,    88,    89,
+      89
   };
 
   const unsigned char
@@ -4023,14 +3997,14 @@ namespace yy {
        0,     2,     1,     2,     2,     1,     1,     1,     4,     3,
        1,     4,     4,     0,     1,     2,     3,     1,     3,     3,
        1,     3,     2,     4,     1,     2,     3,     1,     3,     5,
-       6,     1,     3,     2,     4,     5,     6,     1,     4,     3,
-       2,     0,     1,     1,     1,     1,     1,     1,     2,     1,
-       1,     1,     1,     1,     2,     2,     4,     5,     7,     5,
-       2,     3,     1,     1,     2,     4,     0,     3,     1,     1,
-       1,     1,     1,     2,     3,     4,     1,     1,     1,     3,
-       1,     1,     3,     3,     3,     1,     3,     3,     1,     3,
-       3,     3,     3,     1,     3,     3,     1,     3,     1,     3,
-       1,     1,     1
+       6,     1,     3,     2,     3,     4,     1,     3,     2,     0,
+       1,     1,     1,     1,     1,     1,     2,     1,     1,     1,
+       1,     1,     2,     2,     4,     5,     7,     5,     2,     3,
+       1,     1,     2,     4,     0,     3,     1,     1,     1,     1,
+       1,     2,     3,     4,     1,     1,     1,     3,     1,     1,
+       3,     3,     3,     1,     3,     3,     1,     3,     3,     3,
+       3,     1,     3,     3,     1,     3,     1,     3,     1,     1,
+       1
   };
 
 
@@ -4065,14 +4039,14 @@ namespace yy {
        0,   135,   135,   143,   150,   157,   164,   171,   180,   188,
      193,   200,   214,   219,   224,   228,   233,   241,   245,   253,
      262,   267,   274,   282,   291,   296,   301,   310,   315,   323,
-     331,   343,   347,   368,   373,   379,   386,   395,   399,   407,
-     413,   418,   423,   431,   438,   446,   458,   470,   482,   494,
-     505,   517,   529,   541,   555,   559,   563,   570,   575,   583,
-     589,   593,   599,   606,   613,   620,   624,   629,   636,   643,
-     652,   660,   668,   676,   686,   690,   698,   702,   706,   711,
-     716,   724,   729,   736,   743,   752,   757,   764,   773,   779,
-     786,   793,   800,   809,   815,   822,   831,   837,   846,   852,
-     861,   869,   873
+     331,   343,   347,   368,   373,   402,   408,   415,   421,   426,
+     431,   439,   446,   454,   466,   478,   490,   502,   513,   525,
+     537,   549,   563,   567,   571,   578,   583,   591,   597,   601,
+     607,   614,   621,   628,   632,   637,   644,   651,   660,   668,
+     676,   684,   694,   698,   706,   710,   714,   719,   724,   732,
+     737,   744,   751,   760,   765,   772,   781,   787,   794,   801,
+     808,   817,   823,   830,   839,   845,   854,   860,   869,   877,
+     881
   };
 
   // Print the state stack on the debug stream.
@@ -4156,8 +4130,8 @@ namespace yy {
 
 
 } // yy
-#line 4160 "./front/sysy_parser.cc" // lalr1.cc:1217
-#line 878 "Sysy_parser.y" // lalr1.cc:1218
+#line 4134 "./front/sysy_parser.cc" // lalr1.cc:1217
+#line 886 "Sysy_parser.y" // lalr1.cc:1218
 
 
 void yy::sysy_parser::error (const location_type& l, const std::string& m){

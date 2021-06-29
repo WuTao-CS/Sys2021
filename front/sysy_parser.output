@@ -7,7 +7,7 @@ Terminals unused in grammar
    T_BLANK
 
 
-State 162 conflicts: 1 shift/reduce
+State 158 conflicts: 1 shift/reduce
 
 
 Grammar
@@ -61,104 +61,102 @@ Grammar
    31            | FuncFParams T_COMMA FuncFParam
 
    32 FuncFParam: FuncType T_IDENTIFIER
-   33           | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET
-   34           | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET ParamArrayExpList
-   35           | FuncType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET ParamArrayExpList
+   33           | FuncType T_IDENTIFIER ParamArrayExpList
 
-   36 ParamArrayExpList: T_ARRAY
-   37                  | ParamArrayExpList T_LBRACKET Exp T_RBRACKET
+   34 ParamArrayExpList: ParamArrayExpList T_LBRACKET Exp T_RBRACKET
+   35                  | T_ARRAY
 
-   38 Block: T_LBRACE BlockItemList T_RBRACE
+   36 Block: T_LBRACE BlockItemList T_RBRACE
 
-   39 BlockItemList: BlockItemList BlockItem
-   40              | %empty
+   37 BlockItemList: BlockItemList BlockItem
+   38              | %empty
 
-   41 BlockItem: ConstDecl
-   42          | VarDecl
-   43          | Stmt
+   39 BlockItem: ConstDecl
+   40          | VarDecl
+   41          | Stmt
 
-   44 Stmt: BreakStmt
-   45     | ContinueStmt
-   46     | AssignStmt
-   47     | Exp T_SEMICOLIN
-   48     | T_SEMICOLIN
-   49     | Block
-   50     | SelectStmt
-   51     | IterationStmt
-   52     | ReturnStmt
+   42 Stmt: BreakStmt
+   43     | ContinueStmt
+   44     | AssignStmt
+   45     | Exp T_SEMICOLIN
+   46     | T_SEMICOLIN
+   47     | Block
+   48     | SelectStmt
+   49     | IterationStmt
+   50     | ReturnStmt
 
-   53 BreakStmt: T_BREAK T_SEMICOLIN
+   51 BreakStmt: T_BREAK T_SEMICOLIN
 
-   54 ContinueStmt: T_CONTINUE T_SEMICOLIN
+   52 ContinueStmt: T_CONTINUE T_SEMICOLIN
 
-   55 AssignStmt: LVal T_ASSIGN Exp T_SEMICOLIN
+   53 AssignStmt: LVal T_ASSIGN Exp T_SEMICOLIN
 
-   56 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt
-   57           | T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt
+   54 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt
+   55           | T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt
 
-   58 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE Stmt
+   56 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE Stmt
 
-   59 ReturnStmt: T_RETURN T_SEMICOLIN
-   60           | T_RETURN Exp T_SEMICOLIN
+   57 ReturnStmt: T_RETURN T_SEMICOLIN
+   58           | T_RETURN Exp T_SEMICOLIN
 
-   61 Exp: AddExp
+   59 Exp: AddExp
 
-   62 Cond: LOrExp
+   60 Cond: LOrExp
 
-   63 LVal: T_IDENTIFIER ArrayExpList
+   61 LVal: T_IDENTIFIER ArrayExpList
 
-   64 ArrayExpList: ArrayExpList T_LBRACKET Exp T_RBRACKET
-   65             | %empty
+   62 ArrayExpList: ArrayExpList T_LBRACKET Exp T_RBRACKET
+   63             | %empty
 
-   66 PrimaryExp: T_LPARENTHESE Exp T_RPARENTHESE
-   67           | LVal
-   68           | Number
+   64 PrimaryExp: T_LPARENTHESE Exp T_RPARENTHESE
+   65           | LVal
+   66           | Number
 
-   69 Number: T_NUMBER
+   67 Number: T_NUMBER
 
-   70 UnaryExp: PrimaryExp
-   71         | Callee
-   72         | UnaryOp UnaryExp
+   68 UnaryExp: PrimaryExp
+   69         | Callee
+   70         | UnaryOp UnaryExp
 
-   73 Callee: T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE
-   74       | T_IDENTIFIER T_LPARENTHESE FuncRParams T_RPARENTHESE
+   71 Callee: T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE
+   72       | T_IDENTIFIER T_LPARENTHESE FuncRParams T_RPARENTHESE
 
-   75 UnaryOp: T_ADD
-   76        | T_SUB
-   77        | T_NOT
+   73 UnaryOp: T_ADD
+   74        | T_SUB
+   75        | T_NOT
 
-   78 FuncRParams: FuncRParams T_COMMA Exp
-   79            | Exp
+   76 FuncRParams: FuncRParams T_COMMA Exp
+   77            | Exp
 
-   80 MulExp: UnaryExp
-   81       | MulExp T_MUL UnaryExp
-   82       | MulExp T_DIV UnaryExp
-   83       | MulExp T_MOD UnaryExp
+   78 MulExp: UnaryExp
+   79       | MulExp T_MUL UnaryExp
+   80       | MulExp T_DIV UnaryExp
+   81       | MulExp T_MOD UnaryExp
 
-   84 AddExp: MulExp
-   85       | AddExp T_ADD MulExp
-   86       | AddExp T_SUB MulExp
+   82 AddExp: MulExp
+   83       | AddExp T_ADD MulExp
+   84       | AddExp T_SUB MulExp
 
-   87 RelExp: AddExp
-   88       | RelExp T_LT AddExp
-   89       | RelExp T_GT AddExp
-   90       | RelExp T_LTE AddExp
-   91       | RelExp T_GTE AddExp
+   85 RelExp: AddExp
+   86       | RelExp T_LT AddExp
+   87       | RelExp T_GT AddExp
+   88       | RelExp T_LTE AddExp
+   89       | RelExp T_GTE AddExp
 
-   92 EqExp: RelExp
-   93      | EqExp T_EQ RelExp
-   94      | EqExp T_NEQ RelExp
+   90 EqExp: RelExp
+   91      | EqExp T_EQ RelExp
+   92      | EqExp T_NEQ RelExp
 
-   95 LAndExp: EqExp
-   96        | LAndExp T_AND EqExp
+   93 LAndExp: EqExp
+   94        | LAndExp T_AND EqExp
 
-   97 LOrExp: LAndExp
-   98       | LOrExp T_OR LAndExp
+   95 LOrExp: LAndExp
+   96       | LOrExp T_OR LAndExp
 
-   99 ConstExp: AddExp
+   97 ConstExp: AddExp
 
-  100 FuncType: T_VOID
-  101         | T_INT
+   98 FuncType: T_VOID
+   99         | T_INT
 
 
 Terminals, with rules where they appear
@@ -167,45 +165,45 @@ $end (0) 0
 error (256)
 T_END (258) 3
 T_ERROR (259)
-T_ADD (260) 75 85
-T_SUB (261) 76 86
-T_MUL (262) 81
-T_DIV (263) 82
-T_MOD (264) 83
-T_LT (265) 88
-T_LTE (266) 90
-T_GT (267) 89
-T_GTE (268) 91
-T_EQ (269) 93
-T_NEQ (270) 94
-T_ASSIGN (271) 10 22 55
-T_SEMICOLIN (272) 7 18 47 48 53 54 55 59 60
-T_COMMA (273) 8 17 20 27 31 78
-T_LPARENTHESE (274) 28 29 56 57 58 66 73 74
-T_RPARENTHESE (275) 28 29 56 57 58 66 73 74
-T_LBRACKET (276) 11 33 34 35 37 64
-T_RBRACKET (277) 11 33 34 35 37 64
-T_LBRACE (278) 14 15 24 25 38
-T_RBRACE (279) 14 15 24 25 38
-T_ELSE (280) 57
-T_IF (281) 56 57
-T_INT (282) 101
-T_VOID (283) 100
-T_RETURN (284) 59 60
-T_WHILE (285) 58
-T_IDENTIFIER <std::string> (286) 10 21 22 28 29 32 33 34 35 63 73 74
-T_NUMBER <int> (287) 69
-T_ARRAY (288) 36
+T_ADD (260) 73 83
+T_SUB (261) 74 84
+T_MUL (262) 79
+T_DIV (263) 80
+T_MOD (264) 81
+T_LT (265) 86
+T_LTE (266) 88
+T_GT (267) 87
+T_GTE (268) 89
+T_EQ (269) 91
+T_NEQ (270) 92
+T_ASSIGN (271) 10 22 53
+T_SEMICOLIN (272) 7 18 45 46 51 52 53 57 58
+T_COMMA (273) 8 17 20 27 31 76
+T_LPARENTHESE (274) 28 29 54 55 56 64 71 72
+T_RPARENTHESE (275) 28 29 54 55 56 64 71 72
+T_LBRACKET (276) 11 34 62
+T_RBRACKET (277) 11 34 62
+T_LBRACE (278) 14 15 24 25 36
+T_RBRACE (279) 14 15 24 25 36
+T_ELSE (280) 55
+T_IF (281) 54 55
+T_INT (282) 99
+T_VOID (283) 98
+T_RETURN (284) 57 58
+T_WHILE (285) 56
+T_IDENTIFIER <std::string> (286) 10 21 22 28 29 32 33 61 71 72
+T_NUMBER <int> (287) 67
+T_ARRAY (288) 35
 T_LETTER (289)
 T_EOL (290)
 T_COMMENT (291)
 T_BLANK (292)
 T_CONST (293) 7
-T_BREAK (294) 53
-T_CONTINUE (295) 54
-T_NOT (296) 77
-T_AND (297) 96
-T_OR (298) 98
+T_BREAK (294) 51
+T_CONTINUE (295) 52
+T_NOT (296) 75
+T_AND (297) 94
+T_OR (298) 96
 
 
 Nonterminals, with rules where they appear
@@ -217,7 +215,7 @@ CompUnit <std::shared_ptr<TreeNodeCompUnit>> (45)
 DeclDef <std::shared_ptr<TreeNodeDeclDef>> (46)
     on left: 4 5 6, on right: 1 2
 ConstDecl <std::shared_ptr<TreeNodeConstDecl>> (47)
-    on left: 7, on right: 4 41
+    on left: 7, on right: 4 39
 ConstDefList <std::shared_ptr<TreeNodeConstDefList>> (48)
     on left: 8 9, on right: 7 8
 ConstDef <std::shared_ptr<TreeNodeConstDef>> (49)
@@ -229,7 +227,7 @@ ConstInitVal <std::shared_ptr<TreeNodeConstInitVal>> (51)
 ConstInitValList <std::shared_ptr<TreeNodeConstInitValList>> (52)
     on left: 16 17, on right: 15 17
 VarDecl <std::shared_ptr<TreeNodeVarDecl>> (53)
-    on left: 18, on right: 5 42
+    on left: 18, on right: 5 40
 VarDefList <std::shared_ptr<TreeNodeVarDefList>> (54)
     on left: 19 20, on right: 18 20
 VarDef <std::shared_ptr<TreeNodeVarDef>> (55)
@@ -243,65 +241,65 @@ FuncDef <std::shared_ptr<TreeNodeFuncDef>> (58)
 FuncFParams <std::shared_ptr<TreeNodeFuncFParamList>> (59)
     on left: 30 31, on right: 29 31
 FuncFParam <std::shared_ptr<TreeNodeFuncFParam>> (60)
-    on left: 32 33 34 35, on right: 30 31
+    on left: 32 33, on right: 30 31
 ParamArrayExpList <std::shared_ptr<TreeNodeParamArrayExpList>> (61)
-    on left: 36 37, on right: 34 35 37
+    on left: 34 35, on right: 33 34
 Block <std::shared_ptr<TreeNodeBlock>> (62)
-    on left: 38, on right: 28 29 49
+    on left: 36, on right: 28 29 47
 BlockItemList <std::shared_ptr<TreeNodeBlockItemList>> (63)
-    on left: 39 40, on right: 38 39
+    on left: 37 38, on right: 36 37
 BlockItem <std::shared_ptr<TreeNodeBlockItem>> (64)
-    on left: 41 42 43, on right: 39
+    on left: 39 40 41, on right: 37
 Stmt <std::shared_ptr<TreeNodeStmt>> (65)
-    on left: 44 45 46 47 48 49 50 51 52, on right: 43 56 57 58
+    on left: 42 43 44 45 46 47 48 49 50, on right: 41 54 55 56
 BreakStmt <std::shared_ptr<TreeNodeBreakStmt>> (66)
-    on left: 53, on right: 44
+    on left: 51, on right: 42
 ContinueStmt <std::shared_ptr<TreeNodeContinueStmt>> (67)
-    on left: 54, on right: 45
+    on left: 52, on right: 43
 AssignStmt <std::shared_ptr<TreeNodeAssignStmt>> (68)
-    on left: 55, on right: 46
+    on left: 53, on right: 44
 SelectStmt <std::shared_ptr<TreeNodeSelectStmt>> (69)
-    on left: 56 57, on right: 50
+    on left: 54 55, on right: 48
 IterationStmt <std::shared_ptr<TreeNodeIterationStmt>> (70)
-    on left: 58, on right: 51
+    on left: 56, on right: 49
 ReturnStmt <std::shared_ptr<TreeNodeReturnStmt>> (71)
-    on left: 59 60, on right: 52
+    on left: 57 58, on right: 50
 Exp <std::shared_ptr<TreeNodeExp>> (72)
-    on left: 61, on right: 23 35 37 47 55 60 64 66 78 79
+    on left: 59, on right: 23 34 45 53 58 62 64 76 77
 Cond <std::shared_ptr<TreeNodeCond>> (73)
-    on left: 62, on right: 56 57 58
+    on left: 60, on right: 54 55 56
 LVal <std::shared_ptr<TreeNodeLVal>> (74)
-    on left: 63, on right: 55 67
+    on left: 61, on right: 53 65
 ArrayExpList <std::shared_ptr<TreeNodeArrayExpList>> (75)
-    on left: 64 65, on right: 63 64
+    on left: 62 63, on right: 61 62
 PrimaryExp <std::shared_ptr<TreeNodePrimaryExp>> (76)
-    on left: 66 67 68, on right: 70
+    on left: 64 65 66, on right: 68
 Number <std::shared_ptr<TreeNodeNumber>> (77)
-    on left: 69, on right: 68
+    on left: 67, on right: 66
 UnaryExp <std::shared_ptr<TreeNodeUnaryExp>> (78)
-    on left: 70 71 72, on right: 72 80 81 82 83
+    on left: 68 69 70, on right: 70 78 79 80 81
 Callee <std::shared_ptr<TreeNodeCallee>> (79)
-    on left: 73 74, on right: 71
+    on left: 71 72, on right: 69
 UnaryOp <unaryop> (80)
-    on left: 75 76 77, on right: 72
+    on left: 73 74 75, on right: 70
 FuncRParams <std::shared_ptr<TreeNodeExpList>> (81)
-    on left: 78 79, on right: 74 78
+    on left: 76 77, on right: 72 76
 MulExp <std::shared_ptr<TreeNodeMulExp>> (82)
-    on left: 80 81 82 83, on right: 81 82 83 84 85 86
+    on left: 78 79 80 81, on right: 79 80 81 82 83 84
 AddExp <std::shared_ptr<TreeNodeAddExp>> (83)
-    on left: 84 85 86, on right: 61 85 86 87 88 89 90 91 99
+    on left: 82 83 84, on right: 59 83 84 85 86 87 88 89 97
 RelExp <std::shared_ptr<TreeNodeRelExp>> (84)
-    on left: 87 88 89 90 91, on right: 88 89 90 91 92 93 94
+    on left: 85 86 87 88 89, on right: 86 87 88 89 90 91 92
 EqExp <std::shared_ptr<TreeNodeEqExp>> (85)
-    on left: 92 93 94, on right: 93 94 95 96
+    on left: 90 91 92, on right: 91 92 93 94
 LAndExp <std::shared_ptr<TreeNodeLAndExp>> (86)
-    on left: 95 96, on right: 96 97 98
+    on left: 93 94, on right: 94 95 96
 LOrExp <std::shared_ptr<TreeNodeLOrExp>> (87)
-    on left: 97 98, on right: 62 98
+    on left: 95 96, on right: 60 96
 ConstExp <std::shared_ptr<TreeNodeConstExp>> (88)
-    on left: 99, on right: 11 13
+    on left: 97, on right: 11 13
 FuncType <type_specifier> (89)
-    on left: 100 101, on right: 7 18 28 29 32 33 34 35
+    on left: 98 99, on right: 7 18 28 29 32 33
 
 
 State 0
@@ -322,16 +320,16 @@ State 0
 
 State 1
 
-  101 FuncType: T_INT .
+   99 FuncType: T_INT .
 
-    $default  reduce using rule 101 (FuncType)
+    $default  reduce using rule 99 (FuncType)
 
 
 State 2
 
-  100 FuncType: T_VOID .
+   98 FuncType: T_VOID .
 
-    $default  reduce using rule 100 (FuncType)
+    $default  reduce using rule 98 (FuncType)
 
 
 State 3
@@ -584,9 +582,7 @@ State 29
 State 30
 
    32 FuncFParam: FuncType . T_IDENTIFIER
-   33           | FuncType . T_IDENTIFIER T_LBRACKET T_RBRACKET
-   34           | FuncType . T_IDENTIFIER T_LBRACKET T_RBRACKET ParamArrayExpList
-   35           | FuncType . T_IDENTIFIER T_LBRACKET Exp T_RBRACKET ParamArrayExpList
+   33           | FuncType . T_IDENTIFIER ParamArrayExpList
 
     T_IDENTIFIER  shift, and go to state 41
 
@@ -687,9 +683,9 @@ State 36
 
 State 37
 
-   38 Block: T_LBRACE . BlockItemList T_RBRACE
+   36 Block: T_LBRACE . BlockItemList T_RBRACE
 
-    $default  reduce using rule 40 (BlockItemList)
+    $default  reduce using rule 38 (BlockItemList)
 
     BlockItemList  go to state 64
 
@@ -724,32 +720,32 @@ State 40
 State 41
 
    32 FuncFParam: FuncType T_IDENTIFIER .
-   33           | FuncType T_IDENTIFIER . T_LBRACKET T_RBRACKET
-   34           | FuncType T_IDENTIFIER . T_LBRACKET T_RBRACKET ParamArrayExpList
-   35           | FuncType T_IDENTIFIER . T_LBRACKET Exp T_RBRACKET ParamArrayExpList
+   33           | FuncType T_IDENTIFIER . ParamArrayExpList
 
-    T_LBRACKET  shift, and go to state 67
+    T_ARRAY  shift, and go to state 67
 
     $default  reduce using rule 32 (FuncFParam)
+
+    ParamArrayExpList  go to state 68
 
 
 State 42
 
-   75 UnaryOp: T_ADD .
+   73 UnaryOp: T_ADD .
 
-    $default  reduce using rule 75 (UnaryOp)
+    $default  reduce using rule 73 (UnaryOp)
 
 
 State 43
 
-   76 UnaryOp: T_SUB .
+   74 UnaryOp: T_SUB .
 
-    $default  reduce using rule 76 (UnaryOp)
+    $default  reduce using rule 74 (UnaryOp)
 
 
 State 44
 
-   66 PrimaryExp: T_LPARENTHESE . Exp T_RPARENTHESE
+   64 PrimaryExp: T_LPARENTHESE . Exp T_RPARENTHESE
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -758,7 +754,7 @@ State 44
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    Exp         go to state 68
+    Exp         go to state 69
     LVal        go to state 51
     PrimaryExp  go to state 52
     Number      go to state 53
@@ -778,13 +774,13 @@ State 45
     T_SUB          shift, and go to state 43
     T_LPARENTHESE  shift, and go to state 44
     T_LBRACE       shift, and go to state 45
-    T_RBRACE       shift, and go to state 69
+    T_RBRACE       shift, and go to state 70
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    InitVal      go to state 70
-    InitValList  go to state 71
+    InitVal      go to state 71
+    InitValList  go to state 72
     Exp          go to state 50
     LVal         go to state 51
     PrimaryExp   go to state 52
@@ -798,29 +794,29 @@ State 45
 
 State 46
 
-   63 LVal: T_IDENTIFIER . ArrayExpList
-   73 Callee: T_IDENTIFIER . T_LPARENTHESE T_RPARENTHESE
-   74       | T_IDENTIFIER . T_LPARENTHESE FuncRParams T_RPARENTHESE
+   61 LVal: T_IDENTIFIER . ArrayExpList
+   71 Callee: T_IDENTIFIER . T_LPARENTHESE T_RPARENTHESE
+   72       | T_IDENTIFIER . T_LPARENTHESE FuncRParams T_RPARENTHESE
 
-    T_LPARENTHESE  shift, and go to state 72
+    T_LPARENTHESE  shift, and go to state 73
 
-    $default  reduce using rule 65 (ArrayExpList)
+    $default  reduce using rule 63 (ArrayExpList)
 
-    ArrayExpList  go to state 73
+    ArrayExpList  go to state 74
 
 
 State 47
 
-   69 Number: T_NUMBER .
+   67 Number: T_NUMBER .
 
-    $default  reduce using rule 69 (Number)
+    $default  reduce using rule 67 (Number)
 
 
 State 48
 
-   77 UnaryOp: T_NOT .
+   75 UnaryOp: T_NOT .
 
-    $default  reduce using rule 77 (UnaryOp)
+    $default  reduce using rule 75 (UnaryOp)
 
 
 State 49
@@ -839,42 +835,42 @@ State 50
 
 State 51
 
-   67 PrimaryExp: LVal .
+   65 PrimaryExp: LVal .
 
-    $default  reduce using rule 67 (PrimaryExp)
+    $default  reduce using rule 65 (PrimaryExp)
 
 
 State 52
 
-   70 UnaryExp: PrimaryExp .
+   68 UnaryExp: PrimaryExp .
 
-    $default  reduce using rule 70 (UnaryExp)
+    $default  reduce using rule 68 (UnaryExp)
 
 
 State 53
 
-   68 PrimaryExp: Number .
+   66 PrimaryExp: Number .
 
-    $default  reduce using rule 68 (PrimaryExp)
+    $default  reduce using rule 66 (PrimaryExp)
 
 
 State 54
 
-   80 MulExp: UnaryExp .
+   78 MulExp: UnaryExp .
 
-    $default  reduce using rule 80 (MulExp)
+    $default  reduce using rule 78 (MulExp)
 
 
 State 55
 
-   71 UnaryExp: Callee .
+   69 UnaryExp: Callee .
 
-    $default  reduce using rule 71 (UnaryExp)
+    $default  reduce using rule 69 (UnaryExp)
 
 
 State 56
 
-   72 UnaryExp: UnaryOp . UnaryExp
+   70 UnaryExp: UnaryOp . UnaryExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -886,54 +882,54 @@ State 56
     LVal        go to state 51
     PrimaryExp  go to state 52
     Number      go to state 53
-    UnaryExp    go to state 74
+    UnaryExp    go to state 75
     Callee      go to state 55
     UnaryOp     go to state 56
 
 
 State 57
 
-   81 MulExp: MulExp . T_MUL UnaryExp
-   82       | MulExp . T_DIV UnaryExp
-   83       | MulExp . T_MOD UnaryExp
-   84 AddExp: MulExp .
+   79 MulExp: MulExp . T_MUL UnaryExp
+   80       | MulExp . T_DIV UnaryExp
+   81       | MulExp . T_MOD UnaryExp
+   82 AddExp: MulExp .
 
-    T_MUL  shift, and go to state 75
-    T_DIV  shift, and go to state 76
-    T_MOD  shift, and go to state 77
+    T_MUL  shift, and go to state 76
+    T_DIV  shift, and go to state 77
+    T_MOD  shift, and go to state 78
 
-    $default  reduce using rule 84 (AddExp)
+    $default  reduce using rule 82 (AddExp)
 
 
 State 58
 
-   61 Exp: AddExp .
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
+   59 Exp: AddExp .
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
-    $default  reduce using rule 61 (Exp)
+    $default  reduce using rule 59 (Exp)
 
 
 State 59
 
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   99 ConstExp: AddExp .
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   97 ConstExp: AddExp .
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
-    $default  reduce using rule 99 (ConstExp)
+    $default  reduce using rule 97 (ConstExp)
 
 
 State 60
 
    11 ArrayConstExpList: ArrayConstExpList T_LBRACKET ConstExp . T_RBRACKET
 
-    T_RBRACKET  shift, and go to state 80
+    T_RBRACKET  shift, and go to state 81
 
 
 State 61
@@ -945,13 +941,13 @@ State 61
     T_SUB          shift, and go to state 43
     T_LPARENTHESE  shift, and go to state 44
     T_LBRACE       shift, and go to state 61
-    T_RBRACE       shift, and go to state 81
+    T_RBRACE       shift, and go to state 82
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    ConstInitVal      go to state 82
-    ConstInitValList  go to state 83
+    ConstInitVal      go to state 83
+    ConstInitValList  go to state 84
     LVal              go to state 51
     PrimaryExp        go to state 52
     Number            go to state 53
@@ -979,40 +975,40 @@ State 63
 
 State 64
 
-   38 Block: T_LBRACE BlockItemList . T_RBRACE
-   39 BlockItemList: BlockItemList . BlockItem
+   36 Block: T_LBRACE BlockItemList . T_RBRACE
+   37 BlockItemList: BlockItemList . BlockItem
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
-    T_SEMICOLIN    shift, and go to state 84
+    T_SEMICOLIN    shift, and go to state 85
     T_LPARENTHESE  shift, and go to state 44
     T_LBRACE       shift, and go to state 37
-    T_RBRACE       shift, and go to state 85
-    T_IF           shift, and go to state 86
+    T_RBRACE       shift, and go to state 86
+    T_IF           shift, and go to state 87
     T_INT          shift, and go to state 1
     T_VOID         shift, and go to state 2
-    T_RETURN       shift, and go to state 87
-    T_WHILE        shift, and go to state 88
+    T_RETURN       shift, and go to state 88
+    T_WHILE        shift, and go to state 89
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
     T_CONST        shift, and go to state 3
-    T_BREAK        shift, and go to state 89
-    T_CONTINUE     shift, and go to state 90
+    T_BREAK        shift, and go to state 90
+    T_CONTINUE     shift, and go to state 91
     T_NOT          shift, and go to state 48
 
-    ConstDecl      go to state 91
-    VarDecl        go to state 92
-    Block          go to state 93
-    BlockItem      go to state 94
-    Stmt           go to state 95
-    BreakStmt      go to state 96
-    ContinueStmt   go to state 97
-    AssignStmt     go to state 98
-    SelectStmt     go to state 99
-    IterationStmt  go to state 100
-    ReturnStmt     go to state 101
-    Exp            go to state 102
-    LVal           go to state 103
+    ConstDecl      go to state 92
+    VarDecl        go to state 93
+    Block          go to state 94
+    BlockItem      go to state 95
+    Stmt           go to state 96
+    BreakStmt      go to state 97
+    ContinueStmt   go to state 98
+    AssignStmt     go to state 99
+    SelectStmt     go to state 100
+    IterationStmt  go to state 101
+    ReturnStmt     go to state 102
+    Exp            go to state 103
+    LVal           go to state 104
     PrimaryExp     go to state 52
     Number         go to state 53
     UnaryExp       go to state 54
@@ -1020,7 +1016,7 @@ State 64
     UnaryOp        go to state 56
     MulExp         go to state 57
     AddExp         go to state 58
-    FuncType       go to state 104
+    FuncType       go to state 105
 
 
 State 65
@@ -1039,51 +1035,43 @@ State 66
 
 State 67
 
-   33 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET . T_RBRACKET
-   34           | FuncType T_IDENTIFIER T_LBRACKET . T_RBRACKET ParamArrayExpList
-   35           | FuncType T_IDENTIFIER T_LBRACKET . Exp T_RBRACKET ParamArrayExpList
+   35 ParamArrayExpList: T_ARRAY .
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_LPARENTHESE  shift, and go to state 44
-    T_RBRACKET     shift, and go to state 105
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_NOT          shift, and go to state 48
-
-    Exp         go to state 106
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 58
+    $default  reduce using rule 35 (ParamArrayExpList)
 
 
 State 68
 
-   66 PrimaryExp: T_LPARENTHESE Exp . T_RPARENTHESE
+   33 FuncFParam: FuncType T_IDENTIFIER ParamArrayExpList .
+   34 ParamArrayExpList: ParamArrayExpList . T_LBRACKET Exp T_RBRACKET
+
+    T_LBRACKET  shift, and go to state 106
+
+    $default  reduce using rule 33 (FuncFParam)
+
+
+State 69
+
+   64 PrimaryExp: T_LPARENTHESE Exp . T_RPARENTHESE
 
     T_RPARENTHESE  shift, and go to state 107
 
 
-State 69
+State 70
 
    24 InitVal: T_LBRACE T_RBRACE .
 
     $default  reduce using rule 24 (InitVal)
 
 
-State 70
+State 71
 
    26 InitValList: InitVal .
 
     $default  reduce using rule 26 (InitValList)
 
 
-State 71
+State 72
 
    25 InitVal: T_LBRACE InitValList . T_RBRACE
    27 InitValList: InitValList . T_COMMA InitVal
@@ -1092,10 +1080,10 @@ State 71
     T_RBRACE  shift, and go to state 109
 
 
-State 72
+State 73
 
-   73 Callee: T_IDENTIFIER T_LPARENTHESE . T_RPARENTHESE
-   74       | T_IDENTIFIER T_LPARENTHESE . FuncRParams T_RPARENTHESE
+   71 Callee: T_IDENTIFIER T_LPARENTHESE . T_RPARENTHESE
+   72       | T_IDENTIFIER T_LPARENTHESE . FuncRParams T_RPARENTHESE
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1117,26 +1105,26 @@ State 72
     AddExp       go to state 58
 
 
-State 73
+State 74
 
-   63 LVal: T_IDENTIFIER ArrayExpList .
-   64 ArrayExpList: ArrayExpList . T_LBRACKET Exp T_RBRACKET
+   61 LVal: T_IDENTIFIER ArrayExpList .
+   62 ArrayExpList: ArrayExpList . T_LBRACKET Exp T_RBRACKET
 
     T_LBRACKET  shift, and go to state 113
 
-    $default  reduce using rule 63 (LVal)
-
-
-State 74
-
-   72 UnaryExp: UnaryOp UnaryExp .
-
-    $default  reduce using rule 72 (UnaryExp)
+    $default  reduce using rule 61 (LVal)
 
 
 State 75
 
-   81 MulExp: MulExp T_MUL . UnaryExp
+   70 UnaryExp: UnaryOp UnaryExp .
+
+    $default  reduce using rule 70 (UnaryExp)
+
+
+State 76
+
+   79 MulExp: MulExp T_MUL . UnaryExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1153,9 +1141,9 @@ State 75
     UnaryOp     go to state 56
 
 
-State 76
+State 77
 
-   82 MulExp: MulExp T_DIV . UnaryExp
+   80 MulExp: MulExp T_DIV . UnaryExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1172,9 +1160,9 @@ State 76
     UnaryOp     go to state 56
 
 
-State 77
+State 78
 
-   83 MulExp: MulExp T_MOD . UnaryExp
+   81 MulExp: MulExp T_MOD . UnaryExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1191,9 +1179,9 @@ State 77
     UnaryOp     go to state 56
 
 
-State 78
+State 79
 
-   85 AddExp: AddExp T_ADD . MulExp
+   83 AddExp: AddExp T_ADD . MulExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1211,9 +1199,9 @@ State 78
     MulExp      go to state 117
 
 
-State 79
+State 80
 
-   86 AddExp: AddExp T_SUB . MulExp
+   84 AddExp: AddExp T_SUB . MulExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1231,28 +1219,28 @@ State 79
     MulExp      go to state 118
 
 
-State 80
+State 81
 
    11 ArrayConstExpList: ArrayConstExpList T_LBRACKET ConstExp T_RBRACKET .
 
     $default  reduce using rule 11 (ArrayConstExpList)
 
 
-State 81
+State 82
 
    14 ConstInitVal: T_LBRACE T_RBRACE .
 
     $default  reduce using rule 14 (ConstInitVal)
 
 
-State 82
+State 83
 
    16 ConstInitValList: ConstInitVal .
 
     $default  reduce using rule 16 (ConstInitValList)
 
 
-State 83
+State 84
 
    15 ConstInitVal: T_LBRACE ConstInitValList . T_RBRACE
    17 ConstInitValList: ConstInitValList . T_COMMA ConstInitVal
@@ -1261,32 +1249,32 @@ State 83
     T_RBRACE  shift, and go to state 120
 
 
-State 84
-
-   48 Stmt: T_SEMICOLIN .
-
-    $default  reduce using rule 48 (Stmt)
-
-
 State 85
 
-   38 Block: T_LBRACE BlockItemList T_RBRACE .
+   46 Stmt: T_SEMICOLIN .
 
-    $default  reduce using rule 38 (Block)
+    $default  reduce using rule 46 (Stmt)
 
 
 State 86
 
-   56 SelectStmt: T_IF . T_LPARENTHESE Cond T_RPARENTHESE Stmt
-   57           | T_IF . T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt
+   36 Block: T_LBRACE BlockItemList T_RBRACE .
 
-    T_LPARENTHESE  shift, and go to state 121
+    $default  reduce using rule 36 (Block)
 
 
 State 87
 
-   59 ReturnStmt: T_RETURN . T_SEMICOLIN
-   60           | T_RETURN . Exp T_SEMICOLIN
+   54 SelectStmt: T_IF . T_LPARENTHESE Cond T_RPARENTHESE Stmt
+   55           | T_IF . T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt
+
+    T_LPARENTHESE  shift, and go to state 121
+
+
+State 88
+
+   57 ReturnStmt: T_RETURN . T_SEMICOLIN
+   58           | T_RETURN . Exp T_SEMICOLIN
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1307,122 +1295,122 @@ State 87
     AddExp      go to state 58
 
 
-State 88
+State 89
 
-   58 IterationStmt: T_WHILE . T_LPARENTHESE Cond T_RPARENTHESE Stmt
+   56 IterationStmt: T_WHILE . T_LPARENTHESE Cond T_RPARENTHESE Stmt
 
     T_LPARENTHESE  shift, and go to state 124
 
 
-State 89
+State 90
 
-   53 BreakStmt: T_BREAK . T_SEMICOLIN
+   51 BreakStmt: T_BREAK . T_SEMICOLIN
 
     T_SEMICOLIN  shift, and go to state 125
 
 
-State 90
+State 91
 
-   54 ContinueStmt: T_CONTINUE . T_SEMICOLIN
+   52 ContinueStmt: T_CONTINUE . T_SEMICOLIN
 
     T_SEMICOLIN  shift, and go to state 126
 
 
-State 91
-
-   41 BlockItem: ConstDecl .
-
-    $default  reduce using rule 41 (BlockItem)
-
-
 State 92
 
-   42 BlockItem: VarDecl .
+   39 BlockItem: ConstDecl .
 
-    $default  reduce using rule 42 (BlockItem)
+    $default  reduce using rule 39 (BlockItem)
 
 
 State 93
 
-   49 Stmt: Block .
+   40 BlockItem: VarDecl .
 
-    $default  reduce using rule 49 (Stmt)
+    $default  reduce using rule 40 (BlockItem)
 
 
 State 94
 
-   39 BlockItemList: BlockItemList BlockItem .
+   47 Stmt: Block .
 
-    $default  reduce using rule 39 (BlockItemList)
+    $default  reduce using rule 47 (Stmt)
 
 
 State 95
 
-   43 BlockItem: Stmt .
+   37 BlockItemList: BlockItemList BlockItem .
 
-    $default  reduce using rule 43 (BlockItem)
+    $default  reduce using rule 37 (BlockItemList)
 
 
 State 96
 
-   44 Stmt: BreakStmt .
+   41 BlockItem: Stmt .
 
-    $default  reduce using rule 44 (Stmt)
+    $default  reduce using rule 41 (BlockItem)
 
 
 State 97
 
-   45 Stmt: ContinueStmt .
+   42 Stmt: BreakStmt .
 
-    $default  reduce using rule 45 (Stmt)
+    $default  reduce using rule 42 (Stmt)
 
 
 State 98
 
-   46 Stmt: AssignStmt .
+   43 Stmt: ContinueStmt .
 
-    $default  reduce using rule 46 (Stmt)
+    $default  reduce using rule 43 (Stmt)
 
 
 State 99
 
-   50 Stmt: SelectStmt .
+   44 Stmt: AssignStmt .
 
-    $default  reduce using rule 50 (Stmt)
+    $default  reduce using rule 44 (Stmt)
 
 
 State 100
 
-   51 Stmt: IterationStmt .
+   48 Stmt: SelectStmt .
 
-    $default  reduce using rule 51 (Stmt)
+    $default  reduce using rule 48 (Stmt)
 
 
 State 101
 
-   52 Stmt: ReturnStmt .
+   49 Stmt: IterationStmt .
 
-    $default  reduce using rule 52 (Stmt)
+    $default  reduce using rule 49 (Stmt)
 
 
 State 102
 
-   47 Stmt: Exp . T_SEMICOLIN
+   50 Stmt: ReturnStmt .
 
-    T_SEMICOLIN  shift, and go to state 127
+    $default  reduce using rule 50 (Stmt)
 
 
 State 103
 
-   55 AssignStmt: LVal . T_ASSIGN Exp T_SEMICOLIN
-   67 PrimaryExp: LVal .
+   45 Stmt: Exp . T_SEMICOLIN
 
-    T_ASSIGN  shift, and go to state 128
-
-    $default  reduce using rule 67 (PrimaryExp)
+    T_SEMICOLIN  shift, and go to state 127
 
 
 State 104
+
+   53 AssignStmt: LVal . T_ASSIGN Exp T_SEMICOLIN
+   65 PrimaryExp: LVal .
+
+    T_ASSIGN  shift, and go to state 128
+
+    $default  reduce using rule 65 (PrimaryExp)
+
+
+State 105
 
    18 VarDecl: FuncType . VarDefList T_SEMICOLIN
 
@@ -1432,30 +1420,33 @@ State 104
     VarDef      go to state 16
 
 
-State 105
-
-   33 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET .
-   34           | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET . ParamArrayExpList
-
-    T_ARRAY  shift, and go to state 129
-
-    $default  reduce using rule 33 (FuncFParam)
-
-    ParamArrayExpList  go to state 130
-
-
 State 106
 
-   35 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET Exp . T_RBRACKET ParamArrayExpList
+   34 ParamArrayExpList: ParamArrayExpList T_LBRACKET . Exp T_RBRACKET
 
-    T_RBRACKET  shift, and go to state 131
+    T_ADD          shift, and go to state 42
+    T_SUB          shift, and go to state 43
+    T_LPARENTHESE  shift, and go to state 44
+    T_IDENTIFIER   shift, and go to state 46
+    T_NUMBER       shift, and go to state 47
+    T_NOT          shift, and go to state 48
+
+    Exp         go to state 129
+    LVal        go to state 51
+    PrimaryExp  go to state 52
+    Number      go to state 53
+    UnaryExp    go to state 54
+    Callee      go to state 55
+    UnaryOp     go to state 56
+    MulExp      go to state 57
+    AddExp      go to state 58
 
 
 State 107
 
-   66 PrimaryExp: T_LPARENTHESE Exp T_RPARENTHESE .
+   64 PrimaryExp: T_LPARENTHESE Exp T_RPARENTHESE .
 
-    $default  reduce using rule 66 (PrimaryExp)
+    $default  reduce using rule 64 (PrimaryExp)
 
 
 State 108
@@ -1470,7 +1461,7 @@ State 108
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    InitVal     go to state 132
+    InitVal     go to state 130
     Exp         go to state 50
     LVal        go to state 51
     PrimaryExp  go to state 52
@@ -1491,30 +1482,30 @@ State 109
 
 State 110
 
-   73 Callee: T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE .
+   71 Callee: T_IDENTIFIER T_LPARENTHESE T_RPARENTHESE .
 
-    $default  reduce using rule 73 (Callee)
+    $default  reduce using rule 71 (Callee)
 
 
 State 111
 
-   79 FuncRParams: Exp .
+   77 FuncRParams: Exp .
 
-    $default  reduce using rule 79 (FuncRParams)
+    $default  reduce using rule 77 (FuncRParams)
 
 
 State 112
 
-   74 Callee: T_IDENTIFIER T_LPARENTHESE FuncRParams . T_RPARENTHESE
-   78 FuncRParams: FuncRParams . T_COMMA Exp
+   72 Callee: T_IDENTIFIER T_LPARENTHESE FuncRParams . T_RPARENTHESE
+   76 FuncRParams: FuncRParams . T_COMMA Exp
 
-    T_COMMA        shift, and go to state 133
-    T_RPARENTHESE  shift, and go to state 134
+    T_COMMA        shift, and go to state 131
+    T_RPARENTHESE  shift, and go to state 132
 
 
 State 113
 
-   64 ArrayExpList: ArrayExpList T_LBRACKET . Exp T_RBRACKET
+   62 ArrayExpList: ArrayExpList T_LBRACKET . Exp T_RBRACKET
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1523,7 +1514,7 @@ State 113
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    Exp         go to state 135
+    Exp         go to state 133
     LVal        go to state 51
     PrimaryExp  go to state 52
     Number      go to state 53
@@ -1536,51 +1527,51 @@ State 113
 
 State 114
 
-   81 MulExp: MulExp T_MUL UnaryExp .
+   79 MulExp: MulExp T_MUL UnaryExp .
 
-    $default  reduce using rule 81 (MulExp)
+    $default  reduce using rule 79 (MulExp)
 
 
 State 115
 
-   82 MulExp: MulExp T_DIV UnaryExp .
+   80 MulExp: MulExp T_DIV UnaryExp .
 
-    $default  reduce using rule 82 (MulExp)
+    $default  reduce using rule 80 (MulExp)
 
 
 State 116
 
-   83 MulExp: MulExp T_MOD UnaryExp .
+   81 MulExp: MulExp T_MOD UnaryExp .
 
-    $default  reduce using rule 83 (MulExp)
+    $default  reduce using rule 81 (MulExp)
 
 
 State 117
 
-   81 MulExp: MulExp . T_MUL UnaryExp
-   82       | MulExp . T_DIV UnaryExp
-   83       | MulExp . T_MOD UnaryExp
-   85 AddExp: AddExp T_ADD MulExp .
+   79 MulExp: MulExp . T_MUL UnaryExp
+   80       | MulExp . T_DIV UnaryExp
+   81       | MulExp . T_MOD UnaryExp
+   83 AddExp: AddExp T_ADD MulExp .
 
-    T_MUL  shift, and go to state 75
-    T_DIV  shift, and go to state 76
-    T_MOD  shift, and go to state 77
+    T_MUL  shift, and go to state 76
+    T_DIV  shift, and go to state 77
+    T_MOD  shift, and go to state 78
 
-    $default  reduce using rule 85 (AddExp)
+    $default  reduce using rule 83 (AddExp)
 
 
 State 118
 
-   81 MulExp: MulExp . T_MUL UnaryExp
-   82       | MulExp . T_DIV UnaryExp
-   83       | MulExp . T_MOD UnaryExp
-   86 AddExp: AddExp T_SUB MulExp .
+   79 MulExp: MulExp . T_MUL UnaryExp
+   80       | MulExp . T_DIV UnaryExp
+   81       | MulExp . T_MOD UnaryExp
+   84 AddExp: AddExp T_SUB MulExp .
 
-    T_MUL  shift, and go to state 75
-    T_DIV  shift, and go to state 76
-    T_MOD  shift, and go to state 77
+    T_MUL  shift, and go to state 76
+    T_DIV  shift, and go to state 77
+    T_MOD  shift, and go to state 78
 
-    $default  reduce using rule 86 (AddExp)
+    $default  reduce using rule 84 (AddExp)
 
 
 State 119
@@ -1595,7 +1586,7 @@ State 119
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    ConstInitVal  go to state 136
+    ConstInitVal  go to state 134
     LVal          go to state 51
     PrimaryExp    go to state 52
     Number        go to state 53
@@ -1616,8 +1607,8 @@ State 120
 
 State 121
 
-   56 SelectStmt: T_IF T_LPARENTHESE . Cond T_RPARENTHESE Stmt
-   57           | T_IF T_LPARENTHESE . Cond T_RPARENTHESE Stmt T_ELSE Stmt
+   54 SelectStmt: T_IF T_LPARENTHESE . Cond T_RPARENTHESE Stmt
+   55           | T_IF T_LPARENTHESE . Cond T_RPARENTHESE Stmt T_ELSE Stmt
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1626,7 +1617,7 @@ State 121
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    Cond        go to state 137
+    Cond        go to state 135
     LVal        go to state 51
     PrimaryExp  go to state 52
     Number      go to state 53
@@ -1634,30 +1625,30 @@ State 121
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 139
-    EqExp       go to state 140
-    LAndExp     go to state 141
-    LOrExp      go to state 142
+    AddExp      go to state 136
+    RelExp      go to state 137
+    EqExp       go to state 138
+    LAndExp     go to state 139
+    LOrExp      go to state 140
 
 
 State 122
 
-   59 ReturnStmt: T_RETURN T_SEMICOLIN .
+   57 ReturnStmt: T_RETURN T_SEMICOLIN .
 
-    $default  reduce using rule 59 (ReturnStmt)
+    $default  reduce using rule 57 (ReturnStmt)
 
 
 State 123
 
-   60 ReturnStmt: T_RETURN Exp . T_SEMICOLIN
+   58 ReturnStmt: T_RETURN Exp . T_SEMICOLIN
 
-    T_SEMICOLIN  shift, and go to state 143
+    T_SEMICOLIN  shift, and go to state 141
 
 
 State 124
 
-   58 IterationStmt: T_WHILE T_LPARENTHESE . Cond T_RPARENTHESE Stmt
+   56 IterationStmt: T_WHILE T_LPARENTHESE . Cond T_RPARENTHESE Stmt
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1666,7 +1657,7 @@ State 124
     T_NUMBER       shift, and go to state 47
     T_NOT          shift, and go to state 48
 
-    Cond        go to state 144
+    Cond        go to state 142
     LVal        go to state 51
     PrimaryExp  go to state 52
     Number      go to state 53
@@ -1674,37 +1665,73 @@ State 124
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 139
-    EqExp       go to state 140
-    LAndExp     go to state 141
-    LOrExp      go to state 142
+    AddExp      go to state 136
+    RelExp      go to state 137
+    EqExp       go to state 138
+    LAndExp     go to state 139
+    LOrExp      go to state 140
 
 
 State 125
 
-   53 BreakStmt: T_BREAK T_SEMICOLIN .
+   51 BreakStmt: T_BREAK T_SEMICOLIN .
 
-    $default  reduce using rule 53 (BreakStmt)
+    $default  reduce using rule 51 (BreakStmt)
 
 
 State 126
 
-   54 ContinueStmt: T_CONTINUE T_SEMICOLIN .
+   52 ContinueStmt: T_CONTINUE T_SEMICOLIN .
 
-    $default  reduce using rule 54 (ContinueStmt)
+    $default  reduce using rule 52 (ContinueStmt)
 
 
 State 127
 
-   47 Stmt: Exp T_SEMICOLIN .
+   45 Stmt: Exp T_SEMICOLIN .
 
-    $default  reduce using rule 47 (Stmt)
+    $default  reduce using rule 45 (Stmt)
 
 
 State 128
 
-   55 AssignStmt: LVal T_ASSIGN . Exp T_SEMICOLIN
+   53 AssignStmt: LVal T_ASSIGN . Exp T_SEMICOLIN
+
+    T_ADD          shift, and go to state 42
+    T_SUB          shift, and go to state 43
+    T_LPARENTHESE  shift, and go to state 44
+    T_IDENTIFIER   shift, and go to state 46
+    T_NUMBER       shift, and go to state 47
+    T_NOT          shift, and go to state 48
+
+    Exp         go to state 143
+    LVal        go to state 51
+    PrimaryExp  go to state 52
+    Number      go to state 53
+    UnaryExp    go to state 54
+    Callee      go to state 55
+    UnaryOp     go to state 56
+    MulExp      go to state 57
+    AddExp      go to state 58
+
+
+State 129
+
+   34 ParamArrayExpList: ParamArrayExpList T_LBRACKET Exp . T_RBRACKET
+
+    T_RBRACKET  shift, and go to state 144
+
+
+State 130
+
+   27 InitValList: InitValList T_COMMA InitVal .
+
+    $default  reduce using rule 27 (InitValList)
+
+
+State 131
+
+   76 FuncRParams: FuncRParams T_COMMA . Exp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1724,258 +1751,241 @@ State 128
     AddExp      go to state 58
 
 
-State 129
-
-   36 ParamArrayExpList: T_ARRAY .
-
-    $default  reduce using rule 36 (ParamArrayExpList)
-
-
-State 130
-
-   34 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET ParamArrayExpList .
-   37 ParamArrayExpList: ParamArrayExpList . T_LBRACKET Exp T_RBRACKET
-
-    T_LBRACKET  shift, and go to state 146
-
-    $default  reduce using rule 34 (FuncFParam)
-
-
-State 131
-
-   35 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET . ParamArrayExpList
-
-    T_ARRAY  shift, and go to state 129
-
-    ParamArrayExpList  go to state 147
-
-
 State 132
 
-   27 InitValList: InitValList T_COMMA InitVal .
+   72 Callee: T_IDENTIFIER T_LPARENTHESE FuncRParams T_RPARENTHESE .
 
-    $default  reduce using rule 27 (InitValList)
+    $default  reduce using rule 72 (Callee)
 
 
 State 133
 
-   78 FuncRParams: FuncRParams T_COMMA . Exp
+   62 ArrayExpList: ArrayExpList T_LBRACKET Exp . T_RBRACKET
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_LPARENTHESE  shift, and go to state 44
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_NOT          shift, and go to state 48
-
-    Exp         go to state 148
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 58
+    T_RBRACKET  shift, and go to state 146
 
 
 State 134
-
-   74 Callee: T_IDENTIFIER T_LPARENTHESE FuncRParams T_RPARENTHESE .
-
-    $default  reduce using rule 74 (Callee)
-
-
-State 135
-
-   64 ArrayExpList: ArrayExpList T_LBRACKET Exp . T_RBRACKET
-
-    T_RBRACKET  shift, and go to state 149
-
-
-State 136
 
    17 ConstInitValList: ConstInitValList T_COMMA ConstInitVal .
 
     $default  reduce using rule 17 (ConstInitValList)
 
 
+State 135
+
+   54 SelectStmt: T_IF T_LPARENTHESE Cond . T_RPARENTHESE Stmt
+   55           | T_IF T_LPARENTHESE Cond . T_RPARENTHESE Stmt T_ELSE Stmt
+
+    T_RPARENTHESE  shift, and go to state 147
+
+
+State 136
+
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   85 RelExp: AddExp .
+
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
+
+    $default  reduce using rule 85 (RelExp)
+
+
 State 137
 
-   56 SelectStmt: T_IF T_LPARENTHESE Cond . T_RPARENTHESE Stmt
-   57           | T_IF T_LPARENTHESE Cond . T_RPARENTHESE Stmt T_ELSE Stmt
+   86 RelExp: RelExp . T_LT AddExp
+   87       | RelExp . T_GT AddExp
+   88       | RelExp . T_LTE AddExp
+   89       | RelExp . T_GTE AddExp
+   90 EqExp: RelExp .
 
-    T_RPARENTHESE  shift, and go to state 150
+    T_LT   shift, and go to state 148
+    T_LTE  shift, and go to state 149
+    T_GT   shift, and go to state 150
+    T_GTE  shift, and go to state 151
+
+    $default  reduce using rule 90 (EqExp)
 
 
 State 138
 
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   87 RelExp: AddExp .
+   91 EqExp: EqExp . T_EQ RelExp
+   92      | EqExp . T_NEQ RelExp
+   93 LAndExp: EqExp .
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_EQ   shift, and go to state 152
+    T_NEQ  shift, and go to state 153
 
-    $default  reduce using rule 87 (RelExp)
+    $default  reduce using rule 93 (LAndExp)
 
 
 State 139
 
-   88 RelExp: RelExp . T_LT AddExp
-   89       | RelExp . T_GT AddExp
-   90       | RelExp . T_LTE AddExp
-   91       | RelExp . T_GTE AddExp
-   92 EqExp: RelExp .
+   94 LAndExp: LAndExp . T_AND EqExp
+   95 LOrExp: LAndExp .
 
-    T_LT   shift, and go to state 151
-    T_LTE  shift, and go to state 152
-    T_GT   shift, and go to state 153
-    T_GTE  shift, and go to state 154
+    T_AND  shift, and go to state 154
 
-    $default  reduce using rule 92 (EqExp)
+    $default  reduce using rule 95 (LOrExp)
 
 
 State 140
 
-   93 EqExp: EqExp . T_EQ RelExp
-   94      | EqExp . T_NEQ RelExp
-   95 LAndExp: EqExp .
+   60 Cond: LOrExp .
+   96 LOrExp: LOrExp . T_OR LAndExp
 
-    T_EQ   shift, and go to state 155
-    T_NEQ  shift, and go to state 156
+    T_OR  shift, and go to state 155
 
-    $default  reduce using rule 95 (LAndExp)
+    $default  reduce using rule 60 (Cond)
 
 
 State 141
 
-   96 LAndExp: LAndExp . T_AND EqExp
-   97 LOrExp: LAndExp .
+   58 ReturnStmt: T_RETURN Exp T_SEMICOLIN .
 
-    T_AND  shift, and go to state 157
-
-    $default  reduce using rule 97 (LOrExp)
+    $default  reduce using rule 58 (ReturnStmt)
 
 
 State 142
 
-   62 Cond: LOrExp .
-   98 LOrExp: LOrExp . T_OR LAndExp
+   56 IterationStmt: T_WHILE T_LPARENTHESE Cond . T_RPARENTHESE Stmt
 
-    T_OR  shift, and go to state 158
-
-    $default  reduce using rule 62 (Cond)
+    T_RPARENTHESE  shift, and go to state 156
 
 
 State 143
 
-   60 ReturnStmt: T_RETURN Exp T_SEMICOLIN .
+   53 AssignStmt: LVal T_ASSIGN Exp . T_SEMICOLIN
 
-    $default  reduce using rule 60 (ReturnStmt)
+    T_SEMICOLIN  shift, and go to state 157
 
 
 State 144
 
-   58 IterationStmt: T_WHILE T_LPARENTHESE Cond . T_RPARENTHESE Stmt
+   34 ParamArrayExpList: ParamArrayExpList T_LBRACKET Exp T_RBRACKET .
 
-    T_RPARENTHESE  shift, and go to state 159
+    $default  reduce using rule 34 (ParamArrayExpList)
 
 
 State 145
 
-   55 AssignStmt: LVal T_ASSIGN Exp . T_SEMICOLIN
+   76 FuncRParams: FuncRParams T_COMMA Exp .
 
-    T_SEMICOLIN  shift, and go to state 160
+    $default  reduce using rule 76 (FuncRParams)
 
 
 State 146
 
-   37 ParamArrayExpList: ParamArrayExpList T_LBRACKET . Exp T_RBRACKET
+   62 ArrayExpList: ArrayExpList T_LBRACKET Exp T_RBRACKET .
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_LPARENTHESE  shift, and go to state 44
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_NOT          shift, and go to state 48
-
-    Exp         go to state 161
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 58
+    $default  reduce using rule 62 (ArrayExpList)
 
 
 State 147
 
-   35 FuncFParam: FuncType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET ParamArrayExpList .
-   37 ParamArrayExpList: ParamArrayExpList . T_LBRACKET Exp T_RBRACKET
+   54 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE . Stmt
+   55           | T_IF T_LPARENTHESE Cond T_RPARENTHESE . Stmt T_ELSE Stmt
 
-    T_LBRACKET  shift, and go to state 146
+    T_ADD          shift, and go to state 42
+    T_SUB          shift, and go to state 43
+    T_SEMICOLIN    shift, and go to state 85
+    T_LPARENTHESE  shift, and go to state 44
+    T_LBRACE       shift, and go to state 37
+    T_IF           shift, and go to state 87
+    T_RETURN       shift, and go to state 88
+    T_WHILE        shift, and go to state 89
+    T_IDENTIFIER   shift, and go to state 46
+    T_NUMBER       shift, and go to state 47
+    T_BREAK        shift, and go to state 90
+    T_CONTINUE     shift, and go to state 91
+    T_NOT          shift, and go to state 48
 
-    $default  reduce using rule 35 (FuncFParam)
+    Block          go to state 94
+    Stmt           go to state 158
+    BreakStmt      go to state 97
+    ContinueStmt   go to state 98
+    AssignStmt     go to state 99
+    SelectStmt     go to state 100
+    IterationStmt  go to state 101
+    ReturnStmt     go to state 102
+    Exp            go to state 103
+    LVal           go to state 104
+    PrimaryExp     go to state 52
+    Number         go to state 53
+    UnaryExp       go to state 54
+    Callee         go to state 55
+    UnaryOp        go to state 56
+    MulExp         go to state 57
+    AddExp         go to state 58
 
 
 State 148
 
-   78 FuncRParams: FuncRParams T_COMMA Exp .
+   86 RelExp: RelExp T_LT . AddExp
 
-    $default  reduce using rule 78 (FuncRParams)
+    T_ADD          shift, and go to state 42
+    T_SUB          shift, and go to state 43
+    T_LPARENTHESE  shift, and go to state 44
+    T_IDENTIFIER   shift, and go to state 46
+    T_NUMBER       shift, and go to state 47
+    T_NOT          shift, and go to state 48
+
+    LVal        go to state 51
+    PrimaryExp  go to state 52
+    Number      go to state 53
+    UnaryExp    go to state 54
+    Callee      go to state 55
+    UnaryOp     go to state 56
+    MulExp      go to state 57
+    AddExp      go to state 159
 
 
 State 149
 
-   64 ArrayExpList: ArrayExpList T_LBRACKET Exp T_RBRACKET .
+   88 RelExp: RelExp T_LTE . AddExp
 
-    $default  reduce using rule 64 (ArrayExpList)
+    T_ADD          shift, and go to state 42
+    T_SUB          shift, and go to state 43
+    T_LPARENTHESE  shift, and go to state 44
+    T_IDENTIFIER   shift, and go to state 46
+    T_NUMBER       shift, and go to state 47
+    T_NOT          shift, and go to state 48
+
+    LVal        go to state 51
+    PrimaryExp  go to state 52
+    Number      go to state 53
+    UnaryExp    go to state 54
+    Callee      go to state 55
+    UnaryOp     go to state 56
+    MulExp      go to state 57
+    AddExp      go to state 160
 
 
 State 150
 
-   56 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE . Stmt
-   57           | T_IF T_LPARENTHESE Cond T_RPARENTHESE . Stmt T_ELSE Stmt
+   87 RelExp: RelExp T_GT . AddExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
-    T_SEMICOLIN    shift, and go to state 84
     T_LPARENTHESE  shift, and go to state 44
-    T_LBRACE       shift, and go to state 37
-    T_IF           shift, and go to state 86
-    T_RETURN       shift, and go to state 87
-    T_WHILE        shift, and go to state 88
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
-    T_BREAK        shift, and go to state 89
-    T_CONTINUE     shift, and go to state 90
     T_NOT          shift, and go to state 48
 
-    Block          go to state 93
-    Stmt           go to state 162
-    BreakStmt      go to state 96
-    ContinueStmt   go to state 97
-    AssignStmt     go to state 98
-    SelectStmt     go to state 99
-    IterationStmt  go to state 100
-    ReturnStmt     go to state 101
-    Exp            go to state 102
-    LVal           go to state 103
-    PrimaryExp     go to state 52
-    Number         go to state 53
-    UnaryExp       go to state 54
-    Callee         go to state 55
-    UnaryOp        go to state 56
-    MulExp         go to state 57
-    AddExp         go to state 58
+    LVal        go to state 51
+    PrimaryExp  go to state 52
+    Number      go to state 53
+    UnaryExp    go to state 54
+    Callee      go to state 55
+    UnaryOp     go to state 56
+    MulExp      go to state 57
+    AddExp      go to state 161
 
 
 State 151
 
-   88 RelExp: RelExp T_LT . AddExp
+   89 RelExp: RelExp T_GTE . AddExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -1991,12 +2001,12 @@ State 151
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 163
+    AddExp      go to state 162
 
 
 State 152
 
-   90 RelExp: RelExp T_LTE . AddExp
+   91 EqExp: EqExp T_EQ . RelExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -2012,12 +2022,13 @@ State 152
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 164
+    AddExp      go to state 136
+    RelExp      go to state 163
 
 
 State 153
 
-   89 RelExp: RelExp T_GT . AddExp
+   92 EqExp: EqExp T_NEQ . RelExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -2033,12 +2044,13 @@ State 153
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 165
+    AddExp      go to state 136
+    RelExp      go to state 164
 
 
 State 154
 
-   91 RelExp: RelExp T_GTE . AddExp
+   94 LAndExp: LAndExp T_AND . EqExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -2054,12 +2066,14 @@ State 154
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 166
+    AddExp      go to state 136
+    RelExp      go to state 137
+    EqExp       go to state 165
 
 
 State 155
 
-   93 EqExp: EqExp T_EQ . RelExp
+   96 LOrExp: LOrExp T_OR . LAndExp
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
@@ -2075,285 +2089,204 @@ State 155
     Callee      go to state 55
     UnaryOp     go to state 56
     MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 167
+    AddExp      go to state 136
+    RelExp      go to state 137
+    EqExp       go to state 138
+    LAndExp     go to state 166
 
 
 State 156
 
-   94 EqExp: EqExp T_NEQ . RelExp
+   56 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE . Stmt
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
+    T_SEMICOLIN    shift, and go to state 85
     T_LPARENTHESE  shift, and go to state 44
+    T_LBRACE       shift, and go to state 37
+    T_IF           shift, and go to state 87
+    T_RETURN       shift, and go to state 88
+    T_WHILE        shift, and go to state 89
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
+    T_BREAK        shift, and go to state 90
+    T_CONTINUE     shift, and go to state 91
     T_NOT          shift, and go to state 48
 
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 168
+    Block          go to state 94
+    Stmt           go to state 167
+    BreakStmt      go to state 97
+    ContinueStmt   go to state 98
+    AssignStmt     go to state 99
+    SelectStmt     go to state 100
+    IterationStmt  go to state 101
+    ReturnStmt     go to state 102
+    Exp            go to state 103
+    LVal           go to state 104
+    PrimaryExp     go to state 52
+    Number         go to state 53
+    UnaryExp       go to state 54
+    Callee         go to state 55
+    UnaryOp        go to state 56
+    MulExp         go to state 57
+    AddExp         go to state 58
 
 
 State 157
 
-   96 LAndExp: LAndExp T_AND . EqExp
+   53 AssignStmt: LVal T_ASSIGN Exp T_SEMICOLIN .
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_LPARENTHESE  shift, and go to state 44
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_NOT          shift, and go to state 48
-
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 139
-    EqExp       go to state 169
+    $default  reduce using rule 53 (AssignStmt)
 
 
 State 158
 
-   98 LOrExp: LOrExp T_OR . LAndExp
+   54 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt .
+   55           | T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt . T_ELSE Stmt
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_LPARENTHESE  shift, and go to state 44
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_NOT          shift, and go to state 48
+    T_ELSE  shift, and go to state 168
 
-    LVal        go to state 51
-    PrimaryExp  go to state 52
-    Number      go to state 53
-    UnaryExp    go to state 54
-    Callee      go to state 55
-    UnaryOp     go to state 56
-    MulExp      go to state 57
-    AddExp      go to state 138
-    RelExp      go to state 139
-    EqExp       go to state 140
-    LAndExp     go to state 170
+    T_ELSE    [reduce using rule 54 (SelectStmt)]
+    $default  reduce using rule 54 (SelectStmt)
 
 
 State 159
 
-   58 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE . Stmt
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   86 RelExp: RelExp T_LT AddExp .
 
-    T_ADD          shift, and go to state 42
-    T_SUB          shift, and go to state 43
-    T_SEMICOLIN    shift, and go to state 84
-    T_LPARENTHESE  shift, and go to state 44
-    T_LBRACE       shift, and go to state 37
-    T_IF           shift, and go to state 86
-    T_RETURN       shift, and go to state 87
-    T_WHILE        shift, and go to state 88
-    T_IDENTIFIER   shift, and go to state 46
-    T_NUMBER       shift, and go to state 47
-    T_BREAK        shift, and go to state 89
-    T_CONTINUE     shift, and go to state 90
-    T_NOT          shift, and go to state 48
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
-    Block          go to state 93
-    Stmt           go to state 171
-    BreakStmt      go to state 96
-    ContinueStmt   go to state 97
-    AssignStmt     go to state 98
-    SelectStmt     go to state 99
-    IterationStmt  go to state 100
-    ReturnStmt     go to state 101
-    Exp            go to state 102
-    LVal           go to state 103
-    PrimaryExp     go to state 52
-    Number         go to state 53
-    UnaryExp       go to state 54
-    Callee         go to state 55
-    UnaryOp        go to state 56
-    MulExp         go to state 57
-    AddExp         go to state 58
+    $default  reduce using rule 86 (RelExp)
 
 
 State 160
 
-   55 AssignStmt: LVal T_ASSIGN Exp T_SEMICOLIN .
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   88 RelExp: RelExp T_LTE AddExp .
 
-    $default  reduce using rule 55 (AssignStmt)
-
-
-State 161
-
-   37 ParamArrayExpList: ParamArrayExpList T_LBRACKET Exp . T_RBRACKET
-
-    T_RBRACKET  shift, and go to state 172
-
-
-State 162
-
-   56 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt .
-   57           | T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt . T_ELSE Stmt
-
-    T_ELSE  shift, and go to state 173
-
-    T_ELSE    [reduce using rule 56 (SelectStmt)]
-    $default  reduce using rule 56 (SelectStmt)
-
-
-State 163
-
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   88 RelExp: RelExp T_LT AddExp .
-
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
     $default  reduce using rule 88 (RelExp)
 
 
-State 164
+State 161
 
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   90 RelExp: RelExp T_LTE AddExp .
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   87 RelExp: RelExp T_GT AddExp .
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
-    $default  reduce using rule 90 (RelExp)
+    $default  reduce using rule 87 (RelExp)
 
 
-State 165
+State 162
 
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   89 RelExp: RelExp T_GT AddExp .
+   83 AddExp: AddExp . T_ADD MulExp
+   84       | AddExp . T_SUB MulExp
+   89 RelExp: RelExp T_GTE AddExp .
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_ADD  shift, and go to state 79
+    T_SUB  shift, and go to state 80
 
     $default  reduce using rule 89 (RelExp)
 
 
+State 163
+
+   86 RelExp: RelExp . T_LT AddExp
+   87       | RelExp . T_GT AddExp
+   88       | RelExp . T_LTE AddExp
+   89       | RelExp . T_GTE AddExp
+   91 EqExp: EqExp T_EQ RelExp .
+
+    T_LT   shift, and go to state 148
+    T_LTE  shift, and go to state 149
+    T_GT   shift, and go to state 150
+    T_GTE  shift, and go to state 151
+
+    $default  reduce using rule 91 (EqExp)
+
+
+State 164
+
+   86 RelExp: RelExp . T_LT AddExp
+   87       | RelExp . T_GT AddExp
+   88       | RelExp . T_LTE AddExp
+   89       | RelExp . T_GTE AddExp
+   92 EqExp: EqExp T_NEQ RelExp .
+
+    T_LT   shift, and go to state 148
+    T_LTE  shift, and go to state 149
+    T_GT   shift, and go to state 150
+    T_GTE  shift, and go to state 151
+
+    $default  reduce using rule 92 (EqExp)
+
+
+State 165
+
+   91 EqExp: EqExp . T_EQ RelExp
+   92      | EqExp . T_NEQ RelExp
+   94 LAndExp: LAndExp T_AND EqExp .
+
+    T_EQ   shift, and go to state 152
+    T_NEQ  shift, and go to state 153
+
+    $default  reduce using rule 94 (LAndExp)
+
+
 State 166
 
-   85 AddExp: AddExp . T_ADD MulExp
-   86       | AddExp . T_SUB MulExp
-   91 RelExp: RelExp T_GTE AddExp .
+   94 LAndExp: LAndExp . T_AND EqExp
+   96 LOrExp: LOrExp T_OR LAndExp .
 
-    T_ADD  shift, and go to state 78
-    T_SUB  shift, and go to state 79
+    T_AND  shift, and go to state 154
 
-    $default  reduce using rule 91 (RelExp)
+    $default  reduce using rule 96 (LOrExp)
 
 
 State 167
 
-   88 RelExp: RelExp . T_LT AddExp
-   89       | RelExp . T_GT AddExp
-   90       | RelExp . T_LTE AddExp
-   91       | RelExp . T_GTE AddExp
-   93 EqExp: EqExp T_EQ RelExp .
+   56 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE Stmt .
 
-    T_LT   shift, and go to state 151
-    T_LTE  shift, and go to state 152
-    T_GT   shift, and go to state 153
-    T_GTE  shift, and go to state 154
-
-    $default  reduce using rule 93 (EqExp)
+    $default  reduce using rule 56 (IterationStmt)
 
 
 State 168
 
-   88 RelExp: RelExp . T_LT AddExp
-   89       | RelExp . T_GT AddExp
-   90       | RelExp . T_LTE AddExp
-   91       | RelExp . T_GTE AddExp
-   94 EqExp: EqExp T_NEQ RelExp .
-
-    T_LT   shift, and go to state 151
-    T_LTE  shift, and go to state 152
-    T_GT   shift, and go to state 153
-    T_GTE  shift, and go to state 154
-
-    $default  reduce using rule 94 (EqExp)
-
-
-State 169
-
-   93 EqExp: EqExp . T_EQ RelExp
-   94      | EqExp . T_NEQ RelExp
-   96 LAndExp: LAndExp T_AND EqExp .
-
-    T_EQ   shift, and go to state 155
-    T_NEQ  shift, and go to state 156
-
-    $default  reduce using rule 96 (LAndExp)
-
-
-State 170
-
-   96 LAndExp: LAndExp . T_AND EqExp
-   98 LOrExp: LOrExp T_OR LAndExp .
-
-    T_AND  shift, and go to state 157
-
-    $default  reduce using rule 98 (LOrExp)
-
-
-State 171
-
-   58 IterationStmt: T_WHILE T_LPARENTHESE Cond T_RPARENTHESE Stmt .
-
-    $default  reduce using rule 58 (IterationStmt)
-
-
-State 172
-
-   37 ParamArrayExpList: ParamArrayExpList T_LBRACKET Exp T_RBRACKET .
-
-    $default  reduce using rule 37 (ParamArrayExpList)
-
-
-State 173
-
-   57 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE . Stmt
+   55 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE . Stmt
 
     T_ADD          shift, and go to state 42
     T_SUB          shift, and go to state 43
-    T_SEMICOLIN    shift, and go to state 84
+    T_SEMICOLIN    shift, and go to state 85
     T_LPARENTHESE  shift, and go to state 44
     T_LBRACE       shift, and go to state 37
-    T_IF           shift, and go to state 86
-    T_RETURN       shift, and go to state 87
-    T_WHILE        shift, and go to state 88
+    T_IF           shift, and go to state 87
+    T_RETURN       shift, and go to state 88
+    T_WHILE        shift, and go to state 89
     T_IDENTIFIER   shift, and go to state 46
     T_NUMBER       shift, and go to state 47
-    T_BREAK        shift, and go to state 89
-    T_CONTINUE     shift, and go to state 90
+    T_BREAK        shift, and go to state 90
+    T_CONTINUE     shift, and go to state 91
     T_NOT          shift, and go to state 48
 
-    Block          go to state 93
-    Stmt           go to state 174
-    BreakStmt      go to state 96
-    ContinueStmt   go to state 97
-    AssignStmt     go to state 98
-    SelectStmt     go to state 99
-    IterationStmt  go to state 100
-    ReturnStmt     go to state 101
-    Exp            go to state 102
-    LVal           go to state 103
+    Block          go to state 94
+    Stmt           go to state 169
+    BreakStmt      go to state 97
+    ContinueStmt   go to state 98
+    AssignStmt     go to state 99
+    SelectStmt     go to state 100
+    IterationStmt  go to state 101
+    ReturnStmt     go to state 102
+    Exp            go to state 103
+    LVal           go to state 104
     PrimaryExp     go to state 52
     Number         go to state 53
     UnaryExp       go to state 54
@@ -2363,8 +2296,8 @@ State 173
     AddExp         go to state 58
 
 
-State 174
+State 169
 
-   57 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt .
+   55 SelectStmt: T_IF T_LPARENTHESE Cond T_RPARENTHESE Stmt T_ELSE Stmt .
 
-    $default  reduce using rule 57 (SelectStmt)
+    $default  reduce using rule 55 (SelectStmt)

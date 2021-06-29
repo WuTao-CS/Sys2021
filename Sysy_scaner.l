@@ -81,6 +81,7 @@ P           ([Pp][+-]?{D}+)
 [ \t\v\f]               { }
 [\n]                    { }
 
+"[]" 		            {  return sysy_parser::token::T_ARRAY       ;}
 .                       {  std::cout<<"##########"<<std::endl    ;}
 
 <<EOF>>                 {  return sysy_parser::token::T_END           ;}
