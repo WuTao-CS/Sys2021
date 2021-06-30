@@ -516,9 +516,6 @@ class StoreInst : public Instruction
     static StoreInst *createStore(Module *m, Value *val, Value *ptr);
     static StoreInst *createStore(Module *m, Value *val, Value *ptr,
                                   Value *offset);
-    // std::map<Value *, std::set<StoreInst *>> &getInstrIn() { return
-    // instr_in_; } std::map<Value *, std::set<StoreInst *>> &getInstrOut() {
-    // return instr_out_; }
     virtual std::string print() override;
     bool hasOffset()
     {
@@ -734,9 +731,6 @@ class PhiInst : public Instruction
         return new PhiInst(getType(), getInstrType(), getNumOperand(), new_bb);
     }
     virtual std::string print() override;
-    // private:
-    //     std::vector<Value *> vals;
-    //     std::vector<BasicBlock *> val_bbs;
 };
 
 class HighIR : public Instruction

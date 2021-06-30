@@ -142,15 +142,6 @@ class IRBuilder
     {
         return PhiInst::createPhi(ty, this->BB_);
     }
-
-    HighIR *CreateBreak(Module *m)
-    {
-        return HighIR::createBreak(m, this->BB_);
-    }
-    HighIR *CreateContinue(Module *m)
-    {
-        return HighIR::createContinue(m, this->BB_);
-    }
 };
 
 #endif // SYSYC_IRBUILDER_H

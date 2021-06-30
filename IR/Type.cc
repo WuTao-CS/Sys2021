@@ -8,44 +8,6 @@ Type::Type(TypeID tid)
     tid_ = tid;
 }
 
-bool Type::isInt1()
-{
-    if (getTypeID() == IntegerTyID)
-    {
-        if (static_cast<IntegerType *>(this)->getNumBits() == 1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
-}
-
-bool Type::isInt32()
-{
-    if (getTypeID() == IntegerTyID)
-    {
-        if (static_cast<IntegerType *>(this)->getNumBits() == 32)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    else
-    {
-        return false;
-    }
-}
-
 Type *Type::getVoidTy(Module *m)
 {
     return m->getVoidTy();

@@ -17,16 +17,6 @@ std::string Value::getName() const
     return name_;
 }
 
-void Value::replaceAllUseWith(Value *new_val)
-{
-    for (auto use : use_list_)
-    {
-        auto val = dynamic_cast<User *>(use.val_);
-        exit_ifnot(_EmptyUse_replaceAllUseWith_Value, val);
-        val->setOperand(use.arg_no_, new_val);
-    }
-}
-
 void Value::removeUse(Value *val, unsigned arg_no)
 {
     auto iter = std::find(use_list_.begin(), use_list_.end(), Use(val, arg_no));

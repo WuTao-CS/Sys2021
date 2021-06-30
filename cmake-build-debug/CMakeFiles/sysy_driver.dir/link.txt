@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsysy_driver.a  CMakeFiles/sysy_driver.dir/front/sysy_driver.cc.o
+/usr/bin/ranlib libsysy_driver.a

@@ -11,7 +11,7 @@
 #include "Value.h"
 
 class GlobalVariable;
-
+// 一个编译单元,在此源语言的意义下是一个文件
 class Module
 {
   public:
@@ -81,30 +81,18 @@ class Module
         exit(_getFunction_Function);
     }
 
-    void setIRLevel(IRLeval level)
-    {
-        ir_level_ = level;
-    }
-    IRLeval getIRLevel()
-    {
-        return ir_level_;
-    }
-    bool isMIRSSALevel()
-    {
-        return ir_level_ == MIR_SSA;
-    }
     std::string getInstrOpName(Instruction::OpID instr)
     {
         return instr_id2string_[instr];
     }
 
   private:
-    std::list<GlobalVariable *>
-        global_list_;                     // The Global Variables in the module
-    std::list<Function *> function_list_; // The Functions in the module
+    std::list<GlobalVariable *> global_list_; // 全局变量链表
+    std::list<Function *>
+        function_list_; // 函数链表,记录了这个编译单元的所有函数
     std::map<std::string, Value *> value_sym_; // Symbol table for values
     std::map<Instruction::OpID, std::string>
-        instr_id2string_; // Instruction from opid to string
+        instr_id2string_; // 通过指令类型id得到其打印的string
 
     std::string module_name_;      // Human readable identifier for the module
     std::string source_file_name_; // Original source file name for module, for

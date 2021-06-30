@@ -148,15 +148,16 @@ class BasicBlock : public Value
   protected:
     explicit BasicBlock(Module *m, const std::string &name);
     explicit BasicBlock(Module *m, const std::string &name, Function *func);
-
+    // 指令链表
     std::list<Instruction *> instr_list_;
 
   private:
     std::map<Value *, std::set<Value *>> reach_assign_in_; // data flow
     std::map<Value *, std::set<Value *>> reach_assign_out_;
     Function *parent_;
-
+    // bb前驱块合集
     std::list<BasicBlock *> pre_bbs_;
+    // bb后继块合集
     std::list<BasicBlock *> succ_bbs_;
 
     std::set<BasicBlock *> doms_;

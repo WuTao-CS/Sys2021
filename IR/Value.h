@@ -60,18 +60,12 @@ class Value
 
     virtual std::string print() {}
 
-    // replace all uses of this value to new_val
-    // e.g., replace a = this_value + b to a = new_value + b
-    void replaceAllUseWith(Value *new_val);
-
     void removeUse(Value *val, unsigned arg_no);
 
-    // bool isValidVar() {(type_->isIntegerTy() &&
-    // dynamic_cast<ConstantInt*>(this)) || type_->isPointerTy();}
   private:
-    Type *type_;
-    std::list<Use> use_list_; // who use this value
-    std::string name_;        // should we put name field here ?
+    Type *type_;              // 类型,一个 type 类,表示操作数的类型
+    std::list<Use> use_list_; // 记录了所有使用该操作数的指令的列表
+    std::string name_;        // 名字
 };
 
 #endif // SYSYC_VALUE_H

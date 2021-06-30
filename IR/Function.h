@@ -33,7 +33,7 @@ class Function : public Value
     Type *getResultType() const;
     // 将bb添加至Function的链表上(调用bb的创建函数会自动调用此函数挂在function的bb链表上
     void addBasicBlock(BasicBlock *bb);
-
+    // 将bb添加至Function的链表上的一个位置
     void addBasicBlockAfter(std::list<BasicBlock *>::iterator after_pos,
                             BasicBlock *bb);
     // 换区函数形参数量
@@ -77,9 +77,10 @@ class Function : public Value
     {
         return basic_blocks_.empty();
     }
-
-    std::string print() override;
+    // 给函数中未命名的基本块和指令命名
     void setInstrName();
+    //输出LLVM中间代码
+    std::string print() override;
 
   private:
     void buildArgs();

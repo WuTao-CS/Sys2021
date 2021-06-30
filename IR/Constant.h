@@ -15,8 +15,6 @@ class Constant : public User
     {
     }
     ~Constant() = default;
-
-    // virtual std::string print() override;
 };
 
 class ConstantInt : public Constant
@@ -45,13 +43,13 @@ class ConstantInt : public Constant
     static ConstantInt *get(int val, Module *m);
     virtual std::string print() override;
 };
-
+// 数组类型的常数
 class ConstantArray : public Constant
 {
   private:
     //数组常量值
     std::vector<Constant *> const_array;
-    //
+
     ConstantArray(ArrayType *ty, const std::vector<Constant *> &val);
 
   public:
@@ -66,7 +64,7 @@ class ConstantArray : public Constant
 
     static ConstantArray *get(ArrayType *ty,
                               const std::vector<Constant *> &val);
-
+    // LLVM格式中间代码生成
     virtual std::string print() override;
 };
 
