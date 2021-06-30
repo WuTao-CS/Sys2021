@@ -8,19 +8,16 @@ include_directories(./front/)
 include_directories(./IR/)
 include_directories(./IRBuilder/)
 include_directories(./codeGen/)
-
 add_custom_command(
     OUTPUT ${CMAKE_BINARY_DIR}/sysy_scanner.cc ${CMAKE_BINARY_DIR}/sysy_parser.cc ${CMAKE_BINARY_DIR}/sysy_parser.hh
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     DEPENDS Sysy_scaner.l Sysy_parser.y
     COMMAND flex -d Sysy_scaner.l && bison -d -v Sysy_parser.y
 )
-
 add_library(
         scanner STATIC
         ./front/sysy_scanner.cc
 )
-
 add_library(
         parser STATIC
         ./front/sysy_parser.cc
@@ -33,7 +30,6 @@ add_library(
         IRBuilder STATIC
         ./IRBuilder/SysyBuilder.cc
 )
-
 add_library(
         IR_lib STATIC
         ./IR/Type.cc
@@ -72,7 +68,6 @@ set(SRC
         ./codeGen/codeGen.cc
         ./codeGen/instructionsGen.cc
         )
-
 add_executable(main ${SRC} )
 target_link_libraries(
         main
@@ -83,17 +78,12 @@ target_link_libraries(
         IR_lib
         CodeGen
 )
-
 install(
         TARGETS main
         RUNTIME DESTINATION bin
 )
-
-
-
 # enable_testing()
 # file(GLOB test_file "test/*.sy")
-
 # foreach(file ${test_file})
 #     add_test(NAME ${file} COMMAND main ${file})
 # endforeach()

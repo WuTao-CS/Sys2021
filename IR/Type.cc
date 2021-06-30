@@ -107,7 +107,7 @@ int Type::getSize(bool extended)
     return 0;
 }
 
-//void Type::print()
+// void Type::print()
 //{
 //    switch (tid_)
 //    {
@@ -127,7 +127,8 @@ int Type::getSize(bool extended)
 //        break;
 //
 //    case ArrayTyID:
-//        std::cout << "[ " << static_cast<ArrayType *>(this)->getNumOfElements()
+//        std::cout << "[ " << static_cast<ArrayType
+//        *>(this)->getNumOfElements()
 //                  << " x ";
 //        static_cast<ArrayType *>(this)->getElementType()->print();
 //        std::cout << "]";
@@ -143,44 +144,49 @@ int Type::getSize(bool extended)
 //    }
 //    return;
 //}
-std::string Type::print(){
+std::string Type::print()
+{
     std::string type_ir;
     switch (this->getTypeID())
     {
-        case VoidTyID:
-            type_ir += "void";
-            break;
-        case LabelTyID:
-            type_ir += "label";
-            break;
-        case IntegerTyID:
-            type_ir += "i";
-            type_ir += std::to_string( static_cast<IntegerType *>(this)->getNumBits());
-            break;
-        case FunctionTyID:
-            type_ir += static_cast<FunctionType *>(this)->getResultType()->print();
-            type_ir += " (";
-            for( int i = 0 ; i < static_cast<FunctionType *>(this)->getNumArgs() ; i++)
-            {
-                if(i)
-                    type_ir += ", ";
-                type_ir += static_cast<FunctionType *>(this)->getArgType(i)->print();
-            }
-            type_ir += ")";
-            break;
-        case PointerTyID:
-            type_ir += this->getPointerElementType()->print();
-            type_ir += "*";
-            break;
-        case ArrayTyID:
-            type_ir += "[";
-            type_ir += std::to_string( static_cast<ArrayType *>(this)->getNumOfElements());
-            type_ir += " x ";
-            type_ir += static_cast<ArrayType *>(this)->getElementType()->print();
-            type_ir += "]";
-            break;
-        default:
-            break;
+    case VoidTyID:
+        type_ir += "void";
+        break;
+    case LabelTyID:
+        type_ir += "label";
+        break;
+    case IntegerTyID:
+        type_ir += "i";
+        type_ir +=
+            std::to_string(static_cast<IntegerType *>(this)->getNumBits());
+        break;
+    case FunctionTyID:
+        type_ir += static_cast<FunctionType *>(this)->getResultType()->print();
+        type_ir += " (";
+        for (int i = 0; i < static_cast<FunctionType *>(this)->getNumArgs();
+             i++)
+        {
+            if (i)
+                type_ir += ", ";
+            type_ir +=
+                static_cast<FunctionType *>(this)->getArgType(i)->print();
+        }
+        type_ir += ")";
+        break;
+    case PointerTyID:
+        type_ir += this->getPointerElementType()->print();
+        type_ir += "*";
+        break;
+    case ArrayTyID:
+        type_ir += "[";
+        type_ir +=
+            std::to_string(static_cast<ArrayType *>(this)->getNumOfElements());
+        type_ir += " x ";
+        type_ir += static_cast<ArrayType *>(this)->getElementType()->print();
+        type_ir += "]";
+        break;
+    default:
+        break;
     }
     return type_ir;
 }

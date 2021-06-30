@@ -13,7 +13,6 @@ bool disable_div_optimization = false;
 
 int main(int argc, char **argv)
 {
-
     bool emit = false;
     bool test = false;
     bool opti = false;

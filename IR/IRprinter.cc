@@ -1,9 +1,9 @@
 #include "IRprinter.h"
 
-std::string print_as_op( Value *v, bool print_ty )
+std::string print_as_op(Value *v, bool print_ty)
 {
     std::string op_ir;
-    if( print_ty )
+    if (print_ty)
     {
         op_ir += v->getType()->print();
         op_ir += " ";
@@ -11,25 +11,25 @@ std::string print_as_op( Value *v, bool print_ty )
 
     if (dynamic_cast<GlobalVariable *>(v))
     {
-        op_ir += "@"+v->getName();
+        op_ir += "@" + v->getName();
     }
-    else if ( dynamic_cast<Function *>(v) )
+    else if (dynamic_cast<Function *>(v))
     {
-        op_ir += "@"+v->getName();
+        op_ir += "@" + v->getName();
     }
-    else if ( dynamic_cast<Constant *>(v))
+    else if (dynamic_cast<Constant *>(v))
     {
         op_ir += v->print();
     }
     else
     {
-        op_ir += "%"+v->getName();
+        op_ir += "%" + v->getName();
     }
 
     return op_ir;
 }
 
-std::string print_cmp_type( CmpInst::CmpOp op )
+std::string print_cmp_type(CmpInst::CmpOp op)
 {
     switch (op)
     {
