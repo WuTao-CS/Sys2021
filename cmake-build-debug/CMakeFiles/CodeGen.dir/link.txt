@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCodeGen.a  CMakeFiles/CodeGen.dir/codeGen/codeGen.cc.o CMakeFiles/CodeGen.dir/codeGen/instructionsGen.cc.o
-/usr/bin/ranlib libCodeGen.a

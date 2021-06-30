@@ -15,9 +15,6 @@ class Instruction : public User
 {
   public:
     enum OpID {
-        // High IR
-        Break,
-        Continue,
         // Terminator Instructions
         Ret,
         Br,
@@ -77,18 +74,9 @@ class Instruction : public User
     }
     bool isVoid()
     {
-        return ((op_id_ == Break) || (op_id_ == Continue) || (op_id_ == Ret) ||
+        return ((op_id_ == Ret) ||
                 (op_id_ == Br) || (op_id_ == Store) ||
                 (op_id_ == Call && this->getType()->isVoidTy()));
-    }
-
-    bool isBreak()
-    {
-        return op_id_ == Break;
-    }
-    bool isContinue()
-    {
-        return op_id_ == Continue;
     }
 
     bool isPHI()
@@ -731,37 +719,6 @@ class PhiInst : public Instruction
         return new PhiInst(getType(), getInstrType(), getNumOperand(), new_bb);
     }
     virtual std::string print() override;
-};
-
-class HighIR : public Instruction
-{
-  private:
-    HighIR(Type *ty, OpID id, unsigned num_ops, BasicBlock *parent)
-        : Instruction(ty, id, num_ops, parent)
-    {
-    }
-    HighIR(Type *ty, OpID id, unsigned num_ops) : Instruction(ty, id, num_ops)
-    {
-    }
-
-  public:
-    static HighIR *createBreak(Module *m)
-    {
-        return new HighIR(Type::getVoidTy(m), Instruction::Break, 0);
-    }
-    static HighIR *createBreak(Module *m, BasicBlock *parent)
-    {
-        return new HighIR(Type::getVoidTy(m), Instruction::Break, 0, parent);
-    }
-
-    static HighIR *createContinue(Module *m)
-    {
-        return new HighIR(Type::getVoidTy(m), Instruction::Continue, 0);
-    }
-    static HighIR *createContinue(Module *m, BasicBlock *parent)
-    {
-        return new HighIR(Type::getVoidTy(m), Instruction::Continue, 0, parent);
-    }
 };
 
 #endif // SYSYC_INSTRUCTION_H

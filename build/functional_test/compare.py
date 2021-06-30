@@ -26,9 +26,9 @@ def Comparetxt(dirname):
     for maindir, subdir, file_name_list in os.walk(dirname):
         for filename in tqdm(file_name_list):
             path = os.path.join(maindir, filename)
-            if(os.path.splitext(path)[1]!='.txt'):
+            if(os.path.splitext(path)[1]!='.out'):
                 continue
-            file=os.path.splitext(path)[0]+'.out'
+            file=os.path.splitext(path)[0]+'.txt'
             txt = []
             txt2 = []
             f1 = open(path,'r',encoding='ascii')
