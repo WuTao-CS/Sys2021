@@ -39,7 +39,7 @@ int main(int argc, char **argv)
     std::string target_path;
     std::string input_path;
     bool emit = false;
-    bool Syntree = true;
+    bool Syntree = false;
     bool codegenbin = true;
     bool codegenasm = false;
     for (int i = 1; i < argc; i++)

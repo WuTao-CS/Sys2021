@@ -370,37 +370,45 @@ FuncFParam : FuncType T_IDENTIFIER  {
 	$$->type=$1;
 	$$->id=$2;
     }
-    | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET {
-    	$$=std::make_shared<TreeNodeFuncFParam>();
-	$$->type=$1;
-	$$->id=$2;
-	$$->isarray=true;
-    }
-    | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET ParamArrayExpList  {
-    	$$=std::make_shared<TreeNodeFuncFParam>();
-	$$->type=$1;
-	$$->id=$2;
-	$$->isarray=true;
-	$$->ParamArrayExpList=$5->list;
-    }
-    | FuncType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET ParamArrayExpList  {
-	$$=std::make_shared<TreeNodeFuncFParam>();
-    	$$->type=$1;
-    	$$->id=$2;
-    	$$->isarray=true;
-    	$$->ParamArrayExpList=$6->list;
-    }
+	| FuncType T_IDENTIFIER ParamArrayExpList{
+		$$=std::make_shared<TreeNodeFuncFParam>();
+		$$->type=TYPE_INT;
+		$$->isarray=true;
+		$$->id=$2;
+		$$->ParamArrayExpList=$3->list;
+	}
+    // | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET {
+    // 	$$=std::make_shared<TreeNodeFuncFParam>();
+	// $$->type=$1;
+	// $$->id=$2;
+	// $$->isarray=true;
+    // }
+    // | FuncType T_IDENTIFIER T_LBRACKET T_RBRACKET ParamArrayExpList  {
+    // 	$$=std::make_shared<TreeNodeFuncFParam>();
+	// $$->type=$1;
+	// $$->id=$2;
+	// $$->isarray=true;
+	// $$->ParamArrayExpList=$5->list;
+    // }
+    // | FuncType T_IDENTIFIER T_LBRACKET Exp T_RBRACKET ParamArrayExpList  {
+	// $$=std::make_shared<TreeNodeFuncFParam>();
+    // 	$$->type=$1;
+    // 	$$->id=$2;
+    // 	$$->isarray=true;
+    // 	$$->ParamArrayExpList=$6->list;
+    // }
     ;
 //数组
-ParamArrayExpList : T_ARRAY {
-	//一维数组
-	$$=std::make_shared<TreeNodeParamArrayExpList>();
-    }
-    | ParamArrayExpList T_LBRACKET Exp T_RBRACKET {
+ParamArrayExpList :ParamArrayExpList T_LBRACKET Exp T_RBRACKET 
+	{
     	//多维数组
 		$1->list.emplace_back(std::move($3));
     	$$=std::move($1);
     }
+	| T_ARRAY {
+	//一维数组
+	$$=std::make_shared<TreeNodeParamArrayExpList>();
+	}
     ;
 
 //语句块 Block -> '{' { BlockItem } '}'

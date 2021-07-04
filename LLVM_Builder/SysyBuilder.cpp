@@ -28,8 +28,6 @@ std::vector<llvm::BasicBlock *> iter_expr, iter_cont;
 int tmp_int = 0;
 bool use_int = false;
 
-// llvm::ConstantArray* const_array;
-
 llvm::Constant *ToConstArray(std::vector<int32_t> &array_bounds,
                              std::vector<llvm::Value *> &array_init,
                              llvm::Type *TyInt32)
@@ -534,7 +532,7 @@ void SysyBuilder::visit(TreeNodeBlock &node)
     {
         blockitem->accept(*this);
         if (builder.GetInsertBlock()->getTerminator() != nullptr)
-            break; // todo: 不清楚这里判断基本块是否完整为了啥？
+            break;
     }
 
     if (need_exit_scope)
@@ -1081,11 +1079,9 @@ void SysyBuilder::visit(TreeNodeEqExp &node)
 
 void SysyBuilder::visit(TreeNodeLAndExp &node)
 {
-    //_DEBUG_IRBUILDER("LAndExp");
     if (node.LAndExp == nullptr)
     {
         node.EqExp->accept(*this);
-        // tmp_val = builder.CreateZExt(tmp_val, TYInt32);
         tmp_val = builder.CreateICmpNE(tmp_val, CONST(0));
     }
     else
