@@ -133,18 +133,6 @@ class Argument : public Value
   private:
     Function *parent_; // 返回函数属于哪个参数
     unsigned arg_no_;  // 函数参数的位置
-    std::vector<Value *> array_bound_;
-
-  public:
-    void setArrayBound(std::vector<Value *> &array_bound)
-    {
-        array_bound_.assign(array_bound.begin(), array_bound.end());
-    }
-
-    std::vector<Value *> &getArrayBound()
-    {
-        return array_bound_;
-    }
 };
 
 #endif // SYSYC_FUNCTION_H

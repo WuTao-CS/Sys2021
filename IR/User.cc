@@ -5,8 +5,6 @@
 User::User(Type *ty, const std::string &name, unsigned num_ops)
     : Value(ty, name), num_ops_(num_ops)
 {
-    // if (num_ops_ > 0)
-    //   operands_.reset(new std::list<Value *>());
     operands_.resize(num_ops_, nullptr);
 }
 

@@ -10,39 +10,40 @@
 
 class BasicBlock;
 class Function;
-
+//指令，该类是所有 LLVM
+//指令的基类，主要维护指令的操作码（指令类别），指令所属的基本块，指令的操作数个数信息
 class Instruction : public User
 {
   public:
     enum OpID {
-        // Terminator Instructions
+        // 终结指令
         Ret,
         Br,
-        // Standard unary operators
+        // 一元运算符
         Neg,
-        // Standard binary operators
+        // 二元运算符
         Add,
         Sub,
         Mul,
         Div,
         Rem,
-        // Logical operators
+        // 逻辑运算符
         And,
         Or,
         Not,
-        // Memory operators
+        // 内存相关运算
         Alloca,
         Load,
         Store,
-        // Other operators
+        // 其他运算符
         Cmp,
         PHI,
         Call,
         GEP,  // GetElementPtr
         ZExt, // zero extend
     };
-    // create instruction, auto insert to bb
-    // ty here is result type
+    // 创建指令,自动插入到bb块中的指令链表中
+    // ty 在这里为 result type
     Instruction(Type *ty, OpID id, unsigned num_ops, BasicBlock *parent);
     Instruction(Type *ty, OpID id, unsigned num_ops);
 
@@ -60,7 +61,7 @@ class Instruction : public User
         parent_ = parent;
     }
 
-    // Return the function this instruction belongs to.
+    // 返回这条指令所属的函数
     const Function *getFunction() const;
     Function *getFunction()
     {
@@ -74,8 +75,7 @@ class Instruction : public User
     }
     bool isVoid()
     {
-        return ((op_id_ == Ret) ||
-                (op_id_ == Br) || (op_id_ == Store) ||
+        return ((op_id_ == Ret) || (op_id_ == Br) || (op_id_ == Store) ||
                 (op_id_ == Call && this->getType()->isVoidTy()));
     }
 

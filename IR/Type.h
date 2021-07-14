@@ -90,7 +90,7 @@ class Type
     }
 
   private:
-    TypeID tid_;
+    TypeID tid_; //枚举类型,表示Type的类型
 };
 // int类型
 class IntegerType : public Type
@@ -101,7 +101,7 @@ class IntegerType : public Type
     unsigned getNumBits();
 
   private:
-    unsigned num_bits_;
+    unsigned num_bits_; // 表示int的长度(i32)
 };
 //函数类型
 class FunctionType : public Type
@@ -120,8 +120,8 @@ class FunctionType : public Type
     Type *getResultType() const; //返回函数类型中的返回值类型
 
   private:
-    Type *result_;             //函数返回值
-    std::vector<Type *> args_; //函数参数类型
+    Type *result_;             //函数返回值类型
+    std::vector<Type *> args_; //函数参数类型列表
 };
 //数组类型
 class ArrayType : public Type
@@ -145,8 +145,8 @@ class ArrayType : public Type
     std::vector<unsigned> getDims() const;
 
   private:
-    Type *contained_;       // 数组元素种类的
-    unsigned num_elements_; // 数组元素数目
+    Type *contained_;       // 数组成员的类型
+    unsigned num_elements_; // 数组维数
 };
 
 class PointerType : public Type

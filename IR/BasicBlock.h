@@ -130,19 +130,6 @@ class BasicBlock : public Value
     {
         succ_bbs_.clear();
     }
-    void addDom(BasicBlock *bb)
-    {
-        doms_.insert(bb);
-    }
-    std::set<BasicBlock *> &getDoms()
-    {
-        return doms_;
-    }
-    void setDoms(std::set<BasicBlock *> &doms)
-    {
-        doms_.clear();
-        doms_.insert(doms.begin(), doms.end());
-    }
     virtual std::string print() override;
 
   protected:
@@ -160,10 +147,6 @@ class BasicBlock : public Value
     // bb后继块合集
     std::list<BasicBlock *> succ_bbs_;
 
-    std::set<BasicBlock *> doms_;
-
-    std::unordered_set<Value *> activeIn, activeOut, definedVals;
-    std::unordered_map<Value *, BasicBlock *> inheritedVals;
 };
 
 #endif // SYSYC_BASICBLOCK_H

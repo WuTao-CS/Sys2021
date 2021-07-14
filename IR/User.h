@@ -1,12 +1,21 @@
+
 #ifndef SYSYC_USER_H
 #define SYSYC_USER_H
 
 #include "Value.h"
 #include <vector>
-// #include <memory>
-// class Value;
+
+/*
+使用者，提供一个操作数表，表中每个操作数都直接指向一个 Value, 提供了 use-def
+信息，它本身是 Value 的子类，
+Value类会维护一个该数据使用者的列表，提供def-use信息。简单来说操作数表表示我用了谁，
+该数据使用者列表表示谁用了我。
+*/
 class User : public Value
 {
+  private:
+    std::vector<Value *> operands_; // 参数列表,表示这个使用者所用到的参数
+    unsigned num_ops_; // 表示该使用者使用的参数的个数
   public:
     User(Type *ty, const std::string &name = "", unsigned num_ops = 0);
     ~User() = default;
@@ -32,7 +41,6 @@ class User : public Value
     {
         return operands_;
     }
-    // remove the use of all operands
     void removeUseOfOps();
 
     void setNumOps(unsigned num)
@@ -47,10 +55,6 @@ class User : public Value
         operands_.clear();
     }
     virtual std::string print() override {}
-
-  private:
-    std::vector<Value *> operands_; // 参数列表,表示这个使用者所用到的参数
-    unsigned num_ops_; // 表示该使用者使用的参数的个数
 };
 
 #endif // SYSYC_USER_H

@@ -8,7 +8,7 @@
 #include "Constant.h"
 #include "Module.h"
 #include "User.h"
-
+//全局变量，该类用于表示全局变量，根据地址来访问
 class GlobalVariable : public User
 {
   private:

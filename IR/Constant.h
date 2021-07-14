@@ -5,6 +5,7 @@
 #include "Value.h"
 
 // class User;
+// 常数，各种类型常量的基类
 class Constant : public User
 {
   private:
@@ -16,7 +17,7 @@ class Constant : public User
     }
     ~Constant() = default;
 };
-
+// int类型的常数
 class ConstantInt : public Constant
 {
   private:

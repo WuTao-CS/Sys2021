@@ -11,12 +11,10 @@
 #include "Type.h"
 #include "User.h"
 #include "Value.h"
-
-// #include "Verifier.h"
 #include "syntax_tree.hh"
 #include <map>
 
-class Scope
+class Scope //作用域
 {
   public:
     // enter a new scope
@@ -38,9 +36,6 @@ class Scope
         return inner.size() == 1;
     }
 
-    // push a name to scope
-    // return true if successful
-    // return false if this name already exits
     bool push(std::string name, Value *val)
     {
         auto result = inner[inner.size() - 1].insert({name, val});
@@ -70,19 +65,15 @@ class Scope
 
     Value *find_params(std::string name, std::vector<Value *> &params)
     {
-        // std::cout<<"find_params"<<std::endl;
         for (auto s = array_param.rbegin(); s != array_param.rend(); s++)
         {
-            // std::cout<<"find_params1"<<std::endl;
             auto iter = s->find(name);
             if (iter != s->end())
             {
-                // std::cout<<"find_params2"<<std::endl;
                 params.assign(iter->second.begin(), iter->second.end());
                 return iter->second[0];
             }
         }
-        // std::cout<<"find_params3"<<std::endl;
         return nullptr;
     }
 

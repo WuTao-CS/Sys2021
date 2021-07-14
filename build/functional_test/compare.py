@@ -44,7 +44,7 @@ def Comparetxt(dirname):
             # print(txt2)
             for i in range(len(txt)):
                 if txt[i]!=txt2[i]:
-                    print("Error")
+                    print("############################# Error ############################")
                     print(txt)
                     print(txt2)
                     print(os.path.splitext(path)[0])

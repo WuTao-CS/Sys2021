@@ -15,30 +15,36 @@ Type *TyVoid;
 Type *TyInt32Ptr;
 Type *TyInt1;
 
-// store temporary value
+// 存储临时变量
 Value *tmp_val = nullptr;
-// whether require lvalue
+// 是否需要左值
 bool require_address = false;
-// function that is being built
+// 当前函数
 Function *cur_fun = nullptr;
-// detect scope pre-enter (for elegance only)
+//检测scope
 bool pre_enter_scope = false;
-//
 std::vector<Value *> array_init;
-//
+//检测循环
 std::vector<BasicBlock *> iter_expr, iter_cont;
 
+// 保存变量
 int tmp_int = 0;
+
 bool use_int = false;
 
+// 转换为ConstArray
 Constant *ToConstArray(std::vector<int32_t> &array_bounds,
                        std::vector<Value *> &array_init)
 {
+    // 第一维度长度
     auto cur_bnd = array_bounds[0];
     std::vector<int32_t> bounds;
+
+    // 获取其他维度长度乘积
     bounds.assign(array_bounds.begin() + 1, array_bounds.end());
     std::vector<Constant *> init_list;
-
+    // 递归的保存数组值
+    // 当最低维度为1，即递归到数字时
     int d_length = array_init.size() / cur_bnd;
     if (d_length == 1)
     {
@@ -49,6 +55,8 @@ Constant *ToConstArray(std::vector<int32_t> &array_bounds,
     }
     else
     {
+        // 递归的查找低维度的数组引用
+        // a[2][3][4] -> a[][3][4] -> a[4] -> a[0-4]的值
         for (int i = 0; i < cur_bnd; i++)
         {
             std::vector<Value *> init;
@@ -66,20 +74,22 @@ Constant *ToConstArray(std::vector<int32_t> &array_bounds,
     }
     return ConstantArray::get(static_cast<ArrayType *>(TyArray), init_list);
 }
-
+// 编译单元 CompUnit
+// 层次遍历
 void SysyBuilder::visit(TreeNodeCompUnit &node)
 {
     TyInt32 = Type::getInt32Ty(&*module);
     TyVoid = Type::getVoidTy(&*module);
     TyInt32Ptr = Type::getInt32PtrTy(&*module);
     TyInt1 = Type::getInt1Ty(&*module);
-    // std::cout<<TyInt32->getTypeID()<<std::endl;
     for (auto DeclDef : node.DeclDefList)
     {
         DeclDef->accept(*this);
     }
 }
 
+// 常量声明 ConstDecl
+// 层次遍历 ConstDef
 void SysyBuilder::visit(TreeNodeConstDecl &node)
 {
     for (auto p : node.ConstDefList)
@@ -88,10 +98,14 @@ void SysyBuilder::visit(TreeNodeConstDecl &node)
     }
 }
 
+// 常量定义 ConstDef
+// 操作节点
 void SysyBuilder::visit(TreeNodeConstDef &node)
 {
+
     if (node.ArrayConstExpList.size() == 0)
     {
+        // 非数组
         if (node.ConstInitVal != nullptr)
         {
             node.ConstInitVal->accept(*this);
@@ -104,8 +118,10 @@ void SysyBuilder::visit(TreeNodeConstDef &node)
     }
     else
     {
+        // 数组
         Type *TyArray = TyInt32;
         std::vector<int32_t> array_bounds;
+        // 获取数组值
         for (int i = 0; i < node.ArrayConstExpList.size(); i++)
         {
             auto array_const_exp = node.ArrayConstExpList[i];
@@ -117,6 +133,7 @@ void SysyBuilder::visit(TreeNodeConstDef &node)
         {
             TyArray = ArrayType::get(TyArray, array_bounds[i]);
         }
+        // 是否为全局const int []
         if (scope.in_global())
         {
             if (node.ConstInitVal != nullptr)
@@ -136,8 +153,9 @@ void SysyBuilder::visit(TreeNodeConstDef &node)
                 scope.push(node.id, var);
             }
         }
+        // 局部变量const int []
         else
-        { // local var
+        {
             auto array_alloc = builder->CreateAlloca(TyArray);
             scope.push(node.id, array_alloc);
             if (node.ConstInitVal != nullptr)
@@ -158,14 +176,17 @@ void SysyBuilder::visit(TreeNodeConstDef &node)
                     Ptr = builder->CreateGEP(Ptr, {CONST(1)});
                 }
             }
-        } // get alloc
+        }
     }
 }
 
+// 常量初值 ConstInitVal
+// 操作节点
 void SysyBuilder::visit(TreeNodeConstInitVal &node)
 {
     if (node.ConstExp != nullptr && node.bounds.size() == 0)
     {
+        // 非数组直接visit
         node.ConstExp->accept(*this);
     }
     else
@@ -207,6 +228,9 @@ void SysyBuilder::visit(TreeNodeConstInitVal &node)
         array_init.assign(init_list.begin(), init_list.end());
     }
 }
+
+// 常量表达式 ConstExp
+// 操作节点
 void SysyBuilder::visit(TreeNodeVarDecl &node)
 {
     for (auto p : node.VarDefList)
@@ -214,6 +238,9 @@ void SysyBuilder::visit(TreeNodeVarDecl &node)
         p->accept(*this);
     }
 }
+
+// 变量声明 VarDecl
+// 层次遍历 VarDef
 void SysyBuilder::visit(TreeNodeVarDef &node)
 {
     if (node.ArrayConstExpList.size() == 0)
@@ -303,11 +330,16 @@ void SysyBuilder::visit(TreeNodeVarDef &node)
                     Ptr = builder->CreateGEP(Ptr, {CONST(1)});
                 }
             }
-        } // get alloc
+        }
     }
 }
+
+// 变量初始化 InitVal
+// 操作节点
 void SysyBuilder::visit(TreeNodeInitVal &node)
 {
+    // 按照一维数组处理
+    // 同const处理
     if (node.Exp != nullptr && node.bounds.size() == 0)
     {
         node.Exp->accept(*this);
@@ -351,6 +383,9 @@ void SysyBuilder::visit(TreeNodeInitVal &node)
         array_init.assign(init_list.begin(), init_list.end());
     }
 }
+
+// 函数定义 FuncDef
+// 操作节点
 void SysyBuilder::visit(TreeNodeFuncDef &node)
 {
     FunctionType *fun_type;

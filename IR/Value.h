@@ -7,7 +7,7 @@
 
 class Type;
 class Value;
-
+// 记录了所有使用该操作数的指令
 struct Use
 {
     Value *val_;
@@ -28,7 +28,7 @@ class UseHash
                (std::hash<unsigned>()(u.arg_no_));
     }
 };
-
+// 最基础的类,代表一个操作数,代表一个可能用于指令操作数的带类型数据
 class Value
 {
   public:

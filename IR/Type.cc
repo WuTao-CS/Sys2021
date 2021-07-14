@@ -69,43 +69,6 @@ int Type::getSize(bool extended)
     return 0;
 }
 
-// void Type::print()
-//{
-//    switch (tid_)
-//    {
-//    case LabelTyID:
-//        std::cout << "<label>";
-//        break;
-//
-//    case IntegerTyID:
-//        if (static_cast<IntegerType *>(this)->getNumBits() == 1)
-//        {
-//            std::cout << "i1";
-//        }
-//        else
-//        {
-//            std::cout << "i32";
-//        }
-//        break;
-//
-//    case ArrayTyID:
-//        std::cout << "[ " << static_cast<ArrayType
-//        *>(this)->getNumOfElements()
-//                  << " x ";
-//        static_cast<ArrayType *>(this)->getElementType()->print();
-//        std::cout << "]";
-//        break;
-//
-//    case PointerTyID:
-//        getPointerElementType()->print();
-//        std::cout << "*";
-//        break;
-//
-//    default:
-//        break;
-//    }
-//    return;
-//}
 std::string Type::print()
 {
     std::string type_ir;

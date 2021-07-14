@@ -16,7 +16,7 @@ Module::Module(std::string name) : module_name_(name)
     instr_id2string_.insert({Instruction::Mul, "mul"});
     instr_id2string_.insert({Instruction::Div, "sdiv"});
     instr_id2string_.insert({Instruction::Rem, "srem"});
-    // TODO
+
     instr_id2string_.insert({Instruction::And, "and"});
     instr_id2string_.insert({Instruction::Or, "or"});
     instr_id2string_.insert({Instruction::Not, "srem"});
